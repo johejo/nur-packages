@@ -1,5 +1,4 @@
 { pkgs }:
-
 {
-  # example-package = pkgs.callPackage ./example-package { };
+  test = pkgs.callPackage ./test { };
 }
