@@ -29,7 +29,13 @@
           pkgs = import nixpkgs { inherit system; };
         in
         {
-          default = pkgs.mkShellNoCC { packages = with pkgs; [ nixfmt ]; };
+          default = pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              nixfmt
+              nvfetcher
+              gh
+            ];
+          };
         }
       );
     };

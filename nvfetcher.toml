@@ -1,0 +1,3 @@
+[errorformat]
+src.cmd = "gh api repos/reviewdog/errorformat/commits/master --jq .sha"
+fetch.github = "reviewdog/errorformat"

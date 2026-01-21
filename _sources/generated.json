@@ -1,0 +1,23 @@
+{
+    "errorformat": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "errorformat",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "reviewdog",
+            "repo": "errorformat",
+            "rev": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496",
+            "sha256": "sha256-kPWojRA7uw8Xv3LDMJRyVB+TpQohmKRrmuRyW+vNWM4=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
+    }
+}
