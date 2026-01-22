@@ -17,4 +17,15 @@
       sha256 = "sha256-kPWojRA7uw8Xv3LDMJRyVB+TpQohmKRrmuRyW+vNWM4=";
     };
   };
+  starlink-exporter = {
+    pname = "starlink-exporter";
+    version = "v20250818";
+    src = fetchFromGitHub {
+      owner = "clarkzjw";
+      repo = "starlink_exporter";
+      rev = "v20250818";
+      fetchSubmodules = false;
+      sha256 = "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=";
+    };
+  };
 }

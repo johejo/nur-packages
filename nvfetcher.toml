@@ -1,3 +1,7 @@
 [errorformat]
 src.cmd = "gh api repos/reviewdog/errorformat/commits/master --jq .sha"
 fetch.github = "reviewdog/errorformat"
+
+[starlink-exporter]
+src.github = "clarkzjw/starlink_exporter"
+fetch.github = "clarkzjw/starlink_exporter"

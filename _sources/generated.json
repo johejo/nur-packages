@@ -19,5 +19,26 @@
             "type": "github"
         },
         "version": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
+    },
+    "starlink-exporter": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "starlink-exporter",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "clarkzjw",
+            "repo": "starlink_exporter",
+            "rev": "v20250818",
+            "sha256": "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v20250818"
     }
 }
