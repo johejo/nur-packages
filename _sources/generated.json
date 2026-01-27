@@ -20,6 +20,27 @@
         },
         "version": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
     },
+    "kubernetes-mcp-server": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "kubernetes-mcp-server",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "containers",
+            "repo": "kubernetes-mcp-server",
+            "rev": "v0.0.56",
+            "sha256": "sha256-FBluCD1E9drELojrPgqeWllLasGGvoyue6EK/NKaGLE=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.0.56"
+    },
     "starlink-exporter": {
         "cargoLocks": null,
         "date": null,

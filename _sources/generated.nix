@@ -17,6 +17,17 @@
       sha256 = "sha256-kPWojRA7uw8Xv3LDMJRyVB+TpQohmKRrmuRyW+vNWM4=";
     };
   };
+  kubernetes-mcp-server = {
+    pname = "kubernetes-mcp-server";
+    version = "v0.0.56";
+    src = fetchFromGitHub {
+      owner = "containers";
+      repo = "kubernetes-mcp-server";
+      rev = "v0.0.56";
+      fetchSubmodules = false;
+      sha256 = "sha256-FBluCD1E9drELojrPgqeWllLasGGvoyue6EK/NKaGLE=";
+    };
+  };
   starlink-exporter = {
     pname = "starlink-exporter";
     version = "v20250818";

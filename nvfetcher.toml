@@ -5,3 +5,7 @@ fetch.github = "reviewdog/errorformat"
 [starlink-exporter]
 src.github = "clarkzjw/starlink_exporter"
 fetch.github = "clarkzjw/starlink_exporter"
+
+[kubernetes-mcp-server]
+src.github = "containers/kubernetes-mcp-server"
+fetch.github = "containers/kubernetes-mcp-server"
