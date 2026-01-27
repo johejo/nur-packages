@@ -36,6 +36,14 @@
       sha256 = "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=";
     };
   };
+  prometheus-jmx-exporter = {
+    pname = "prometheus-jmx-exporter";
+    version = "1.5.0";
+    src = fetchurl {
+      url = "https://github.com/prometheus/jmx_exporter/releases/download/1.5.0/jmx_prometheus_javaagent-1.5.0.jar";
+      sha256 = "sha256-AxXz9leHYwLGIFqY1ANux3XcpSnF0EGcpg7macaII58=";
+    };
+  };
   starlink-exporter = {
     pname = "starlink-exporter";
     version = "v20250818";

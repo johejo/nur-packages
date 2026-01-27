@@ -13,3 +13,7 @@ fetch.github = "containers/kubernetes-mcp-server"
 [gitbucket]
 src.github = "gitbucket/gitbucket"
 fetch.url = "https://github.com/gitbucket/gitbucket/releases/download/$ver/gitbucket.war"
+
+[prometheus-jmx-exporter]
+src.github = "prometheus/jmx_exporter"
+fetch.url = "https://github.com/prometheus/jmx_exporter/releases/download/$ver/jmx_prometheus_javaagent-$ver.jar"

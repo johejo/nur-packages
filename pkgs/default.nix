@@ -9,4 +9,7 @@ in
     source = sources.kubernetes-mcp-server;
   };
   gitbucket = pkgs.callPackage ./gitbucket { source = sources.gitbucket; };
+  prometheus-jmx-javaagent = pkgs.callPackage ./prometheus-jmx-exporter {
+    source = sources.prometheus-jmx-exporter;
+  };
 }
