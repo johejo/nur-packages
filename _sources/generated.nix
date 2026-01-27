@@ -17,15 +17,23 @@
       sha256 = "sha256-kPWojRA7uw8Xv3LDMJRyVB+TpQohmKRrmuRyW+vNWM4=";
     };
   };
+  gitbucket = {
+    pname = "gitbucket";
+    version = "4.45.0";
+    src = fetchurl {
+      url = "https://github.com/gitbucket/gitbucket/releases/download/4.45.0/gitbucket.war";
+      sha256 = "sha256-byfgsRcaWkJJaALZbwoGjQ6LR2IJhq1uvaT6E16jhxQ=";
+    };
+  };
   kubernetes-mcp-server = {
     pname = "kubernetes-mcp-server";
-    version = "v0.0.56";
+    version = "v0.0.57";
     src = fetchFromGitHub {
       owner = "containers";
       repo = "kubernetes-mcp-server";
-      rev = "v0.0.56";
+      rev = "v0.0.57";
       fetchSubmodules = false;
-      sha256 = "sha256-FBluCD1E9drELojrPgqeWllLasGGvoyue6EK/NKaGLE=";
+      sha256 = "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=";
     };
   };
   starlink-exporter = {

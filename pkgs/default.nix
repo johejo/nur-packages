@@ -9,4 +9,5 @@ in
   kubernetes-mcp-server = pkgs.callPackage ./kubernetes-mcp-server {
     source = sources.kubernetes-mcp-server;
   };
+  gitbucket = pkgs.callPackage ./gitbucket { source = sources.gitbucket; };
 }

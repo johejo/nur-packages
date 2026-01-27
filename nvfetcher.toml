@@ -9,3 +9,7 @@ fetch.github = "clarkzjw/starlink_exporter"
 [kubernetes-mcp-server]
 src.github = "containers/kubernetes-mcp-server"
 fetch.github = "containers/kubernetes-mcp-server"
+
+[gitbucket]
+src.github = "gitbucket/gitbucket"
+fetch.url = "https://github.com/gitbucket/gitbucket/releases/download/$ver/gitbucket.war"

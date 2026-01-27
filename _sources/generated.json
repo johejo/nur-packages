@@ -1,6 +1,6 @@
 {
     "errorformat": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "errorformat",
@@ -20,8 +20,23 @@
         },
         "version": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
     },
+    "gitbucket": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gitbucket",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-byfgsRcaWkJJaALZbwoGjQ6LR2IJhq1uvaT6E16jhxQ=",
+            "type": "url",
+            "url": "https://github.com/gitbucket/gitbucket/releases/download/4.45.0/gitbucket.war"
+        },
+        "version": "4.45.0"
+    },
     "kubernetes-mcp-server": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "kubernetes-mcp-server",
@@ -34,15 +49,15 @@
             "name": null,
             "owner": "containers",
             "repo": "kubernetes-mcp-server",
-            "rev": "v0.0.56",
-            "sha256": "sha256-FBluCD1E9drELojrPgqeWllLasGGvoyue6EK/NKaGLE=",
+            "rev": "v0.0.57",
+            "sha256": "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.56"
+        "version": "v0.0.57"
     },
     "starlink-exporter": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "starlink-exporter",
