@@ -25,6 +25,10 @@ stdenv.mkDerivation rec {
 
   doInstallCheck = true;
 
+  preVersionCheck = ''
+    version="''${version#rust-v}"
+  '';
+
   installPhase = ''
     runHook preInstall
     mkdir -p $out/bin
