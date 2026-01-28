@@ -21,3 +21,11 @@ fetch.url = "https://github.com/prometheus/jmx_exporter/releases/download/$ver/j
 [gogcli]
 src.github = "steipete/gogcli"
 fetch.github = "steipete/gogcli"
+
+[codex-aarch64-darwin-bin]
+src.github = "openai/codex"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-apple-darwin.tar.gz"
+
+[codex-x86_64-linux-bin]
+src.github = "openai/codex"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64-unknown-linux-gnu.tar.gz"

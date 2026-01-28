@@ -6,6 +6,22 @@
   dockerTools,
 }:
 {
+  codex-aarch64-darwin-bin = {
+    pname = "codex-aarch64-darwin-bin";
+    version = "rust-v0.92.0";
+    src = fetchurl {
+      url = "https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-GgY+04e7Be8LKHWpZBdpcwiXXtZX4BlXi8R410weKIk=";
+    };
+  };
+  codex-x86_64-linux-bin = {
+    pname = "codex-x86_64-linux-bin";
+    version = "rust-v0.92.0";
+    src = fetchurl {
+      url = "https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-Mgyy1BaAgpVOLNcCLNOMncqi1gdE1H6c0A0Oa4rm+zw=";
+    };
+  };
   errorformat = {
     pname = "errorformat";
     version = "223c26dbe2122cc5ce2f3b47400ceaca2b50c496";

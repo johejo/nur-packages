@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, system }:
 let
   sources = pkgs.callPackage ../_sources/generated.nix { };
 in
@@ -13,4 +13,5 @@ in
   prometheus-jmx-exporter = pkgs.callPackage ./prometheus-jmx-exporter {
     source = sources.prometheus-jmx-exporter;
   };
+  codex-bin = pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; };
 }

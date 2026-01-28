@@ -12,7 +12,7 @@
         let
           pkgs = import nixpkgs { inherit system; };
         in
-        import ./pkgs { inherit pkgs; }
+        import ./pkgs { inherit pkgs system; }
       );
 
       formatter = forAllSystems (

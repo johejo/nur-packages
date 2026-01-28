@@ -1,4 +1,34 @@
 {
+    "codex-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "codex-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-GgY+04e7Be8LKHWpZBdpcwiXXtZX4BlXi8R410weKIk=",
+            "type": "url",
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "rust-v0.92.0"
+    },
+    "codex-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "codex-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Mgyy1BaAgpVOLNcCLNOMncqi1gdE1H6c0A0Oa4rm+zw=",
+            "type": "url",
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "rust-v0.92.0"
+    },
     "errorformat": {
         "cargoLock": null,
         "date": null,
