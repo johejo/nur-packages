@@ -25,6 +25,17 @@
       sha256 = "sha256-byfgsRcaWkJJaALZbwoGjQ6LR2IJhq1uvaT6E16jhxQ=";
     };
   };
+  gogcli = {
+    pname = "gogcli";
+    version = "v0.9.0";
+    src = fetchFromGitHub {
+      owner = "steipete";
+      repo = "gogcli";
+      rev = "v0.9.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-DXRw5jf/5fC8rgwLIy5m9qkxy3zQNrUpVG5C0RV7zKM=";
+    };
+  };
   kubernetes-mcp-server = {
     pname = "kubernetes-mcp-server";
     version = "v0.0.57";

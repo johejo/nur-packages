@@ -17,3 +17,7 @@ fetch.url = "https://github.com/gitbucket/gitbucket/releases/download/$ver/gitbu
 [prometheus-jmx-exporter]
 src.github = "prometheus/jmx_exporter"
 fetch.url = "https://github.com/prometheus/jmx_exporter/releases/download/$ver/jmx_prometheus_javaagent-$ver.jar"
+
+[gogcli]
+src.github = "steipete/gogcli"
+fetch.github = "steipete/gogcli"

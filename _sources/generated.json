@@ -35,6 +35,27 @@
         },
         "version": "4.45.0"
     },
+    "gogcli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gogcli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "steipete",
+            "repo": "gogcli",
+            "rev": "v0.9.0",
+            "sha256": "sha256-DXRw5jf/5fC8rgwLIy5m9qkxy3zQNrUpVG5C0RV7zKM=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.9.0"
+    },
     "kubernetes-mcp-server": {
         "cargoLock": null,
         "date": null,
