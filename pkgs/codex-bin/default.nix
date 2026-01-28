@@ -20,7 +20,10 @@ stdenv.mkDerivation rec {
   sourceRoot = ".";
 
   nativeBuildInputs = [ installShellFiles ] ++ lib.optionals stdenv.isLinux [ autoPatchelfHook ];
+
   nativeInstallCheckInputs = [ versionCheckHook ];
+
+  doInstallCheck = true;
 
   installPhase = ''
     runHook preInstall
