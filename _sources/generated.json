@@ -14,6 +14,21 @@
         },
         "version": "rust-v0.92.0"
     },
+    "codex-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "codex-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-1335wRuetrdc0oMEV2+gbx7Fl9A+hQvvDST5EQRgFmQ=",
+            "type": "url",
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "rust-v0.92.0"
+    },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
         "date": null,

@@ -1,17 +1,13 @@
 {
   lib,
-  stdenvNoCC,
+  stdenv,
   source,
   autoPatchelfHook,
   installShellFiles,
   versionCheckHook,
+  openssl,
   ...
 }:
-
-let
-  stdenv = stdenvNoCC;
-  installShellCompletions = stdenv.buildPlatform.canExecute stdenv.hostPlatform;
-in
 
 stdenv.mkDerivation rec {
   pname = "codex-bin";
@@ -23,6 +19,11 @@ stdenv.mkDerivation rec {
 
   nativeInstallCheckInputs = [ versionCheckHook ];
 
+  buildInputs = [
+    stdenv.cc.cc.lib
+    openssl
+  ];
+
   doInstallCheck = true;
 
   preVersionCheck = ''
@@ -33,10 +34,11 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 codex-* $out/bin/codex
+    autoPatchelf $out/bin/codex
     runHook postInstall
   '';
 
-  postInstall = lib.optionalString installShellCompletions ''
+  postInstall = ''
     installShellCompletion --cmd codex \
       --bash <($out/bin/codex completion bash) \
       --fish <($out/bin/codex completion fish) \
@@ -51,8 +53,9 @@ stdenv.mkDerivation rec {
     mainProgram = "codex";
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     platforms = [
-      "aarch64-darwin"
       "x86_64-linux"
+      "aarch64-linux"
+      "aarch64-darwin"
     ];
   };
 }

@@ -14,6 +14,14 @@
       sha256 = "sha256-GgY+04e7Be8LKHWpZBdpcwiXXtZX4BlXi8R410weKIk=";
     };
   };
+  codex-aarch64-linux-bin = {
+    pname = "codex-aarch64-linux-bin";
+    version = "rust-v0.92.0";
+    src = fetchurl {
+      url = "https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-1335wRuetrdc0oMEV2+gbx7Fl9A+hQvvDST5EQRgFmQ=";
+    };
+  };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
     version = "rust-v0.92.0";
