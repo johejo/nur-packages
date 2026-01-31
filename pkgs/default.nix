@@ -14,4 +14,5 @@ in
     source = sources.prometheus-jmx-exporter;
   };
   codex-bin = pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; };
+  caddy = pkgs.callPackage ./caddy { };
 }
