@@ -34,7 +34,9 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 codex-* $out/bin/codex
-    autoPatchelf $out/bin/codex
+    if [[ "${toString stdenv.isLinux}" ]]; then
+      autoPatchelf $out/bin/codex
+    fi
     runHook postInstall
   '';
 
