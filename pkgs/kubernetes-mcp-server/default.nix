@@ -1,6 +1,7 @@
 {
   lib,
   buildGoModule,
+  versionCheckHook,
   source,
   ...
 }:
@@ -20,6 +21,8 @@ buildGoModule rec {
       "-X ${mod}.Version=${version}"
     ];
   checkFlags = [ "-skip=Example_version" ];
+  doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
   meta = {
     description = "Model Context Protocol (MCP) server for Kubernetes and OpenShift";
     homepage = "https://github.com/containers/kubernetes-mcp-server";
