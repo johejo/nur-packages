@@ -6,6 +6,7 @@
   installShellFiles,
   versionCheckHook,
   openssl,
+  libcap,
   ...
 }:
 
@@ -22,6 +23,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     stdenv.cc.cc.lib
     openssl
+    libcap
   ];
 
   doInstallCheck = true;
