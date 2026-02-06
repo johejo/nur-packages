@@ -30,6 +30,17 @@
       sha256 = "sha256-wDQ/wxDEQnxjjCAvtPKOyU5iTSEqPs7SADXtHKWHViE=";
     };
   };
+  curl-apple-oss-distributions = {
+    pname = "curl-apple-oss-distributions";
+    version = "curl-162";
+    src = fetchFromGitHub {
+      owner = "apple-oss-distributions";
+      repo = "curl";
+      rev = "curl-162";
+      fetchSubmodules = false;
+      sha256 = "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=";
+    };
+  };
   errorformat = {
     pname = "errorformat";
     version = "223c26dbe2122cc5ce2f3b47400ceaca2b50c496";

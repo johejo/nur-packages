@@ -15,4 +15,7 @@ in
   };
   codex-bin = pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; };
   caddy = pkgs.callPackage ./caddy { };
+  curl-apple-oss-distributions = pkgs.callPackage ./curl-apple-oss-distributions {
+    source = sources.curl-apple-oss-distributions;
+  };
 }

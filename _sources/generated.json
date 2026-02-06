@@ -44,6 +44,27 @@
         },
         "version": "rust-v0.93.0"
     },
+    "curl-apple-oss-distributions": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "curl-apple-oss-distributions",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "apple-oss-distributions",
+            "repo": "curl",
+            "rev": "curl-162",
+            "sha256": "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "curl-162"
+    },
     "errorformat": {
         "cargoLock": null,
         "date": null,
