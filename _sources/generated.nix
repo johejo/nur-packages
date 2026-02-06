@@ -6,6 +6,17 @@
   dockerTools,
 }:
 {
+  apple-oss-distributions_curl = {
+    pname = "apple-oss-distributions_curl";
+    version = "curl-162";
+    src = fetchFromGitHub {
+      owner = "apple-oss-distributions";
+      repo = "curl";
+      rev = "curl-162";
+      fetchSubmodules = false;
+      sha256 = "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.98.0";
@@ -28,17 +39,6 @@
     src = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v0.98.0/codex-x86_64-unknown-linux-gnu.tar.gz";
       sha256 = "sha256-smZ5dxFkFVdRZRs6Z/v7SLZove/TUsGhVssDU4NJDUA=";
-    };
-  };
-  curl-apple-oss-distributions = {
-    pname = "curl-apple-oss-distributions";
-    version = "curl-162";
-    src = fetchFromGitHub {
-      owner = "apple-oss-distributions";
-      repo = "curl";
-      rev = "curl-162";
-      fetchSubmodules = false;
-      sha256 = "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=";
     };
   };
   errorformat = {

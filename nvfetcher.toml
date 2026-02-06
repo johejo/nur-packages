@@ -34,6 +34,6 @@ fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64
 src.github = "openai/codex"
 fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-unknown-linux-gnu.tar.gz"
 
-[curl-apple-oss-distributions]
+[apple-oss-distributions_curl]
 src.github_tag = "apple-oss-distributions/curl"
 fetch.github = "apple-oss-distributions/curl"

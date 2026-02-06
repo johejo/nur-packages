@@ -1,4 +1,25 @@
 {
+    "apple-oss-distributions_curl": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "apple-oss-distributions_curl",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "apple-oss-distributions",
+            "repo": "curl",
+            "rev": "curl-162",
+            "sha256": "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "curl-162"
+    },
     "codex-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,
@@ -43,27 +64,6 @@
             "url": "https://github.com/openai/codex/releases/download/rust-v0.98.0/codex-x86_64-unknown-linux-gnu.tar.gz"
         },
         "version": "rust-v0.98.0"
-    },
-    "curl-apple-oss-distributions": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "curl-apple-oss-distributions",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "apple-oss-distributions",
-            "repo": "curl",
-            "rev": "curl-162",
-            "sha256": "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "curl-162"
     },
     "errorformat": {
         "cargoLock": null,
