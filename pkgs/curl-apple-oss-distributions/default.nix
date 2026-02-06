@@ -17,6 +17,5 @@ stdenv.mkDerivation {
     description = "Apple Open Source Distribution of curl";
     homepage = "https://github.com/apple-oss-distributions/curl";
     license = lib.licenses.curl;
-    platforms = lib.platforms.darwin;
   };
 }
