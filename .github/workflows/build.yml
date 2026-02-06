@@ -29,4 +29,4 @@ jobs:
       - name: Build packages
         run: |
           system=$(nix eval --impure --raw --expr 'builtins.currentSystem')
-          nix run nixpkgs#nix-fast-build -- -f .#packages."${system}"
+          nix run nixpkgs#nix-fast-build -- -f .#packages."${system}" --no-nom --no-link --skip-cached
