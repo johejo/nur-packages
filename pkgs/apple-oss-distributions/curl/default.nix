@@ -13,6 +13,9 @@ stdenv.mkDerivation {
   nativeBuildInputs = [ perl ];
   buildInputs = [ libressl ];
   configureFlags = [ "--with-openssl" ];
+  postPatch = ''
+    patchShebangs scripts
+  '';
   meta = {
     description = "Apple Open Source Distribution of curl";
     homepage = "https://github.com/apple-oss-distributions/curl";
