@@ -23,8 +23,8 @@ stdenv.mkDerivation rec {
   buildInputs = [
     stdenv.cc.cc.lib
     openssl
-    libcap
-  ];
+  ]
+  ++ lib.optionals stdenv.isLinux [ libcap ];
 
   doInstallCheck = true;
 
