@@ -17,6 +17,17 @@
       sha256 = "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=";
     };
   };
+  apple-oss-distributions_zlib = {
+    pname = "apple-oss-distributions_zlib";
+    version = "zlib-100";
+    src = fetchFromGitHub {
+      owner = "apple-oss-distributions";
+      repo = "zlib";
+      rev = "zlib-100";
+      fetchSubmodules = false;
+      sha256 = "sha256-EAlHKSdWHRbz6F1CjH+jubyEQehSmxE37Ua0iQ4ApcQ=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.98.0";

@@ -20,6 +20,27 @@
         },
         "version": "curl-162"
     },
+    "apple-oss-distributions_zlib": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "apple-oss-distributions_zlib",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "apple-oss-distributions",
+            "repo": "zlib",
+            "rev": "zlib-100",
+            "sha256": "sha256-EAlHKSdWHRbz6F1CjH+jubyEQehSmxE37Ua0iQ4ApcQ=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "zlib-100"
+    },
     "codex-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,
