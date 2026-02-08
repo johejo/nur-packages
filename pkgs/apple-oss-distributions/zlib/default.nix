@@ -9,10 +9,12 @@ stdenv.mkDerivation {
   inherit (source) pname src version;
   sourceRoot = "source/zlib";
 
-  NIX_CFLAGS_COMPILE = lib.optionals stdenv.isLinux [
-    "-Wno-old-style-definition"
-    "-include stdint.h"
-  ];
+  NIX_CFLAGS_COMPILE =
+    lib.optionals stdenv.isDarwin [ "-Wno-deprecated-non-prototype" ]
+    ++ lib.optionals stdenv.isLinux [
+      "-Wno-old-style-definition"
+      "-include stdint.h"
+    ];
 
   configureFlags = [ "--shared" ];
 

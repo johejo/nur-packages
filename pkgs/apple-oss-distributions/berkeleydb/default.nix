@@ -9,7 +9,9 @@ stdenv.mkDerivation {
   inherit (source) pname version src;
   sourceRoot = "source/db";
 
-  NIX_CFLAGS_COMPILE = lib.optionals stdenv.isLinux [ "-Wno-old-style-definition" ];
+  NIX_CFLAGS_COMPILE =
+    lib.optionals stdenv.isDarwin [ "-Wno-deprecated-non-prototype" ]
+    ++ lib.optionals stdenv.isLinux [ "-Wno-old-style-definition" ];
 
   preConfigure = ''
     cd build_unix
