@@ -25,7 +25,8 @@ stdenv.mkDerivation {
     "--with-zlib"
     "--with-nghttp2"
   ]
-  ++ lib.optionals stdenv.isDarwin [ "--with-secure-transport" ];
+  ++ lib.optionals stdenv.isDarwin [ "--with-secure-transport" ]
+  ++ lib.optionals stdenv.isLinux [ "--with-ca-bundle=/etc/ssl/certs/ca-bundle.crt" ];
 
   postPatch = ''
     patchShebangs scripts
