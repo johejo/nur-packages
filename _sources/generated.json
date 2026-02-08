@@ -1,4 +1,25 @@
 {
+    "apple-oss-distributions_berkeleydb": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "apple-oss-distributions_berkeleydb",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "apple-oss-distributions",
+            "repo": "BerkeleyDB",
+            "rev": "BerkeleyDB-29",
+            "sha256": "sha256-tHV2BJA7oSCwICyGBMTIKkvMGbYmga3KRY5KgHJrjTg=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "BerkeleyDB-29"
+    },
     "apple-oss-distributions_curl": {
         "cargoLock": null,
         "date": null,
@@ -19,6 +40,27 @@
             "type": "github"
         },
         "version": "curl-162"
+    },
+    "apple-oss-distributions_openldap": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "apple-oss-distributions_openldap",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "apple-oss-distributions",
+            "repo": "OpenLDAP",
+            "rev": "OpenLDAP-559",
+            "sha256": "sha256-zeR8qe+ot5uoyf7yCFYxqEINqCQstrwxrr6Tkfl8weo=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "OpenLDAP-559"
     },
     "apple-oss-distributions_zlib": {
         "cargoLock": null,

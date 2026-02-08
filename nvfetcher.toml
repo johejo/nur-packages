@@ -41,3 +41,11 @@ fetch.github = "apple-oss-distributions/curl"
 [apple-oss-distributions_zlib]
 src.github_tag = "apple-oss-distributions/zlib"
 fetch.github = "apple-oss-distributions/zlib"
+
+[apple-oss-distributions_openldap]
+src.github_tag = "apple-oss-distributions/OpenLDAP"
+fetch.github = "apple-oss-distributions/OpenLDAP"
+
+[apple-oss-distributions_berkeleydb]
+src.github_tag = "apple-oss-distributions/BerkeleyDB"
+fetch.github = "apple-oss-distributions/BerkeleyDB"
