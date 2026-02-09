@@ -26,7 +26,7 @@ stdenv.mkDerivation {
     substituteInPlace ssh.c --replace "(void)si_destination_compare(&dummy, 0, &dummy, 0, false);" ""
   '';
 
-  installFlags = [ "DESTDIR=$(out)" ];
+  installFlags = [ "PRIVSEP_PATH=$out/var/empty" ];
 
   meta = {
     description = "Apple Open Source Distribution of OpenSSH";
