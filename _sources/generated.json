@@ -62,6 +62,27 @@
         },
         "version": "OpenLDAP-559"
     },
+    "apple-oss-distributions_openssh": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "apple-oss-distributions_openssh",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "apple-oss-distributions",
+            "repo": "OpenSSH",
+            "rev": "OpenSSH-354.0.3",
+            "sha256": "sha256-iT5rW5qiOY0ioI5t2qZtQ5uzAYn4iPMrafcbcw7JAD8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "OpenSSH-354.0.3"
+    },
     "apple-oss-distributions_zlib": {
         "cargoLock": null,
         "date": null,

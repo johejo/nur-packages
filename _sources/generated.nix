@@ -39,6 +39,17 @@
       sha256 = "sha256-zeR8qe+ot5uoyf7yCFYxqEINqCQstrwxrr6Tkfl8weo=";
     };
   };
+  apple-oss-distributions_openssh = {
+    pname = "apple-oss-distributions_openssh";
+    version = "OpenSSH-354.0.3";
+    src = fetchFromGitHub {
+      owner = "apple-oss-distributions";
+      repo = "OpenSSH";
+      rev = "OpenSSH-354.0.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-iT5rW5qiOY0ioI5t2qZtQ5uzAYn4iPMrafcbcw7JAD8=";
+    };
+  };
   apple-oss-distributions_zlib = {
     pname = "apple-oss-distributions_zlib";
     version = "zlib-100";

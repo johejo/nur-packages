@@ -14,4 +14,8 @@ in
     inherit zlib;
     source = sources.apple-oss-distributions_curl;
   };
+  openssh = pkgs.callPackage ./openssh {
+    inherit zlib;
+    source = sources.apple-oss-distributions_openssh;
+  };
 }
