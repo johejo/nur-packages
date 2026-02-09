@@ -15,6 +15,7 @@ in
   };
   codex-bin = pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; };
   caddy = pkgs.callPackage ./caddy { };
+  kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
 
   apple-oss-distributions = import ./apple-oss-distributions {
     inherit pkgs;

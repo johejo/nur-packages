@@ -53,3 +53,8 @@ fetch.github = "apple-oss-distributions/BerkeleyDB"
 [apple-oss-distributions_openssh]
 src.github_tag = "apple-oss-distributions/OpenSSH"
 fetch.github = "apple-oss-distributions/OpenSSH"
+
+[kakehashi]
+src.github = "atusy/kakehashi"
+fetch.github = "atusy/kakehashi"
+cargo_lock = ["Cargo.lock"]

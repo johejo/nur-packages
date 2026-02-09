@@ -206,6 +206,32 @@
         },
         "version": "v0.9.0"
     },
+    "kakehashi": {
+        "cargoLock": {
+            "Cargo.lock": [
+                "sha256-3rYhInb_Po33pphc9SoQhrwOR_UZZSnLab01tLUOiXs=/Cargo.lock",
+                {}
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "kakehashi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "atusy",
+            "repo": "kakehashi",
+            "rev": "v0.0.14",
+            "sha256": "sha256-3rYhInb/Po33pphc9SoQhrwOR/UZZSnLab01tLUOiXs=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.0.14"
+    },
     "kubernetes-mcp-server": {
         "cargoLock": null,
         "date": null,

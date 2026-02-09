@@ -115,6 +115,23 @@
       sha256 = "sha256-DXRw5jf/5fC8rgwLIy5m9qkxy3zQNrUpVG5C0RV7zKM=";
     };
   };
+  kakehashi = {
+    pname = "kakehashi";
+    version = "v0.0.14";
+    src = fetchFromGitHub {
+      owner = "atusy";
+      repo = "kakehashi";
+      rev = "v0.0.14";
+      fetchSubmodules = false;
+      sha256 = "sha256-3rYhInb/Po33pphc9SoQhrwOR/UZZSnLab01tLUOiXs=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-3rYhInb_Po33pphc9SoQhrwOR_UZZSnLab01tLUOiXs=/Cargo.lock";
+      outputHashes = {
+        
+      };
+    };
+  };
   kubernetes-mcp-server = {
     pname = "kubernetes-mcp-server";
     version = "v0.0.57";
