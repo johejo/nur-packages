@@ -58,3 +58,7 @@ fetch.github = "apple-oss-distributions/OpenSSH"
 src.github = "atusy/kakehashi"
 fetch.github = "atusy/kakehashi"
 cargo_lock = ["Cargo.lock"]
+
+[gf-cli]
+src.cmd = "gh api repos/johejo/gf-cli/commits/main --jq .sha"
+fetch.github = "johejo/gf-cli"

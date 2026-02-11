@@ -96,6 +96,17 @@
       sha256 = "sha256-kPWojRA7uw8Xv3LDMJRyVB+TpQohmKRrmuRyW+vNWM4=";
     };
   };
+  gf-cli = {
+    pname = "gf-cli";
+    version = "e9e893ff44172eae6e2f87970bf7a28565abedf5";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "gf-cli";
+      rev = "e9e893ff44172eae6e2f87970bf7a28565abedf5";
+      fetchSubmodules = false;
+      sha256 = "sha256-/MMbx6Ebv4A5/BwoFzm0WqMO4X2eoRE+PZto4uSAmUA=";
+    };
+  };
   gitbucket = {
     pname = "gitbucket";
     version = "4.45.0";

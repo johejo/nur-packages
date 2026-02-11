@@ -16,6 +16,7 @@ in
   codex-bin = pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; };
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
+  gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
 
   apple-oss-distributions = import ./apple-oss-distributions {
     inherit pkgs;

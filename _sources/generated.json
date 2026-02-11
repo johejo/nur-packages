@@ -170,6 +170,27 @@
         },
         "version": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
     },
+    "gf-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gf-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "johejo",
+            "repo": "gf-cli",
+            "rev": "e9e893ff44172eae6e2f87970bf7a28565abedf5",
+            "sha256": "sha256-/MMbx6Ebv4A5/BwoFzm0WqMO4X2eoRE+PZto4uSAmUA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "e9e893ff44172eae6e2f87970bf7a28565abedf5"
+    },
     "gitbucket": {
         "cargoLock": null,
         "date": null,
