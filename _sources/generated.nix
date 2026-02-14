@@ -63,26 +63,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.98.0";
+    version = "rust-v0.101.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.98.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-PMdXcogDruDEyZTFaCENmQCrxs7GC+Aj57LApuMBglU=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-/Ah+kAK+DhcL/qonZZ43eCHhWrl4tKSQde+V21+CB/g=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.98.0";
+    version = "rust-v0.101.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.98.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-Kw7NnEgQ5xhHLkQdvj52CGrQOmkzr8BAUBBZpxhGRwE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-58iTq6BCDhcU8J4PTNJZ0Yz2PPEIVeioHybomm+gJHQ=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.98.0";
+    version = "rust-v0.101.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.98.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-smZ5dxFkFVdRZRs6Z/v7SLZove/TUsGhVssDU4NJDUA=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-6XMt47hw32o5zkukRplhDvWBhDlneTRX+O8R86WlgjY=";
     };
   };
   errorformat = {
@@ -117,13 +117,13 @@
   };
   gogcli = {
     pname = "gogcli";
-    version = "v0.9.0";
+    version = "v0.10.0";
     src = fetchFromGitHub {
       owner = "steipete";
       repo = "gogcli";
-      rev = "v0.9.0";
+      rev = "v0.10.0";
       fetchSubmodules = false;
-      sha256 = "sha256-DXRw5jf/5fC8rgwLIy5m9qkxy3zQNrUpVG5C0RV7zKM=";
+      sha256 = "sha256-3r9IR8hVZ5FnTfBSNNqkTdHSElE586q+ZXm6nAZ4iq0=";
     };
   };
   kakehashi = {
