@@ -173,4 +173,21 @@
       sha256 = "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=";
     };
   };
+  zlib-rs = {
+    pname = "zlib-rs";
+    version = "v0.6.0";
+    src = fetchFromGitHub {
+      owner = "trifectatechfoundation";
+      repo = "zlib-rs";
+      rev = "v0.6.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-UBAEw1DAh6mvzfHYW5r4T9tdtgWR1egJcO1CX36U0XQ=";
+    };
+    cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
+      lockFile = ./. + "/sha256-UBAEw1DAh6mvzfHYW5r4T9tdtgWR1egJcO1CX36U0XQ=/libz-rs-sys-cdylib/Cargo.lock";
+      outputHashes = {
+        
+      };
+    };
+  };
 }

@@ -7,7 +7,7 @@
   versionCheckHook,
   openssl,
   libcap,
-  zlib-ng,
+  zlib,
   ...
 }:
 
@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
   ]
   ++ lib.optionals stdenv.isLinux [
     libcap
-    (zlib-ng.override { withZlibCompat = true; })
+    zlib
   ];
 
   doInstallCheck = true;
@@ -40,9 +40,9 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 codex-* $out/bin/codex
-    if [[ "${toString stdenv.isLinux}" ]]; then
+    ${lib.optionalString stdenv.isLinux ''
       autoPatchelf $out/bin/codex
-    fi
+    ''}
     runHook postInstall
   '';
 

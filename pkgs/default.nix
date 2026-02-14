@@ -1,6 +1,7 @@
 { pkgs, system }:
 let
   sources = pkgs.callPackage ../_sources/generated.nix { };
+  libz-rs-sys-cdylib = pkgs.callPackage ./zlib-rs/libz-rs-sys-cdylib { source = sources.zlib-rs; };
 in
 {
   errorformat = pkgs.callPackage ./errorformat { source = sources.errorformat; };
@@ -15,12 +16,16 @@ in
   };
   codex-bin =
     if sources ? "codex-${system}-bin" then
-      pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; }
+      pkgs.callPackage ./codex-bin {
+        source = sources."codex-${system}-bin";
+        zlib = libz-rs-sys-cdylib;
+      }
     else
       null;
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
   gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
+  inherit libz-rs-sys-cdylib;
 
   apple-oss-distributions = import ./apple-oss-distributions {
     inherit pkgs sources;

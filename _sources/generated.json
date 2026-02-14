@@ -309,5 +309,31 @@
             "type": "github"
         },
         "version": "v20250818"
+    },
+    "zlib-rs": {
+        "cargoLock": {
+            "libz-rs-sys-cdylib/Cargo.lock": [
+                "sha256-UBAEw1DAh6mvzfHYW5r4T9tdtgWR1egJcO1CX36U0XQ=/libz-rs-sys-cdylib/Cargo.lock",
+                {}
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "zlib-rs",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "trifectatechfoundation",
+            "repo": "zlib-rs",
+            "rev": "v0.6.0",
+            "sha256": "sha256-UBAEw1DAh6mvzfHYW5r4T9tdtgWR1egJcO1CX36U0XQ=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.6.0"
     }
 }
