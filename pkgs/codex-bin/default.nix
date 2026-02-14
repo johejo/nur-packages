@@ -24,9 +24,11 @@ stdenv.mkDerivation rec {
   buildInputs = [
     stdenv.cc.cc.lib
     openssl
-    (zlib-ng.override { withZlibCompat = true; })
   ]
-  ++ lib.optionals stdenv.isLinux [ libcap ];
+  ++ lib.optionals stdenv.isLinux [
+    libcap
+    (zlib-ng.override { withZlibCompat = true; })
+  ];
 
   doInstallCheck = true;
 
