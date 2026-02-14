@@ -37,7 +37,11 @@
         let
           pkgs = pkgsFor system;
         in
-        pkgs.nixfmt-tree
+        pkgs.nixfmt-tree.overrideAttrs (old: {
+          env = (old.env or { }) // {
+            configFile = toString ./.treefmt.toml;
+          };
+        })
       );
 
       devShells = forAllSystems (
