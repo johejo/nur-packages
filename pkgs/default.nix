@@ -13,13 +13,16 @@ in
   prometheus-jmx-exporter = pkgs.callPackage ./prometheus-jmx-exporter {
     source = sources.prometheus-jmx-exporter;
   };
-  codex-bin = pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; };
+  codex-bin =
+    if sources ? "codex-${system}-bin" then
+      pkgs.callPackage ./codex-bin { source = sources."codex-${system}-bin"; }
+    else
+      null;
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
   gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
 
   apple-oss-distributions = import ./apple-oss-distributions {
-    inherit pkgs;
-    inherit sources;
+    inherit pkgs sources;
   };
 }
