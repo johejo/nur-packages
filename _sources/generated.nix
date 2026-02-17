@@ -117,13 +117,13 @@
   };
   gogcli = {
     pname = "gogcli";
-    version = "v0.10.0";
+    version = "v0.11.0";
     src = fetchFromGitHub {
       owner = "steipete";
       repo = "gogcli";
-      rev = "v0.10.0";
+      rev = "v0.11.0";
       fetchSubmodules = false;
-      sha256 = "sha256-3r9IR8hVZ5FnTfBSNNqkTdHSElE586q+ZXm6nAZ4iq0=";
+      sha256 = "sha256-hJU40ysjRx4p9SWGmbhhpToYCpk3DcMAWCnKqxHRmh0=";
     };
   };
   kakehashi = {
