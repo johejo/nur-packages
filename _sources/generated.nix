@@ -154,6 +154,17 @@
       sha256 = "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=";
     };
   };
+  perl5 = {
+    pname = "perl5";
+    version = "v5.43.7";
+    src = fetchFromGitHub {
+      owner = "Perl";
+      repo = "perl5";
+      rev = "v5.43.7";
+      fetchSubmodules = false;
+      sha256 = "sha256-8kdIZh/7JKkESafwV3JcBzcPenBG+5Eh+aybOI58L5E=";
+    };
+  };
   prometheus-jmx-exporter = {
     pname = "prometheus-jmx-exporter";
     version = "1.5.0";

@@ -67,3 +67,7 @@ fetch.github = "johejo/gf-cli"
 src.github = "trifectatechfoundation/zlib-rs"
 fetch.github = "trifectatechfoundation/zlib-rs"
 cargo_lock = ["libz-rs-sys-cdylib/Cargo.lock"]
+
+[perl5]
+src.github_tag = "Perl/perl5"
+fetch.github = "Perl/perl5"

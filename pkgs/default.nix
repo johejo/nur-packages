@@ -25,6 +25,7 @@ in
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
   gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
+  perl5-devel = pkgs.callPackage ./perl5-devel { source = sources.perl5; };
   inherit libz-rs-sys-cdylib;
 
   apple-oss-distributions = import ./apple-oss-distributions {
