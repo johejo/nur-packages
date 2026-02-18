@@ -113,11 +113,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/Ah+kAK+DhcL/qonZZ43eCHhWrl4tKSQde+V21+CB/g=",
+            "sha256": "sha256-twFR4DigVVJNTQAOgLS30VWGFluEdnSgwyFl0R2sJxE=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.101.0"
+        "version": "rust-v0.104.0"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -128,11 +128,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-58iTq6BCDhcU8J4PTNJZ0Yz2PPEIVeioHybomm+gJHQ=",
+            "sha256": "sha256-zzrXKN6itzyZuDq2PUC4ECno2cV1vBsX+t2lSOhL6KQ=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.101.0"
+        "version": "rust-v0.104.0"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -143,11 +143,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6XMt47hw32o5zkukRplhDvWBhDlneTRX+O8R86WlgjY=",
+            "sha256": "sha256-UvbMt86+HWYg+GdgdqzEzeEFQ6btDszqYlSY3nrhf4g=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.101.0"
+        "version": "rust-v0.104.0"
     },
     "errorformat": {
         "cargoLock": null,
@@ -230,7 +230,7 @@
     "kakehashi": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-3rYhInb_Po33pphc9SoQhrwOR_UZZSnLab01tLUOiXs=/Cargo.lock",
+                "sha256-DIXI3hjBx_Xdu5oA06Mf+Zg3_H_htP3lzacj6DI4WuI=/Cargo.lock",
                 {}
             ]
         },
@@ -246,12 +246,12 @@
             "name": null,
             "owner": "atusy",
             "repo": "kakehashi",
-            "rev": "v0.0.14",
-            "sha256": "sha256-3rYhInb/Po33pphc9SoQhrwOR/UZZSnLab01tLUOiXs=",
+            "rev": "v0.1.0",
+            "sha256": "sha256-DIXI3hjBx/Xdu5oA06Mf+Zg3/H/htP3lzacj6DI4WuI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.14"
+        "version": "v0.1.0"
     },
     "kubernetes-mcp-server": {
         "cargoLock": null,

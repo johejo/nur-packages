@@ -63,26 +63,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.101.0";
+    version = "rust-v0.104.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-/Ah+kAK+DhcL/qonZZ43eCHhWrl4tKSQde+V21+CB/g=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-twFR4DigVVJNTQAOgLS30VWGFluEdnSgwyFl0R2sJxE=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.101.0";
+    version = "rust-v0.104.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-58iTq6BCDhcU8J4PTNJZ0Yz2PPEIVeioHybomm+gJHQ=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-zzrXKN6itzyZuDq2PUC4ECno2cV1vBsX+t2lSOhL6KQ=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.101.0";
+    version = "rust-v0.104.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.101.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-6XMt47hw32o5zkukRplhDvWBhDlneTRX+O8R86WlgjY=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-UvbMt86+HWYg+GdgdqzEzeEFQ6btDszqYlSY3nrhf4g=";
     };
   };
   errorformat = {
@@ -128,16 +128,16 @@
   };
   kakehashi = {
     pname = "kakehashi";
-    version = "v0.0.14";
+    version = "v0.1.0";
     src = fetchFromGitHub {
       owner = "atusy";
       repo = "kakehashi";
-      rev = "v0.0.14";
+      rev = "v0.1.0";
       fetchSubmodules = false;
-      sha256 = "sha256-3rYhInb/Po33pphc9SoQhrwOR/UZZSnLab01tLUOiXs=";
+      sha256 = "sha256-DIXI3hjBx/Xdu5oA06Mf+Zg3/H/htP3lzacj6DI4WuI=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-3rYhInb_Po33pphc9SoQhrwOR_UZZSnLab01tLUOiXs=/Cargo.lock";
+      lockFile = ./. + "/sha256-DIXI3hjBx_Xdu5oA06Mf+Zg3_H_htP3lzacj6DI4WuI=/Cargo.lock";
       outputHashes = {
         
       };
