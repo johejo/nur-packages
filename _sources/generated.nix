@@ -126,6 +126,19 @@
       sha256 = "sha256-hJU40ysjRx4p9SWGmbhhpToYCpk3DcMAWCnKqxHRmh0=";
     };
   };
+  hev-socks5-server = {
+    pname = "hev-socks5-server";
+    version = "2.11.2";
+    src = fetchgit {
+      url = "https://github.com/heiher/hev-socks5-server.git";
+      rev = "2.11.2";
+      fetchSubmodules = true;
+      deepClone = false;
+      leaveDotGit = true;
+      sparseCheckout = [ ];
+      sha256 = "sha256-FHEjO9LaajRH5l4gA7+S/0OI1Pk5WjkSAlrkUJBpsDg=";
+    };
+  };
   kakehashi = {
     pname = "kakehashi";
     version = "v0.1.0";

@@ -227,6 +227,26 @@
         },
         "version": "v0.11.0"
     },
+    "hev-socks5-server": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "hev-socks5-server",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": true,
+            "name": null,
+            "rev": "2.11.2",
+            "sha256": "sha256-FHEjO9LaajRH5l4gA7+S/0OI1Pk5WjkSAlrkUJBpsDg=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/heiher/hev-socks5-server.git"
+        },
+        "version": "2.11.2"
+    },
     "kakehashi": {
         "cargoLock": {
             "Cargo.lock": [

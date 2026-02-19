@@ -59,6 +59,12 @@ src.github = "atusy/kakehashi"
 fetch.github = "atusy/kakehashi"
 cargo_lock = ["Cargo.lock"]
 
+[hev-socks5-server]
+src.github = "heiher/hev-socks5-server"
+fetch.git = "https://github.com/heiher/hev-socks5-server.git"
+git.fetchSubmodules = true
+git.leaveDotGit = true
+
 [gf-cli]
 src.cmd = "gh api repos/johejo/gf-cli/commits/main --jq .sha"
 fetch.github = "johejo/gf-cli"
