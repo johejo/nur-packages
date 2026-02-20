@@ -28,6 +28,7 @@ in
   socks5shim = pkgs.callPackage ./socks5shim { source = sources.socks5shim; };
   gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
   perl5-devel = pkgs.callPackage ./perl5-devel { source = sources.perl5; };
+  octorus = pkgs.callPackage ./octorus { source = sources.octorus; };
   inherit libz-rs-sys-cdylib;
 
   apple-oss-distributions = import ./apple-oss-distributions {

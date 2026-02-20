@@ -81,3 +81,8 @@ cargo_lock = ["libz-rs-sys-cdylib/Cargo.lock"]
 [perl5]
 src.github_tag = "Perl/perl5"
 fetch.github = "Perl/perl5"
+
+[octorus]
+src.github = "ushironoko/octorus"
+fetch.github = "ushironoko/octorus"
+cargo_lock = ["Cargo.lock"]

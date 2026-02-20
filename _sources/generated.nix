@@ -167,6 +167,23 @@
       sha256 = "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=";
     };
   };
+  octorus = {
+    pname = "octorus";
+    version = "v0.4.2";
+    src = fetchFromGitHub {
+      owner = "ushironoko";
+      repo = "octorus";
+      rev = "v0.4.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=/Cargo.lock";
+      outputHashes = {
+        
+      };
+    };
+  };
   perl5 = {
     pname = "perl5";
     version = "v5.43.7";

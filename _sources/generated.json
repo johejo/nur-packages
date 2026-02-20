@@ -294,6 +294,32 @@
         },
         "version": "v0.0.57"
     },
+    "octorus": {
+        "cargoLock": {
+            "Cargo.lock": [
+                "sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=/Cargo.lock",
+                {}
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "octorus",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ushironoko",
+            "repo": "octorus",
+            "rev": "v0.4.2",
+            "sha256": "sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.4.2"
+    },
     "perl5": {
         "cargoLock": null,
         "date": null,
