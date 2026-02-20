@@ -1,0 +1,16 @@
+{
+  "packages": {
+    "octorus": {
+      "profile": "cargo-description",
+      "version": "v0.4.2",
+      "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
+      "status": "ok",
+      "source": {
+        "outPath": "/nix/store/hafqra1ycd87kpfs1f7c0n2j4jvdqdz9-source",
+        "file": "Cargo.toml",
+        "decode": "toml",
+        "query": ".package.description // empty"
+      }
+    }
+  }
+}

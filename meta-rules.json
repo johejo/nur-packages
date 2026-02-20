@@ -1,0 +1,23 @@
+{
+  "profiles": {
+    "cargo-description": {
+      "file": "Cargo.toml",
+      "decode": "toml",
+      "query": ".package.description // empty"
+    },
+    "npm-description": {
+      "file": "package.json",
+      "decode": "json",
+      "query": ".description // empty"
+    }
+  },
+  "packages": {
+    "kakehashi": {
+      "profile": "cargo-description",
+      "file": "flake.nix",
+      "decode": "text",
+      "query": "capture(\"description\\\\s*=\\\\s*\\\"(?<d>[^\\\"]+)\\\"\\\\s*;\").d // empty"
+    },
+    "octorus": "cargo-description"
+  }
+}
