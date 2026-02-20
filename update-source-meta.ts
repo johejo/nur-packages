@@ -1,5 +1,6 @@
 #!/usr/bin/env bun
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { $ } from "bun";
+import { mkdir, rename } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
@@ -17,12 +18,6 @@ type PackageRule = string | ({ profile: string } & Partial<Profile>);
 type Rules = {
   profiles: Record<string, Profile>;
   packages: Record<string, PackageRule>;
-};
-
-type CommandResult = {
-  stdout: string;
-  stderr: string;
-  exitCode: number;
 };
 
 const scriptPath = fileURLToPath(import.meta.url);
@@ -43,39 +38,8 @@ function fail(message: string): never {
   process.exit(1);
 }
 
-async function runCommand(
-  args: string[],
-  options: { cwd?: string; input?: string; allowFailure?: boolean } = {},
-): Promise<CommandResult> {
-  const proc = Bun.spawn(args, {
-    cwd: options.cwd,
-    stdin: options.input === undefined ? "ignore" : "pipe",
-    stdout: "pipe",
-    stderr: "pipe",
-  });
-
-  if (options.input !== undefined) {
-    proc.stdin.write(options.input);
-    proc.stdin.end();
-  }
-
-  const [stdout, stderr, exitCode] = await Promise.all([
-    new Response(proc.stdout).text(),
-    new Response(proc.stderr).text(),
-    proc.exited,
-  ]);
-
-  if (exitCode !== 0 && !options.allowFailure) {
-    throw new Error(
-      `command failed (${exitCode}): ${args.join(" ")}\n${stderr.trim()}`,
-    );
-  }
-
-  return { stdout, stderr, exitCode };
-}
-
 async function loadJsonFile<T>(filePath: string): Promise<T> {
-  const raw = await readFile(filePath, "utf8");
+  const raw = await Bun.file(filePath).text();
   return JSON.parse(raw) as T;
 }
 
@@ -137,7 +101,7 @@ async function main(): Promise<void> {
     generatedJsonFile,
   );
 
-  const nvfetcherToml = await readFile(nvfetcherFile, "utf8");
+  const nvfetcherToml = await Bun.file(nvfetcherFile).text();
   const nvfetcherConfig = Bun.TOML.parse(nvfetcherToml) as Record<string, unknown>;
   const nvfetcherPackages = Object.keys(nvfetcherConfig);
   if (nvfetcherPackages.length === 0) {
@@ -230,19 +194,8 @@ async function main(): Promise<void> {
       in
         (builtins.getAttr ${JSON.stringify(pkg)} sources).src
     `;
-    const srcResult = await runCommand(
-      [
-        "nix",
-        "build",
-        "--no-link",
-        "--print-out-paths",
-        "--impure",
-        "--expr",
-        expr,
-      ],
-      { cwd: rootDir },
-    );
-    const srcOutPath = srcResult.stdout.trim();
+    const srcResult = await $.cwd(rootDir)`nix build --no-link --print-out-paths --impure --expr ${expr}`.quiet();
+    const srcOutPath = (await srcResult.text()).trim();
     const sourceFile = path.join(srcOutPath, rule.file);
     const version = generated[pkg]?.version ?? null;
 
@@ -255,7 +208,7 @@ async function main(): Promise<void> {
     } else {
       let decoded: unknown;
       try {
-        const raw = await readFile(sourceFile, "utf8");
+        const raw = await Bun.file(sourceFile).text();
         if (rule.decode === "json") {
           decoded = JSON.parse(raw);
         } else if (rule.decode === "toml") {
@@ -275,15 +228,11 @@ async function main(): Promise<void> {
 
       if (status === "ok") {
         const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-        const jqResult = await runCommand(
-          ["jq", "-er", jqExpr],
-          {
-            input: JSON.stringify(decoded),
-            allowFailure: true,
-          },
-        );
+        const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`
+          .nothrow()
+          .quiet();
         if (jqResult.exitCode === 0) {
-          description = jqResult.stdout.trimEnd();
+          description = (await jqResult.text()).trimEnd();
         } else {
           status = "query-empty";
         }
@@ -310,7 +259,7 @@ async function main(): Promise<void> {
     path.dirname(outFile),
     `.meta.${process.pid}.${Date.now()}.tmp`,
   );
-  await writeFile(
+  await Bun.write(
     tmpFile,
     JSON.stringify(
       {
@@ -319,7 +268,6 @@ async function main(): Promise<void> {
       null,
       2,
     ) + "\n",
-    "utf8",
   );
   await rename(tmpFile, outFile);
 
