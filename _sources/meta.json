@@ -8,8 +8,8 @@
       "source": {
         "outPath": "/nix/store/617232npyd11xbnx02q3lh20pdm1rx2n-source",
         "file": "flake.nix",
-        "decode": "text",
-        "query": "capture(\"description\\\\s*=\\\\s*\\\"(?<d>[^\\\"]+)\\\"\\\\s*;\").d // empty"
+        "decode": "nix",
+        "query": ".description // empty"
       }
     },
     "octorus": {

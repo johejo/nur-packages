@@ -6,7 +6,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 
-type DecodeKind = "json" | "toml" | "text";
+type DecodeKind = "json" | "toml" | "nix";
 
 type Profile = {
   file: string;
@@ -45,6 +45,35 @@ async function loadJsonFile<T>(filePath: string): Promise<T> {
 
 async function fileExists(filePath: string): Promise<boolean> {
   return Bun.file(filePath).exists();
+}
+
+async function decodeNixFile(filePath: string): Promise<unknown> {
+  const expr = `
+    let
+      sanitize =
+        value:
+          if builtins.isAttrs value then
+            builtins.listToAttrs (
+              builtins.concatMap
+                (name:
+                  let v = value.\${name}; in
+                  if builtins.isFunction v then
+                    [ ]
+                  else
+                    [ { inherit name; value = sanitize v; } ])
+                (builtins.attrNames value)
+            )
+          else if builtins.isList value then
+            map sanitize value
+          else if builtins.isPath value then
+            builtins.toString value
+          else
+            value;
+    in
+      sanitize (import (builtins.toPath ${JSON.stringify(filePath)}))
+  `;
+  const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
+  return JSON.parse(await out.text());
 }
 
 async function main(): Promise<void> {
@@ -206,8 +235,8 @@ async function main(): Promise<void> {
           decoded = JSON.parse(raw);
         } else if (rule.decode === "toml") {
           decoded = Bun.TOML.parse(raw);
-        } else if (rule.decode === "text") {
-          decoded = raw;
+        } else if (rule.decode === "nix") {
+          decoded = await decodeNixFile(sourceFile);
         } else {
           status = "unsupported-decode";
           console.error(

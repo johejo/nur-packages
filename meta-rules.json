@@ -15,8 +15,8 @@
     "kakehashi": {
       "profile": "cargo-description",
       "file": "flake.nix",
-      "decode": "text",
-      "query": "capture(\"description\\\\s*=\\\\s*\\\"(?<d>[^\\\"]+)\\\"\\\\s*;\").d // empty"
+      "decode": "nix",
+      "query": ".description // empty"
     },
     "octorus": "cargo-description"
   }
