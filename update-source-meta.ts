@@ -165,26 +165,29 @@ async function main(): Promise<void> {
 
     let profileName = "";
     let overrides: Partial<Profile> = {};
-    if (typeof pkgRule === "string") {
-      profileName = pkgRule;
-    } else if (pkgRule && typeof pkgRule === "object") {
-      profileName = pkgRule.profile ?? "";
-      if (!profileName) {
-        console.error(
-          `warning: package '${pkg}' has object rule but no profile; skipping`,
-        );
+    switch (typeof pkgRule) {
+      case "string":
+        profileName = pkgRule;
+        break;
+      case "object":
+        profileName = pkgRule.profile ?? "";
+        if (!profileName) {
+          console.error(
+            `warning: package '${pkg}' has object rule but no profile; skipping`,
+          );
+          skipped += 1;
+          continue;
+        }
+        overrides = {
+          file: pkgRule.file,
+          decode: pkgRule.decode,
+          query: pkgRule.query,
+        };
+        break;
+      default:
+        console.error(`warning: package '${pkg}' has unsupported rule type; skipping`);
         skipped += 1;
         continue;
-      }
-      overrides = {
-        file: pkgRule.file,
-        decode: pkgRule.decode,
-        query: pkgRule.query,
-      };
-    } else {
-      console.error(`warning: package '${pkg}' has unsupported rule type; skipping`);
-      skipped += 1;
-      continue;
     }
 
     const baseProfile = rules.profiles[profileName];
@@ -231,17 +234,22 @@ async function main(): Promise<void> {
       let decoded: unknown;
       try {
         const raw = await Bun.file(sourceFile).text();
-        if (rule.decode === "json") {
-          decoded = JSON.parse(raw);
-        } else if (rule.decode === "toml") {
-          decoded = Bun.TOML.parse(raw);
-        } else if (rule.decode === "nix") {
-          decoded = await decodeNixFile(sourceFile);
-        } else {
-          status = "unsupported-decode";
-          console.error(
-            `warning: package '${pkg}' has unsupported decode: ${rule.decode}`,
-          );
+        switch (rule.decode) {
+          case "json":
+            decoded = JSON.parse(raw);
+            break;
+          case "toml":
+            decoded = Bun.TOML.parse(raw);
+            break;
+          case "nix":
+            decoded = await decodeNixFile(sourceFile);
+            break;
+          default:
+            status = "unsupported-decode";
+            console.error(
+              `warning: package '${pkg}' has unsupported decode: ${rule.decode}`,
+            );
+            break;
         }
       } catch (error) {
         status = "query-empty";
