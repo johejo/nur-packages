@@ -4,6 +4,7 @@ import { mkdir, rename } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
+import { parseArgs } from "node:util";
 
 type DecodeKind = "json" | "toml" | "text";
 
@@ -48,34 +49,43 @@ async function fileExists(filePath: string): Promise<boolean> {
 }
 
 async function main(): Promise<void> {
-  let rulesFile = path.join(rootDir, "meta-rules.json");
-  let outFile = path.join(rootDir, "_sources", "meta.json");
-  let filterRegex = "";
-
-  const args = process.argv.slice(2);
-  for (let i = 0; i < args.length; i += 1) {
-    const arg = args[i];
-    if (arg === "--filter") {
-      filterRegex = args[i + 1] ?? "";
-      i += 1;
-      continue;
-    }
-    if (arg === "--rules") {
-      rulesFile = path.resolve(rootDir, args[i + 1] ?? "");
-      i += 1;
-      continue;
-    }
-    if (arg === "--out") {
-      outFile = path.resolve(rootDir, args[i + 1] ?? "");
-      i += 1;
-      continue;
-    }
-    if (arg === "-h" || arg === "--help") {
-      usage();
-      return;
-    }
-    fail(`unknown option: ${arg}`);
+  let parsed:
+    | ReturnType<typeof parseArgs<{
+        filter: { type: "string" };
+        rules: { type: "string" };
+        out: { type: "string" };
+        help: { type: "boolean"; short: "h" };
+      }>>
+    | undefined;
+  try {
+    parsed = parseArgs({
+      args: Bun.argv.slice(2),
+      options: {
+        filter: { type: "string" },
+        rules: { type: "string" },
+        out: { type: "string" },
+        help: { type: "boolean", short: "h" },
+      },
+      strict: true,
+      allowPositionals: false,
+    });
+  } catch (error) {
+    usage();
+    fail(error instanceof Error ? error.message : String(error));
   }
+
+  if (parsed.values.help) {
+    usage();
+    return;
+  }
+
+  const filterRegex = parsed.values.filter ?? "";
+  const rulesFile = parsed.values.rules
+    ? path.resolve(rootDir, parsed.values.rules)
+    : path.join(rootDir, "meta-rules.json");
+  const outFile = parsed.values.out
+    ? path.resolve(rootDir, parsed.values.out)
+    : path.join(rootDir, "_sources", "meta.json");
 
   const nvfetcherFile = path.join(rootDir, "nvfetcher.toml");
   const generatedJsonFile = path.join(rootDir, "_sources", "generated.json");
