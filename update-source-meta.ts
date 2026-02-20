@@ -28,7 +28,6 @@ function usage(): void {
   console.log(`Usage: bun ./update-source-meta.ts [options]
 
 Options:
-  --filter <regex>     Process only package names matching regex
   --rules <path>       Rules file path (default: meta-rules.json)
   --out <path>         Output path (default: _sources/meta.json)
   -h, --help           Show this help`);
@@ -51,7 +50,6 @@ async function fileExists(filePath: string): Promise<boolean> {
 async function main(): Promise<void> {
   let parsed:
     | ReturnType<typeof parseArgs<{
-        filter: { type: "string" };
         rules: { type: "string" };
         out: { type: "string" };
         help: { type: "boolean"; short: "h" };
@@ -61,7 +59,6 @@ async function main(): Promise<void> {
     parsed = parseArgs({
       args: Bun.argv.slice(2),
       options: {
-        filter: { type: "string" },
         rules: { type: "string" },
         out: { type: "string" },
         help: { type: "boolean", short: "h" },
@@ -79,7 +76,6 @@ async function main(): Promise<void> {
     return;
   }
 
-  const filterRegex = parsed.values.filter ?? "";
   const rulesFile = parsed.values.rules
     ? path.resolve(rootDir, parsed.values.rules)
     : path.join(rootDir, "meta-rules.json");
@@ -118,15 +114,6 @@ async function main(): Promise<void> {
     fail(`no package sections were found in ${nvfetcherFile}`);
   }
 
-  let packageFilter: RegExp | null = null;
-  if (filterRegex !== "") {
-    try {
-      packageFilter = new RegExp(filterRegex);
-    } catch (error) {
-      fail(`invalid --filter regex: ${String(error)}`);
-    }
-  }
-
   const nvfetcherSet = new Set(nvfetcherPackages);
   for (const pkg of Object.keys(rules.packages)) {
     if (!nvfetcherSet.has(pkg)) {
@@ -141,10 +128,6 @@ async function main(): Promise<void> {
   let skipped = 0;
 
   for (const pkg of nvfetcherPackages) {
-    if (packageFilter && !packageFilter.test(pkg)) {
-      continue;
-    }
-
     const pkgRule = rules.packages[pkg];
     if (!pkgRule) {
       skipped += 1;
