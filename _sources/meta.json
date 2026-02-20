@@ -1,5 +1,17 @@
 {
   "packages": {
+    "kakehashi": {
+      "profile": "cargo-description",
+      "version": "v0.1.0",
+      "description": "kakehashi - A Tree-sitter Language Server",
+      "status": "ok",
+      "source": {
+        "outPath": "/nix/store/617232npyd11xbnx02q3lh20pdm1rx2n-source",
+        "file": "flake.nix",
+        "decode": "text",
+        "query": "capture(\"description\\\\s*=\\\\s*\\\"(?<d>[^\\\"]+)\\\"\\\\s*;\").d // empty"
+      }
+    },
     "octorus": {
       "profile": "cargo-description",
       "version": "v0.4.2",
