@@ -65,6 +65,10 @@ fetch.git = "https://github.com/heiher/hev-socks5-server.git"
 git.fetchSubmodules = true
 git.leaveDotGit = true
 
+[socks5shim]
+src.cmd = "gh api repos/johejo/socks5shim/commits/main --jq .sha"
+fetch.github = "johejo/socks5shim"
+
 [gf-cli]
 src.cmd = "gh api repos/johejo/gf-cli/commits/main --jq .sha"
 fetch.github = "johejo/gf-cli"

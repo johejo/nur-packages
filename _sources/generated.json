@@ -330,6 +330,27 @@
         },
         "version": "1.5.0"
     },
+    "socks5shim": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "socks5shim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "johejo",
+            "repo": "socks5shim",
+            "rev": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996",
+            "sha256": "sha256-W2C1ScwZcrXPbeEyxQh0F6rgVLznoPya7Ib4fSCXC70=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996"
+    },
     "starlink-exporter": {
         "cargoLock": null,
         "date": null,

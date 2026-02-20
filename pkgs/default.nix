@@ -25,6 +25,7 @@ in
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
   hev-socks5-server = pkgs.callPackage ./hev-socks5-server { source = sources.hev-socks5-server; };
+  socks5shim = pkgs.callPackage ./socks5shim { source = sources.socks5shim; };
   gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
   perl5-devel = pkgs.callPackage ./perl5-devel { source = sources.perl5; };
   inherit libz-rs-sys-cdylib;

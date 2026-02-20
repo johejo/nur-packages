@@ -186,6 +186,17 @@
       sha256 = "sha256-AxXz9leHYwLGIFqY1ANux3XcpSnF0EGcpg7macaII58=";
     };
   };
+  socks5shim = {
+    pname = "socks5shim";
+    version = "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "socks5shim";
+      rev = "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996";
+      fetchSubmodules = false;
+      sha256 = "sha256-W2C1ScwZcrXPbeEyxQh0F6rgVLznoPya7Ib4fSCXC70=";
+    };
+  };
   starlink-exporter = {
     pname = "starlink-exporter";
     version = "v20250818";
