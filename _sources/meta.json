@@ -46,6 +46,9 @@
       "git": {
         "ref": null,
         "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/gitbucket/gitbucket"
       }
     },
     "prometheus-jmx-exporter": {
@@ -53,6 +56,9 @@
       "git": {
         "ref": null,
         "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/prometheus/jmx_exporter"
       }
     },
     "gogcli": {
@@ -88,6 +94,9 @@
       "git": {
         "ref": null,
         "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/openai/codex"
       }
     },
     "codex-x86_64-linux-bin": {
@@ -95,6 +104,9 @@
       "git": {
         "ref": null,
         "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/openai/codex"
       }
     },
     "codex-aarch64-linux-bin": {
@@ -102,6 +114,9 @@
       "git": {
         "ref": null,
         "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/openai/codex"
       }
     },
     "apple-oss-distributions_curl": {
@@ -180,6 +195,9 @@
       "git": {
         "ref": "2.11.2",
         "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/heiher/hev-socks5-server.git"
       }
     },
     "socks5shim": {

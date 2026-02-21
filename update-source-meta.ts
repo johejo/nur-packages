@@ -199,6 +199,21 @@ function resolveFallbackHomepage(
   if (src?.type === "github" && src.owner && src.repo) {
     return `https://github.com/${src.owner}/${src.repo}`;
   }
+  if (typeof src?.url === "string") {
+    try {
+      const url = new URL(src.url);
+      if (url.hostname !== "github.com" && url.hostname !== "www.github.com") {
+        return null;
+      }
+      const [owner, repo] = url.pathname.split("/").filter(Boolean);
+      if (!owner || !repo) {
+        return null;
+      }
+      return `https://github.com/${owner}/${repo}`;
+    } catch {
+      return null;
+    }
+  }
   return null;
 }
 
