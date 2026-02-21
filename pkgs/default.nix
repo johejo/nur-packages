@@ -14,29 +14,12 @@ let
       { };
   tokenizeSpdxExpression =
     value:
-    let
-      normalized = builtins.replaceStrings
-        [
-          "("
-          ")"
-          " OR "
-          " AND "
-          " WITH "
-          " / "
-          "/"
-        ]
-        [
-          ""
-          ""
-          "|"
-          "|"
-          "|"
-          "|"
-          "|"
-        ]
-        value;
-    in
-    pkgs.lib.filter (token: token != "") (map pkgs.lib.strings.trim (pkgs.lib.splitString "|" normalized));
+    pkgs.lib.filter (token: token != "") (
+      map pkgs.lib.strings.trim (
+        pkgs.lib.splitString "|"
+          (builtins.replaceStrings [ " OR " " AND " ] [ "|" "|" ] value)
+      )
+    );
   licensesBySpdxId = builtins.foldl' (
     acc: license:
     if
