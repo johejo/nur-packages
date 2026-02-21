@@ -6,13 +6,12 @@ let
   sourceFieldsFor =
     sourceName:
     let
-      pkgMeta = sourceMetaFor sourceName;
+      fields = (sourceMetaFor sourceName).fields or { };
     in
-    if builtins.isAttrs pkgMeta && pkgMeta ? fields && builtins.isAttrs pkgMeta.fields then
-      pkgMeta.fields
+    if builtins.isAttrs fields then
+      fields
     else
       { };
-  getSourceMeta = sourceMetaFor;
   tokenizeSpdxExpression =
     value:
     let
@@ -76,10 +75,20 @@ let
           licenseFromSpdxExpression fields.licenseSpdx
         else
           null;
+      description =
+        if fields ? description && builtins.isString fields.description then
+          fields.description
+        else
+          null;
+      homepage =
+        if fields ? homepage && builtins.isString fields.homepage then
+          fields.homepage
+        else
+          null;
     in
-    (if mappedLicense != null then { license = mappedLicense; } else { })
-    // (if fields ? description then { description = fields.description; } else { })
-    // (if fields ? homepage then { homepage = fields.homepage; } else { });
+    (pkgs.lib.optionalAttrs (mappedLicense != null) { license = mappedLicense; })
+    // (pkgs.lib.optionalAttrs (description != null) { inherit description; })
+    // (pkgs.lib.optionalAttrs (homepage != null) { inherit homepage; });
   withSourceMeta =
     sourceName: drv:
     let
@@ -100,10 +109,10 @@ let
 in
 {
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
-  gogcli = callPackageWithSourceMeta ./gogcli "gogcli" { sourceMeta = getSourceMeta "gogcli"; };
+  gogcli = callPackageWithSourceMeta ./gogcli "gogcli" { sourceMeta = sourceMetaFor "gogcli"; };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
   kubernetes-mcp-server = callPackageWithSourceMeta ./kubernetes-mcp-server "kubernetes-mcp-server" {
-    sourceMeta = getSourceMeta "kubernetes-mcp-server";
+    sourceMeta = sourceMetaFor "kubernetes-mcp-server";
   };
   gitbucket = callPackageWithSourceMeta ./gitbucket "gitbucket" { };
   prometheus-jmx-exporter = callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter" { };
@@ -123,7 +132,7 @@ in
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = callPackageWithSourceMeta ./kakehashi "kakehashi" { };
   hev-socks5-server = callPackageWithSourceMeta ./hev-socks5-server "hev-socks5-server" {
-    sourceMeta = getSourceMeta "hev-socks5-server";
+    sourceMeta = sourceMetaFor "hev-socks5-server";
   };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
