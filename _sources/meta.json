@@ -5,7 +5,6 @@
       "version": "v0.11.0",
       "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
       "source": {
-        "outPath": "/nix/store/yxyskhjrnk5yvf3a9kvr6wz4jizqxx5h-source",
         "file": "docs/index.html",
         "decode": "html",
         "selectors": [
@@ -23,7 +22,6 @@
       "version": "v0.1.0",
       "description": "kakehashi - A Tree-sitter Language Server",
       "source": {
-        "outPath": "/nix/store/617232npyd11xbnx02q3lh20pdm1rx2n-source",
         "file": "flake.nix",
         "decode": "nix",
         "query": ".description // empty"
@@ -34,7 +32,6 @@
       "version": "v0.4.2",
       "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
       "source": {
-        "outPath": "/nix/store/hafqra1ycd87kpfs1f7c0n2j4jvdqdz9-source",
         "file": "Cargo.toml",
         "decode": "toml",
         "query": ".package.description // empty"

@@ -35,13 +35,11 @@ type PackageMeta = {
   description: string | null;
   source:
     | {
-        outPath: string;
         file: string;
         decode: "html";
         selectors: HtmlSelector[];
       }
     | {
-        outPath: string;
         file: string;
         decode: Exclude<DecodeKind, "html">;
         query: string;
@@ -321,13 +319,11 @@ async function processPackage(
     source:
       rule.decode === "html"
         ? {
-            outPath: srcOutPath,
             file: rule.file,
             decode: "html",
             selectors: rule.selectors,
           }
         : {
-            outPath: srcOutPath,
             file: rule.file,
             decode: rule.decode,
             query: rule.query,
