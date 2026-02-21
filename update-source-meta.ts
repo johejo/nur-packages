@@ -27,11 +27,26 @@ type Rules = {
   packages: Record<string, PackageRule>;
 };
 
-type GeneratedSources = Record<string, { version?: string }>;
+type GeneratedSource = {
+  version?: string;
+  src?: {
+    type?: string;
+    rev?: string;
+    owner?: string;
+    repo?: string;
+    url?: string;
+  };
+};
+
+type GeneratedSources = Record<string, GeneratedSource>;
 
 type PackageMeta = {
   profile: string;
   version: string | null;
+  git: {
+    ref: string | null;
+    commit: string | null;
+  };
   description: string | null;
   source:
     | {
@@ -78,6 +93,10 @@ function fail(message: string): never {
   process.exit(1);
 }
 
+function isGitCommitHash(value: string): boolean {
+  return /^[0-9a-f]{40}$/i.test(value);
+}
+
 async function loadJsonFile<T>(filePath: string): Promise<T> {
   const raw = await Bun.file(filePath).text();
   return JSON.parse(raw) as T;
@@ -111,6 +130,41 @@ async function decodeNixFile(filePath: string): Promise<unknown> {
   `;
   const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
   return JSON.parse(await out.text());
+}
+
+async function resolveGitMeta(
+  pkg: string,
+  generatedSource: GeneratedSource | undefined,
+): Promise<{ ref: string | null; commit: string | null }> {
+  const ref = generatedSource?.src?.rev ?? null;
+  if (!ref) {
+    return { ref: null, commit: null };
+  }
+  if (isGitCommitHash(ref)) {
+    return { ref, commit: ref };
+  }
+
+  const src = generatedSource?.src;
+  if (src?.type === "github" && src.owner && src.repo) {
+    if (!Bun.which("gh")) {
+      throw new Error(
+        `package '${pkg}' requires gh to resolve commit from ref '${ref}'`,
+      );
+    }
+    const resolved = (
+      await (
+        await $`gh api repos/${src.owner}/${src.repo}/commits/${ref} --jq .sha`.quiet()
+      ).text()
+    ).trim();
+    if (!isGitCommitHash(resolved)) {
+      throw new Error(
+        `package '${pkg}' resolved non-commit value from GitHub API: '${resolved}'`,
+      );
+    }
+    return { ref, commit: resolved };
+  }
+
+  return { ref, commit: null };
 }
 
 function extractHtmlDescription(
@@ -306,12 +360,15 @@ async function processPackage(
 
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
-  const version = generated[pkg]?.version ?? null;
+  const generatedSource = generated[pkg];
+  const version = generatedSource?.version ?? null;
+  const git = await resolveGitMeta(pkg, generatedSource);
   const description = await extractDescription(pkg, rule, sourceFile);
 
   return {
     profile: profileName,
     version,
+    git,
     description,
     source:
       rule.decode === "html"
