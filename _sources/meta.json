@@ -1,5 +1,23 @@
 {
   "packages": {
+    "gogcli": {
+      "profile": "html",
+      "version": "v0.11.0",
+      "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
+      "source": {
+        "outPath": "/nix/store/yxyskhjrnk5yvf3a9kvr6wz4jizqxx5h-source",
+        "file": "docs/index.html",
+        "decode": "html",
+        "selectors": [
+          {
+            "selector": "meta[name='description']"
+          },
+          {
+            "selector": "meta[property='og:description']"
+          }
+        ]
+      }
+    },
     "kakehashi": {
       "profile": "flake",
       "version": "v0.1.0",

@@ -14,9 +14,25 @@
       "file": "flake.nix",
       "decode": "nix",
       "query": ".description // empty"
+    },
+    "html": {
+      "file": "index.html",
+      "decode": "html",
+      "selectors": [
+        {
+          "selector": "meta[name='description']"
+        },
+        {
+          "selector": "meta[property='og:description']"
+        }
+      ]
     }
   },
   "packages": {
+    "gogcli": {
+      "profile": "html",
+      "file": "docs/index.html"
+    },
     "kakehashi": {
       "profile": "flake"
     },

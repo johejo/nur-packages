@@ -6,18 +6,24 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 
-type DecodeKind = "json" | "toml" | "yaml" | "nix";
+type DecodeKind = "json" | "toml" | "yaml" | "nix" | "html";
 
-type Profile = {
-  file: string;
-  decode: DecodeKind;
-  query: string;
+type HtmlSelector = {
+  selector: string;
+  attr?: string;
 };
 
-type PackageRule = { profile: string } & Partial<Profile>;
+type RuleConfig = {
+  file: string;
+  decode: DecodeKind;
+  query?: string;
+  selectors?: HtmlSelector[];
+};
+
+type PackageRule = { profile: string } & Partial<RuleConfig>;
 
 type Rules = {
-  profiles: Record<string, Profile>;
+  profiles: Record<string, RuleConfig>;
   packages: Record<string, PackageRule>;
 };
 
@@ -27,17 +33,34 @@ type PackageMeta = {
   profile: string;
   version: string | null;
   description: string | null;
-  source: {
-    outPath: string;
-    file: string;
-    decode: DecodeKind;
-    query: string;
-  };
+  source:
+    | {
+        outPath: string;
+        file: string;
+        decode: "html";
+        selectors: HtmlSelector[];
+      }
+    | {
+        outPath: string;
+        file: string;
+        decode: Exclude<DecodeKind, "html">;
+        query: string;
+      };
 };
 
 type ResolvedRule = {
   profileName: string;
-  rule: Profile;
+  rule:
+    | {
+        file: string;
+        decode: "html";
+        selectors: HtmlSelector[];
+      }
+    | {
+        file: string;
+        decode: Exclude<DecodeKind, "html">;
+        query: string;
+      };
 };
 
 const scriptPath = fileURLToPath(import.meta.url);
@@ -95,6 +118,37 @@ async function decodeNixFile(filePath: string): Promise<unknown> {
   return JSON.parse(await out.text());
 }
 
+function extractHtmlDescription(
+  raw: string,
+  selectors: HtmlSelector[],
+  pkg: string,
+): string {
+  for (const selector of selectors) {
+    const attr = selector.attr ?? "content";
+    let value: string | null = null;
+    new HTMLRewriter()
+      .on(selector.selector, {
+        element(el) {
+          if (value !== null) {
+            return;
+          }
+          const candidate = el.getAttribute(attr)?.trim();
+          if (candidate) {
+            value = candidate;
+          }
+        },
+      })
+      .transform(new Response(raw));
+    if (value !== null) {
+      return value;
+    }
+  }
+
+  throw new Error(
+    `package '${pkg}' html selectors did not match any non-empty value`,
+  );
+}
+
 function resolvePackageRule(
   pkg: string,
   pkgRule: PackageRule | undefined,
@@ -126,18 +180,72 @@ function resolvePackageRule(
     return null;
   }
 
-  const rule: Profile = {
+  const rule: RuleConfig = {
     ...baseProfile,
     ...(pkgRule.file !== undefined ? { file: pkgRule.file } : {}),
     ...(pkgRule.decode !== undefined ? { decode: pkgRule.decode } : {}),
     ...(pkgRule.query !== undefined ? { query: pkgRule.query } : {}),
+    ...(pkgRule.selectors !== undefined ? { selectors: pkgRule.selectors } : {}),
   };
   if (!rule.file) {
     console.error(`warning: package '${pkg}' resolved rule has no file; skipping`);
     return null;
   }
 
-  return { profileName, rule };
+  if (rule.decode === "html") {
+    if (rule.query !== undefined) {
+      throw new Error(
+        `package '${pkg}' uses decode=html but query is not supported; use selectors instead`,
+      );
+    }
+    const selectors = rule.selectors;
+    if (!selectors || selectors.length === 0) {
+      throw new Error(
+        `package '${pkg}' uses decode=html but selectors are missing`,
+      );
+    }
+    for (const selector of selectors) {
+      if (!selector || typeof selector.selector !== "string" || !selector.selector) {
+        throw new Error(`package '${pkg}' has an invalid html selector entry`);
+      }
+      if (
+        selector.attr !== undefined
+        && (typeof selector.attr !== "string" || !selector.attr)
+      ) {
+        throw new Error(
+          `package '${pkg}' has an invalid html selector attr`,
+        );
+      }
+    }
+    return {
+      profileName,
+      rule: {
+        file: rule.file,
+        decode: "html",
+        selectors,
+      },
+    };
+  }
+
+  if (rule.selectors !== undefined) {
+    throw new Error(
+      `package '${pkg}' uses selectors with decode=${rule.decode}; selectors are supported only for html`,
+    );
+  }
+  if (!rule.query) {
+    throw new Error(
+      `package '${pkg}' uses decode=${rule.decode} but query is missing`,
+    );
+  }
+
+  return {
+    profileName,
+    rule: {
+      file: rule.file,
+      decode: rule.decode,
+      query: rule.query,
+    },
+  };
 }
 
 async function resolveSourceOutPath(pkg: string): Promise<string> {
@@ -155,7 +263,7 @@ async function resolveSourceOutPath(pkg: string): Promise<string> {
 
 async function extractDescription(
   pkg: string,
-  rule: Profile,
+  rule: ResolvedRule["rule"],
   sourceFile: string,
 ): Promise<string> {
   if (!(await fileExists(sourceFile))) {
@@ -165,6 +273,8 @@ async function extractDescription(
   const raw = await Bun.file(sourceFile).text();
   let decoded: unknown;
   switch (rule.decode) {
+    case "html":
+      return extractHtmlDescription(raw, rule.selectors, pkg);
     case "json":
       decoded = JSON.parse(raw);
       break;
@@ -208,12 +318,20 @@ async function processPackage(
     profile: profileName,
     version,
     description,
-    source: {
-      outPath: srcOutPath,
-      file: rule.file,
-      decode: rule.decode,
-      query: rule.query,
-    },
+    source:
+      rule.decode === "html"
+        ? {
+            outPath: srcOutPath,
+            file: rule.file,
+            decode: "html",
+            selectors: rule.selectors,
+          }
+        : {
+            outPath: srcOutPath,
+            file: rule.file,
+            decode: rule.decode,
+            query: rule.query,
+          },
   };
 }
 
