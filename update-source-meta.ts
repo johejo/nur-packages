@@ -524,6 +524,15 @@ async function processPackage(
 
   const resolvedRule = resolvePackageRule(pkg, rules.packages[pkg], rules);
   if (!resolvedRule) {
+    if (fallbackHomepage) {
+      return {
+        version,
+        git,
+        fields: {
+          homepage: fallbackHomepage,
+        },
+      };
+    }
     return { version, git };
   }
 
