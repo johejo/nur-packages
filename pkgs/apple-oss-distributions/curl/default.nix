@@ -36,6 +36,5 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Apple Open Source Distribution of curl";
-    license = lib.licenses.curl;
   };
 }

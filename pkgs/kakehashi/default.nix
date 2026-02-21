@@ -1,5 +1,4 @@
 {
-  lib,
   rustPlatform,
   source,
   ...
@@ -13,7 +12,6 @@ rustPlatform.buildRustPackage {
   doCheck = false;
 
   meta = {
-    license = lib.licenses.mit;
     mainProgram = "kakehashi";
   };
 }

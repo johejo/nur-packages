@@ -18,13 +18,18 @@ let
       lib.filter hasSpdxId (builtins.attrValues lib.licenses)
     )
   );
+  licensesBySpdxIdLower = builtins.listToAttrs (
+    map (license: lib.nameValuePair (lib.toLower license.spdxId) license) (
+      lib.filter hasSpdxId (builtins.attrValues lib.licenses)
+    )
+  );
+  lookupLicenseBySpdx =
+    spdx: licensesBySpdxId.${spdx} or licensesBySpdxIdLower.${lib.toLower spdx} or null;
   licenseFromSpdxExpression =
     value:
     let
       tokens = tokenizeSpdxExpression value;
-      mappedKnown = lib.filter (license: license != null) (
-        map (spdx: licensesBySpdxId.${spdx} or null) tokens
-      );
+      mappedKnown = lib.filter (license: license != null) (map lookupLicenseBySpdx tokens);
       uniqueLicenses = lib.unique mappedKnown;
     in
     if uniqueLicenses == [ ] then

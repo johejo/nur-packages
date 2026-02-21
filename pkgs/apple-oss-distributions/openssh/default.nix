@@ -30,6 +30,5 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Apple Open Source Distribution of OpenSSH";
-    license = lib.licenses.bsd2;
   };
 }

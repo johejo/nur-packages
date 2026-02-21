@@ -1,5 +1,4 @@
 {
-  lib,
   buildGoModule,
   source,
   ...
@@ -15,7 +14,6 @@ buildGoModule {
   ];
   meta = {
     description = "Vim's quickfix errorformat implementation in Go";
-    license = lib.licenses.mit;
     mainProgram = "errorformat";
   };
 }

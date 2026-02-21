@@ -58,7 +58,6 @@ buildGoModule rec {
   '';
 
   meta = {
-    license = lib.licenses.mit;
     mainProgram = "gog";
   };
 }

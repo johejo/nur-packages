@@ -1,5 +1,4 @@
 {
-  lib,
   buildGoModule,
   versionCheckHook,
   source,
@@ -27,7 +26,6 @@ buildGoModule rec {
   doInstallCheck = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
   meta = {
-    license = lib.licenses.asl20;
     changelog = "https://github.com/containers/kubernetes-mcp-server/releases/tag/${version}";
     mainProgram = "kubernetes-mcp-server";
   };

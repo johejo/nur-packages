@@ -1,5 +1,4 @@
 {
-  lib,
   buildGoModule,
   installShellFiles,
   versionCheckHook,
@@ -31,7 +30,6 @@ buildGoModule rec {
 
   meta = {
     description = "Grafana API Client for command line operations";
-    license = lib.licenses.apsl20;
     mainProgram = "gf";
   };
 }
