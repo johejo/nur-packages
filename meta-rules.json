@@ -38,6 +38,10 @@
     },
     "octorus": {
       "profile": "cargo"
+    },
+    "zlib-rs": {
+      "profile": "cargo",
+      "query": ".workspace.package.description // empty"
     }
   }
 }

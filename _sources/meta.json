@@ -27,6 +27,16 @@
         "query": ".description // empty"
       }
     },
+    "zlib-rs": {
+      "profile": "cargo",
+      "version": "v0.6.0",
+      "description": "A memory-safe zlib implementation written in rust",
+      "source": {
+        "file": "Cargo.toml",
+        "decode": "toml",
+        "query": ".workspace.package.description // empty"
+      }
+    },
     "octorus": {
       "profile": "cargo",
       "version": "v0.4.2",
