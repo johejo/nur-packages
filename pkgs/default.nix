@@ -5,10 +5,11 @@ let
   sourceMeta = (builtins.fromJSON (builtins.readFile ../_sources/meta.json)).packages;
   sourceMetaFor = sourceName: sourceMeta.${sourceName} or { };
   sourceFieldsFor = sourceName: (sourceMetaFor sourceName).fields or { };
+  stripSpdxWithException = token: builtins.head (lib.splitString " WITH " token);
   tokenizeSpdxExpression =
     value:
     lib.filter (token: token != "") (
-      map lib.strings.trim (
+      map (token: stripSpdxWithException (lib.strings.trim token)) (
         lib.splitString "|" (builtins.replaceStrings [ " OR " " AND " ] [ "|" "|" ] value)
       )
     );

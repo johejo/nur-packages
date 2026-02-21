@@ -136,7 +136,9 @@ const LICENSE_FILE_CANDIDATES = [
   "LICENCE.txt",
   "UNLICENSE",
 ];
-const SPDX_EXPRESSION_PATTERN = /^[A-Za-z0-9][A-Za-z0-9.+-]*(?:\s+(?:OR|AND)\s+[A-Za-z0-9][A-Za-z0-9.+-]*)*$/;
+const SPDX_JSON_FIELD_KEYS = new Set(["spdx", "spdxid", "license", "licenseid"]);
+const SIMPLE_SPDX_EXPRESSION_PATTERN =
+  /^(?!.*(?:^| )copyright(?: |$))(?:[A-Za-z0-9][A-Za-z0-9.+-]*(?: WITH [A-Za-z0-9][A-Za-z0-9.+-]*)?)(?: (?:AND|OR) [A-Za-z0-9][A-Za-z0-9.+-]*(?: WITH [A-Za-z0-9][A-Za-z0-9.+-]*)?)*$/i;
 const NIX_SANITIZE_EXPR = `
 value:
   if builtins.isAttrs value then
@@ -223,11 +225,14 @@ function normalizeSpdxExpression(value: string): string {
   return value.trim()
     .replace(/\s+/g, " ")
     .replace(/\s+or\s+/gi, " OR ")
-    .replace(/\s+and\s+/gi, " AND ");
+    .replace(/\s+and\s+/gi, " AND ")
+    .replace(/\s+with\s+/gi, " WITH ")
+    .trim();
 }
 
 function isValidSpdxExpression(value: string): boolean {
-  return SPDX_EXPRESSION_PATTERN.test(normalizeSpdxExpression(value));
+  const normalized = normalizeSpdxExpression(value);
+  return normalized !== "" && SIMPLE_SPDX_EXPRESSION_PATTERN.test(normalized);
 }
 
 function collectSpdxExpressionsFromJson(value: unknown, out: Set<string>): void {
@@ -251,16 +256,7 @@ function collectSpdxExpressionsFromJson(value: unknown, out: Set<string>): void 
 
   for (const [key, fieldValue] of Object.entries(value)) {
     const keyLower = key.toLowerCase();
-    if (
-      typeof fieldValue === "string"
-      && (
-        keyLower === "spdx"
-        || keyLower === "spdxid"
-        || keyLower === "license"
-        || keyLower === "licenseid"
-        || keyLower === "id"
-      )
-    ) {
+    if (typeof fieldValue === "string" && SPDX_JSON_FIELD_KEYS.has(keyLower)) {
       const normalized = normalizeSpdxExpression(fieldValue);
       if (isValidSpdxExpression(normalized)) {
         out.add(normalized);
@@ -320,19 +316,15 @@ function parseJsonPayload(raw: string): unknown | null {
     return null;
   }
 
-  const firstArray = trimmed.indexOf("[");
-  const firstObject = trimmed.indexOf("{");
-  const candidates = [firstArray, firstObject].filter((idx) => idx >= 0).sort((a, b) => a - b);
-  if (candidates.length === 0) {
-    return null;
-  }
-
-  for (const start of candidates) {
-    const payload = trimmed.slice(start);
+  for (let start = 0; start < trimmed.length; start += 1) {
+    const token = trimmed[start];
+    if (token !== "[" && token !== "{") {
+      continue;
+    }
     try {
-      return JSON.parse(payload) as unknown;
+      return JSON.parse(trimmed.slice(start)) as unknown;
     } catch {
-      // Try the next candidate position.
+      // Try the next JSON opening token.
     }
   }
 

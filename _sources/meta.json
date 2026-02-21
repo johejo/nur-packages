@@ -8,7 +8,7 @@
       },
       "fields": {
         "homepage": "https://github.com/reviewdog/errorformat",
-        "licenseSpdx": "Copyright OR MIT"
+        "licenseSpdx": "MIT"
       }
     },
     "starlink-exporter": {
@@ -163,7 +163,7 @@
       },
       "fields": {
         "homepage": "https://github.com/apple-oss-distributions/BerkeleyDB",
-        "licenseSpdx": "BSD-3-Clause OR Copyright OR Sleepycat"
+        "licenseSpdx": "BSD-3-Clause OR Sleepycat"
       }
     },
     "apple-oss-distributions_openssh": {
@@ -174,7 +174,7 @@
       },
       "fields": {
         "homepage": "https://github.com/apple-oss-distributions/OpenSSH",
-        "licenseSpdx": "BSD-2-Clause OR BSD-2-Clause-NetBSD OR BSD-3-Clause OR Copyright OR ISC OR MIT OR Rijndael-3.0"
+        "licenseSpdx": "BSD-2-Clause OR BSD-2-Clause-NetBSD OR BSD-3-Clause OR ISC OR MIT OR Rijndael-3.0"
       }
     },
     "kakehashi": {
@@ -207,7 +207,7 @@
       },
       "fields": {
         "homepage": "https://github.com/heiher/hev-socks5-server",
-        "licenseSpdx": "Copyright OR MIT"
+        "licenseSpdx": "MIT"
       }
     },
     "socks5shim": {
@@ -218,7 +218,7 @@
       },
       "fields": {
         "homepage": "https://github.com/johejo/socks5shim",
-        "licenseSpdx": "Copyright OR MIT"
+        "licenseSpdx": "MIT"
       }
     },
     "gf-cli": {
@@ -268,7 +268,7 @@
       },
       "fields": {
         "homepage": "https://github.com/Perl/perl5",
-        "licenseSpdx": "Copyright OR GPL-1.0"
+        "licenseSpdx": "GPL-1.0"
       }
     },
     "octorus": {
