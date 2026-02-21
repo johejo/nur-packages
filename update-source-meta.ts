@@ -253,6 +253,39 @@ function collectSpdxExpressionsFromJson(value: unknown, out: Set<string>): void 
   }
 }
 
+function collectSpdxExpressionsFromFlakeLicense(value: unknown, out: Set<string>): void {
+  if (typeof value === "string") {
+    const normalized = normalizeSpdxExpression(value);
+    if (isValidSpdxExpression(normalized)) {
+      out.add(normalized);
+    }
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      collectSpdxExpressionsFromFlakeLicense(item, out);
+    }
+    return;
+  }
+  if (!isNonNullObject(value)) {
+    return;
+  }
+
+  const spdxId = value.spdxId;
+  if (typeof spdxId === "string") {
+    const normalized = normalizeSpdxExpression(spdxId);
+    if (isValidSpdxExpression(normalized)) {
+      out.add(normalized);
+    }
+    return;
+  }
+
+  const license = value.license;
+  if (license !== undefined) {
+    collectSpdxExpressionsFromFlakeLicense(license, out);
+  }
+}
+
 function combineSpdxExpressions(expressions: string[]): string | null {
   if (expressions.length === 0) {
     return null;
@@ -515,19 +548,23 @@ async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | 
           packageSet.default
         else
           null;
-      toSpdx =
+      licenseValue = if defaultPkg == null then null else defaultPkg.meta.license or null;
+      sanitize =
         value:
           if builtins.isAttrs value then
-            value.spdxId or null
+            builtins.mapAttrs (_: sanitize) (
+              builtins.removeAttrs value (
+                builtins.filter
+                  (name: builtins.isFunction value.\${name})
+                  (builtins.attrNames value)
+              )
+            )
           else if builtins.isList value then
-            let
-              ids = builtins.filter (x: x != null) (map toSpdx value);
-            in
-              if ids == [ ] then null else builtins.concatStringsSep " OR " ids
+            map sanitize value
           else
-            null;
+            value;
     in
-      if defaultPkg == null then null else toSpdx (defaultPkg.meta.license or null)
+      sanitize licenseValue
   `;
 
   try {
@@ -536,12 +573,10 @@ async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | 
     if (!raw || raw === "null") {
       return null;
     }
-    const value = JSON.parse(raw) as unknown;
-    if (typeof value !== "string") {
-      return null;
-    }
-    const normalized = normalizeSpdxExpression(value);
-    return normalized || null;
+    const parsed = JSON.parse(raw) as unknown;
+    const expressions = new Set<string>();
+    collectSpdxExpressionsFromFlakeLicense(parsed, expressions);
+    return combineSpdxExpressions(Array.from(expressions));
   } catch {
     return null;
   }
