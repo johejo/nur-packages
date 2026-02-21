@@ -57,10 +57,12 @@ let
     value:
     let
       tokens = tokenizeSpdxExpression value;
-      mapped = map (spdx: licensesBySpdxId.${spdx} or null) tokens;
-      uniqueLicenses = pkgs.lib.unique mapped;
+      mappedKnown = pkgs.lib.filter (license: license != null) (
+        map (spdx: licensesBySpdxId.${spdx} or null) tokens
+      );
+      uniqueLicenses = pkgs.lib.unique mappedKnown;
     in
-    if tokens == [ ] || !(builtins.all (license: license != null) mapped) then
+    if uniqueLicenses == [ ] then
       null
     else if builtins.length uniqueLicenses == 1 then
       builtins.head uniqueLicenses
