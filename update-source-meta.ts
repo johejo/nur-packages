@@ -122,6 +122,21 @@ type BuildMetaResult = {
 const scriptPath = fileURLToPath(import.meta.url);
 const rootDir = path.dirname(scriptPath);
 const DECODE_KINDS = new Set<DecodeKind>(["json", "toml", "yaml", "nix", "html"]);
+const LICENSE_FIELD_NAME = "licenseSpdx";
+const LICENSE_FILE_CANDIDATES = [
+  "LICENSE",
+  "LICENSE.txt",
+  "LICENSE.md",
+  "LICENSE-MIT",
+  "LICENSE-APACHE",
+  "COPYING",
+  "COPYING.txt",
+  "COPYING.md",
+  "LICENCE",
+  "LICENCE.txt",
+  "UNLICENSE",
+];
+const SPDX_EXPRESSION_PATTERN = /^[A-Za-z0-9][A-Za-z0-9.+-]*(?:\s+(?:OR|AND)\s+[A-Za-z0-9][A-Za-z0-9.+-]*)*$/;
 
 function resolveOutputPath(pathOrDefault: string | undefined, fallback: string): string {
   return pathOrDefault ? path.resolve(rootDir, pathOrDefault) : fallback;
@@ -185,6 +200,97 @@ function isGitCommitHash(value: string): boolean {
 
 function normalizeRepoName(repo: string): string {
   return repo.replace(/\.git$/i, "");
+}
+
+function normalizeSpdxExpression(value: string): string {
+  return value.trim()
+    .replace(/\s+/g, " ")
+    .replace(/\s+or\s+/gi, " OR ")
+    .replace(/\s+and\s+/gi, " AND ");
+}
+
+function isValidSpdxExpression(value: string): boolean {
+  return SPDX_EXPRESSION_PATTERN.test(normalizeSpdxExpression(value));
+}
+
+function collectSpdxExpressionsFromJson(value: unknown, out: Set<string>): void {
+  if (typeof value === "string") {
+    const normalized = normalizeSpdxExpression(value);
+    if (isValidSpdxExpression(normalized)) {
+      out.add(normalized);
+    }
+    return;
+  }
+  if (!Array.isArray(value) && !isNonNullObject(value)) {
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      collectSpdxExpressionsFromJson(item, out);
+    }
+    return;
+  }
+
+  for (const [key, fieldValue] of Object.entries(value)) {
+    const keyLower = key.toLowerCase();
+    if (
+      typeof fieldValue === "string"
+      && (
+        keyLower === "spdx"
+        || keyLower === "spdxid"
+        || keyLower === "license"
+        || keyLower === "licenseid"
+        || keyLower === "id"
+      )
+    ) {
+      const normalized = normalizeSpdxExpression(fieldValue);
+      if (isValidSpdxExpression(normalized)) {
+        out.add(normalized);
+      }
+    }
+    collectSpdxExpressionsFromJson(fieldValue, out);
+  }
+}
+
+function combineSpdxExpressions(expressions: string[]): string | null {
+  if (expressions.length === 0) {
+    return null;
+  }
+  const unique = Array.from(new Set(expressions));
+  if (unique.length === 1) {
+    return unique[0];
+  }
+  return unique.sort().join(" OR ");
+}
+
+function parseJsonPayload(raw: string): unknown | null {
+  const trimmed = raw.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  const firstArray = trimmed.indexOf("[");
+  const firstObject = trimmed.indexOf("{");
+  const candidates = [firstArray, firstObject].filter((idx) => idx >= 0).sort((a, b) => a - b);
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  for (const start of candidates) {
+    const payload = trimmed.slice(start);
+    try {
+      return JSON.parse(payload) as unknown;
+    } catch {
+      // Try the next candidate position.
+    }
+  }
+
+  return null;
+}
+
+function shouldDeriveLicenseSpdx(rule: ResolvedRule["rule"]): boolean {
+  return !(LICENSE_FIELD_NAME in rule.fields);
 }
 
 function parseGithubOwnerRepoFromUrl(urlValue: string): { owner: string; repo: string } | null {
@@ -298,11 +404,6 @@ async function resolveGitMeta(
 
   const githubRepo = resolveGithubOwnerRepo(generatedSource?.src);
   if (githubRepo) {
-    if (!Bun.which("gh")) {
-      throw new Error(
-        `package '${pkg}' requires gh to resolve commit from ref '${ref}'`,
-      );
-    }
     const resolved = (
       await (
         await $`gh api repos/${githubRepo.owner}/${githubRepo.repo}/commits/${ref} --jq .sha`.quiet()
@@ -334,6 +435,44 @@ function buildFallbackFields(
 ): Partial<Record<string, string>> {
   const homepage = resolveFallbackHomepage(generatedSource);
   return homepage ? { homepage } : {};
+}
+
+async function resolveLicenseFilePath(srcOutPath: string): Promise<string | null> {
+  for (const candidate of LICENSE_FILE_CANDIDATES) {
+    const candidatePath = path.join(srcOutPath, candidate);
+    if (await Bun.file(candidatePath).exists()) {
+      return candidatePath;
+    }
+  }
+  return null;
+}
+
+async function deriveLicenseSpdxFromClassifier(
+  pkg: string,
+  srcOutPath: string,
+): Promise<string | null> {
+  const licenseFile = await resolveLicenseFilePath(srcOutPath);
+  if (!licenseFile) {
+    console.error(
+      `warning: package '${pkg}' has no root license file candidate; skipping licenseSpdx derivation`,
+    );
+    return null;
+  }
+
+  const out = await $`identify_license -json /dev/stdout ${licenseFile}`.quiet();
+  const raw = (await out.text()).trim();
+  if (!raw) {
+    return null;
+  }
+
+  const parsed = parseJsonPayload(raw);
+  if (parsed === null) {
+    return null;
+  }
+
+  const expressions = new Set<string>();
+  collectSpdxExpressionsFromJson(parsed, expressions);
+  return combineSpdxExpressions(Array.from(expressions));
 }
 
 async function extractFieldWithFallback(
@@ -655,6 +794,12 @@ async function processPackage(
   if (fields.homepage === undefined && fallbackHomepage) {
     fields.homepage = fallbackHomepage;
   }
+  if (fields[LICENSE_FIELD_NAME] === undefined && shouldDeriveLicenseSpdx(rule)) {
+    const derivedLicenseSpdx = await deriveLicenseSpdxFromClassifier(pkg, srcOutPath);
+    if (derivedLicenseSpdx) {
+      fields[LICENSE_FIELD_NAME] = derivedLicenseSpdx;
+    }
+  }
 
   return {
     profile: profileName,
@@ -677,12 +822,6 @@ async function processPackage(
 }
 
 async function validateEnvironment(paths: InputPaths): Promise<void> {
-  if (!Bun.which("jq")) {
-    fail("required command not found: jq");
-  }
-  if (!Bun.which("nix")) {
-    fail("required command not found: nix");
-  }
   if (!(await fileExists(paths.nvfetcherFile))) {
     fail(`nvfetcher.toml not found: ${paths.nvfetcherFile}`);
   }

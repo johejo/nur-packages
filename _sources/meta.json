@@ -29,7 +29,8 @@
       },
       "fields": {
         "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
-        "homepage": "https://github.com/containers/kubernetes-mcp-server"
+        "homepage": "https://github.com/containers/kubernetes-mcp-server",
+        "licenseSpdx": "Apache-2.0"
       },
       "source": {
         "file": "server.json",
@@ -70,7 +71,8 @@
       },
       "fields": {
         "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
-        "homepage": "https://github.com/steipete/gogcli"
+        "homepage": "https://github.com/steipete/gogcli",
+        "licenseSpdx": "MIT"
       },
       "source": {
         "file": "docs/index.html",
