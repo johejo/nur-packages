@@ -162,42 +162,28 @@ async function extractDescription(
     throw new Error(`package '${pkg}' file not found: ${sourceFile}`);
   }
 
+  const raw = await Bun.file(sourceFile).text();
   let decoded: unknown;
-  try {
-    const raw = await Bun.file(sourceFile).text();
-    switch (rule.decode) {
-      case "json":
-        decoded = JSON.parse(raw);
-        break;
-      case "toml":
-        decoded = Bun.TOML.parse(raw);
-        break;
-      case "yaml":
-        decoded = Bun.YAML.parse(raw);
-        break;
-      case "nix":
-        decoded = await decodeNixFile(sourceFile);
-        break;
-      default:
-        throw new Error(
-          `package '${pkg}' has unsupported decode: ${rule.decode}`,
-        );
-    }
-  } catch (error) {
-    throw new Error(
-      `package '${pkg}' failed to decode ${rule.file}: ${String(error)}`,
-    );
+  switch (rule.decode) {
+    case "json":
+      decoded = JSON.parse(raw);
+      break;
+    case "toml":
+      decoded = Bun.TOML.parse(raw);
+      break;
+    case "yaml":
+      decoded = Bun.YAML.parse(raw);
+      break;
+    case "nix":
+      decoded = await decodeNixFile(sourceFile);
+      break;
+    default:
+      throw new Error(`package '${pkg}' has unsupported decode: ${rule.decode}`);
   }
 
   const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-  try {
-    const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
-    return (await jqResult.text()).trimEnd();
-  } catch (error) {
-    throw new Error(
-      `package '${pkg}' query failed for ${rule.file}: ${String(error)}`,
-    );
-  }
+  const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
+  return (await jqResult.text()).trimEnd();
 }
 
 async function processPackage(
