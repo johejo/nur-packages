@@ -1,12 +1,21 @@
 { pkgs, system }:
 let
+  lib = pkgs.lib;
   sources = pkgs.callPackage ../_sources/generated.nix { };
   sourceMeta = (builtins.fromJSON (builtins.readFile ../_sources/meta.json)).packages;
-  sourceMetaFor = sourceName: sourceMeta.${sourceName} or { };
+  sourceMetaFor =
+    sourceName:
+    let
+      meta = sourceMeta.${sourceName} or { };
+    in
+    if builtins.isAttrs meta then
+      meta
+    else
+      { };
   sourceFieldsFor =
     sourceName:
     let
-      fields = (sourceMetaFor sourceName).fields or { };
+      fields = lib.attrByPath [ sourceName "fields" ] { } sourceMeta;
     in
     if builtins.isAttrs fields then
       fields
@@ -14,35 +23,34 @@ let
       { };
   tokenizeSpdxExpression =
     value:
-    pkgs.lib.filter (token: token != "") (
-      map pkgs.lib.strings.trim (
-        pkgs.lib.splitString "|"
+    lib.filter (token: token != "") (
+      map lib.strings.trim (
+        lib.splitString "|"
           (builtins.replaceStrings [ " OR " " AND " ] [ "|" "|" ] value)
       )
     );
-  licensesBySpdxId = builtins.foldl' (
-    acc: license:
-    if
-      builtins.isAttrs license
-      && license ? spdxId
-      && builtins.isString license.spdxId
-      && license.spdxId != ""
-    then
-      if acc ? "${license.spdxId}" then
-        acc
-      else
-        acc // { "${license.spdxId}" = license; }
-    else
-      acc
-  ) { } (builtins.attrValues pkgs.lib.licenses);
+  licensesBySpdxId = builtins.listToAttrs (
+    map (license: {
+      name = license.spdxId;
+      value = license;
+    }) (
+      lib.filter (
+        license:
+        builtins.isAttrs license
+        && license ? spdxId
+        && builtins.isString license.spdxId
+        && license.spdxId != ""
+      ) (builtins.attrValues lib.licenses)
+    )
+  );
   licenseFromSpdxExpression =
     value:
     let
       tokens = tokenizeSpdxExpression value;
-      mappedKnown = pkgs.lib.filter (license: license != null) (
+      mappedKnown = lib.filter (license: license != null) (
         map (spdx: licensesBySpdxId.${spdx} or null) tokens
       );
-      uniqueLicenses = pkgs.lib.unique mappedKnown;
+      uniqueLicenses = lib.unique mappedKnown;
     in
     if uniqueLicenses == [ ] then
       null
@@ -69,9 +77,9 @@ let
         else
           null;
     in
-    (pkgs.lib.optionalAttrs (mappedLicense != null) { license = mappedLicense; })
-    // (pkgs.lib.optionalAttrs (description != null) { inherit description; })
-    // (pkgs.lib.optionalAttrs (homepage != null) { inherit homepage; });
+    (lib.optionalAttrs (mappedLicense != null) { license = mappedLicense; })
+    // (lib.optionalAttrs (description != null) { inherit description; })
+    // (lib.optionalAttrs (homepage != null) { inherit homepage; });
   withSourceMeta =
     sourceName: drv:
     let
@@ -88,15 +96,16 @@ let
   callPackageWithSourceMeta =
     path: sourceName: args:
     withSourceMeta sourceName (pkgs.callPackage path (args // { source = sources.${sourceName}; }));
+  callPackageWithSourceMetaArg =
+    path: sourceName: args:
+    callPackageWithSourceMeta path sourceName (args // { sourceMeta = sourceMetaFor sourceName; });
   libz-rs-sys-cdylib = callPackageWithSourceMeta ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
 in
 {
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
-  gogcli = callPackageWithSourceMeta ./gogcli "gogcli" { sourceMeta = sourceMetaFor "gogcli"; };
+  gogcli = callPackageWithSourceMetaArg ./gogcli "gogcli" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
-  kubernetes-mcp-server = callPackageWithSourceMeta ./kubernetes-mcp-server "kubernetes-mcp-server" {
-    sourceMeta = sourceMetaFor "kubernetes-mcp-server";
-  };
+  kubernetes-mcp-server = callPackageWithSourceMetaArg ./kubernetes-mcp-server "kubernetes-mcp-server" { };
   gitbucket = callPackageWithSourceMeta ./gitbucket "gitbucket" { };
   prometheus-jmx-exporter = callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter" { };
   codex-bin =
@@ -114,9 +123,7 @@ in
       null;
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = callPackageWithSourceMeta ./kakehashi "kakehashi" { };
-  hev-socks5-server = callPackageWithSourceMeta ./hev-socks5-server "hev-socks5-server" {
-    sourceMeta = sourceMetaFor "hev-socks5-server";
-  };
+  hev-socks5-server = callPackageWithSourceMetaArg ./hev-socks5-server "hev-socks5-server" { };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
