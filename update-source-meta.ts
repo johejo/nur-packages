@@ -282,9 +282,14 @@ async function resolveGitMeta(
 function resolveFallbackHomepage(
   generatedSource: GeneratedSource | undefined,
 ): string | null {
+  const normalizeRepoName = (repo: string): string => repo.replace(/\.git$/i, "");
   const src = generatedSource?.src;
   if (src?.type === "github" && src.owner && src.repo) {
-    return `https://github.com/${src.owner}/${src.repo}`;
+    const repo = normalizeRepoName(src.repo);
+    if (!repo) {
+      return null;
+    }
+    return `https://github.com/${src.owner}/${repo}`;
   }
   if (typeof src?.url === "string") {
     try {
@@ -292,7 +297,8 @@ function resolveFallbackHomepage(
       if (url.hostname !== "github.com" && url.hostname !== "www.github.com") {
         return null;
       }
-      const [owner, repo] = url.pathname.split("/").filter(Boolean);
+      const [owner, rawRepo] = url.pathname.split("/").filter(Boolean);
+      const repo = rawRepo ? normalizeRepoName(rawRepo) : "";
       if (!owner || !repo) {
         return null;
       }
