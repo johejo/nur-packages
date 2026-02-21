@@ -1,21 +1,18 @@
-{ pkgs, sources, ... }:
+{ callPackageWithSourceMeta, ... }:
 let
-  zlib = pkgs.callPackage ./zlib { source = sources.apple-oss-distributions_zlib; };
-  berkeleydb = pkgs.callPackage ./berkeleydb { source = sources.apple-oss-distributions_berkeleydb; };
-  openldap = pkgs.callPackage ./openldap {
+  zlib = callPackageWithSourceMeta ./zlib "apple-oss-distributions_zlib" { };
+  berkeleydb = callPackageWithSourceMeta ./berkeleydb "apple-oss-distributions_berkeleydb" { };
+  openldap = callPackageWithSourceMeta ./openldap "apple-oss-distributions_openldap" {
     inherit berkeleydb;
-    source = sources.apple-oss-distributions_openldap;
   };
 in
 {
   inherit zlib berkeleydb;
   # inherit openldap; # broken
-  curl = pkgs.callPackage ./curl {
+  curl = callPackageWithSourceMeta ./curl "apple-oss-distributions_curl" {
     inherit zlib;
-    source = sources.apple-oss-distributions_curl;
   };
-  openssh = pkgs.callPackage ./openssh {
+  openssh = callPackageWithSourceMeta ./openssh "apple-oss-distributions_openssh" {
     inherit zlib;
-    source = sources.apple-oss-distributions_openssh;
   };
 }

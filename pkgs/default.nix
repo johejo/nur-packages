@@ -1,37 +1,65 @@
 { pkgs, system }:
 let
   sources = pkgs.callPackage ../_sources/generated.nix { };
-  libz-rs-sys-cdylib = pkgs.callPackage ./zlib-rs/libz-rs-sys-cdylib { source = sources.zlib-rs; };
+  sourceMeta = (builtins.fromJSON (builtins.readFile ../_sources/meta.json)).packages;
+  getSourceFields =
+    sourceName:
+    let
+      pkgMeta = sourceMeta.${sourceName} or { };
+    in
+    if builtins.isAttrs pkgMeta && pkgMeta ? fields && builtins.isAttrs pkgMeta.fields then
+      pkgMeta.fields
+    else
+      { };
+  withSourceMeta =
+    sourceName: drv:
+    let
+      fields = getSourceFields sourceName;
+    in
+    if fields == { } then
+      drv
+    else
+      drv.overrideAttrs (old: {
+        meta =
+          (old.meta or { })
+          // (if fields ? description then { description = fields.description; } else { })
+          // (if fields ? homepage then { homepage = fields.homepage; } else { });
+      });
+  callPackageWithSourceMeta =
+    path: sourceName: args:
+    withSourceMeta sourceName (pkgs.callPackage path (args // { source = sources.${sourceName}; }));
+  libz-rs-sys-cdylib = callPackageWithSourceMeta ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
 in
 {
-  errorformat = pkgs.callPackage ./errorformat { source = sources.errorformat; };
-  gogcli = pkgs.callPackage ./gogcli { source = sources.gogcli; };
-  starlink-exporter = pkgs.callPackage ./starlink-exporter { source = sources.starlink-exporter; };
-  kubernetes-mcp-server = pkgs.callPackage ./kubernetes-mcp-server {
-    source = sources.kubernetes-mcp-server;
-  };
-  gitbucket = pkgs.callPackage ./gitbucket { source = sources.gitbucket; };
-  prometheus-jmx-exporter = pkgs.callPackage ./prometheus-jmx-exporter {
-    source = sources.prometheus-jmx-exporter;
-  };
+  errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
+  gogcli = callPackageWithSourceMeta ./gogcli "gogcli" { };
+  starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
+  kubernetes-mcp-server = callPackageWithSourceMeta ./kubernetes-mcp-server "kubernetes-mcp-server" { };
+  gitbucket = callPackageWithSourceMeta ./gitbucket "gitbucket" { };
+  prometheus-jmx-exporter = callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter" { };
   codex-bin =
-    if sources ? "codex-${system}-bin" then
-      pkgs.callPackage ./codex-bin {
-        source = sources."codex-${system}-bin";
-        zlib = libz-rs-sys-cdylib;
-      }
+    let
+      sourceName = "codex-${system}-bin";
+    in
+    if builtins.hasAttr sourceName sources then
+      withSourceMeta sourceName (
+        pkgs.callPackage ./codex-bin {
+          source = sources.${sourceName};
+          zlib = libz-rs-sys-cdylib;
+        }
+      )
     else
       null;
   caddy = pkgs.callPackage ./caddy { };
-  kakehashi = pkgs.callPackage ./kakehashi { source = sources.kakehashi; };
-  hev-socks5-server = pkgs.callPackage ./hev-socks5-server { source = sources.hev-socks5-server; };
-  socks5shim = pkgs.callPackage ./socks5shim { source = sources.socks5shim; };
-  gf-cli = pkgs.callPackage ./gf-cli { source = sources.gf-cli; };
-  perl5-devel = pkgs.callPackage ./perl5-devel { source = sources.perl5; };
-  octorus = pkgs.callPackage ./octorus { source = sources.octorus; };
+  kakehashi = callPackageWithSourceMeta ./kakehashi "kakehashi" { };
+  hev-socks5-server = callPackageWithSourceMeta ./hev-socks5-server "hev-socks5-server" { };
+  socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
+  gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
+  perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
+  octorus = callPackageWithSourceMeta ./octorus "octorus" { };
   inherit libz-rs-sys-cdylib;
 
   apple-oss-distributions = import ./apple-oss-distributions {
-    inherit pkgs sources;
+    inherit callPackageWithSourceMeta;
   };
 }
