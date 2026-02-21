@@ -9,6 +9,9 @@
         },
         "homepage": {
           "query": ".package.homepage // .package.repository // empty"
+        },
+        "licenseSpdx": {
+          "query": ".package.license // .workspace.package.license // empty"
         }
       }
     },

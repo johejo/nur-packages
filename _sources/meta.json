@@ -229,7 +229,8 @@
       },
       "fields": {
         "description": "A memory-safe zlib implementation written in rust",
-        "homepage": "https://github.com/trifectatechfoundation/zlib-rs"
+        "homepage": "https://github.com/trifectatechfoundation/zlib-rs",
+        "licenseSpdx": "Zlib"
       },
       "source": {
         "file": "Cargo.toml",
@@ -240,6 +241,9 @@
           },
           "homepage": {
             "query": ".package.homepage // .package.repository // empty"
+          },
+          "licenseSpdx": {
+            "query": ".package.license // .workspace.package.license // empty"
           }
         }
       }
@@ -263,7 +267,8 @@
       },
       "fields": {
         "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
-        "homepage": "https://github.com/ushironoko/octorus"
+        "homepage": "https://github.com/ushironoko/octorus",
+        "licenseSpdx": "MIT"
       },
       "source": {
         "file": "Cargo.toml",
@@ -274,6 +279,9 @@
           },
           "homepage": {
             "query": ".package.homepage // .package.repository // empty"
+          },
+          "licenseSpdx": {
+            "query": ".package.license // .workspace.package.license // empty"
           }
         }
       }

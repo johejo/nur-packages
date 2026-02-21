@@ -2,29 +2,94 @@
 let
   sources = pkgs.callPackage ../_sources/generated.nix { };
   sourceMeta = (builtins.fromJSON (builtins.readFile ../_sources/meta.json)).packages;
-  getSourceFields =
+  sourceMetaFor = sourceName: sourceMeta.${sourceName} or { };
+  sourceFieldsFor =
     sourceName:
     let
-      pkgMeta = sourceMeta.${sourceName} or { };
+      pkgMeta = sourceMetaFor sourceName;
     in
     if builtins.isAttrs pkgMeta && pkgMeta ? fields && builtins.isAttrs pkgMeta.fields then
       pkgMeta.fields
     else
       { };
-  getSourceMeta = sourceName: sourceMeta.${sourceName} or { };
+  getSourceMeta = sourceMetaFor;
+  tokenizeSpdxExpression =
+    value:
+    let
+      normalized = builtins.replaceStrings
+        [
+          "("
+          ")"
+          " OR "
+          " AND "
+          " WITH "
+          " / "
+          "/"
+        ]
+        [
+          ""
+          ""
+          "|"
+          "|"
+          "|"
+          "|"
+          "|"
+        ]
+        value;
+    in
+    pkgs.lib.filter (token: token != "") (map pkgs.lib.strings.trim (pkgs.lib.splitString "|" normalized));
+  licensesBySpdxId = builtins.foldl' (
+    acc: license:
+    if
+      builtins.isAttrs license
+      && license ? spdxId
+      && builtins.isString license.spdxId
+      && license.spdxId != ""
+    then
+      if acc ? "${license.spdxId}" then
+        acc
+      else
+        acc // { "${license.spdxId}" = license; }
+    else
+      acc
+  ) { } (builtins.attrValues pkgs.lib.licenses);
+  licenseFromSpdxExpression =
+    value:
+    let
+      tokens = tokenizeSpdxExpression value;
+      mapped = map (spdx: licensesBySpdxId.${spdx} or null) tokens;
+      uniqueLicenses = pkgs.lib.unique mapped;
+    in
+    if tokens == [ ] || !(builtins.all (license: license != null) mapped) then
+      null
+    else if builtins.length uniqueLicenses == 1 then
+      builtins.head uniqueLicenses
+    else
+      uniqueLicenses;
+  metaOverridesFromFields =
+    fields:
+    let
+      mappedLicense =
+        if fields ? licenseSpdx && builtins.isString fields.licenseSpdx then
+          licenseFromSpdxExpression fields.licenseSpdx
+        else
+          null;
+    in
+    (if mappedLicense != null then { license = mappedLicense; } else { })
+    // (if fields ? description then { description = fields.description; } else { })
+    // (if fields ? homepage then { homepage = fields.homepage; } else { });
   withSourceMeta =
     sourceName: drv:
     let
-      fields = getSourceFields sourceName;
+      overrides = metaOverridesFromFields (sourceFieldsFor sourceName);
     in
-    if fields == { } then
+    if overrides == { } then
       drv
     else
       drv.overrideAttrs (old: {
         meta =
           (old.meta or { })
-          // (if fields ? description then { description = fields.description; } else { })
-          // (if fields ? homepage then { homepage = fields.homepage; } else { });
+          // overrides;
       });
   callPackageWithSourceMeta =
     path: sourceName: args:

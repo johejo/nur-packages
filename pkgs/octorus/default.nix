@@ -1,5 +1,4 @@
 {
-  lib,
   rustPlatform,
   git,
   versionCheckHook,
@@ -21,7 +20,6 @@ rustPlatform.buildRustPackage {
   '';
 
   meta = {
-    license = lib.licenses.mit;
     mainProgram = "or";
   };
 }

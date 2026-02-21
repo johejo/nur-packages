@@ -49,7 +49,4 @@ rustPlatform.buildRustPackage {
       runHook postInstall
     '';
 
-  meta = {
-    license = lib.licenses.zlib;
-  };
 }
