@@ -31,22 +31,21 @@ rustPlatform.buildRustPackage {
       -o "$targetDir/libz.so.1"
   '';
 
-  installPhase =
-    ''
-      runHook preInstall
-      mkdir -p $out/lib
-    ''
-    + lib.optionalString stdenv.isLinux ''
-      install -Dm755 target/${stdenv.hostPlatform.rust.rustcTarget}/release/libz.so.1 $out/lib/libz.so.1
-      ln -s libz.so.1 $out/lib/libz.so
-      patchelf --set-soname libz.so.1 $out/lib/libz.so.1
-    ''
-    + lib.optionalString stdenv.isDarwin ''
-      install -Dm755 target/${stdenv.hostPlatform.rust.rustcTarget}/release/libz_rs.dylib $out/lib/libz.1.dylib
-      ln -s libz.1.dylib $out/lib/libz.dylib
-    ''
-    + ''
-      runHook postInstall
-    '';
+  installPhase = ''
+    runHook preInstall
+    mkdir -p $out/lib
+  ''
+  + lib.optionalString stdenv.isLinux ''
+    install -Dm755 target/${stdenv.hostPlatform.rust.rustcTarget}/release/libz.so.1 $out/lib/libz.so.1
+    ln -s libz.so.1 $out/lib/libz.so
+    patchelf --set-soname libz.so.1 $out/lib/libz.so.1
+  ''
+  + lib.optionalString stdenv.isDarwin ''
+    install -Dm755 target/${stdenv.hostPlatform.rust.rustcTarget}/release/libz_rs.dylib $out/lib/libz.1.dylib
+    ln -s libz.1.dylib $out/lib/libz.dylib
+  ''
+  + ''
+    runHook postInstall
+  '';
 
 }

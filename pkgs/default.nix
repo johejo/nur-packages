@@ -8,40 +8,35 @@ let
     let
       meta = sourceMeta.${sourceName} or { };
     in
-    if builtins.isAttrs meta then
-      meta
-    else
-      { };
+    if builtins.isAttrs meta then meta else { };
   sourceFieldsFor =
     sourceName:
     let
       fields = lib.attrByPath [ sourceName "fields" ] { } sourceMeta;
     in
-    if builtins.isAttrs fields then
-      fields
-    else
-      { };
+    if builtins.isAttrs fields then fields else { };
   tokenizeSpdxExpression =
     value:
     lib.filter (token: token != "") (
       map lib.strings.trim (
-        lib.splitString "|"
-          (builtins.replaceStrings [ " OR " " AND " ] [ "|" "|" ] value)
+        lib.splitString "|" (builtins.replaceStrings [ " OR " " AND " ] [ "|" "|" ] value)
       )
     );
   licensesBySpdxId = builtins.listToAttrs (
-    map (license: {
-      name = license.spdxId;
-      value = license;
-    }) (
-      lib.filter (
-        license:
-        builtins.isAttrs license
-        && license ? spdxId
-        && builtins.isString license.spdxId
-        && license.spdxId != ""
-      ) (builtins.attrValues lib.licenses)
-    )
+    map
+      (license: {
+        name = license.spdxId;
+        value = license;
+      })
+      (
+        lib.filter (
+          license:
+          builtins.isAttrs license
+          && license ? spdxId
+          && builtins.isString license.spdxId
+          && license.spdxId != ""
+        ) (builtins.attrValues lib.licenses)
+      )
   );
   licenseFromSpdxExpression =
     value:
@@ -87,9 +82,7 @@ let
       drv
     else
       drv.overrideAttrs (old: {
-        meta =
-          (old.meta or { })
-          // overrides;
+        meta = (old.meta or { }) // overrides;
       });
   callPackageWithSourceMeta =
     path: sourceName: args:
@@ -103,9 +96,13 @@ in
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
   gogcli = callPackageWithSourceMetaArg ./gogcli "gogcli" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
-  kubernetes-mcp-server = callPackageWithSourceMetaArg ./kubernetes-mcp-server "kubernetes-mcp-server" { };
+  kubernetes-mcp-server =
+    callPackageWithSourceMetaArg ./kubernetes-mcp-server "kubernetes-mcp-server"
+      { };
   gitbucket = callPackageWithSourceMeta ./gitbucket "gitbucket" { };
-  prometheus-jmx-exporter = callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter" { };
+  prometheus-jmx-exporter =
+    callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter"
+      { };
   codex-bin =
     let
       sourceName = "codex-${system}-bin";
