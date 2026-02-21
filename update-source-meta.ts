@@ -27,7 +27,6 @@ type PackageMeta = {
   profile: string;
   version: string | null;
   description: string | null;
-  status: string;
   source: {
     outPath: string;
     file: string;
@@ -158,14 +157,11 @@ async function extractDescription(
   pkg: string,
   rule: Profile,
   sourceFile: string,
-): Promise<{ status: string; description: string | null }> {
+): Promise<string> {
   if (!(await fileExists(sourceFile))) {
-    console.error(`warning: package '${pkg}' file not found: ${sourceFile}`);
-    return { status: "missing-file", description: null };
+    throw new Error(`package '${pkg}' file not found: ${sourceFile}`);
   }
 
-  let status = "ok";
-  let description: string | null = null;
   let decoded: unknown;
   try {
     const raw = await Bun.file(sourceFile).text();
@@ -183,30 +179,25 @@ async function extractDescription(
         decoded = await decodeNixFile(sourceFile);
         break;
       default:
-        status = "unsupported-decode";
-        console.error(
-          `warning: package '${pkg}' has unsupported decode: ${rule.decode}`,
+        throw new Error(
+          `package '${pkg}' has unsupported decode: ${rule.decode}`,
         );
-        break;
     }
   } catch (error) {
-    status = "query-empty";
-    console.error(`warning: package '${pkg}' failed to decode ${rule.file}: ${error}`);
+    throw new Error(
+      `package '${pkg}' failed to decode ${rule.file}: ${String(error)}`,
+    );
   }
 
-  if (status === "ok") {
-    const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-    const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`
-      .nothrow()
-      .quiet();
-    if (jqResult.exitCode === 0) {
-      description = (await jqResult.text()).trimEnd();
-    } else {
-      status = "query-empty";
-    }
+  const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
+  try {
+    const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
+    return (await jqResult.text()).trimEnd();
+  } catch (error) {
+    throw new Error(
+      `package '${pkg}' query failed for ${rule.file}: ${String(error)}`,
+    );
   }
-
-  return { status, description };
 }
 
 async function processPackage(
@@ -225,13 +216,12 @@ async function processPackage(
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
   const version = generated[pkg]?.version ?? null;
-  const { status, description } = await extractDescription(pkg, rule, sourceFile);
+  const description = await extractDescription(pkg, rule, sourceFile);
 
   return {
     profile: profileName,
     version,
     description,
-    status,
     source: {
       outPath: srcOutPath,
       file: rule.file,
