@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 import { $ } from "bun";
-import { mkdir, rename } from "node:fs/promises";
+import { mkdir, readdir, rename } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
@@ -438,10 +438,35 @@ function buildFallbackFields(
 }
 
 async function resolveLicenseFilePath(srcOutPath: string): Promise<string | null> {
-  for (const candidate of LICENSE_FILE_CANDIDATES) {
-    const candidatePath = path.join(srcOutPath, candidate);
-    if (await Bun.file(candidatePath).exists()) {
-      return candidatePath;
+  const findInDir = async (dirPath: string): Promise<string | null> => {
+    for (const candidate of LICENSE_FILE_CANDIDATES) {
+      const candidatePath = path.join(dirPath, candidate);
+      if (await Bun.file(candidatePath).exists()) {
+        return candidatePath;
+      }
+    }
+    return null;
+  };
+
+  const rootCandidate = await findInDir(srcOutPath);
+  if (rootCandidate) {
+    return rootCandidate;
+  }
+
+  let entries: Awaited<ReturnType<typeof readdir>>;
+  try {
+    entries = await readdir(srcOutPath, { withFileTypes: true });
+  } catch {
+    return null;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    const nestedCandidate = await findInDir(path.join(srcOutPath, entry.name));
+    if (nestedCandidate) {
+      return nestedCandidate;
     }
   }
   return null;
@@ -454,7 +479,7 @@ async function deriveLicenseSpdxFromClassifier(
   const licenseFile = await resolveLicenseFilePath(srcOutPath);
   if (!licenseFile) {
     console.error(
-      `warning: package '${pkg}' has no root license file candidate; skipping licenseSpdx derivation`,
+      `warning: package '${pkg}' has no license file candidate; skipping licenseSpdx derivation`,
     );
     return null;
   }
@@ -473,6 +498,71 @@ async function deriveLicenseSpdxFromClassifier(
   const expressions = new Set<string>();
   collectSpdxExpressionsFromJson(parsed, expressions);
   return combineSpdxExpressions(Array.from(expressions));
+}
+
+async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | null> {
+  const expr = `
+    let
+      flake = builtins.getFlake (toString (builtins.toPath ${JSON.stringify(srcOutPath)}));
+      system = builtins.currentSystem;
+      packageSet =
+        if flake ? packages && builtins.hasAttr system flake.packages then
+          builtins.getAttr system flake.packages
+        else
+          { };
+      defaultPkg =
+        if builtins.hasAttr "default" packageSet then
+          packageSet.default
+        else
+          null;
+      toSpdx =
+        value:
+          if builtins.isAttrs value then
+            value.spdxId or null
+          else if builtins.isList value then
+            let
+              ids = builtins.filter (x: x != null) (map toSpdx value);
+            in
+              if ids == [ ] then null else builtins.concatStringsSep " OR " ids
+          else
+            null;
+    in
+      if defaultPkg == null then null else toSpdx (defaultPkg.meta.license or null)
+  `;
+
+  try {
+    const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
+    const raw = (await out.text()).trim();
+    if (!raw || raw === "null") {
+      return null;
+    }
+    const value = JSON.parse(raw) as unknown;
+    if (typeof value !== "string") {
+      return null;
+    }
+    const normalized = normalizeSpdxExpression(value);
+    return normalized || null;
+  } catch {
+    return null;
+  }
+}
+
+async function deriveLicenseSpdx(
+  pkg: string,
+  srcOutPath: string,
+  rule?: ResolvedRule["rule"],
+): Promise<string | null> {
+  const maybeFlakePath = path.join(srcOutPath, "flake.nix");
+  const shouldTryFlake =
+    (rule?.decode === "nix" && path.basename(rule.file) === "flake.nix")
+    || await fileExists(maybeFlakePath);
+  if (shouldTryFlake) {
+    const flakeLicense = await deriveLicenseSpdxFromFlake(srcOutPath);
+    if (flakeLicense) {
+      return flakeLicense;
+    }
+  }
+  return deriveLicenseSpdxFromClassifier(pkg, srcOutPath);
 }
 
 async function extractFieldWithFallback(
@@ -770,23 +860,30 @@ async function processPackage(
   const git = await resolveGitMeta(pkg, generatedSource);
   const fallbackFields = buildFallbackFields(generatedSource);
   const fallbackHomepage = fallbackFields.homepage;
+  console.log(`Processing ${pkg}...`);
 
   const resolvedRule = resolvePackageRule(pkg, rules.packages[pkg], rules);
   if (!resolvedRule) {
+    const srcOutPath = await resolveSourceOutPath(pkg);
+    const fields: Record<string, string> = {};
     if (fallbackHomepage) {
+      fields.homepage = fallbackHomepage;
+    }
+    const derivedLicenseSpdx = await deriveLicenseSpdx(pkg, srcOutPath);
+    if (derivedLicenseSpdx) {
+      fields[LICENSE_FIELD_NAME] = derivedLicenseSpdx;
+    }
+    if (Object.keys(fields).length > 0) {
       return {
         version,
         git,
-        fields: {
-          homepage: fallbackHomepage,
-        },
+        fields,
       };
     }
     return { version, git };
   }
 
   const { profileName, rule } = resolvedRule;
-  console.log(`Processing ${pkg}...`);
 
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
@@ -795,7 +892,7 @@ async function processPackage(
     fields.homepage = fallbackHomepage;
   }
   if (fields[LICENSE_FIELD_NAME] === undefined && shouldDeriveLicenseSpdx(rule)) {
-    const derivedLicenseSpdx = await deriveLicenseSpdxFromClassifier(pkg, srcOutPath);
+    const derivedLicenseSpdx = await deriveLicenseSpdx(pkg, srcOutPath, rule);
     if (derivedLicenseSpdx) {
       fields[LICENSE_FIELD_NAME] = derivedLicenseSpdx;
     }
