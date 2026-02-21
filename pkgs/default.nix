@@ -63,11 +63,7 @@ let
     fields:
     let
       licenseSpdx = stringFieldOrNull fields "licenseSpdx";
-      mappedLicense =
-        if licenseSpdx != null then
-          licenseFromSpdxExpression licenseSpdx
-        else
-          null;
+      mappedLicense = if licenseSpdx != null then licenseFromSpdxExpression licenseSpdx else null;
     in
     lib.filterAttrs (_: value: value != null) {
       license = mappedLicense;
