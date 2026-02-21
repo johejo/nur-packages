@@ -58,6 +58,12 @@ let
       builtins.head uniqueLicenses
     else
       uniqueLicenses;
+  stringFieldOrNull =
+    fields: name:
+    if builtins.hasAttr name fields && builtins.isString (builtins.getAttr name fields) then
+      builtins.getAttr name fields
+    else
+      null;
   metaOverridesFromFields =
     fields:
     let
@@ -66,20 +72,12 @@ let
           licenseFromSpdxExpression fields.licenseSpdx
         else
           null;
-      description =
-        if fields ? description && builtins.isString fields.description then
-          fields.description
-        else
-          null;
-      homepage =
-        if fields ? homepage && builtins.isString fields.homepage then
-          fields.homepage
-        else
-          null;
     in
-    (lib.optionalAttrs (mappedLicense != null) { license = mappedLicense; })
-    // (lib.optionalAttrs (description != null) { inherit description; })
-    // (lib.optionalAttrs (homepage != null) { inherit homepage; });
+    lib.filterAttrs (_: value: value != null) {
+      license = mappedLicense;
+      description = stringFieldOrNull fields "description";
+      homepage = stringFieldOrNull fields "homepage";
+    };
   withSourceMeta =
     sourceName: drv:
     let
