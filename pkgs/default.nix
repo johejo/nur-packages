@@ -11,6 +11,7 @@ let
       pkgMeta.fields
     else
       { };
+  getSourceMeta = sourceName: sourceMeta.${sourceName} or { };
   withSourceMeta =
     sourceName: drv:
     let
@@ -32,9 +33,11 @@ let
 in
 {
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
-  gogcli = callPackageWithSourceMeta ./gogcli "gogcli" { };
+  gogcli = callPackageWithSourceMeta ./gogcli "gogcli" { sourceMeta = getSourceMeta "gogcli"; };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
-  kubernetes-mcp-server = callPackageWithSourceMeta ./kubernetes-mcp-server "kubernetes-mcp-server" { };
+  kubernetes-mcp-server = callPackageWithSourceMeta ./kubernetes-mcp-server "kubernetes-mcp-server" {
+    sourceMeta = getSourceMeta "kubernetes-mcp-server";
+  };
   gitbucket = callPackageWithSourceMeta ./gitbucket "gitbucket" { };
   prometheus-jmx-exporter = callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter" { };
   codex-bin =
@@ -52,7 +55,9 @@ in
       null;
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = callPackageWithSourceMeta ./kakehashi "kakehashi" { };
-  hev-socks5-server = callPackageWithSourceMeta ./hev-socks5-server "hev-socks5-server" { };
+  hev-socks5-server = callPackageWithSourceMeta ./hev-socks5-server "hev-socks5-server" {
+    sourceMeta = getSourceMeta "hev-socks5-server";
+  };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };

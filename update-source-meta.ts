@@ -183,6 +183,46 @@ function isGitCommitHash(value: string): boolean {
   return /^[0-9a-f]{40}$/i.test(value);
 }
 
+function normalizeRepoName(repo: string): string {
+  return repo.replace(/\.git$/i, "");
+}
+
+function parseGithubOwnerRepoFromUrl(urlValue: string): { owner: string; repo: string } | null {
+  try {
+    const url = new URL(urlValue);
+    if (url.hostname !== "github.com" && url.hostname !== "www.github.com") {
+      return null;
+    }
+    const [owner, rawRepo] = url.pathname.split("/").filter(Boolean);
+    const repo = rawRepo ? normalizeRepoName(rawRepo) : "";
+    if (!owner || !repo) {
+      return null;
+    }
+    return { owner, repo };
+  } catch {
+    return null;
+  }
+}
+
+function resolveGithubOwnerRepo(
+  src: GeneratedSource["src"] | undefined,
+): { owner: string; repo: string } | null {
+  if (!src) {
+    return null;
+  }
+  if (src.type === "github" && src.owner && src.repo) {
+    const repo = normalizeRepoName(src.repo);
+    if (!repo) {
+      return null;
+    }
+    return { owner: src.owner, repo };
+  }
+  if (typeof src.url === "string") {
+    return parseGithubOwnerRepoFromUrl(src.url);
+  }
+  return null;
+}
+
 function isDecodeKind(value: unknown): value is DecodeKind {
   return typeof value === "string" && DECODE_KINDS.has(value as DecodeKind);
 }
@@ -256,8 +296,8 @@ async function resolveGitMeta(
     return { ref, commit: ref };
   }
 
-  const src = generatedSource?.src;
-  if (src?.type === "github" && src.owner && src.repo) {
+  const githubRepo = resolveGithubOwnerRepo(generatedSource?.src);
+  if (githubRepo) {
     if (!Bun.which("gh")) {
       throw new Error(
         `package '${pkg}' requires gh to resolve commit from ref '${ref}'`,
@@ -265,7 +305,7 @@ async function resolveGitMeta(
     }
     const resolved = (
       await (
-        await $`gh api repos/${src.owner}/${src.repo}/commits/${ref} --jq .sha`.quiet()
+        await $`gh api repos/${githubRepo.owner}/${githubRepo.repo}/commits/${ref} --jq .sha`.quiet()
       ).text()
     ).trim();
     if (!isGitCommitHash(resolved)) {
@@ -282,30 +322,9 @@ async function resolveGitMeta(
 function resolveFallbackHomepage(
   generatedSource: GeneratedSource | undefined,
 ): string | null {
-  const normalizeRepoName = (repo: string): string => repo.replace(/\.git$/i, "");
-  const src = generatedSource?.src;
-  if (src?.type === "github" && src.owner && src.repo) {
-    const repo = normalizeRepoName(src.repo);
-    if (!repo) {
-      return null;
-    }
-    return `https://github.com/${src.owner}/${repo}`;
-  }
-  if (typeof src?.url === "string") {
-    try {
-      const url = new URL(src.url);
-      if (url.hostname !== "github.com" && url.hostname !== "www.github.com") {
-        return null;
-      }
-      const [owner, rawRepo] = url.pathname.split("/").filter(Boolean);
-      const repo = rawRepo ? normalizeRepoName(rawRepo) : "";
-      if (!owner || !repo) {
-        return null;
-      }
-      return `https://github.com/${owner}/${repo}`;
-    } catch {
-      return null;
-    }
+  const githubRepo = resolveGithubOwnerRepo(generatedSource?.src);
+  if (githubRepo) {
+    return `https://github.com/${githubRepo.owner}/${githubRepo.repo}`;
   }
   return null;
 }

@@ -5,6 +5,7 @@
   versionCheckHook,
   installShellFiles,
   source,
+  sourceMeta ? { },
   ...
 }:
 
@@ -33,12 +34,14 @@ buildGoModule rec {
   ldflags =
     let
       mod = "github.com/steipete/gogcli/internal/cmd";
+      sourceGit = sourceMeta.git or { };
+      commit = sourceGit.commit or sourceGit.ref or source.rev;
     in
     [
       "-s"
       "-w"
       "-X ${mod}.version=${version}"
-      "-X ${mod}.commit=${src.rev}"
+      "-X ${mod}.commit=${commit}"
     ];
 
   nativeBuildInputs = [ installShellFiles ];

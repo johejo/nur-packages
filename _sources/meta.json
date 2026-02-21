@@ -194,7 +194,7 @@
       "version": "2.11.2",
       "git": {
         "ref": "2.11.2",
-        "commit": null
+        "commit": "1c3173356ea9544e4a2d41e15be752acbee80c31"
       },
       "fields": {
         "homepage": "https://github.com/heiher/hev-socks5-server"
