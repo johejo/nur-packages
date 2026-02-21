@@ -15,7 +15,6 @@ buildGoModule {
   ];
   meta = {
     description = "Vim's quickfix errorformat implementation in Go";
-    homepage = "https://github.com/reviewdog/errorformat";
     license = lib.licenses.mit;
     mainProgram = "errorformat";
   };

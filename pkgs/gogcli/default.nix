@@ -55,8 +55,6 @@ buildGoModule rec {
   '';
 
   meta = {
-    description = "Fast, script-friendly CLI for Google Workspace (Gmail, Calendar, Drive, Docs, etc.)";
-    homepage = "https://github.com/steipete/gogcli";
     license = lib.licenses.mit;
     mainProgram = "gog";
   };

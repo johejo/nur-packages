@@ -27,7 +27,6 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Apple Open Source Distribution of Berkeley DB";
-    homepage = "https://github.com/apple-oss-distributions/BerkeleyDB";
     license = lib.licenses.sleepycat;
   };
 }

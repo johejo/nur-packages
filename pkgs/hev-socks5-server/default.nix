@@ -26,7 +26,6 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "Simple, lightweight SOCKS5 server";
-    homepage = "https://github.com/heiher/hev-socks5-server";
     license = lib.licenses.mit;
     changelog = "https://github.com/heiher/hev-socks5-server/releases/tag/${version}";
     mainProgram = "hev-socks5-server";

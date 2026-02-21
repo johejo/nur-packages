@@ -34,7 +34,6 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Apple Open Source Distribution of zlib";
-    homepage = "https://github.com/apple-oss-distributions/zlib";
     license = lib.licenses.zlib;
   };
 }

@@ -55,7 +55,6 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "Codex CLI from OpenAI";
-    homepage = "https://github.com/openai/codex";
     license = lib.licenses.asl20;
     changelog = "https://github.com/openai/codex/releases/tag/${version}";
     mainProgram = "codex";

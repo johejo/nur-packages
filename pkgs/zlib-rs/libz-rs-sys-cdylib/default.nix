@@ -50,8 +50,6 @@ rustPlatform.buildRustPackage {
     '';
 
   meta = {
-    description = "Rust zlib implementation with zlib-compatible C ABI";
-    homepage = "https://github.com/trifectatechfoundation/zlib-rs";
     license = lib.licenses.zlib;
   };
 }

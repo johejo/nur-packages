@@ -21,8 +21,6 @@ rustPlatform.buildRustPackage {
   '';
 
   meta = {
-    description = "A TUI tool for GitHub PR review, designed for Helix editor users";
-    homepage = "https://github.com/ushironoko/octorus";
     license = lib.licenses.mit;
     mainProgram = "or";
   };

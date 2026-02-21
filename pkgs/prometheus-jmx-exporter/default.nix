@@ -21,7 +21,6 @@ stdenvNoCC.mkDerivation rec {
   '';
   meta = {
     description = "The JMX Exporter is a collector to capture JMX MBean values.";
-    homepage = "https://github.com/prometheus/jmx_exporter";
     license = lib.licenses.asl20;
     changelog = "https://github.com/prometheus/jmx_exporter/releases/tag/${version}";
   };

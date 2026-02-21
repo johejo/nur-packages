@@ -24,8 +24,6 @@ buildGoModule rec {
   doInstallCheck = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
   meta = {
-    description = "Model Context Protocol (MCP) server for Kubernetes and OpenShift";
-    homepage = "https://github.com/containers/kubernetes-mcp-server";
     license = lib.licenses.asl20;
     changelog = "https://github.com/containers/kubernetes-mcp-server/releases/tag/${version}";
     mainProgram = "kubernetes-mcp-server";

@@ -31,7 +31,6 @@ buildGoModule rec {
 
   meta = {
     description = "Grafana API Client for command line operations";
-    homepage = "https://github.com/johejo/gf-cli";
     license = lib.licenses.apsl20;
     mainProgram = "gf";
   };
