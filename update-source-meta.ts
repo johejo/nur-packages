@@ -379,6 +379,12 @@ async function fileExists(filePath: string): Promise<boolean> {
   return Bun.file(filePath).exists();
 }
 
+async function evalNixExprJson(expr: string): Promise<unknown> {
+  const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
+  const raw = (await out.text()).trim();
+  return raw ? JSON.parse(raw) as unknown : null;
+}
+
 async function decodeNixFile(filePath: string): Promise<unknown> {
   const expr = `
     let
@@ -401,8 +407,7 @@ async function decodeNixFile(filePath: string): Promise<unknown> {
     in
       sanitize (import (builtins.toPath ${JSON.stringify(filePath)}))
   `;
-  const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
-  return JSON.parse(await out.text());
+  return evalNixExprJson(expr);
 }
 
 const STRUCTURED_DECODERS: Record<
@@ -533,8 +538,8 @@ async function deriveLicenseSpdxFromClassifier(
   return combineSpdxExpressions(Array.from(expressions));
 }
 
-async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | null> {
-  const expr = `
+function buildFlakeLicenseExpr(srcOutPath: string): string {
+  return `
     let
       flake = builtins.getFlake (toString (builtins.toPath ${JSON.stringify(srcOutPath)}));
       system = builtins.currentSystem;
@@ -566,14 +571,14 @@ async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | 
     in
       sanitize licenseValue
   `;
+}
 
+async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | null> {
   try {
-    const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
-    const raw = (await out.text()).trim();
-    if (!raw || raw === "null") {
+    const parsed = await evalNixExprJson(buildFlakeLicenseExpr(srcOutPath));
+    if (parsed == null) {
       return null;
     }
-    const parsed = JSON.parse(raw) as unknown;
     const expressions = new Set<string>();
     collectSpdxExpressionsFromFlakeLicense(parsed, expressions);
     return combineSpdxExpressions(Array.from(expressions));

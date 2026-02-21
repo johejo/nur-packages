@@ -62,9 +62,10 @@ let
   metaOverridesFromFields =
     fields:
     let
+      licenseSpdx = stringFieldOrNull fields "licenseSpdx";
       mappedLicense =
-        if fields ? licenseSpdx && builtins.isString fields.licenseSpdx then
-          licenseFromSpdxExpression fields.licenseSpdx
+        if licenseSpdx != null then
+          licenseFromSpdxExpression licenseSpdx
         else
           null;
     in
