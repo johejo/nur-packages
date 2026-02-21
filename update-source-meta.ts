@@ -21,6 +21,26 @@ type Rules = {
   packages: Record<string, PackageRule>;
 };
 
+type GeneratedSources = Record<string, { version?: string }>;
+
+type PackageMeta = {
+  profile: string;
+  version: string | null;
+  description: string | null;
+  status: string;
+  source: {
+    outPath: string;
+    file: string;
+    decode: DecodeKind;
+    query: string;
+  };
+};
+
+type ResolvedRule = {
+  profileName: string;
+  rule: Profile;
+};
+
 const scriptPath = fileURLToPath(import.meta.url);
 const rootDir = path.dirname(scriptPath);
 
@@ -74,6 +94,151 @@ async function decodeNixFile(filePath: string): Promise<unknown> {
   `;
   const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
   return JSON.parse(await out.text());
+}
+
+function resolvePackageRule(
+  pkg: string,
+  pkgRule: PackageRule | undefined,
+  rules: Rules,
+): ResolvedRule | null {
+  if (!pkgRule) {
+    return null;
+  }
+  if (typeof pkgRule !== "object" || pkgRule === null) {
+    console.error(
+      `warning: package '${pkg}' has unsupported rule type; object is required`,
+    );
+    return null;
+  }
+
+  const profileName = pkgRule.profile ?? "";
+  if (!profileName) {
+    console.error(
+      `warning: package '${pkg}' has object rule but no profile; skipping`,
+    );
+    return null;
+  }
+
+  const baseProfile = rules.profiles[profileName];
+  if (!baseProfile) {
+    console.error(
+      `warning: package '${pkg}' references unknown profile '${profileName}'; skipping`,
+    );
+    return null;
+  }
+
+  const rule: Profile = {
+    ...baseProfile,
+    ...(pkgRule.file !== undefined ? { file: pkgRule.file } : {}),
+    ...(pkgRule.decode !== undefined ? { decode: pkgRule.decode } : {}),
+    ...(pkgRule.query !== undefined ? { query: pkgRule.query } : {}),
+  };
+  if (!rule.file) {
+    console.error(`warning: package '${pkg}' resolved rule has no file; skipping`);
+    return null;
+  }
+
+  return { profileName, rule };
+}
+
+async function resolveSourceOutPath(pkg: string): Promise<string> {
+  const expr = `
+    let
+      flake = builtins.getFlake (toString ./.);
+      pkgs = import flake.inputs.nixpkgs { system = builtins.currentSystem; };
+      sources = pkgs.callPackage ./_sources/generated.nix { };
+    in
+      (builtins.getAttr ${JSON.stringify(pkg)} sources).src
+  `;
+  const srcResult = await $.cwd(rootDir)`nix build --no-link --print-out-paths --impure --expr ${expr}`.quiet();
+  return (await srcResult.text()).trim();
+}
+
+async function extractDescription(
+  pkg: string,
+  rule: Profile,
+  sourceFile: string,
+): Promise<{ status: string; description: string | null }> {
+  if (!(await fileExists(sourceFile))) {
+    console.error(`warning: package '${pkg}' file not found: ${sourceFile}`);
+    return { status: "missing-file", description: null };
+  }
+
+  let status = "ok";
+  let description: string | null = null;
+  let decoded: unknown;
+  try {
+    const raw = await Bun.file(sourceFile).text();
+    switch (rule.decode) {
+      case "json":
+        decoded = JSON.parse(raw);
+        break;
+      case "toml":
+        decoded = Bun.TOML.parse(raw);
+        break;
+      case "yaml":
+        decoded = Bun.YAML.parse(raw);
+        break;
+      case "nix":
+        decoded = await decodeNixFile(sourceFile);
+        break;
+      default:
+        status = "unsupported-decode";
+        console.error(
+          `warning: package '${pkg}' has unsupported decode: ${rule.decode}`,
+        );
+        break;
+    }
+  } catch (error) {
+    status = "query-empty";
+    console.error(`warning: package '${pkg}' failed to decode ${rule.file}: ${error}`);
+  }
+
+  if (status === "ok") {
+    const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
+    const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`
+      .nothrow()
+      .quiet();
+    if (jqResult.exitCode === 0) {
+      description = (await jqResult.text()).trimEnd();
+    } else {
+      status = "query-empty";
+    }
+  }
+
+  return { status, description };
+}
+
+async function processPackage(
+  pkg: string,
+  rules: Rules,
+  generated: GeneratedSources,
+): Promise<PackageMeta | null> {
+  const resolvedRule = resolvePackageRule(pkg, rules.packages[pkg], rules);
+  if (!resolvedRule) {
+    return null;
+  }
+
+  const { profileName, rule } = resolvedRule;
+  console.log(`Processing ${pkg}...`);
+
+  const srcOutPath = await resolveSourceOutPath(pkg);
+  const sourceFile = path.join(srcOutPath, rule.file);
+  const version = generated[pkg]?.version ?? null;
+  const { status, description } = await extractDescription(pkg, rule, sourceFile);
+
+  return {
+    profile: profileName,
+    version,
+    description,
+    status,
+    source: {
+      outPath: srcOutPath,
+      file: rule.file,
+      decode: rule.decode,
+      query: rule.query,
+    },
+  };
 }
 
 async function main(): Promise<void> {
@@ -132,9 +297,7 @@ async function main(): Promise<void> {
   }
 
   const rules = await loadJsonFile<Rules>(rulesFile);
-  const generated = await loadJsonFile<Record<string, { version?: string }>>(
-    generatedJsonFile,
-  );
+  const generated = await loadJsonFile<GeneratedSources>(generatedJsonFile);
 
   const nvfetcherToml = await Bun.file(nvfetcherFile).text();
   const nvfetcherConfig = Bun.TOML.parse(nvfetcherToml) as Record<string, unknown>;
@@ -157,124 +320,12 @@ async function main(): Promise<void> {
   let skipped = 0;
 
   for (const pkg of nvfetcherPackages) {
-    const pkgRule = rules.packages[pkg];
-    if (!pkgRule) {
+    const packageMeta = await processPackage(pkg, rules, generated);
+    if (!packageMeta) {
       skipped += 1;
       continue;
     }
-    if (typeof pkgRule !== "object" || pkgRule === null) {
-      console.error(
-        `warning: package '${pkg}' has unsupported rule type; object is required`,
-      );
-      skipped += 1;
-      continue;
-    }
-
-    const profileName = pkgRule.profile ?? "";
-    if (!profileName) {
-      console.error(
-        `warning: package '${pkg}' has object rule but no profile; skipping`,
-      );
-      skipped += 1;
-      continue;
-    }
-
-    const baseProfile = rules.profiles[profileName];
-    if (!baseProfile) {
-      console.error(
-        `warning: package '${pkg}' references unknown profile '${profileName}'; skipping`,
-      );
-      skipped += 1;
-      continue;
-    }
-
-    const rule: Profile = {
-      ...baseProfile,
-      ...(pkgRule.file !== undefined ? { file: pkgRule.file } : {}),
-      ...(pkgRule.decode !== undefined ? { decode: pkgRule.decode } : {}),
-      ...(pkgRule.query !== undefined ? { query: pkgRule.query } : {}),
-    };
-    if (!rule.file) {
-      console.error(`warning: package '${pkg}' resolved rule has no file; skipping`);
-      skipped += 1;
-      continue;
-    }
-
-    console.log(`Processing ${pkg}...`);
-
-    const expr = `
-      let
-        flake = builtins.getFlake (toString ./.);
-        pkgs = import flake.inputs.nixpkgs { system = builtins.currentSystem; };
-        sources = pkgs.callPackage ./_sources/generated.nix { };
-      in
-        (builtins.getAttr ${JSON.stringify(pkg)} sources).src
-    `;
-    const srcResult = await $.cwd(rootDir)`nix build --no-link --print-out-paths --impure --expr ${expr}`.quiet();
-    const srcOutPath = (await srcResult.text()).trim();
-    const sourceFile = path.join(srcOutPath, rule.file);
-    const version = generated[pkg]?.version ?? null;
-
-    let status = "ok";
-    let description: string | null = null;
-
-    if (!(await fileExists(sourceFile))) {
-      status = "missing-file";
-      console.error(`warning: package '${pkg}' file not found: ${sourceFile}`);
-    } else {
-      let decoded: unknown;
-      try {
-        const raw = await Bun.file(sourceFile).text();
-        switch (rule.decode) {
-          case "json":
-            decoded = JSON.parse(raw);
-            break;
-          case "toml":
-            decoded = Bun.TOML.parse(raw);
-            break;
-          case "yaml":
-            decoded = Bun.YAML.parse(raw);
-            break;
-          case "nix":
-            decoded = await decodeNixFile(sourceFile);
-            break;
-          default:
-            status = "unsupported-decode";
-            console.error(
-              `warning: package '${pkg}' has unsupported decode: ${rule.decode}`,
-            );
-            break;
-        }
-      } catch (error) {
-        status = "query-empty";
-        console.error(`warning: package '${pkg}' failed to decode ${rule.file}: ${error}`);
-      }
-
-      if (status === "ok") {
-        const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-        const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`
-          .nothrow()
-          .quiet();
-        if (jqResult.exitCode === 0) {
-          description = (await jqResult.text()).trimEnd();
-        } else {
-          status = "query-empty";
-        }
-      }
-    }
-
-    packages[pkg] = {
-      profile: profileName,
-      version,
-      description,
-      status,
-      source: {
-        outPath: srcOutPath,
-        file: rule.file,
-        decode: rule.decode,
-        query: rule.query,
-      },
-    };
+    packages[pkg] = packageMeta;
     processed += 1;
   }
 
