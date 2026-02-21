@@ -93,15 +93,12 @@ async function decodeNixFile(filePath: string): Promise<unknown> {
       sanitize =
         value:
           if builtins.isAttrs value then
-            builtins.listToAttrs (
-              builtins.concatMap
-                (name:
-                  let v = value.\${name}; in
-                  if builtins.isFunction v then
-                    [ ]
-                  else
-                    [ { inherit name; value = sanitize v; } ])
-                (builtins.attrNames value)
+            builtins.mapAttrs (_: sanitize) (
+              builtins.removeAttrs value (
+                builtins.filter
+                  (name: builtins.isFunction value.\${name})
+                  (builtins.attrNames value)
+              )
             )
           else if builtins.isList value then
             map sanitize value
