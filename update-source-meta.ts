@@ -137,6 +137,23 @@ const LICENSE_FILE_CANDIDATES = [
   "UNLICENSE",
 ];
 const SPDX_EXPRESSION_PATTERN = /^[A-Za-z0-9][A-Za-z0-9.+-]*(?:\s+(?:OR|AND)\s+[A-Za-z0-9][A-Za-z0-9.+-]*)*$/;
+const NIX_SANITIZE_EXPR = `
+value:
+  if builtins.isAttrs value then
+    builtins.mapAttrs (_: sanitize) (
+      builtins.removeAttrs value (
+        builtins.filter
+          (name: builtins.isFunction value.\${name})
+          (builtins.attrNames value)
+      )
+    )
+  else if builtins.isList value then
+    map sanitize value
+  else if builtins.isPath value then
+    builtins.toString value
+  else
+    value
+`;
 
 function resolveOutputPath(pathOrDefault: string | undefined, fallback: string): string {
   return pathOrDefault ? path.resolve(rootDir, pathOrDefault) : fallback;
@@ -388,22 +405,7 @@ async function evalNixExprJson(expr: string): Promise<unknown> {
 async function decodeNixFile(filePath: string): Promise<unknown> {
   const expr = `
     let
-      sanitize =
-        value:
-          if builtins.isAttrs value then
-            builtins.mapAttrs (_: sanitize) (
-              builtins.removeAttrs value (
-                builtins.filter
-                  (name: builtins.isFunction value.\${name})
-                  (builtins.attrNames value)
-              )
-            )
-          else if builtins.isList value then
-            map sanitize value
-          else if builtins.isPath value then
-            builtins.toString value
-          else
-            value;
+      sanitize = ${NIX_SANITIZE_EXPR};
     in
       sanitize (import (builtins.toPath ${JSON.stringify(filePath)}))
   `;
@@ -541,35 +543,14 @@ async function deriveLicenseSpdxFromClassifier(
 function buildFlakeLicenseExpr(srcOutPath: string): string {
   return `
     let
+      getAttrOr = name: set: fallback:
+        if builtins.hasAttr name set then builtins.getAttr name set else fallback;
+      sanitize = ${NIX_SANITIZE_EXPR};
       flake = builtins.getFlake (toString (builtins.toPath ${JSON.stringify(srcOutPath)}));
-      system = builtins.currentSystem;
-      packageSet =
-        if flake ? packages && builtins.hasAttr system flake.packages then
-          builtins.getAttr system flake.packages
-        else
-          { };
-      defaultPkg =
-        if builtins.hasAttr "default" packageSet then
-          packageSet.default
-        else
-          null;
-      licenseValue = if defaultPkg == null then null else defaultPkg.meta.license or null;
-      sanitize =
-        value:
-          if builtins.isAttrs value then
-            builtins.mapAttrs (_: sanitize) (
-              builtins.removeAttrs value (
-                builtins.filter
-                  (name: builtins.isFunction value.\${name})
-                  (builtins.attrNames value)
-              )
-            )
-          else if builtins.isList value then
-            map sanitize value
-          else
-            value;
+      packageSet = getAttrOr builtins.currentSystem (flake.packages or { }) { };
+      defaultPkg = getAttrOr "default" packageSet null;
     in
-      sanitize licenseValue
+      sanitize (if defaultPkg == null then null else defaultPkg.meta.license or null)
   `;
 }
 
