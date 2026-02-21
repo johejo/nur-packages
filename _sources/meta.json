@@ -1,7 +1,7 @@
 {
   "packages": {
     "kakehashi": {
-      "profile": "cargo-description",
+      "profile": "flake",
       "version": "v0.1.0",
       "description": "kakehashi - A Tree-sitter Language Server",
       "status": "ok",
@@ -13,7 +13,7 @@
       }
     },
     "octorus": {
-      "profile": "cargo-description",
+      "profile": "cargo",
       "version": "v0.4.2",
       "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
       "status": "ok",

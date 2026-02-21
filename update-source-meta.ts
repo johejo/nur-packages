@@ -14,7 +14,7 @@ type Profile = {
   query: string;
 };
 
-type PackageRule = string | ({ profile: string } & Partial<Profile>);
+type PackageRule = { profile: string } & Partial<Profile>;
 
 type Rules = {
   profiles: Record<string, Profile>;
@@ -162,32 +162,21 @@ async function main(): Promise<void> {
       skipped += 1;
       continue;
     }
+    if (typeof pkgRule !== "object" || pkgRule === null) {
+      console.error(
+        `warning: package '${pkg}' has unsupported rule type; object is required`,
+      );
+      skipped += 1;
+      continue;
+    }
 
-    let profileName = "";
-    let overrides: Partial<Profile> = {};
-    switch (typeof pkgRule) {
-      case "string":
-        profileName = pkgRule;
-        break;
-      case "object":
-        profileName = pkgRule.profile ?? "";
-        if (!profileName) {
-          console.error(
-            `warning: package '${pkg}' has object rule but no profile; skipping`,
-          );
-          skipped += 1;
-          continue;
-        }
-        overrides = {
-          file: pkgRule.file,
-          decode: pkgRule.decode,
-          query: pkgRule.query,
-        };
-        break;
-      default:
-        console.error(`warning: package '${pkg}' has unsupported rule type; skipping`);
-        skipped += 1;
-        continue;
+    const profileName = pkgRule.profile ?? "";
+    if (!profileName) {
+      console.error(
+        `warning: package '${pkg}' has object rule but no profile; skipping`,
+      );
+      skipped += 1;
+      continue;
     }
 
     const baseProfile = rules.profiles[profileName];
@@ -201,7 +190,9 @@ async function main(): Promise<void> {
 
     const rule: Profile = {
       ...baseProfile,
-      ...overrides,
+      ...(pkgRule.file !== undefined ? { file: pkgRule.file } : {}),
+      ...(pkgRule.decode !== undefined ? { decode: pkgRule.decode } : {}),
+      ...(pkgRule.query !== undefined ? { query: pkgRule.query } : {}),
     };
     if (!rule.file) {
       console.error(`warning: package '${pkg}' resolved rule has no file; skipping`);

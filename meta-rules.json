@@ -1,23 +1,27 @@
 {
   "profiles": {
-    "cargo-description": {
+    "cargo": {
       "file": "Cargo.toml",
       "decode": "toml",
       "query": ".package.description // empty"
     },
-    "npm-description": {
+    "npm": {
       "file": "package.json",
       "decode": "json",
+      "query": ".description // empty"
+    },
+    "flake": {
+      "file": "flake.nix",
+      "decode": "nix",
       "query": ".description // empty"
     }
   },
   "packages": {
     "kakehashi": {
-      "profile": "cargo-description",
-      "file": "flake.nix",
-      "decode": "nix",
-      "query": ".description // empty"
+      "profile": "flake"
     },
-    "octorus": "cargo-description"
+    "octorus": {
+      "profile": "cargo"
+    }
   }
 }
