@@ -6,7 +6,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 
-type DecodeKind = "json" | "toml" | "nix";
+type DecodeKind = "json" | "toml" | "yaml" | "nix";
 
 type Profile = {
   file: string;
@@ -231,6 +231,9 @@ async function main(): Promise<void> {
             break;
           case "toml":
             decoded = Bun.TOML.parse(raw);
+            break;
+          case "yaml":
+            decoded = Bun.YAML.parse(raw);
             break;
           case "nix":
             decoded = await decodeNixFile(sourceFile);
