@@ -982,19 +982,19 @@ async function buildMeta(
   generated: GeneratedSources,
 ): Promise<BuildMetaResult> {
   const packages: Record<string, PackageMeta> = {};
-  let processed = 0;
-  let withFields = 0;
+  const results = await Promise.all(
+    nvfetcherPackages.map(async (pkg) => ({ pkg, packageMeta: await processPackage(pkg, rules, generated) })),
+  );
 
-  for (const pkg of nvfetcherPackages) {
-    const packageMeta = await processPackage(pkg, rules, generated);
+  let withFields = 0;
+  for (const { pkg, packageMeta } of results) {
+    packages[pkg] = packageMeta;
     if (packageMeta.fields !== undefined) {
       withFields += 1;
     }
-    packages[pkg] = packageMeta;
-    processed += 1;
   }
 
-  return { packages, processed, withFields };
+  return { packages, processed: results.length, withFields };
 }
 
 async function writeMetaFile(
