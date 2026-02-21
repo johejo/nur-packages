@@ -21,11 +21,17 @@
         "ref": "v0.0.57",
         "commit": "c972471d978fbd1edac076cef73d0651995a47b7"
       },
-      "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
+      "fields": {
+        "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift"
+      },
       "source": {
         "file": "server.json",
         "decode": "json",
-        "query": ".description // empty"
+        "fields": {
+          "description": {
+            "query": ".description // empty"
+          }
+        }
       }
     },
     "gitbucket": {
@@ -49,18 +55,24 @@
         "ref": "v0.11.0",
         "commit": "91c4c15884441105c7e793217366f1335b344478"
       },
-      "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
+      "fields": {
+        "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People."
+      },
       "source": {
         "file": "docs/index.html",
         "decode": "html",
-        "selectors": [
-          {
-            "selector": "meta[name='description']"
-          },
-          {
-            "selector": "meta[property='og:description']"
+        "fields": {
+          "description": {
+            "selectors": [
+              {
+                "selector": "meta[name='description']"
+              },
+              {
+                "selector": "meta[property='og:description']"
+              }
+            ]
           }
-        ]
+        }
       }
     },
     "codex-aarch64-darwin-bin": {
@@ -126,11 +138,17 @@
         "ref": "v0.1.0",
         "commit": "435db8577feb5d69472bb56b13cdd249e667dd0a"
       },
-      "description": "kakehashi - A Tree-sitter Language Server",
+      "fields": {
+        "description": "kakehashi - A Tree-sitter Language Server"
+      },
       "source": {
         "file": "flake.nix",
         "decode": "nix",
-        "query": ".description // empty"
+        "fields": {
+          "description": {
+            "query": ".description // empty"
+          }
+        }
       }
     },
     "hev-socks5-server": {
@@ -161,11 +179,17 @@
         "ref": "v0.6.0",
         "commit": "14e15a257f022c18e505fe5ea830139da47dac9d"
       },
-      "description": "A memory-safe zlib implementation written in rust",
+      "fields": {
+        "description": "A memory-safe zlib implementation written in rust"
+      },
       "source": {
         "file": "Cargo.toml",
         "decode": "toml",
-        "query": ".workspace.package.description // empty"
+        "fields": {
+          "description": {
+            "query": ".workspace.package.description // empty"
+          }
+        }
       }
     },
     "perl5": {
@@ -182,11 +206,17 @@
         "ref": "v0.4.2",
         "commit": "52c6a70b4865d4ddd6c7aa8a30817cfb2f235b5f"
       },
-      "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
+      "fields": {
+        "description": "A TUI tool for GitHub PR review, designed for Helix editor users"
+      },
       "source": {
         "file": "Cargo.toml",
         "decode": "toml",
-        "query": ".package.description // empty"
+        "fields": {
+          "description": {
+            "query": ".package.description // empty"
+          }
+        }
       }
     }
   }

@@ -13,14 +13,30 @@ type HtmlSelector = {
   attr?: string;
 };
 
+type FieldRule =
+  | {
+      query: string;
+      selectors?: never;
+    }
+  | {
+      selectors: HtmlSelector[];
+      query?: never;
+    };
+
+type RuleFields = Record<string, FieldRule>;
+
 type RuleConfig = {
   file: string;
   decode: DecodeKind;
-  query?: string;
-  selectors?: HtmlSelector[];
+  fields: RuleFields;
 };
 
-type PackageRule = { profile: string } & Partial<RuleConfig>;
+type PackageRule = {
+  profile: string;
+  file?: string;
+  decode?: DecodeKind;
+  fields?: RuleFields;
+};
 
 type Rules = {
   profiles: Record<string, RuleConfig>;
@@ -47,17 +63,17 @@ type PackageMeta = {
     commit: string | null;
   };
   profile?: string;
-  description?: string | null;
+  fields?: Record<string, string>;
   source?:
     | {
         file: string;
         decode: "html";
-        selectors: HtmlSelector[];
+        fields: RuleFields;
       }
     | {
         file: string;
         decode: Exclude<DecodeKind, "html">;
-        query: string;
+        fields: RuleFields;
       };
 };
 
@@ -67,17 +83,18 @@ type ResolvedRule = {
     | {
         file: string;
         decode: "html";
-        selectors: HtmlSelector[];
+        fields: RuleFields;
       }
     | {
         file: string;
         decode: Exclude<DecodeKind, "html">;
-        query: string;
+        fields: RuleFields;
       };
 };
 
 const scriptPath = fileURLToPath(import.meta.url);
 const rootDir = path.dirname(scriptPath);
+const DECODE_KINDS = new Set<DecodeKind>(["json", "toml", "yaml", "nix", "html"]);
 
 function usage(): void {
   console.log(`Usage: bun ./update-source-meta.ts [options]
@@ -95,6 +112,14 @@ function fail(message: string): never {
 
 function isGitCommitHash(value: string): boolean {
   return /^[0-9a-f]{40}$/i.test(value);
+}
+
+function isDecodeKind(value: unknown): value is DecodeKind {
+  return typeof value === "string" && DECODE_KINDS.has(value as DecodeKind);
+}
+
+function isNonNullObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
 }
 
 async function loadJsonFile<T>(filePath: string): Promise<T> {
@@ -171,6 +196,7 @@ function extractHtmlDescription(
   raw: string,
   selectors: HtmlSelector[],
   pkg: string,
+  fieldName: string,
 ): string {
   for (const selector of selectors) {
     const attr = selector.attr ?? "content";
@@ -194,8 +220,84 @@ function extractHtmlDescription(
   }
 
   throw new Error(
-    `package '${pkg}' html selectors did not match any non-empty value`,
+    `package '${pkg}' field '${fieldName}' html selectors did not match any non-empty value`,
   );
+}
+
+function normalizeFields(
+  pkg: string,
+  decode: DecodeKind,
+  fieldsValue: unknown,
+): RuleFields {
+  if (!isNonNullObject(fieldsValue)) {
+    throw new Error(`package '${pkg}' resolved rule has invalid fields object`);
+  }
+
+  const fields: RuleFields = {};
+  for (const [fieldName, value] of Object.entries(fieldsValue)) {
+    if (!isNonNullObject(value)) {
+      throw new Error(`package '${pkg}' field '${fieldName}' must be an object`);
+    }
+
+    const query = value.query;
+    const selectorsValue = value.selectors;
+    if (decode === "html") {
+      if (query !== undefined) {
+        throw new Error(
+          `package '${pkg}' field '${fieldName}' uses decode=html but query is not supported`,
+        );
+      }
+      if (!Array.isArray(selectorsValue) || selectorsValue.length === 0) {
+        throw new Error(
+          `package '${pkg}' field '${fieldName}' uses decode=html but selectors are missing`,
+        );
+      }
+
+      const selectors: HtmlSelector[] = [];
+      for (const selector of selectorsValue) {
+        if (
+          !isNonNullObject(selector)
+          || typeof selector.selector !== "string"
+          || !selector.selector
+        ) {
+          throw new Error(
+            `package '${pkg}' field '${fieldName}' has invalid selector entry`,
+          );
+        }
+
+        const attr = selector.attr;
+        if (attr !== undefined && (typeof attr !== "string" || !attr)) {
+          throw new Error(
+            `package '${pkg}' field '${fieldName}' has invalid selector attr`,
+          );
+        }
+        selectors.push(
+          attr === undefined
+            ? { selector: selector.selector }
+            : { selector: selector.selector, attr },
+        );
+      }
+      fields[fieldName] = { selectors };
+      continue;
+    }
+
+    if (selectorsValue !== undefined) {
+      throw new Error(
+        `package '${pkg}' field '${fieldName}' uses selectors with decode=${decode}; selectors are supported only for html`,
+      );
+    }
+    if (typeof query !== "string" || !query) {
+      throw new Error(
+        `package '${pkg}' field '${fieldName}' uses decode=${decode} but query is missing`,
+      );
+    }
+    fields[fieldName] = { query };
+  }
+
+  if (Object.keys(fields).length === 0) {
+    throw new Error(`package '${pkg}' resolved rule has no fields`);
+  }
+  return fields;
 }
 
 function resolvePackageRule(
@@ -206,20 +308,26 @@ function resolvePackageRule(
   if (!pkgRule) {
     return null;
   }
-  if (typeof pkgRule !== "object" || pkgRule === null) {
+  if (!isNonNullObject(pkgRule)) {
     console.error(
       `warning: package '${pkg}' has unsupported rule type; object is required`,
     );
     return null;
   }
 
-  const profileName = pkgRule.profile ?? "";
-  if (!profileName) {
+  for (const key of Object.keys(pkgRule)) {
+    if (key !== "profile" && key !== "file" && key !== "decode" && key !== "fields") {
+      throw new Error(`package '${pkg}' has unsupported key '${key}'`);
+    }
+  }
+
+  if (typeof pkgRule.profile !== "string" || !pkgRule.profile) {
     console.error(
       `warning: package '${pkg}' has object rule but no profile; skipping`,
     );
     return null;
   }
+  const profileName = pkgRule.profile;
 
   const baseProfile = rules.profiles[profileName];
   if (!baseProfile) {
@@ -229,70 +337,56 @@ function resolvePackageRule(
     return null;
   }
 
-  const rule: RuleConfig = {
-    ...baseProfile,
-    ...(pkgRule.file !== undefined ? { file: pkgRule.file } : {}),
-    ...(pkgRule.decode !== undefined ? { decode: pkgRule.decode } : {}),
-    ...(pkgRule.query !== undefined ? { query: pkgRule.query } : {}),
-    ...(pkgRule.selectors !== undefined ? { selectors: pkgRule.selectors } : {}),
-  };
-  if (!rule.file) {
-    console.error(`warning: package '${pkg}' resolved rule has no file; skipping`);
-    return null;
+  if (!isNonNullObject(baseProfile)) {
+    throw new Error(`profile '${profileName}' must be an object`);
+  }
+  if (typeof baseProfile.file !== "string" || !baseProfile.file) {
+    throw new Error(`profile '${profileName}' has invalid file`);
+  }
+  if (!isDecodeKind(baseProfile.decode)) {
+    throw new Error(`profile '${profileName}' has invalid decode`);
+  }
+  if (!isNonNullObject(baseProfile.fields)) {
+    throw new Error(`profile '${profileName}' has invalid fields`);
   }
 
-  if (rule.decode === "html") {
-    if (rule.query !== undefined) {
-      throw new Error(
-        `package '${pkg}' uses decode=html but query is not supported; use selectors instead`,
-      );
-    }
-    const selectors = rule.selectors;
-    if (!selectors || selectors.length === 0) {
-      throw new Error(
-        `package '${pkg}' uses decode=html but selectors are missing`,
-      );
-    }
-    for (const selector of selectors) {
-      if (!selector || typeof selector.selector !== "string" || !selector.selector) {
-        throw new Error(`package '${pkg}' has an invalid html selector entry`);
-      }
-      if (
-        selector.attr !== undefined
-        && (typeof selector.attr !== "string" || !selector.attr)
-      ) {
-        throw new Error(
-          `package '${pkg}' has an invalid html selector attr`,
-        );
-      }
-    }
+  if (
+    pkgRule.file !== undefined
+    && (typeof pkgRule.file !== "string" || !pkgRule.file)
+  ) {
+    throw new Error(`package '${pkg}' has invalid file`);
+  }
+  if (pkgRule.decode !== undefined && !isDecodeKind(pkgRule.decode)) {
+    throw new Error(`package '${pkg}' has invalid decode`);
+  }
+  if (pkgRule.fields !== undefined && !isNonNullObject(pkgRule.fields)) {
+    throw new Error(`package '${pkg}' has invalid fields override`);
+  }
+
+  const decode = pkgRule.decode ?? baseProfile.decode;
+  const file = pkgRule.file ?? baseProfile.file;
+  const fields = normalizeFields(pkg, decode, {
+    ...baseProfile.fields,
+    ...(pkgRule.fields ?? {}),
+  });
+
+  if (decode === "html") {
     return {
       profileName,
       rule: {
-        file: rule.file,
+        file,
         decode: "html",
-        selectors,
+        fields,
       },
     };
-  }
-
-  if (rule.selectors !== undefined) {
-    throw new Error(
-      `package '${pkg}' uses selectors with decode=${rule.decode}; selectors are supported only for html`,
-    );
-  }
-  if (!rule.query) {
-    throw new Error(
-      `package '${pkg}' uses decode=${rule.decode} but query is missing`,
-    );
   }
 
   return {
     profileName,
     rule: {
-      file: rule.file,
-      decode: rule.decode,
-      query: rule.query,
+      file,
+      decode,
+      fields,
     },
   };
 }
@@ -310,20 +404,45 @@ async function resolveSourceOutPath(pkg: string): Promise<string> {
   return (await srcResult.text()).trim();
 }
 
-async function extractDescription(
+async function extractFields(
   pkg: string,
   rule: ResolvedRule["rule"],
   sourceFile: string,
-): Promise<string> {
+): Promise<Record<string, string>> {
   if (!(await fileExists(sourceFile))) {
     throw new Error(`package '${pkg}' file not found: ${sourceFile}`);
   }
 
   const raw = await Bun.file(sourceFile).text();
+  const fields: Record<string, string> = {};
+  switch (rule.decode) {
+    case "html": {
+      for (const [fieldName, fieldRule] of Object.entries(rule.fields)) {
+        if (!("selectors" in fieldRule)) {
+          throw new Error(
+            `package '${pkg}' field '${fieldName}' is invalid for decode=html`,
+          );
+        }
+        fields[fieldName] = extractHtmlDescription(
+          raw,
+          fieldRule.selectors,
+          pkg,
+          fieldName,
+        );
+      }
+      return fields;
+    }
+    case "json":
+    case "toml":
+    case "yaml":
+    case "nix":
+      break;
+    default:
+      throw new Error(`package '${pkg}' has unsupported decode: ${rule.decode}`);
+  }
+
   let decoded: unknown;
   switch (rule.decode) {
-    case "html":
-      return extractHtmlDescription(raw, rule.selectors, pkg);
     case "json":
       decoded = JSON.parse(raw);
       break;
@@ -340,9 +459,18 @@ async function extractDescription(
       throw new Error(`package '${pkg}' has unsupported decode: ${rule.decode}`);
   }
 
-  const jqExpr = `${rule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-  const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
-  return (await jqResult.text()).trimEnd();
+  for (const [fieldName, fieldRule] of Object.entries(rule.fields)) {
+    if (!("query" in fieldRule)) {
+      throw new Error(
+        `package '${pkg}' field '${fieldName}' is invalid for decode=${rule.decode}`,
+      );
+    }
+    const jqExpr = `${fieldRule.query} | if . == null then empty elif type == "string" then . else tostring end`;
+    const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
+    fields[fieldName] = (await jqResult.text()).trimEnd();
+  }
+
+  return fields;
 }
 
 async function processPackage(
@@ -364,24 +492,24 @@ async function processPackage(
 
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
-  const description = await extractDescription(pkg, rule, sourceFile);
+  const fields = await extractFields(pkg, rule, sourceFile);
 
   return {
     profile: profileName,
     version,
     git,
-    description,
+    fields,
     source:
       rule.decode === "html"
         ? {
             file: rule.file,
             decode: "html",
-            selectors: rule.selectors,
+            fields: rule.fields,
           }
         : {
             file: rule.file,
             decode: rule.decode,
-            query: rule.query,
+            fields: rule.fields,
           },
   };
 }
@@ -462,12 +590,12 @@ async function main(): Promise<void> {
 
   const packages: Record<string, unknown> = {};
   let processed = 0;
-  let withDescription = 0;
+  let withFields = 0;
 
   for (const pkg of nvfetcherPackages) {
     const packageMeta = await processPackage(pkg, rules, generated);
-    if (packageMeta.profile !== undefined) {
-      withDescription += 1;
+    if (packageMeta.fields !== undefined) {
+      withFields += 1;
     }
     packages[pkg] = packageMeta;
     processed += 1;
@@ -491,7 +619,7 @@ async function main(): Promise<void> {
   await rename(tmpFile, outFile);
 
   console.log(`Wrote: ${outFile}`);
-  console.log(`Processed: ${processed}, withDescription: ${withDescription}`);
+  console.log(`Processed: ${processed}, withFields: ${withFields}`);
 }
 
 main().catch((error: unknown) => {

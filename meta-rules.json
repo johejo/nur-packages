@@ -3,34 +3,54 @@
     "cargo": {
       "file": "Cargo.toml",
       "decode": "toml",
-      "query": ".package.description // empty"
+      "fields": {
+        "description": {
+          "query": ".package.description // empty"
+        }
+      }
     },
     "npm": {
       "file": "package.json",
       "decode": "json",
-      "query": ".description // empty"
+      "fields": {
+        "description": {
+          "query": ".description // empty"
+        }
+      }
     },
     "server-json": {
       "file": "server.json",
       "decode": "json",
-      "query": ".description // empty"
+      "fields": {
+        "description": {
+          "query": ".description // empty"
+        }
+      }
     },
     "flake": {
       "file": "flake.nix",
       "decode": "nix",
-      "query": ".description // empty"
+      "fields": {
+        "description": {
+          "query": ".description // empty"
+        }
+      }
     },
     "html": {
       "file": "index.html",
       "decode": "html",
-      "selectors": [
-        {
-          "selector": "meta[name='description']"
-        },
-        {
-          "selector": "meta[property='og:description']"
+      "fields": {
+        "description": {
+          "selectors": [
+            {
+              "selector": "meta[name='description']"
+            },
+            {
+              "selector": "meta[property='og:description']"
+            }
+          ]
         }
-      ]
+      }
     }
   },
   "packages": {
@@ -49,7 +69,11 @@
     },
     "zlib-rs": {
       "profile": "cargo",
-      "query": ".workspace.package.description // empty"
+      "fields": {
+        "description": {
+          "query": ".workspace.package.description // empty"
+        }
+      }
     }
   }
 }
