@@ -192,6 +192,16 @@ async function resolveGitMeta(
   return { ref, commit: null };
 }
 
+function resolveFallbackHomepage(
+  generatedSource: GeneratedSource | undefined,
+): string | null {
+  const src = generatedSource?.src;
+  if (src?.type === "github" && src.owner && src.repo) {
+    return `https://github.com/${src.owner}/${src.repo}`;
+  }
+  return null;
+}
+
 function extractHtmlDescription(
   raw: string,
   selectors: HtmlSelector[],
@@ -408,6 +418,7 @@ async function extractFields(
   pkg: string,
   rule: ResolvedRule["rule"],
   sourceFile: string,
+  fallbackFields: Partial<Record<string, string>>,
 ): Promise<Record<string, string>> {
   if (!(await fileExists(sourceFile))) {
     throw new Error(`package '${pkg}' file not found: ${sourceFile}`);
@@ -423,12 +434,20 @@ async function extractFields(
             `package '${pkg}' field '${fieldName}' is invalid for decode=html`,
           );
         }
-        fields[fieldName] = extractHtmlDescription(
-          raw,
-          fieldRule.selectors,
-          pkg,
-          fieldName,
-        );
+        try {
+          fields[fieldName] = extractHtmlDescription(
+            raw,
+            fieldRule.selectors,
+            pkg,
+            fieldName,
+          );
+        } catch (error) {
+          const fallback = fallbackFields[fieldName];
+          if (!fallback) {
+            throw error;
+          }
+          fields[fieldName] = fallback;
+        }
       }
       return fields;
     }
@@ -466,8 +485,27 @@ async function extractFields(
       );
     }
     const jqExpr = `${fieldRule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-    const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
-    fields[fieldName] = (await jqResult.text()).trimEnd();
+    try {
+      const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
+      const value = (await jqResult.text()).trim();
+      if (!value) {
+        const fallback = fallbackFields[fieldName];
+        if (!fallback) {
+          throw new Error(
+            `package '${pkg}' field '${fieldName}' query returned empty value`,
+          );
+        }
+        fields[fieldName] = fallback;
+        continue;
+      }
+      fields[fieldName] = value;
+    } catch (error) {
+      const fallback = fallbackFields[fieldName];
+      if (!fallback) {
+        throw error;
+      }
+      fields[fieldName] = fallback;
+    }
   }
 
   return fields;
@@ -481,6 +519,8 @@ async function processPackage(
   const generatedSource = generated[pkg];
   const version = generatedSource?.version ?? null;
   const git = await resolveGitMeta(pkg, generatedSource);
+  const fallbackHomepage = resolveFallbackHomepage(generatedSource);
+  const fallbackFields = fallbackHomepage ? { homepage: fallbackHomepage } : {};
 
   const resolvedRule = resolvePackageRule(pkg, rules.packages[pkg], rules);
   if (!resolvedRule) {
@@ -492,7 +532,10 @@ async function processPackage(
 
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
-  const fields = await extractFields(pkg, rule, sourceFile);
+  const fields = await extractFields(pkg, rule, sourceFile, fallbackFields);
+  if (fields.homepage === undefined && fallbackHomepage) {
+    fields.homepage = fallbackHomepage;
+  }
 
   return {
     profile: profileName,

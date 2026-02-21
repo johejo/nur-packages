@@ -6,6 +6,9 @@
       "fields": {
         "description": {
           "query": ".package.description // empty"
+        },
+        "homepage": {
+          "query": ".package.homepage // .package.repository // empty"
         }
       }
     },
