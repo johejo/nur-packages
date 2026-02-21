@@ -3,18 +3,8 @@ let
   lib = pkgs.lib;
   sources = pkgs.callPackage ../_sources/generated.nix { };
   sourceMeta = (builtins.fromJSON (builtins.readFile ../_sources/meta.json)).packages;
-  sourceMetaFor =
-    sourceName:
-    let
-      meta = sourceMeta.${sourceName} or { };
-    in
-    if builtins.isAttrs meta then meta else { };
-  sourceFieldsFor =
-    sourceName:
-    let
-      fields = lib.attrByPath [ sourceName "fields" ] { } sourceMeta;
-    in
-    if builtins.isAttrs fields then fields else { };
+  sourceMetaFor = sourceName: sourceMeta.${sourceName} or { };
+  sourceFieldsFor = sourceName: (sourceMetaFor sourceName).fields or { };
   tokenizeSpdxExpression =
     value:
     lib.filter (token: token != "") (
@@ -22,21 +12,11 @@ let
         lib.splitString "|" (builtins.replaceStrings [ " OR " " AND " ] [ "|" "|" ] value)
       )
     );
+  hasSpdxId = license: builtins.isString (license.spdxId or null) && license.spdxId != "";
   licensesBySpdxId = builtins.listToAttrs (
-    map
-      (license: {
-        name = license.spdxId;
-        value = license;
-      })
-      (
-        lib.filter (
-          license:
-          builtins.isAttrs license
-          && license ? spdxId
-          && builtins.isString license.spdxId
-          && license.spdxId != ""
-        ) (builtins.attrValues lib.licenses)
-      )
+    map (license: lib.nameValuePair license.spdxId license) (
+      lib.filter hasSpdxId (builtins.attrValues lib.licenses)
+    )
   );
   licenseFromSpdxExpression =
     value:
