@@ -92,9 +92,40 @@ type ResolvedRule = {
       };
 };
 
+type StructuredDecodeKind = Exclude<DecodeKind, "html">;
+
+type CliOptions = {
+  help: boolean;
+  rulesFile: string;
+  outFile: string;
+};
+
+type InputPaths = {
+  rulesFile: string;
+  outFile: string;
+  nvfetcherFile: string;
+  generatedJsonFile: string;
+};
+
+type LoadedInputs = {
+  rules: Rules;
+  generated: GeneratedSources;
+  nvfetcherPackages: string[];
+};
+
+type BuildMetaResult = {
+  packages: Record<string, PackageMeta>;
+  processed: number;
+  withFields: number;
+};
+
 const scriptPath = fileURLToPath(import.meta.url);
 const rootDir = path.dirname(scriptPath);
 const DECODE_KINDS = new Set<DecodeKind>(["json", "toml", "yaml", "nix", "html"]);
+
+function resolveOutputPath(pathOrDefault: string | undefined, fallback: string): string {
+  return pathOrDefault ? path.resolve(rootDir, pathOrDefault) : fallback;
+}
 
 function usage(): void {
   console.log(`Usage: bun ./update-source-meta.ts [options]
@@ -108,6 +139,44 @@ Options:
 function fail(message: string): never {
   console.error(`error: ${message}`);
   process.exit(1);
+}
+
+function parseCliOptions(args: string[]): CliOptions {
+  try {
+    const parsed = parseArgs({
+      args,
+      options: {
+        rules: { type: "string" },
+        out: { type: "string" },
+        help: { type: "boolean", short: "h" },
+      },
+      strict: true,
+      allowPositionals: false,
+    });
+    return {
+      help: Boolean(parsed.values.help),
+      rulesFile: resolveOutputPath(
+        parsed.values.rules,
+        path.join(rootDir, "meta-rules.json"),
+      ),
+      outFile: resolveOutputPath(
+        parsed.values.out,
+        path.join(rootDir, "_sources", "meta.json"),
+      ),
+    };
+  } catch (error) {
+    usage();
+    fail(error instanceof Error ? error.message : String(error));
+  }
+}
+
+function resolveInputPaths(cli: CliOptions): InputPaths {
+  return {
+    rulesFile: cli.rulesFile,
+    outFile: cli.outFile,
+    nvfetcherFile: path.join(rootDir, "nvfetcher.toml"),
+    generatedJsonFile: path.join(rootDir, "_sources", "generated.json"),
+  };
 }
 
 function isGitCommitHash(value: string): boolean {
@@ -155,6 +224,24 @@ async function decodeNixFile(filePath: string): Promise<unknown> {
   `;
   const out = await $.cwd(rootDir)`nix eval --json --impure --expr ${expr}`.quiet();
   return JSON.parse(await out.text());
+}
+
+const STRUCTURED_DECODERS: Record<
+  StructuredDecodeKind,
+  (raw: string, sourceFile: string) => Promise<unknown>
+> = {
+  json: async (raw) => JSON.parse(raw),
+  toml: async (raw) => Bun.TOML.parse(raw),
+  yaml: async (raw) => Bun.YAML.parse(raw),
+  nix: async (_raw, sourceFile) => decodeNixFile(sourceFile),
+};
+
+async function decodeStructuredSource(
+  decode: StructuredDecodeKind,
+  raw: string,
+  sourceFile: string,
+): Promise<unknown> {
+  return STRUCTURED_DECODERS[decode](raw, sourceFile);
 }
 
 async function resolveGitMeta(
@@ -215,6 +302,34 @@ function resolveFallbackHomepage(
     }
   }
   return null;
+}
+
+function buildFallbackFields(
+  generatedSource: GeneratedSource | undefined,
+): Partial<Record<string, string>> {
+  const homepage = resolveFallbackHomepage(generatedSource);
+  return homepage ? { homepage } : {};
+}
+
+async function extractFieldWithFallback(
+  pkg: string,
+  fieldName: string,
+  fallbackFields: Partial<Record<string, string>>,
+  extractor: () => Promise<string> | string,
+): Promise<string> {
+  try {
+    const value = (await extractor()).trim();
+    if (!value) {
+      throw new Error(`package '${pkg}' field '${fieldName}' resolved empty value`);
+    }
+    return value;
+  } catch (error) {
+    const fallback = fallbackFields[fieldName]?.trim();
+    if (fallback) {
+      return fallback;
+    }
+    throw error;
+  }
 }
 
 function extractHtmlDescription(
@@ -441,57 +556,24 @@ async function extractFields(
 
   const raw = await Bun.file(sourceFile).text();
   const fields: Record<string, string> = {};
-  switch (rule.decode) {
-    case "html": {
-      for (const [fieldName, fieldRule] of Object.entries(rule.fields)) {
-        if (!("selectors" in fieldRule)) {
-          throw new Error(
-            `package '${pkg}' field '${fieldName}' is invalid for decode=html`,
-          );
-        }
-        try {
-          fields[fieldName] = extractHtmlDescription(
-            raw,
-            fieldRule.selectors,
-            pkg,
-            fieldName,
-          );
-        } catch (error) {
-          const fallback = fallbackFields[fieldName];
-          if (!fallback) {
-            throw error;
-          }
-          fields[fieldName] = fallback;
-        }
+  if (rule.decode === "html") {
+    for (const [fieldName, fieldRule] of Object.entries(rule.fields)) {
+      if (!("selectors" in fieldRule)) {
+        throw new Error(
+          `package '${pkg}' field '${fieldName}' is invalid for decode=html`,
+        );
       }
-      return fields;
+      fields[fieldName] = await extractFieldWithFallback(
+        pkg,
+        fieldName,
+        fallbackFields,
+        () => extractHtmlDescription(raw, fieldRule.selectors, pkg, fieldName),
+      );
     }
-    case "json":
-    case "toml":
-    case "yaml":
-    case "nix":
-      break;
-    default:
-      throw new Error(`package '${pkg}' has unsupported decode: ${rule.decode}`);
+    return fields;
   }
 
-  let decoded: unknown;
-  switch (rule.decode) {
-    case "json":
-      decoded = JSON.parse(raw);
-      break;
-    case "toml":
-      decoded = Bun.TOML.parse(raw);
-      break;
-    case "yaml":
-      decoded = Bun.YAML.parse(raw);
-      break;
-    case "nix":
-      decoded = await decodeNixFile(sourceFile);
-      break;
-    default:
-      throw new Error(`package '${pkg}' has unsupported decode: ${rule.decode}`);
-  }
+  const decoded = await decodeStructuredSource(rule.decode, raw, sourceFile);
 
   for (const [fieldName, fieldRule] of Object.entries(rule.fields)) {
     if (!("query" in fieldRule)) {
@@ -500,27 +582,15 @@ async function extractFields(
       );
     }
     const jqExpr = `${fieldRule.query} | if . == null then empty elif type == "string" then . else tostring end`;
-    try {
-      const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
-      const value = (await jqResult.text()).trim();
-      if (!value) {
-        const fallback = fallbackFields[fieldName];
-        if (!fallback) {
-          throw new Error(
-            `package '${pkg}' field '${fieldName}' query returned empty value`,
-          );
-        }
-        fields[fieldName] = fallback;
-        continue;
-      }
-      fields[fieldName] = value;
-    } catch (error) {
-      const fallback = fallbackFields[fieldName];
-      if (!fallback) {
-        throw error;
-      }
-      fields[fieldName] = fallback;
-    }
+    fields[fieldName] = await extractFieldWithFallback(
+      pkg,
+      fieldName,
+      fallbackFields,
+      async () => {
+        const jqResult = await $`printf %s ${JSON.stringify(decoded)} | jq -er ${jqExpr}`.quiet();
+        return await jqResult.text();
+      },
+    );
   }
 
   return fields;
@@ -534,8 +604,8 @@ async function processPackage(
   const generatedSource = generated[pkg];
   const version = generatedSource?.version ?? null;
   const git = await resolveGitMeta(pkg, generatedSource);
-  const fallbackHomepage = resolveFallbackHomepage(generatedSource);
-  const fallbackFields = fallbackHomepage ? { homepage: fallbackHomepage } : {};
+  const fallbackFields = buildFallbackFields(generatedSource);
+  const fallbackHomepage = fallbackFields.homepage;
 
   const resolvedRule = resolvePackageRule(pkg, rules.packages[pkg], rules);
   if (!resolvedRule) {
@@ -581,71 +651,39 @@ async function processPackage(
   };
 }
 
-async function main(): Promise<void> {
-  let parsed:
-    | ReturnType<typeof parseArgs<{
-        rules: { type: "string" };
-        out: { type: "string" };
-        help: { type: "boolean"; short: "h" };
-      }>>
-    | undefined;
-  try {
-    parsed = parseArgs({
-      args: Bun.argv.slice(2),
-      options: {
-        rules: { type: "string" },
-        out: { type: "string" },
-        help: { type: "boolean", short: "h" },
-      },
-      strict: true,
-      allowPositionals: false,
-    });
-  } catch (error) {
-    usage();
-    fail(error instanceof Error ? error.message : String(error));
-  }
-
-  if (parsed.values.help) {
-    usage();
-    return;
-  }
-
-  const rulesFile = parsed.values.rules
-    ? path.resolve(rootDir, parsed.values.rules)
-    : path.join(rootDir, "meta-rules.json");
-  const outFile = parsed.values.out
-    ? path.resolve(rootDir, parsed.values.out)
-    : path.join(rootDir, "_sources", "meta.json");
-
-  const nvfetcherFile = path.join(rootDir, "nvfetcher.toml");
-  const generatedJsonFile = path.join(rootDir, "_sources", "generated.json");
-
+async function validateEnvironment(paths: InputPaths): Promise<void> {
   if (!Bun.which("jq")) {
     fail("required command not found: jq");
   }
   if (!Bun.which("nix")) {
     fail("required command not found: nix");
   }
-  if (!(await fileExists(nvfetcherFile))) {
-    fail(`nvfetcher.toml not found: ${nvfetcherFile}`);
+  if (!(await fileExists(paths.nvfetcherFile))) {
+    fail(`nvfetcher.toml not found: ${paths.nvfetcherFile}`);
   }
-  if (!(await fileExists(rulesFile))) {
-    fail(`rules file not found: ${rulesFile}`);
+  if (!(await fileExists(paths.rulesFile))) {
+    fail(`rules file not found: ${paths.rulesFile}`);
   }
-  if (!(await fileExists(generatedJsonFile))) {
-    fail(`generated source file not found: ${generatedJsonFile}`);
+  if (!(await fileExists(paths.generatedJsonFile))) {
+    fail(`generated source file not found: ${paths.generatedJsonFile}`);
   }
+}
 
-  const rules = await loadJsonFile<Rules>(rulesFile);
-  const generated = await loadJsonFile<GeneratedSources>(generatedJsonFile);
+async function loadInputs(paths: InputPaths): Promise<LoadedInputs> {
+  const rules = await loadJsonFile<Rules>(paths.rulesFile);
+  const generated = await loadJsonFile<GeneratedSources>(paths.generatedJsonFile);
 
-  const nvfetcherToml = await Bun.file(nvfetcherFile).text();
+  const nvfetcherToml = await Bun.file(paths.nvfetcherFile).text();
   const nvfetcherConfig = Bun.TOML.parse(nvfetcherToml) as Record<string, unknown>;
   const nvfetcherPackages = Object.keys(nvfetcherConfig);
   if (nvfetcherPackages.length === 0) {
-    fail(`no package sections were found in ${nvfetcherFile}`);
+    fail(`no package sections were found in ${paths.nvfetcherFile}`);
   }
 
+  return { rules, generated, nvfetcherPackages };
+}
+
+function warnRulesNotInNvfetcher(rules: Rules, nvfetcherPackages: string[]): void {
   const nvfetcherSet = new Set(nvfetcherPackages);
   for (const pkg of Object.keys(rules.packages)) {
     if (!nvfetcherSet.has(pkg)) {
@@ -654,8 +692,14 @@ async function main(): Promise<void> {
       );
     }
   }
+}
 
-  const packages: Record<string, unknown> = {};
+async function buildMeta(
+  nvfetcherPackages: string[],
+  rules: Rules,
+  generated: GeneratedSources,
+): Promise<BuildMetaResult> {
+  const packages: Record<string, PackageMeta> = {};
   let processed = 0;
   let withFields = 0;
 
@@ -668,6 +712,13 @@ async function main(): Promise<void> {
     processed += 1;
   }
 
+  return { packages, processed, withFields };
+}
+
+async function writeMetaFile(
+  outFile: string,
+  packages: Record<string, PackageMeta>,
+): Promise<void> {
   await mkdir(path.dirname(outFile), { recursive: true });
   const tmpFile = path.join(
     path.dirname(outFile),
@@ -684,8 +735,28 @@ async function main(): Promise<void> {
     ) + "\n",
   );
   await rename(tmpFile, outFile);
+}
 
-  console.log(`Wrote: ${outFile}`);
+async function main(): Promise<void> {
+  const cli = parseCliOptions(Bun.argv.slice(2));
+  if (cli.help) {
+    usage();
+    return;
+  }
+
+  const paths = resolveInputPaths(cli);
+  await validateEnvironment(paths);
+  const { rules, generated, nvfetcherPackages } = await loadInputs(paths);
+  warnRulesNotInNvfetcher(rules, nvfetcherPackages);
+
+  const { packages, processed, withFields } = await buildMeta(
+    nvfetcherPackages,
+    rules,
+    generated,
+  );
+  await writeMetaFile(paths.outFile, packages);
+
+  console.log(`Wrote: ${paths.outFile}`);
   console.log(`Processed: ${processed}, withFields: ${withFields}`);
 }
 
