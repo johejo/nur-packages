@@ -43,6 +43,17 @@ type Rules = {
   packages: Record<string, PackageRule>;
 };
 
+type GitMeta = {
+  ref: string | null;
+  commit: string | null;
+};
+
+type RuleSource = {
+  file: string;
+  decode: DecodeKind;
+  fields: RuleFields;
+};
+
 type GeneratedSource = {
   version?: string;
   src?: {
@@ -58,38 +69,15 @@ type GeneratedSources = Record<string, GeneratedSource>;
 
 type PackageMeta = {
   version: string | null;
-  git: {
-    ref: string | null;
-    commit: string | null;
-  };
+  git: GitMeta;
   profile?: string;
   fields?: Record<string, string>;
-  source?:
-    | {
-        file: string;
-        decode: "html";
-        fields: RuleFields;
-      }
-    | {
-        file: string;
-        decode: Exclude<DecodeKind, "html">;
-        fields: RuleFields;
-      };
+  source?: RuleSource;
 };
 
 type ResolvedRule = {
   profileName: string;
-  rule:
-    | {
-        file: string;
-        decode: "html";
-        fields: RuleFields;
-      }
-    | {
-        file: string;
-        decode: Exclude<DecodeKind, "html">;
-        fields: RuleFields;
-      };
+  rule: RuleSource;
 };
 
 type StructuredDecodeKind = Exclude<DecodeKind, "html">;
@@ -331,7 +319,7 @@ function parseJsonPayload(raw: string): unknown | null {
   return null;
 }
 
-function shouldDeriveLicenseSpdx(rule: ResolvedRule["rule"]): boolean {
+function shouldDeriveLicenseSpdx(rule: RuleSource): boolean {
   return !(LICENSE_FIELD_NAME in rule.fields);
 }
 
@@ -425,7 +413,7 @@ async function decodeStructuredSource(
 async function resolveGitMeta(
   pkg: string,
   generatedSource: GeneratedSource | undefined,
-): Promise<{ ref: string | null; commit: string | null }> {
+): Promise<GitMeta> {
   const ref = generatedSource?.src?.rev ?? null;
   if (!ref) {
     return { ref: null, commit: null };
@@ -563,7 +551,7 @@ async function deriveLicenseSpdxFromFlake(srcOutPath: string): Promise<string | 
 async function deriveLicenseSpdx(
   pkg: string,
   srcOutPath: string,
-  rule?: ResolvedRule["rule"],
+  rule?: RuleSource,
 ): Promise<string | null> {
   const maybeFlakePath = path.join(srcOutPath, "flake.nix");
   const shouldTryFlake =
@@ -777,17 +765,6 @@ function resolvePackageRule(
     ...(pkgRule.fields ?? {}),
   });
 
-  if (decode === "html") {
-    return {
-      profileName,
-      rule: {
-        file,
-        decode: "html",
-        fields,
-      },
-    };
-  }
-
   return {
     profileName,
     rule: {
@@ -813,7 +790,7 @@ async function resolveSourceOutPath(pkg: string): Promise<string> {
 
 async function extractFields(
   pkg: string,
-  rule: ResolvedRule["rule"],
+  rule: RuleSource,
   sourceFile: string,
   fallbackFields: Partial<Record<string, string>>,
 ): Promise<Record<string, string>> {
@@ -840,7 +817,11 @@ async function extractFields(
     return fields;
   }
 
-  const decoded = await decodeStructuredSource(rule.decode, raw, sourceFile);
+  const decoded = await decodeStructuredSource(
+    rule.decode as StructuredDecodeKind,
+    raw,
+    sourceFile,
+  );
 
   for (const [fieldName, fieldRule] of Object.entries(rule.fields)) {
     if (!("query" in fieldRule)) {
@@ -916,18 +897,7 @@ async function processPackage(
     version,
     git,
     fields,
-    source:
-      rule.decode === "html"
-        ? {
-            file: rule.file,
-            decode: "html",
-            fields: rule.fields,
-          }
-        : {
-            file: rule.file,
-            decode: rule.decode,
-            fields: rule.fields,
-          },
+    source: rule,
   };
 }
 
