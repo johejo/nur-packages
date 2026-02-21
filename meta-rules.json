@@ -10,6 +10,11 @@
       "decode": "json",
       "query": ".description // empty"
     },
+    "server-json": {
+      "file": "server.json",
+      "decode": "json",
+      "query": ".description // empty"
+    },
     "flake": {
       "file": "flake.nix",
       "decode": "nix",
@@ -32,6 +37,9 @@
     "gogcli": {
       "profile": "html",
       "file": "docs/index.html"
+    },
+    "kubernetes-mcp-server": {
+      "profile": "server-json"
     },
     "kakehashi": {
       "profile": "flake"

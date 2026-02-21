@@ -1,5 +1,15 @@
 {
   "packages": {
+    "kubernetes-mcp-server": {
+      "profile": "server-json",
+      "version": "v0.0.57",
+      "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
+      "source": {
+        "file": "server.json",
+        "decode": "json",
+        "query": ".description // empty"
+      }
+    },
     "gogcli": {
       "profile": "html",
       "version": "v0.11.0",
