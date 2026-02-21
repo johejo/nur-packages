@@ -41,14 +41,14 @@ type GeneratedSource = {
 type GeneratedSources = Record<string, GeneratedSource>;
 
 type PackageMeta = {
-  profile: string;
   version: string | null;
   git: {
     ref: string | null;
     commit: string | null;
   };
-  description: string | null;
-  source:
+  profile?: string;
+  description?: string | null;
+  source?:
     | {
         file: string;
         decode: "html";
@@ -349,10 +349,14 @@ async function processPackage(
   pkg: string,
   rules: Rules,
   generated: GeneratedSources,
-): Promise<PackageMeta | null> {
+): Promise<PackageMeta> {
+  const generatedSource = generated[pkg];
+  const version = generatedSource?.version ?? null;
+  const git = await resolveGitMeta(pkg, generatedSource);
+
   const resolvedRule = resolvePackageRule(pkg, rules.packages[pkg], rules);
   if (!resolvedRule) {
-    return null;
+    return { version, git };
   }
 
   const { profileName, rule } = resolvedRule;
@@ -360,9 +364,6 @@ async function processPackage(
 
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
-  const generatedSource = generated[pkg];
-  const version = generatedSource?.version ?? null;
-  const git = await resolveGitMeta(pkg, generatedSource);
   const description = await extractDescription(pkg, rule, sourceFile);
 
   return {
@@ -461,13 +462,12 @@ async function main(): Promise<void> {
 
   const packages: Record<string, unknown> = {};
   let processed = 0;
-  let skipped = 0;
+  let withDescription = 0;
 
   for (const pkg of nvfetcherPackages) {
     const packageMeta = await processPackage(pkg, rules, generated);
-    if (!packageMeta) {
-      skipped += 1;
-      continue;
+    if (packageMeta.profile !== undefined) {
+      withDescription += 1;
     }
     packages[pkg] = packageMeta;
     processed += 1;
@@ -491,7 +491,7 @@ async function main(): Promise<void> {
   await rename(tmpFile, outFile);
 
   console.log(`Wrote: ${outFile}`);
-  console.log(`Processed: ${processed}, skipped: ${skipped}`);
+  console.log(`Processed: ${processed}, withDescription: ${withDescription}`);
 }
 
 main().catch((error: unknown) => {
