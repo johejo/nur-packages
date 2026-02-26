@@ -63,26 +63,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.104.0";
+    version = "rust-v0.105.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-twFR4DigVVJNTQAOgLS30VWGFluEdnSgwyFl0R2sJxE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-BkPkdMY0cM0OGQ9DmLHjJoqdCURmM0ESS2SauhIffGs=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.104.0";
+    version = "rust-v0.105.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-zzrXKN6itzyZuDq2PUC4ECno2cV1vBsX+t2lSOhL6KQ=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-nUkaA4sGQoVVXTLTUcDW18R4QOcnAxUS3P9x2l9zjws=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.104.0";
+    version = "rust-v0.105.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-UvbMt86+HWYg+GdgdqzEzeEFQ6btDszqYlSY3nrhf4g=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-MKy6CHU8JlG/mafpilJhmPZ6mV53a9SRWTnIvLT2hS0=";
     };
   };
   errorformat = {
@@ -141,16 +141,16 @@
   };
   kakehashi = {
     pname = "kakehashi";
-    version = "v0.1.0";
+    version = "v0.3.0";
     src = fetchFromGitHub {
       owner = "atusy";
       repo = "kakehashi";
-      rev = "v0.1.0";
+      rev = "v0.3.0";
       fetchSubmodules = false;
-      sha256 = "sha256-DIXI3hjBx/Xdu5oA06Mf+Zg3/H/htP3lzacj6DI4WuI=";
+      sha256 = "sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-DIXI3hjBx_Xdu5oA06Mf+Zg3_H_htP3lzacj6DI4WuI=/Cargo.lock";
+      lockFile = ./. + "/sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=/Cargo.lock";
       outputHashes = {
         
       };
@@ -169,16 +169,16 @@
   };
   octorus = {
     pname = "octorus";
-    version = "v0.4.2";
+    version = "v0.5.1";
     src = fetchFromGitHub {
       owner = "ushironoko";
       repo = "octorus";
-      rev = "v0.4.2";
+      rev = "v0.5.1";
       fetchSubmodules = false;
-      sha256 = "sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=";
+      sha256 = "sha256-p1ZkjoFrcsfpY/0w8NlVOn94VO4wEMtQkxOeI49LEaE=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=/Cargo.lock";
+      lockFile = ./. + "/sha256-p1ZkjoFrcsfpY_0w8NlVOn94VO4wEMtQkxOeI49LEaE=/Cargo.lock";
       outputHashes = {
         
       };
@@ -186,13 +186,13 @@
   };
   perl5 = {
     pname = "perl5";
-    version = "v5.43.7";
+    version = "v5.43.8";
     src = fetchFromGitHub {
       owner = "Perl";
       repo = "perl5";
-      rev = "v5.43.7";
+      rev = "v5.43.8";
       fetchSubmodules = false;
-      sha256 = "sha256-8kdIZh/7JKkESafwV3JcBzcPenBG+5Eh+aybOI58L5E=";
+      sha256 = "sha256-s5bgYEyf/ZiP8ryyVEAMaAVHfJjTbwgn4f5otTSbz/Q=";
     };
   };
   prometheus-jmx-exporter = {

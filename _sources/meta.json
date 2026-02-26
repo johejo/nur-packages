@@ -94,7 +94,7 @@
       }
     },
     "codex-aarch64-darwin-bin": {
-      "version": "rust-v0.104.0",
+      "version": "rust-v0.105.0",
       "git": {
         "ref": null,
         "commit": null
@@ -104,7 +104,7 @@
       }
     },
     "codex-x86_64-linux-bin": {
-      "version": "rust-v0.104.0",
+      "version": "rust-v0.105.0",
       "git": {
         "ref": null,
         "commit": null
@@ -114,7 +114,7 @@
       }
     },
     "codex-aarch64-linux-bin": {
-      "version": "rust-v0.104.0",
+      "version": "rust-v0.105.0",
       "git": {
         "ref": null,
         "commit": null
@@ -179,10 +179,10 @@
     },
     "kakehashi": {
       "profile": "flake",
-      "version": "v0.1.0",
+      "version": "v0.3.0",
       "git": {
-        "ref": "v0.1.0",
-        "commit": "435db8577feb5d69472bb56b13cdd249e667dd0a"
+        "ref": "v0.3.0",
+        "commit": "c05125e526d0408b4eab55150ecabaf11a6699e5"
       },
       "fields": {
         "description": "kakehashi - A Tree-sitter Language Server",
@@ -261,10 +261,10 @@
       }
     },
     "perl5": {
-      "version": "v5.43.7",
+      "version": "v5.43.8",
       "git": {
-        "ref": "v5.43.7",
-        "commit": "87a91cb6b5956e0dc7ada1cc6074bfeb40c14547"
+        "ref": "v5.43.8",
+        "commit": "58f6f0b70c384e915a586f656f7e581adafbf969"
       },
       "fields": {
         "homepage": "https://github.com/Perl/perl5",
@@ -273,10 +273,10 @@
     },
     "octorus": {
       "profile": "cargo",
-      "version": "v0.4.2",
+      "version": "v0.5.1",
       "git": {
-        "ref": "v0.4.2",
-        "commit": "52c6a70b4865d4ddd6c7aa8a30817cfb2f235b5f"
+        "ref": "v0.5.1",
+        "commit": "0b8ddd5ce36a7b7d0cd5e9058442ea0607f18a4e"
       },
       "fields": {
         "description": "A TUI tool for GitHub PR review, designed for Helix editor users",

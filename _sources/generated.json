@@ -113,11 +113,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-twFR4DigVVJNTQAOgLS30VWGFluEdnSgwyFl0R2sJxE=",
+            "sha256": "sha256-BkPkdMY0cM0OGQ9DmLHjJoqdCURmM0ESS2SauhIffGs=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.104.0"
+        "version": "rust-v0.105.0"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -128,11 +128,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-zzrXKN6itzyZuDq2PUC4ECno2cV1vBsX+t2lSOhL6KQ=",
+            "sha256": "sha256-nUkaA4sGQoVVXTLTUcDW18R4QOcnAxUS3P9x2l9zjws=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.104.0"
+        "version": "rust-v0.105.0"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -143,11 +143,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-UvbMt86+HWYg+GdgdqzEzeEFQ6btDszqYlSY3nrhf4g=",
+            "sha256": "sha256-MKy6CHU8JlG/mafpilJhmPZ6mV53a9SRWTnIvLT2hS0=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.104.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.104.0"
+        "version": "rust-v0.105.0"
     },
     "errorformat": {
         "cargoLock": null,
@@ -250,7 +250,7 @@
     "kakehashi": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-DIXI3hjBx_Xdu5oA06Mf+Zg3_H_htP3lzacj6DI4WuI=/Cargo.lock",
+                "sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=/Cargo.lock",
                 {}
             ]
         },
@@ -266,12 +266,12 @@
             "name": null,
             "owner": "atusy",
             "repo": "kakehashi",
-            "rev": "v0.1.0",
-            "sha256": "sha256-DIXI3hjBx/Xdu5oA06Mf+Zg3/H/htP3lzacj6DI4WuI=",
+            "rev": "v0.3.0",
+            "sha256": "sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.0"
+        "version": "v0.3.0"
     },
     "kubernetes-mcp-server": {
         "cargoLock": null,
@@ -297,7 +297,7 @@
     "octorus": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=/Cargo.lock",
+                "sha256-p1ZkjoFrcsfpY_0w8NlVOn94VO4wEMtQkxOeI49LEaE=/Cargo.lock",
                 {}
             ]
         },
@@ -313,12 +313,12 @@
             "name": null,
             "owner": "ushironoko",
             "repo": "octorus",
-            "rev": "v0.4.2",
-            "sha256": "sha256-fg5yy60A7YzR+yVOGJCJO4ghO6SIdwEYCB+j9y4m15M=",
+            "rev": "v0.5.1",
+            "sha256": "sha256-p1ZkjoFrcsfpY/0w8NlVOn94VO4wEMtQkxOeI49LEaE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.4.2"
+        "version": "v0.5.1"
     },
     "perl5": {
         "cargoLock": null,
@@ -334,12 +334,12 @@
             "name": null,
             "owner": "Perl",
             "repo": "perl5",
-            "rev": "v5.43.7",
-            "sha256": "sha256-8kdIZh/7JKkESafwV3JcBzcPenBG+5Eh+aybOI58L5E=",
+            "rev": "v5.43.8",
+            "sha256": "sha256-s5bgYEyf/ZiP8ryyVEAMaAVHfJjTbwgn4f5otTSbz/Q=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v5.43.7"
+        "version": "v5.43.8"
     },
     "prometheus-jmx-exporter": {
         "cargoLock": null,
