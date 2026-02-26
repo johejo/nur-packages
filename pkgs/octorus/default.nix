@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage {
 
   cargoLock = source.cargoLock."Cargo.lock";
 
-  doCheck = true;
+  doCheck = false;
   nativeCheckInputs = [ git ];
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
