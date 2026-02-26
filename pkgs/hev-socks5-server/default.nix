@@ -7,11 +7,13 @@
   ...
 }:
 
+let
+  sourceGit = sourceMeta.git;
+  commit = sourceGit.commit;
+  revId = if builtins.stringLength commit > 7 then builtins.substring 0 7 commit else commit;
+in
 stdenv.mkDerivation rec {
   inherit (source) pname version src;
-  sourceGit = sourceMeta.git or { };
-  commit = sourceGit.commit or sourceGit.ref or source.rev;
-  revId = if builtins.stringLength commit > 7 then builtins.substring 0 7 commit else commit;
 
   enableParallelBuilding = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
