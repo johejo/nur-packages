@@ -8,4 +8,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 }
-// (import ./pkgs { inherit pkgs; })
+// (import ./pkgs {
+  inherit pkgs;
+  system = pkgs.stdenv.hostPlatform.system;
+})
