@@ -68,15 +68,11 @@ type GeneratedSource = {
 type GeneratedSources = Record<string, GeneratedSource>;
 
 type PackageMeta = {
-  version: string | null;
   git: GitMeta;
-  profile?: string;
   fields?: Record<string, string>;
-  source?: RuleSource;
 };
 
 type ResolvedRule = {
-  profileName: string;
   rule: RuleSource;
 };
 
@@ -766,7 +762,6 @@ function resolvePackageRule(
   });
 
   return {
-    profileName,
     rule: {
       file,
       decode,
@@ -850,7 +845,6 @@ async function processPackage(
   generated: GeneratedSources,
 ): Promise<PackageMeta> {
   const generatedSource = generated[pkg];
-  const version = generatedSource?.version ?? null;
   const git = await resolveGitMeta(pkg, generatedSource);
   const fallbackFields = buildFallbackFields(generatedSource);
   const fallbackHomepage = fallbackFields.homepage;
@@ -869,15 +863,14 @@ async function processPackage(
     }
     if (Object.keys(fields).length > 0) {
       return {
-        version,
         git,
         fields,
       };
     }
-    return { version, git };
+    return { git };
   }
 
-  const { profileName, rule } = resolvedRule;
+  const { rule } = resolvedRule;
 
   const srcOutPath = await resolveSourceOutPath(pkg);
   const sourceFile = path.join(srcOutPath, rule.file);
@@ -893,11 +886,8 @@ async function processPackage(
   }
 
   return {
-    profile: profileName,
-    version,
     git,
     fields,
-    source: rule,
   };
 }
 

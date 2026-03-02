@@ -1,7 +1,6 @@
 {
   "packages": {
     "errorformat": {
-      "version": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496",
       "git": {
         "ref": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496",
         "commit": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
@@ -12,7 +11,6 @@
       }
     },
     "starlink-exporter": {
-      "version": "v20250818",
       "git": {
         "ref": "v20250818",
         "commit": "4026908015f0b5899f6eba9230424e69e6336372"
@@ -23,8 +21,6 @@
       }
     },
     "kubernetes-mcp-server": {
-      "profile": "server-json",
-      "version": "v0.0.58",
       "git": {
         "ref": "v0.0.58",
         "commit": "787557ee0d5588808a21639c8a7872e3763688c3"
@@ -33,19 +29,9 @@
         "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
         "homepage": "https://github.com/containers/kubernetes-mcp-server",
         "licenseSpdx": "Apache-2.0"
-      },
-      "source": {
-        "file": "server.json",
-        "decode": "json",
-        "fields": {
-          "description": {
-            "query": ".description // empty"
-          }
-        }
       }
     },
     "gitbucket": {
-      "version": "4.45.0",
       "git": {
         "ref": null,
         "commit": null
@@ -55,7 +41,6 @@
       }
     },
     "prometheus-jmx-exporter": {
-      "version": "1.5.0",
       "git": {
         "ref": null,
         "commit": null
@@ -65,8 +50,6 @@
       }
     },
     "gogcli": {
-      "profile": "html",
-      "version": "v0.11.0",
       "git": {
         "ref": "v0.11.0",
         "commit": "91c4c15884441105c7e793217366f1335b344478"
@@ -75,26 +58,9 @@
         "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
         "homepage": "https://github.com/steipete/gogcli",
         "licenseSpdx": "MIT"
-      },
-      "source": {
-        "file": "docs/index.html",
-        "decode": "html",
-        "fields": {
-          "description": {
-            "selectors": [
-              {
-                "selector": "meta[name='description']"
-              },
-              {
-                "selector": "meta[property='og:description']"
-              }
-            ]
-          }
-        }
       }
     },
     "codex-aarch64-darwin-bin": {
-      "version": "rust-v0.106.0",
       "git": {
         "ref": null,
         "commit": null
@@ -104,7 +70,6 @@
       }
     },
     "codex-x86_64-linux-bin": {
-      "version": "rust-v0.106.0",
       "git": {
         "ref": null,
         "commit": null
@@ -114,7 +79,6 @@
       }
     },
     "codex-aarch64-linux-bin": {
-      "version": "rust-v0.106.0",
       "git": {
         "ref": null,
         "commit": null
@@ -124,7 +88,6 @@
       }
     },
     "apple-oss-distributions_curl": {
-      "version": "curl-162",
       "git": {
         "ref": "curl-162",
         "commit": "36afe465806b797fe2e07dea1ac5cf43486b3dad"
@@ -135,7 +98,6 @@
       }
     },
     "apple-oss-distributions_zlib": {
-      "version": "zlib-100",
       "git": {
         "ref": "zlib-100",
         "commit": "06673bf7cb4066003fd14a0b87085c05739fc4ac"
@@ -145,7 +107,6 @@
       }
     },
     "apple-oss-distributions_openldap": {
-      "version": "OpenLDAP-559",
       "git": {
         "ref": "OpenLDAP-559",
         "commit": "b8e7dab668a42909ca43aef0b2d68efd524bfb62"
@@ -156,7 +117,6 @@
       }
     },
     "apple-oss-distributions_berkeleydb": {
-      "version": "BerkeleyDB-29",
       "git": {
         "ref": "BerkeleyDB-29",
         "commit": "6a9608a7f353a1a6c3e2bc3ba7216dd7332fe98f"
@@ -167,7 +127,6 @@
       }
     },
     "apple-oss-distributions_openssh": {
-      "version": "OpenSSH-354.0.3",
       "git": {
         "ref": "OpenSSH-354.0.3",
         "commit": "f386b2e948280f6ecac875329c0b56020821d558"
@@ -178,8 +137,6 @@
       }
     },
     "kakehashi": {
-      "profile": "flake",
-      "version": "v0.3.0",
       "git": {
         "ref": "v0.3.0",
         "commit": "c05125e526d0408b4eab55150ecabaf11a6699e5"
@@ -188,19 +145,9 @@
         "description": "kakehashi - A Tree-sitter Language Server",
         "homepage": "https://github.com/atusy/kakehashi",
         "licenseSpdx": "MIT"
-      },
-      "source": {
-        "file": "flake.nix",
-        "decode": "nix",
-        "fields": {
-          "description": {
-            "query": ".description // empty"
-          }
-        }
       }
     },
     "hev-socks5-server": {
-      "version": "2.11.2",
       "git": {
         "ref": "2.11.2",
         "commit": "1c3173356ea9544e4a2d41e15be752acbee80c31"
@@ -211,7 +158,6 @@
       }
     },
     "socks5shim": {
-      "version": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996",
       "git": {
         "ref": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996",
         "commit": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996"
@@ -222,7 +168,6 @@
       }
     },
     "gf-cli": {
-      "version": "e9e893ff44172eae6e2f87970bf7a28565abedf5",
       "git": {
         "ref": "e9e893ff44172eae6e2f87970bf7a28565abedf5",
         "commit": "e9e893ff44172eae6e2f87970bf7a28565abedf5"
@@ -233,8 +178,6 @@
       }
     },
     "zlib-rs": {
-      "profile": "cargo",
-      "version": "v0.6.0",
       "git": {
         "ref": "v0.6.0",
         "commit": "14e15a257f022c18e505fe5ea830139da47dac9d"
@@ -243,25 +186,9 @@
         "description": "A memory-safe zlib implementation written in rust",
         "homepage": "https://github.com/trifectatechfoundation/zlib-rs",
         "licenseSpdx": "Zlib"
-      },
-      "source": {
-        "file": "Cargo.toml",
-        "decode": "toml",
-        "fields": {
-          "description": {
-            "query": ".workspace.package.description // empty"
-          },
-          "homepage": {
-            "query": ".package.homepage // .package.repository // empty"
-          },
-          "licenseSpdx": {
-            "query": ".package.license // .workspace.package.license // empty"
-          }
-        }
       }
     },
     "perl5": {
-      "version": "v5.43.8",
       "git": {
         "ref": "v5.43.8",
         "commit": "58f6f0b70c384e915a586f656f7e581adafbf969"
@@ -272,8 +199,6 @@
       }
     },
     "octorus": {
-      "profile": "cargo",
-      "version": "v0.5.4",
       "git": {
         "ref": "v0.5.4",
         "commit": "ed540d7cb73709a80af437b07e14a7f82d3056c7"
@@ -282,21 +207,6 @@
         "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
         "homepage": "https://github.com/ushironoko/octorus",
         "licenseSpdx": "MIT"
-      },
-      "source": {
-        "file": "Cargo.toml",
-        "decode": "toml",
-        "fields": {
-          "description": {
-            "query": ".package.description // empty"
-          },
-          "homepage": {
-            "query": ".package.homepage // .package.repository // empty"
-          },
-          "licenseSpdx": {
-            "query": ".package.license // .workspace.package.license // empty"
-          }
-        }
       }
     }
   }
