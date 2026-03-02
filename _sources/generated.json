@@ -113,11 +113,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-BkPkdMY0cM0OGQ9DmLHjJoqdCURmM0ESS2SauhIffGs=",
+            "sha256": "sha256-QgNC9MB03zZXH58Bbfd89+WSatGRknZToVmObHqrJqw=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.105.0"
+        "version": "rust-v0.106.0"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -128,11 +128,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-nUkaA4sGQoVVXTLTUcDW18R4QOcnAxUS3P9x2l9zjws=",
+            "sha256": "sha256-3b4lFUzc8hC9kf2GhTGMmp8sJQp9LUju9dMZfLu7K8k=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.105.0"
+        "version": "rust-v0.106.0"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -143,11 +143,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-MKy6CHU8JlG/mafpilJhmPZ6mV53a9SRWTnIvLT2hS0=",
+            "sha256": "sha256-sqFOv4uPug0mVLsoH8TYHiWzVHrZMhTmIe2NqESm0QE=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.105.0"
+        "version": "rust-v0.106.0"
     },
     "errorformat": {
         "cargoLock": null,
@@ -287,17 +287,17 @@
             "name": null,
             "owner": "containers",
             "repo": "kubernetes-mcp-server",
-            "rev": "v0.0.57",
-            "sha256": "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=",
+            "rev": "v0.0.58",
+            "sha256": "sha256-W/IHZJdq1jlFOD3pqhiqp898k/Obo1/tlXYFSgf2p+Y=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.57"
+        "version": "v0.0.58"
     },
     "octorus": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-p1ZkjoFrcsfpY_0w8NlVOn94VO4wEMtQkxOeI49LEaE=/Cargo.lock",
+                "sha256-dsuDn9gNcoI8tKimlxiRdqLGwdQQHZxannc1+zRdtcA=/Cargo.lock",
                 {}
             ]
         },
@@ -313,12 +313,12 @@
             "name": null,
             "owner": "ushironoko",
             "repo": "octorus",
-            "rev": "v0.5.1",
-            "sha256": "sha256-p1ZkjoFrcsfpY/0w8NlVOn94VO4wEMtQkxOeI49LEaE=",
+            "rev": "v0.5.4",
+            "sha256": "sha256-dsuDn9gNcoI8tKimlxiRdqLGwdQQHZxannc1+zRdtcA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.5.1"
+        "version": "v0.5.4"
     },
     "perl5": {
         "cargoLock": null,

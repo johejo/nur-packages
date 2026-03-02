@@ -63,26 +63,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.105.0";
+    version = "rust-v0.106.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-BkPkdMY0cM0OGQ9DmLHjJoqdCURmM0ESS2SauhIffGs=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-QgNC9MB03zZXH58Bbfd89+WSatGRknZToVmObHqrJqw=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.105.0";
+    version = "rust-v0.106.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-nUkaA4sGQoVVXTLTUcDW18R4QOcnAxUS3P9x2l9zjws=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-3b4lFUzc8hC9kf2GhTGMmp8sJQp9LUju9dMZfLu7K8k=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.105.0";
+    version = "rust-v0.106.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.105.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-MKy6CHU8JlG/mafpilJhmPZ6mV53a9SRWTnIvLT2hS0=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-sqFOv4uPug0mVLsoH8TYHiWzVHrZMhTmIe2NqESm0QE=";
     };
   };
   errorformat = {
@@ -158,27 +158,27 @@
   };
   kubernetes-mcp-server = {
     pname = "kubernetes-mcp-server";
-    version = "v0.0.57";
+    version = "v0.0.58";
     src = fetchFromGitHub {
       owner = "containers";
       repo = "kubernetes-mcp-server";
-      rev = "v0.0.57";
+      rev = "v0.0.58";
       fetchSubmodules = false;
-      sha256 = "sha256-8MJLZbwMz1SNbDT3PLCNm+YQEq9damCtCs2quwSZCHk=";
+      sha256 = "sha256-W/IHZJdq1jlFOD3pqhiqp898k/Obo1/tlXYFSgf2p+Y=";
     };
   };
   octorus = {
     pname = "octorus";
-    version = "v0.5.1";
+    version = "v0.5.4";
     src = fetchFromGitHub {
       owner = "ushironoko";
       repo = "octorus";
-      rev = "v0.5.1";
+      rev = "v0.5.4";
       fetchSubmodules = false;
-      sha256 = "sha256-p1ZkjoFrcsfpY/0w8NlVOn94VO4wEMtQkxOeI49LEaE=";
+      sha256 = "sha256-dsuDn9gNcoI8tKimlxiRdqLGwdQQHZxannc1+zRdtcA=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-p1ZkjoFrcsfpY_0w8NlVOn94VO4wEMtQkxOeI49LEaE=/Cargo.lock";
+      lockFile = ./. + "/sha256-dsuDn9gNcoI8tKimlxiRdqLGwdQQHZxannc1+zRdtcA=/Cargo.lock";
       outputHashes = {
         
       };

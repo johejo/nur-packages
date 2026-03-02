@@ -24,10 +24,10 @@
     },
     "kubernetes-mcp-server": {
       "profile": "server-json",
-      "version": "v0.0.57",
+      "version": "v0.0.58",
       "git": {
-        "ref": "v0.0.57",
-        "commit": "c972471d978fbd1edac076cef73d0651995a47b7"
+        "ref": "v0.0.58",
+        "commit": "787557ee0d5588808a21639c8a7872e3763688c3"
       },
       "fields": {
         "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
@@ -94,7 +94,7 @@
       }
     },
     "codex-aarch64-darwin-bin": {
-      "version": "rust-v0.105.0",
+      "version": "rust-v0.106.0",
       "git": {
         "ref": null,
         "commit": null
@@ -104,7 +104,7 @@
       }
     },
     "codex-x86_64-linux-bin": {
-      "version": "rust-v0.105.0",
+      "version": "rust-v0.106.0",
       "git": {
         "ref": null,
         "commit": null
@@ -114,7 +114,7 @@
       }
     },
     "codex-aarch64-linux-bin": {
-      "version": "rust-v0.105.0",
+      "version": "rust-v0.106.0",
       "git": {
         "ref": null,
         "commit": null
@@ -273,10 +273,10 @@
     },
     "octorus": {
       "profile": "cargo",
-      "version": "v0.5.1",
+      "version": "v0.5.4",
       "git": {
-        "ref": "v0.5.1",
-        "commit": "0b8ddd5ce36a7b7d0cd5e9058442ea0607f18a4e"
+        "ref": "v0.5.4",
+        "commit": "ed540d7cb73709a80af437b07e14a7f82d3056c7"
       },
       "fields": {
         "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
