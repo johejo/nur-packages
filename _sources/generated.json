@@ -309,6 +309,36 @@
         },
         "version": "v1.4.4"
     },
+    "libduckdb-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "libduckdb-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-do9m4LQIONVnpVJK45Adqkgj9IKf0ebzYV11rlVWK1I=",
+            "type": "url",
+            "url": "https://install.duckdb.org/v1.4.4/libduckdb-linux-arm64.zip"
+        },
+        "version": "v1.4.4"
+    },
+    "libduckdb-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "libduckdb-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-CcwogpWWTYl7R2ZdGJjhbo7xdsrp6mFXl/wTbq4VvV0=",
+            "type": "url",
+            "url": "https://install.duckdb.org/v1.4.4/libduckdb-linux-amd64.zip"
+        },
+        "version": "v1.4.4"
+    },
     "octorus": {
         "cargoLock": {
             "Cargo.lock": [

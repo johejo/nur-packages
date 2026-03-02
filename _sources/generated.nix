@@ -175,6 +175,22 @@
       sha256 = "sha256-Xm159fuGu9TyTVnO47w48RPRQzdh3zUzfjwBxi7q/iY=";
     };
   };
+  libduckdb-aarch64-linux-bin = {
+    pname = "libduckdb-aarch64-linux-bin";
+    version = "v1.4.4";
+    src = fetchurl {
+      url = "https://install.duckdb.org/v1.4.4/libduckdb-linux-arm64.zip";
+      sha256 = "sha256-do9m4LQIONVnpVJK45Adqkgj9IKf0ebzYV11rlVWK1I=";
+    };
+  };
+  libduckdb-x86_64-linux-bin = {
+    pname = "libduckdb-x86_64-linux-bin";
+    version = "v1.4.4";
+    src = fetchurl {
+      url = "https://install.duckdb.org/v1.4.4/libduckdb-linux-amd64.zip";
+      sha256 = "sha256-CcwogpWWTYl7R2ZdGJjhbo7xdsrp6mFXl/wTbq4VvV0=";
+    };
+  };
   octorus = {
     pname = "octorus";
     version = "v0.5.4";
