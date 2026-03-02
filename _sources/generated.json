@@ -294,6 +294,21 @@
         },
         "version": "v0.0.58"
     },
+    "libduckdb-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "libduckdb-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Xm159fuGu9TyTVnO47w48RPRQzdh3zUzfjwBxi7q/iY=",
+            "type": "url",
+            "url": "https://install.duckdb.org/v1.4.4/libduckdb-osx-universal.zip"
+        },
+        "version": "v1.4.4"
+    },
     "octorus": {
         "cargoLock": {
             "Cargo.lock": [

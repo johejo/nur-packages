@@ -167,6 +167,14 @@
       sha256 = "sha256-W/IHZJdq1jlFOD3pqhiqp898k/Obo1/tlXYFSgf2p+Y=";
     };
   };
+  libduckdb-aarch64-darwin-bin = {
+    pname = "libduckdb-aarch64-darwin-bin";
+    version = "v1.4.4";
+    src = fetchurl {
+      url = "https://install.duckdb.org/v1.4.4/libduckdb-osx-universal.zip";
+      sha256 = "sha256-Xm159fuGu9TyTVnO47w48RPRQzdh3zUzfjwBxi7q/iY=";
+    };
+  };
   octorus = {
     pname = "octorus";
     version = "v0.5.4";

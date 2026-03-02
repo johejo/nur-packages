@@ -208,6 +208,12 @@
         "homepage": "https://github.com/ushironoko/octorus",
         "licenseSpdx": "MIT"
       }
+    },
+    "libduckdb-aarch64-darwin-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      }
     }
   }
 }

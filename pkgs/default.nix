@@ -99,6 +99,14 @@ in
       )
     else
       null;
+  libduckdb-bin =
+    let
+      sourceName = "libduckdb-${system}-bin";
+    in
+    if builtins.hasAttr sourceName sources then
+      withSourceMeta sourceName (pkgs.callPackage ./libduckdb-bin { source = sources.${sourceName}; })
+    else
+      null;
   caddy = pkgs.callPackage ./caddy { };
   kakehashi = callPackageWithSourceMeta ./kakehashi "kakehashi" { };
   hev-socks5-server = callPackageWithSourceMetaArg ./hev-socks5-server "hev-socks5-server" { };
@@ -108,7 +116,5 @@ in
   octorus = callPackageWithSourceMeta ./octorus "octorus" { };
   inherit libz-rs-sys-cdylib;
 
-  apple-oss-distributions = import ./apple-oss-distributions {
-    inherit callPackageWithSourceMeta;
-  };
+  apple-oss-distributions = import ./apple-oss-distributions { inherit callPackageWithSourceMeta; };
 }
