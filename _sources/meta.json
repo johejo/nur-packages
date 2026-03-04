@@ -209,19 +209,29 @@
         "licenseSpdx": "MIT"
       }
     },
+    "displayplacer": {
+      "git": {
+        "ref": "v1.4.0",
+        "commit": "ca8a7e80d0f536b3331dcf1fe86a9726d5b5556e"
+      },
+      "fields": {
+        "homepage": "https://github.com/jakehilborn/displayplacer",
+        "licenseSpdx": "MIT"
+      }
+    },
     "libduckdb-aarch64-darwin-bin": {
       "git": {
         "ref": null,
         "commit": null
       }
     },
-    "libduckdb-aarch64-linux-bin": {
+    "libduckdb-x86_64-linux-bin": {
       "git": {
         "ref": null,
         "commit": null
       }
     },
-    "libduckdb-x86_64-linux-bin": {
+    "libduckdb-aarch64-linux-bin": {
       "git": {
         "ref": null,
         "commit": null

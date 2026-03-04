@@ -85,6 +85,17 @@
       sha256 = "sha256-sqFOv4uPug0mVLsoH8TYHiWzVHrZMhTmIe2NqESm0QE=";
     };
   };
+  displayplacer = {
+    pname = "displayplacer";
+    version = "v1.4.0";
+    src = fetchFromGitHub {
+      owner = "jakehilborn";
+      repo = "displayplacer";
+      rev = "v1.4.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-BYq8lrS8yE9ARCdAvZxiuC/2vRv6uha++WwKfM37gC0=";
+    };
+  };
   errorformat = {
     pname = "errorformat";
     version = "223c26dbe2122cc5ce2f3b47400ceaca2b50c496";

@@ -87,6 +87,10 @@ src.github = "ushironoko/octorus"
 fetch.github = "ushironoko/octorus"
 cargo_lock = ["Cargo.lock"]
 
+[displayplacer]
+src.github_tag = "jakehilborn/displayplacer"
+fetch.github = "jakehilborn/displayplacer"
+
 [libduckdb-aarch64-darwin-bin]
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-osx-universal.zip"
