@@ -128,8 +128,8 @@
     },
     "apple-oss-distributions_openssh": {
       "git": {
-        "ref": "OpenSSH-354.0.3",
-        "commit": "f386b2e948280f6ecac875329c0b56020821d558"
+        "ref": "OpenSSH-354.80.3",
+        "commit": "cba6763461cbab13a85dc8a2fcf06fc8570e83a2"
       },
       "fields": {
         "homepage": "https://github.com/apple-oss-distributions/OpenSSH",
@@ -179,8 +179,8 @@
     },
     "zlib-rs": {
       "git": {
-        "ref": "v0.6.0",
-        "commit": "14e15a257f022c18e505fe5ea830139da47dac9d"
+        "ref": "v0.6.3",
+        "commit": "e00c7acb20a98b193892ecf67a3bd0da37058d59"
       },
       "fields": {
         "description": "A memory-safe zlib implementation written in rust",
@@ -200,8 +200,8 @@
     },
     "octorus": {
       "git": {
-        "ref": "v0.5.4",
-        "commit": "ed540d7cb73709a80af437b07e14a7f82d3056c7"
+        "ref": "v0.5.5",
+        "commit": "54d0b1b91da08f05ff777523bbd506901521a852"
       },
       "fields": {
         "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
@@ -229,6 +229,17 @@
       "git": {
         "ref": null,
         "commit": null
+      }
+    },
+    "gws": {
+      "git": {
+        "ref": "v0.3.4",
+        "commit": "0d9558d297e182999e705b28920e6540e080e699"
+      },
+      "fields": {
+        "description": "Google Workspace CLI — dynamic command surface from Discovery Service",
+        "homepage": "https://github.com/googleworkspace/cli",
+        "licenseSpdx": "Apache-2.0"
       }
     },
     "libduckdb-aarch64-linux-bin": {

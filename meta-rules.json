@@ -73,6 +73,9 @@
     "octorus": {
       "profile": "cargo"
     },
+    "gws": {
+      "profile": "cargo"
+    },
     "zlib-rs": {
       "profile": "cargo",
       "fields": {

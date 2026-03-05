@@ -99,6 +99,11 @@ fetch.url = "https://install.duckdb.org/$ver/libduckdb-osx-universal.zip"
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-amd64.zip"
 
+[gws]
+src.github = "googleworkspace/cli"
+fetch.github = "googleworkspace/cli"
+cargo_lock = ["Cargo.lock"]
+
 [libduckdb-aarch64-linux-bin]
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-arm64.zip"

@@ -114,6 +114,7 @@ in
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
   octorus = callPackageWithSourceMeta ./octorus "octorus" { };
+  gws = callPackageWithSourceMeta ./gws "gws" { };
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
   inherit libz-rs-sys-cdylib;
 

@@ -41,13 +41,13 @@
   };
   apple-oss-distributions_openssh = {
     pname = "apple-oss-distributions_openssh";
-    version = "OpenSSH-354.0.3";
+    version = "OpenSSH-354.80.3";
     src = fetchFromGitHub {
       owner = "apple-oss-distributions";
       repo = "OpenSSH";
-      rev = "OpenSSH-354.0.3";
+      rev = "OpenSSH-354.80.3";
       fetchSubmodules = false;
-      sha256 = "sha256-iT5rW5qiOY0ioI5t2qZtQ5uzAYn4iPMrafcbcw7JAD8=";
+      sha256 = "sha256-vHla/rRz6h6PYzdwfn+PiqfaKF1m/A5mCWOlsVhIH20=";
     };
   };
   apple-oss-distributions_zlib = {
@@ -63,26 +63,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.106.0";
+    version = "rust-v0.110.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-QgNC9MB03zZXH58Bbfd89+WSatGRknZToVmObHqrJqw=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-/ruGxUWNEBqAoXNHyJwPCQemBefKuvL5J68I3zZ8MWE=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.106.0";
+    version = "rust-v0.110.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-3b4lFUzc8hC9kf2GhTGMmp8sJQp9LUju9dMZfLu7K8k=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-tMiSp3XK+2kJWQ/w5iHu5QOkrrmM6e7hvZKRvCn9C4g=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.106.0";
+    version = "rust-v0.110.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.106.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-sqFOv4uPug0mVLsoH8TYHiWzVHrZMhTmIe2NqESm0QE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-pxplBw39NvhTvHDX3ssFXuXN7vAESQa9PQaY9vIgISQ=";
     };
   };
   displayplacer = {
@@ -135,6 +135,23 @@
       rev = "v0.11.0";
       fetchSubmodules = false;
       sha256 = "sha256-hJU40ysjRx4p9SWGmbhhpToYCpk3DcMAWCnKqxHRmh0=";
+    };
+  };
+  gws = {
+    pname = "gws";
+    version = "v0.3.4";
+    src = fetchFromGitHub {
+      owner = "googleworkspace";
+      repo = "cli";
+      rev = "v0.3.4";
+      fetchSubmodules = false;
+      sha256 = "sha256-xPKxsMr0klLeOcfbgtgPCvzAryiOWXhZy2TUU7DrHHQ=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-xPKxsMr0klLeOcfbgtgPCvzAryiOWXhZy2TUU7DrHHQ=/Cargo.lock";
+      outputHashes = {
+        
+      };
     };
   };
   hev-socks5-server = {
@@ -204,16 +221,16 @@
   };
   octorus = {
     pname = "octorus";
-    version = "v0.5.4";
+    version = "v0.5.5";
     src = fetchFromGitHub {
       owner = "ushironoko";
       repo = "octorus";
-      rev = "v0.5.4";
+      rev = "v0.5.5";
       fetchSubmodules = false;
-      sha256 = "sha256-dsuDn9gNcoI8tKimlxiRdqLGwdQQHZxannc1+zRdtcA=";
+      sha256 = "sha256-0MPTLVkTTpMHnIIkBqMqXTG51Pzlu5X9VnNcxTFFaA8=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-dsuDn9gNcoI8tKimlxiRdqLGwdQQHZxannc1+zRdtcA=/Cargo.lock";
+      lockFile = ./. + "/sha256-0MPTLVkTTpMHnIIkBqMqXTG51Pzlu5X9VnNcxTFFaA8=/Cargo.lock";
       outputHashes = {
         
       };
@@ -262,16 +279,16 @@
   };
   zlib-rs = {
     pname = "zlib-rs";
-    version = "v0.6.0";
+    version = "v0.6.3";
     src = fetchFromGitHub {
       owner = "trifectatechfoundation";
       repo = "zlib-rs";
-      rev = "v0.6.0";
+      rev = "v0.6.3";
       fetchSubmodules = false;
-      sha256 = "sha256-UBAEw1DAh6mvzfHYW5r4T9tdtgWR1egJcO1CX36U0XQ=";
+      sha256 = "sha256-hNmNLhWfP/fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=";
     };
     cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
-      lockFile = ./. + "/sha256-UBAEw1DAh6mvzfHYW5r4T9tdtgWR1egJcO1CX36U0XQ=/libz-rs-sys-cdylib/Cargo.lock";
+      lockFile = ./. + "/sha256-hNmNLhWfP_fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=/libz-rs-sys-cdylib/Cargo.lock";
       outputHashes = {
         
       };
