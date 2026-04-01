@@ -116,7 +116,6 @@ in
   octorus = callPackageWithSourceMeta ./octorus "octorus" { };
   gws = callPackageWithSourceMeta ./gws "gws" { };
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
-  standalone-libclang = pkgs.callPackage ./standalone-libclang { };
   inherit libz-rs-sys-cdylib;
 
 }
