@@ -6,61 +6,6 @@
   dockerTools,
 }:
 {
-  apple-oss-distributions_berkeleydb = {
-    pname = "apple-oss-distributions_berkeleydb";
-    version = "BerkeleyDB-29";
-    src = fetchFromGitHub {
-      owner = "apple-oss-distributions";
-      repo = "BerkeleyDB";
-      rev = "BerkeleyDB-29";
-      fetchSubmodules = false;
-      sha256 = "sha256-tHV2BJA7oSCwICyGBMTIKkvMGbYmga3KRY5KgHJrjTg=";
-    };
-  };
-  apple-oss-distributions_curl = {
-    pname = "apple-oss-distributions_curl";
-    version = "curl-162";
-    src = fetchFromGitHub {
-      owner = "apple-oss-distributions";
-      repo = "curl";
-      rev = "curl-162";
-      fetchSubmodules = false;
-      sha256 = "sha256-JLe7f33RH8NXhQkozlkTYyNeuMtdg5qcvAdBYkxnCnk=";
-    };
-  };
-  apple-oss-distributions_openldap = {
-    pname = "apple-oss-distributions_openldap";
-    version = "OpenLDAP-559";
-    src = fetchFromGitHub {
-      owner = "apple-oss-distributions";
-      repo = "OpenLDAP";
-      rev = "OpenLDAP-559";
-      fetchSubmodules = false;
-      sha256 = "sha256-zeR8qe+ot5uoyf7yCFYxqEINqCQstrwxrr6Tkfl8weo=";
-    };
-  };
-  apple-oss-distributions_openssh = {
-    pname = "apple-oss-distributions_openssh";
-    version = "OpenSSH-354.80.3";
-    src = fetchFromGitHub {
-      owner = "apple-oss-distributions";
-      repo = "OpenSSH";
-      rev = "OpenSSH-354.80.3";
-      fetchSubmodules = false;
-      sha256 = "sha256-vHla/rRz6h6PYzdwfn+PiqfaKF1m/A5mCWOlsVhIH20=";
-    };
-  };
-  apple-oss-distributions_zlib = {
-    pname = "apple-oss-distributions_zlib";
-    version = "zlib-100";
-    src = fetchFromGitHub {
-      owner = "apple-oss-distributions";
-      repo = "zlib";
-      rev = "zlib-100";
-      fetchSubmodules = false;
-      sha256 = "sha256-EAlHKSdWHRbz6F1CjH+jubyEQehSmxE37Ua0iQ4ApcQ=";
-    };
-  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.110.0";

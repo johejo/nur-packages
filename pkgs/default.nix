@@ -119,5 +119,4 @@ in
   standalone-libclang = pkgs.callPackage ./standalone-libclang { };
   inherit libz-rs-sys-cdylib;
 
-  apple-oss-distributions = import ./apple-oss-distributions { inherit callPackageWithSourceMeta; };
 }

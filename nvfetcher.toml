@@ -34,26 +34,6 @@ fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64
 src.github = "openai/codex"
 fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-unknown-linux-gnu.tar.gz"
 
-[apple-oss-distributions_curl]
-src.github_tag = "apple-oss-distributions/curl"
-fetch.github = "apple-oss-distributions/curl"
-
-[apple-oss-distributions_zlib]
-src.github_tag = "apple-oss-distributions/zlib"
-fetch.github = "apple-oss-distributions/zlib"
-
-[apple-oss-distributions_openldap]
-src.github_tag = "apple-oss-distributions/OpenLDAP"
-fetch.github = "apple-oss-distributions/OpenLDAP"
-
-[apple-oss-distributions_berkeleydb]
-src.github_tag = "apple-oss-distributions/BerkeleyDB"
-fetch.github = "apple-oss-distributions/BerkeleyDB"
-
-[apple-oss-distributions_openssh]
-src.github_tag = "apple-oss-distributions/OpenSSH"
-fetch.github = "apple-oss-distributions/OpenSSH"
-
 [kakehashi]
 src.github = "atusy/kakehashi"
 fetch.github = "atusy/kakehashi"

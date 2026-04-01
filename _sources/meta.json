@@ -87,55 +87,6 @@
         "homepage": "https://github.com/openai/codex"
       }
     },
-    "apple-oss-distributions_curl": {
-      "git": {
-        "ref": "curl-162",
-        "commit": "36afe465806b797fe2e07dea1ac5cf43486b3dad"
-      },
-      "fields": {
-        "homepage": "https://github.com/apple-oss-distributions/curl",
-        "licenseSpdx": "cURL"
-      }
-    },
-    "apple-oss-distributions_zlib": {
-      "git": {
-        "ref": "zlib-100",
-        "commit": "06673bf7cb4066003fd14a0b87085c05739fc4ac"
-      },
-      "fields": {
-        "homepage": "https://github.com/apple-oss-distributions/zlib"
-      }
-    },
-    "apple-oss-distributions_openldap": {
-      "git": {
-        "ref": "OpenLDAP-559",
-        "commit": "b8e7dab668a42909ca43aef0b2d68efd524bfb62"
-      },
-      "fields": {
-        "homepage": "https://github.com/apple-oss-distributions/OpenLDAP",
-        "licenseSpdx": "OpenLDAP"
-      }
-    },
-    "apple-oss-distributions_berkeleydb": {
-      "git": {
-        "ref": "BerkeleyDB-29",
-        "commit": "6a9608a7f353a1a6c3e2bc3ba7216dd7332fe98f"
-      },
-      "fields": {
-        "homepage": "https://github.com/apple-oss-distributions/BerkeleyDB",
-        "licenseSpdx": "BSD-3-Clause OR Sleepycat"
-      }
-    },
-    "apple-oss-distributions_openssh": {
-      "git": {
-        "ref": "OpenSSH-354.80.3",
-        "commit": "cba6763461cbab13a85dc8a2fcf06fc8570e83a2"
-      },
-      "fields": {
-        "homepage": "https://github.com/apple-oss-distributions/OpenSSH",
-        "licenseSpdx": "BSD-2-Clause OR BSD-2-Clause-NetBSD OR BSD-3-Clause OR ISC OR MIT OR Rijndael-3.0"
-      }
-    },
     "kakehashi": {
       "git": {
         "ref": "v0.3.0",
