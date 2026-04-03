@@ -67,15 +67,6 @@
     "kubernetes-mcp-server": {
       "profile": "server-json"
     },
-    "kakehashi": {
-      "profile": "flake"
-    },
-    "octorus": {
-      "profile": "cargo"
-    },
-    "gws": {
-      "profile": "npm"
-    },
     "zlib-rs": {
       "profile": "cargo",
       "fields": {

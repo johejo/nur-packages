@@ -34,10 +34,17 @@ fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64
 src.github = "openai/codex"
 fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-unknown-linux-gnu.tar.gz"
 
-[kakehashi]
+[kakehashi-aarch64-darwin-bin]
 src.github = "atusy/kakehashi"
-fetch.github = "atusy/kakehashi"
-cargo_lock = ["Cargo.lock"]
+fetch.url = "https://github.com/atusy/kakehashi/releases/download/$ver/kakehashi-$ver-aarch64-apple-darwin.tar.gz"
+
+[kakehashi-x86_64-linux-bin]
+src.github = "atusy/kakehashi"
+fetch.url = "https://github.com/atusy/kakehashi/releases/download/$ver/kakehashi-$ver-x86_64-unknown-linux-gnu.tar.gz"
+
+[kakehashi-aarch64-linux-bin]
+src.github = "atusy/kakehashi"
+fetch.url = "https://github.com/atusy/kakehashi/releases/download/$ver/kakehashi-$ver-aarch64-unknown-linux-gnu.tar.gz"
 
 [hev-socks5-server]
 src.github = "heiher/hev-socks5-server"
@@ -62,10 +69,17 @@ cargo_lock = ["libz-rs-sys-cdylib/Cargo.lock"]
 src.github_tag = "Perl/perl5"
 fetch.github = "Perl/perl5"
 
-[octorus]
-src.github = "ushironoko/octorus"
-fetch.github = "ushironoko/octorus"
-cargo_lock = ["Cargo.lock"]
+[octorus-aarch64-darwin-bin]
+src.cmd = "gh api repos/ushironoko/octorus/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/ushironoko/octorus/releases/download/v$ver/octorus-$ver-aarch64-apple-darwin.tar.gz"
+
+[octorus-x86_64-linux-bin]
+src.cmd = "gh api repos/ushironoko/octorus/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/ushironoko/octorus/releases/download/v$ver/octorus-$ver-x86_64-unknown-linux-gnu.tar.gz"
+
+[octorus-aarch64-linux-bin]
+src.cmd = "gh api repos/ushironoko/octorus/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/ushironoko/octorus/releases/download/v$ver/octorus-$ver-aarch64-unknown-linux-gnu.tar.gz"
 
 [displayplacer]
 src.github_tag = "jakehilborn/displayplacer"
@@ -79,10 +93,17 @@ fetch.url = "https://install.duckdb.org/$ver/libduckdb-osx-universal.zip"
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-amd64.zip"
 
-[gws]
+[gws-aarch64-darwin-bin]
 src.github = "googleworkspace/cli"
-fetch.github = "googleworkspace/cli"
-cargo_lock = ["Cargo.lock"]
+fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-apple-darwin.tar.gz"
+
+[gws-x86_64-linux-bin]
+src.github = "googleworkspace/cli"
+fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz"
+
+[gws-aarch64-linux-bin]
+src.github = "googleworkspace/cli"
+fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
 
 [libduckdb-aarch64-linux-bin]
 src.github = "duckdb/duckdb"

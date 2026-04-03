@@ -87,15 +87,31 @@
         "homepage": "https://github.com/openai/codex"
       }
     },
-    "kakehashi": {
+    "kakehashi-aarch64-darwin-bin": {
       "git": {
-        "ref": "v0.4.1",
-        "commit": "5d1c6d45e05715a9fc13cdb4674364583b2478ec"
+        "ref": null,
+        "commit": null
       },
       "fields": {
-        "description": "kakehashi - A Tree-sitter Language Server",
-        "homepage": "https://github.com/atusy/kakehashi",
-        "licenseSpdx": "MIT"
+        "homepage": "https://github.com/atusy/kakehashi"
+      }
+    },
+    "kakehashi-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/atusy/kakehashi"
+      }
+    },
+    "kakehashi-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/atusy/kakehashi"
       }
     },
     "hev-socks5-server": {
@@ -149,15 +165,31 @@
         "licenseSpdx": "GPL-1.0"
       }
     },
-    "octorus": {
+    "octorus-aarch64-darwin-bin": {
       "git": {
-        "ref": "v0.6.1",
-        "commit": "d1c61e10005ba10f39b4a5522bbe6fa767ece895"
+        "ref": null,
+        "commit": null
       },
       "fields": {
-        "description": "A TUI tool for GitHub PR review, designed for Helix editor users",
-        "homepage": "https://github.com/ushironoko/octorus",
-        "licenseSpdx": "MIT"
+        "homepage": "https://github.com/ushironoko/octorus"
+      }
+    },
+    "octorus-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/ushironoko/octorus"
+      }
+    },
+    "octorus-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/ushironoko/octorus"
       }
     },
     "displayplacer": {
@@ -182,15 +214,31 @@
         "commit": null
       }
     },
-    "gws": {
+    "gws-aarch64-darwin-bin": {
       "git": {
-        "ref": "v0.22.5",
-        "commit": "705fb0ecac6f4249679958f6325b809b63fdde17"
+        "ref": null,
+        "commit": null
       },
       "fields": {
-        "description": "Google Workspace CLI — dynamic command surface from Discovery Service",
-        "homepage": "https://github.com/googleworkspace/cli",
-        "licenseSpdx": "Apache-2.0"
+        "homepage": "https://github.com/googleworkspace/cli"
+      }
+    },
+    "gws-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/googleworkspace/cli"
+      }
+    },
+    "gws-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/googleworkspace/cli"
       }
     },
     "libduckdb-aarch64-linux-bin": {

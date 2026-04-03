@@ -73,6 +73,15 @@ let
   callPackageWithSourceMetaArg =
     path: sourceName: args:
     callPackageWithSourceMeta path sourceName (args // { sourceMeta = sourceMetaFor sourceName; });
+  callPackageWithSystemSourceMeta =
+    path: sourcePrefix: args:
+    let
+      sourceName = "${sourcePrefix}-${system}-bin";
+    in
+    if builtins.hasAttr sourceName sources then
+      withSourceMeta sourceName (pkgs.callPackage path (args // { source = sources.${sourceName}; }))
+    else
+      null;
   libz-rs-sys-cdylib = callPackageWithSourceMeta ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
 in
 {
@@ -86,35 +95,16 @@ in
   prometheus-jmx-exporter =
     callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter"
       { };
-  codex-bin =
-    let
-      sourceName = "codex-${system}-bin";
-    in
-    if builtins.hasAttr sourceName sources then
-      withSourceMeta sourceName (
-        pkgs.callPackage ./codex-bin {
-          source = sources.${sourceName};
-          zlib = libz-rs-sys-cdylib;
-        }
-      )
-    else
-      null;
-  libduckdb-bin =
-    let
-      sourceName = "libduckdb-${system}-bin";
-    in
-    if builtins.hasAttr sourceName sources then
-      withSourceMeta sourceName (pkgs.callPackage ./libduckdb-bin { source = sources.${sourceName}; })
-    else
-      null;
+  codex-bin = callPackageWithSystemSourceMeta ./codex-bin "codex" { zlib = libz-rs-sys-cdylib; };
+  libduckdb-bin = callPackageWithSystemSourceMeta ./libduckdb-bin "libduckdb" { };
   caddy = pkgs.callPackage ./caddy { };
-  kakehashi = callPackageWithSourceMeta ./kakehashi "kakehashi" { };
   hev-socks5-server = callPackageWithSourceMetaArg ./hev-socks5-server "hev-socks5-server" { };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
-  octorus = callPackageWithSourceMeta ./octorus "octorus" { };
-  gws = callPackageWithSourceMeta ./gws "gws" { };
+  kakehashi-bin = callPackageWithSystemSourceMeta ./kakehashi-bin "kakehashi" { };
+  octorus-bin = callPackageWithSystemSourceMeta ./octorus-bin "octorus" { };
+  gws-bin = callPackageWithSystemSourceMeta ./gws-bin "gws" { };
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
   inherit libz-rs-sys-cdylib;
   xremap-gnome = pkgs.callPackage ./xremap-gnome { };

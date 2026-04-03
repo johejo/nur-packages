@@ -143,29 +143,48 @@
         },
         "version": "v0.12.0"
     },
-    "gws": {
-        "cargoLock": {
-            "Cargo.lock": [
-                "sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=/Cargo.lock",
-                {}
-            ]
-        },
+    "gws-aarch64-darwin-bin": {
+        "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "gws",
+        "name": "gws-aarch64-darwin-bin",
         "passthru": null,
         "pinned": false,
         "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
             "name": null,
-            "owner": "googleworkspace",
-            "repo": "cli",
-            "rev": "v0.22.5",
-            "sha256": "sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=",
-            "sparseCheckout": [],
-            "type": "github"
+            "sha256": "sha256-HSqf/VvJssLEtIYw2vCC+tE9nlfXQZiKLCSO7VYvfaw=",
+            "type": "url",
+            "url": "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "v0.22.5"
+    },
+    "gws-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gws-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-lEkCldlYDh6IV05xWgoWKZF0fRLWL4x7jcyCaLbBzqA=",
+            "type": "url",
+            "url": "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "v0.22.5"
+    },
+    "gws-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gws-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-3njs29LxqEzKAGOn7LxEAkD8FLbrzLsX9GRreSqMXB8=",
+            "type": "url",
+            "url": "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz"
         },
         "version": "v0.22.5"
     },
@@ -189,29 +208,48 @@
         },
         "version": "2.11.2"
     },
-    "kakehashi": {
-        "cargoLock": {
-            "Cargo.lock": [
-                "sha256-0TE2Xd1vur_X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=/Cargo.lock",
-                {}
-            ]
-        },
+    "kakehashi-aarch64-darwin-bin": {
+        "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "kakehashi",
+        "name": "kakehashi-aarch64-darwin-bin",
         "passthru": null,
         "pinned": false,
         "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
             "name": null,
-            "owner": "atusy",
-            "repo": "kakehashi",
-            "rev": "v0.4.1",
-            "sha256": "sha256-0TE2Xd1vur/X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=",
-            "sparseCheckout": [],
-            "type": "github"
+            "sha256": "sha256-nvWXxqsWoX6NsULa0qSx7TFeMlgid5hd4/keK0wGEtk=",
+            "type": "url",
+            "url": "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "v0.4.1"
+    },
+    "kakehashi-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "kakehashi-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-mEe90L7/P2TphiEbvcFw8qRVjeLLLikADJCdbPKFHIk=",
+            "type": "url",
+            "url": "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "v0.4.1"
+    },
+    "kakehashi-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "kakehashi-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-DFSVXRLBZ4qvNYzItnu9t2K3KxK9D2Jpppz0gae2vRo=",
+            "type": "url",
+            "url": "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-x86_64-unknown-linux-gnu.tar.gz"
         },
         "version": "v0.4.1"
     },
@@ -281,31 +319,50 @@
         },
         "version": "v1.5.1"
     },
-    "octorus": {
-        "cargoLock": {
-            "Cargo.lock": [
-                "sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=/Cargo.lock",
-                {}
-            ]
-        },
+    "octorus-aarch64-darwin-bin": {
+        "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "octorus",
+        "name": "octorus-aarch64-darwin-bin",
         "passthru": null,
         "pinned": false,
         "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
             "name": null,
-            "owner": "ushironoko",
-            "repo": "octorus",
-            "rev": "v0.6.1",
-            "sha256": "sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=",
-            "sparseCheckout": [],
-            "type": "github"
+            "sha256": "sha256-AWvcVFARwiDOVYyhSP1/4CNIkRmtRkI1j0Hj/UYvGYk=",
+            "type": "url",
+            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-apple-darwin.tar.gz"
         },
-        "version": "v0.6.1"
+        "version": "0.6.1"
+    },
+    "octorus-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "octorus-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-iF6Eo/yRrsCs80OQBDvZwPry0POJ0Y/sGcpmyOqY8Uw=",
+            "type": "url",
+            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "0.6.1"
+    },
+    "octorus-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "octorus-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Yf64ijzZx+v/voM04Qv/bSwxf0RGcizec41xiQCFl0U=",
+            "type": "url",
+            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-x86_64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "0.6.1"
     },
     "perl5": {
         "cargoLock": null,

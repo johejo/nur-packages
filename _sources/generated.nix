@@ -82,21 +82,28 @@
       sha256 = "sha256-KtjqZLR4Uf77865IGHFmcjwpV8GWkiaV7fBeTrsx93E=";
     };
   };
-  gws = {
-    pname = "gws";
+  gws-aarch64-darwin-bin = {
+    pname = "gws-aarch64-darwin-bin";
     version = "v0.22.5";
-    src = fetchFromGitHub {
-      owner = "googleworkspace";
-      repo = "cli";
-      rev = "v0.22.5";
-      fetchSubmodules = false;
-      sha256 = "sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=";
+    src = fetchurl {
+      url = "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-HSqf/VvJssLEtIYw2vCC+tE9nlfXQZiKLCSO7VYvfaw=";
     };
-    cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=/Cargo.lock";
-      outputHashes = {
-        
-      };
+  };
+  gws-aarch64-linux-bin = {
+    pname = "gws-aarch64-linux-bin";
+    version = "v0.22.5";
+    src = fetchurl {
+      url = "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-lEkCldlYDh6IV05xWgoWKZF0fRLWL4x7jcyCaLbBzqA=";
+    };
+  };
+  gws-x86_64-linux-bin = {
+    pname = "gws-x86_64-linux-bin";
+    version = "v0.22.5";
+    src = fetchurl {
+      url = "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-3njs29LxqEzKAGOn7LxEAkD8FLbrzLsX9GRreSqMXB8=";
     };
   };
   hev-socks5-server = {
@@ -112,21 +119,28 @@
       sha256 = "sha256-FHEjO9LaajRH5l4gA7+S/0OI1Pk5WjkSAlrkUJBpsDg=";
     };
   };
-  kakehashi = {
-    pname = "kakehashi";
+  kakehashi-aarch64-darwin-bin = {
+    pname = "kakehashi-aarch64-darwin-bin";
     version = "v0.4.1";
-    src = fetchFromGitHub {
-      owner = "atusy";
-      repo = "kakehashi";
-      rev = "v0.4.1";
-      fetchSubmodules = false;
-      sha256 = "sha256-0TE2Xd1vur/X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=";
+    src = fetchurl {
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-nvWXxqsWoX6NsULa0qSx7TFeMlgid5hd4/keK0wGEtk=";
     };
-    cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-0TE2Xd1vur_X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=/Cargo.lock";
-      outputHashes = {
-        
-      };
+  };
+  kakehashi-aarch64-linux-bin = {
+    pname = "kakehashi-aarch64-linux-bin";
+    version = "v0.4.1";
+    src = fetchurl {
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-mEe90L7/P2TphiEbvcFw8qRVjeLLLikADJCdbPKFHIk=";
+    };
+  };
+  kakehashi-x86_64-linux-bin = {
+    pname = "kakehashi-x86_64-linux-bin";
+    version = "v0.4.1";
+    src = fetchurl {
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-DFSVXRLBZ4qvNYzItnu9t2K3KxK9D2Jpppz0gae2vRo=";
     };
   };
   kubernetes-mcp-server = {
@@ -164,21 +178,28 @@
       sha256 = "sha256-Ia7GamDq4WlicLpxWkgasGaojZmmJxjQV3V5rBp6SDQ=";
     };
   };
-  octorus = {
-    pname = "octorus";
-    version = "v0.6.1";
-    src = fetchFromGitHub {
-      owner = "ushironoko";
-      repo = "octorus";
-      rev = "v0.6.1";
-      fetchSubmodules = false;
-      sha256 = "sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=";
+  octorus-aarch64-darwin-bin = {
+    pname = "octorus-aarch64-darwin-bin";
+    version = "0.6.1";
+    src = fetchurl {
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-AWvcVFARwiDOVYyhSP1/4CNIkRmtRkI1j0Hj/UYvGYk=";
     };
-    cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=/Cargo.lock";
-      outputHashes = {
-        
-      };
+  };
+  octorus-aarch64-linux-bin = {
+    pname = "octorus-aarch64-linux-bin";
+    version = "0.6.1";
+    src = fetchurl {
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-iF6Eo/yRrsCs80OQBDvZwPry0POJ0Y/sGcpmyOqY8Uw=";
+    };
+  };
+  octorus-x86_64-linux-bin = {
+    pname = "octorus-x86_64-linux-bin";
+    version = "0.6.1";
+    src = fetchurl {
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-Yf64ijzZx+v/voM04Qv/bSwxf0RGcizec41xiQCFl0U=";
     };
   };
   perl5 = {
