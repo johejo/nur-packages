@@ -8,26 +8,26 @@
 {
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.110.0";
+    version = "rust-v0.118.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-/ruGxUWNEBqAoXNHyJwPCQemBefKuvL5J68I3zZ8MWE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-utPCyDuHS3Z86Gr2T08AW8FN6nny2MrDfPput3cQxxc=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.110.0";
+    version = "rust-v0.118.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-tMiSp3XK+2kJWQ/w5iHu5QOkrrmM6e7hvZKRvCn9C4g=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-n5wSQdOXgzhDE5dXI0dQIN++G9ewI8IrBIFhaBWfj9c=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.110.0";
+    version = "rust-v0.118.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-pxplBw39NvhTvHDX3ssFXuXN7vAESQa9PQaY9vIgISQ=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-Ig8VyhxjnpBarjhdqWDhiXiC/udmU/X59d/6X3VPfJg=";
     };
   };
   displayplacer = {
@@ -65,35 +65,35 @@
   };
   gitbucket = {
     pname = "gitbucket";
-    version = "4.45.0";
+    version = "4.46.0";
     src = fetchurl {
-      url = "https://github.com/gitbucket/gitbucket/releases/download/4.45.0/gitbucket.war";
-      sha256 = "sha256-byfgsRcaWkJJaALZbwoGjQ6LR2IJhq1uvaT6E16jhxQ=";
+      url = "https://github.com/gitbucket/gitbucket/releases/download/4.46.0/gitbucket.war";
+      sha256 = "sha256-IBBscZTQzhErgyczypzco82uNA8Hw5eeL72SMA2J/Zg=";
     };
   };
   gogcli = {
     pname = "gogcli";
-    version = "v0.11.0";
+    version = "v0.12.0";
     src = fetchFromGitHub {
       owner = "steipete";
       repo = "gogcli";
-      rev = "v0.11.0";
+      rev = "v0.12.0";
       fetchSubmodules = false;
-      sha256 = "sha256-hJU40ysjRx4p9SWGmbhhpToYCpk3DcMAWCnKqxHRmh0=";
+      sha256 = "sha256-KtjqZLR4Uf77865IGHFmcjwpV8GWkiaV7fBeTrsx93E=";
     };
   };
   gws = {
     pname = "gws";
-    version = "v0.3.4";
+    version = "v0.22.5";
     src = fetchFromGitHub {
       owner = "googleworkspace";
       repo = "cli";
-      rev = "v0.3.4";
+      rev = "v0.22.5";
       fetchSubmodules = false;
-      sha256 = "sha256-xPKxsMr0klLeOcfbgtgPCvzAryiOWXhZy2TUU7DrHHQ=";
+      sha256 = "sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-xPKxsMr0klLeOcfbgtgPCvzAryiOWXhZy2TUU7DrHHQ=/Cargo.lock";
+      lockFile = ./. + "/sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=/Cargo.lock";
       outputHashes = {
         
       };
@@ -114,16 +114,16 @@
   };
   kakehashi = {
     pname = "kakehashi";
-    version = "v0.3.0";
+    version = "v0.4.1";
     src = fetchFromGitHub {
       owner = "atusy";
       repo = "kakehashi";
-      rev = "v0.3.0";
+      rev = "v0.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=";
+      sha256 = "sha256-0TE2Xd1vur/X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=/Cargo.lock";
+      lockFile = ./. + "/sha256-0TE2Xd1vur_X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=/Cargo.lock";
       outputHashes = {
         
       };
@@ -131,51 +131,51 @@
   };
   kubernetes-mcp-server = {
     pname = "kubernetes-mcp-server";
-    version = "v0.0.58";
+    version = "v0.0.60";
     src = fetchFromGitHub {
       owner = "containers";
       repo = "kubernetes-mcp-server";
-      rev = "v0.0.58";
+      rev = "v0.0.60";
       fetchSubmodules = false;
-      sha256 = "sha256-W/IHZJdq1jlFOD3pqhiqp898k/Obo1/tlXYFSgf2p+Y=";
+      sha256 = "sha256-btFtMO0+cIJ44cHMYLUrYMpamBhuiLgxCf8gzEXYCHs=";
     };
   };
   libduckdb-aarch64-darwin-bin = {
     pname = "libduckdb-aarch64-darwin-bin";
-    version = "v1.4.4";
+    version = "v1.5.1";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.4.4/libduckdb-osx-universal.zip";
-      sha256 = "sha256-Xm159fuGu9TyTVnO47w48RPRQzdh3zUzfjwBxi7q/iY=";
+      url = "https://install.duckdb.org/v1.5.1/libduckdb-osx-universal.zip";
+      sha256 = "sha256-2d1yPFn4VxICtGj2v3HUVVI4VEVT3RRF5snss59UwPM=";
     };
   };
   libduckdb-aarch64-linux-bin = {
     pname = "libduckdb-aarch64-linux-bin";
-    version = "v1.4.4";
+    version = "v1.5.1";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.4.4/libduckdb-linux-arm64.zip";
-      sha256 = "sha256-do9m4LQIONVnpVJK45Adqkgj9IKf0ebzYV11rlVWK1I=";
+      url = "https://install.duckdb.org/v1.5.1/libduckdb-linux-arm64.zip";
+      sha256 = "sha256-IDtYURJVs3Mo08JnN5hVKvhOpzpbHino6eGBP/090GQ=";
     };
   };
   libduckdb-x86_64-linux-bin = {
     pname = "libduckdb-x86_64-linux-bin";
-    version = "v1.4.4";
+    version = "v1.5.1";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.4.4/libduckdb-linux-amd64.zip";
-      sha256 = "sha256-CcwogpWWTYl7R2ZdGJjhbo7xdsrp6mFXl/wTbq4VvV0=";
+      url = "https://install.duckdb.org/v1.5.1/libduckdb-linux-amd64.zip";
+      sha256 = "sha256-Ia7GamDq4WlicLpxWkgasGaojZmmJxjQV3V5rBp6SDQ=";
     };
   };
   octorus = {
     pname = "octorus";
-    version = "v0.5.5";
+    version = "v0.6.1";
     src = fetchFromGitHub {
       owner = "ushironoko";
       repo = "octorus";
-      rev = "v0.5.5";
+      rev = "v0.6.1";
       fetchSubmodules = false;
-      sha256 = "sha256-0MPTLVkTTpMHnIIkBqMqXTG51Pzlu5X9VnNcxTFFaA8=";
+      sha256 = "sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-0MPTLVkTTpMHnIIkBqMqXTG51Pzlu5X9VnNcxTFFaA8=/Cargo.lock";
+      lockFile = ./. + "/sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=/Cargo.lock";
       outputHashes = {
         
       };
@@ -183,13 +183,13 @@
   };
   perl5 = {
     pname = "perl5";
-    version = "v5.43.8";
+    version = "v5.43.9";
     src = fetchFromGitHub {
       owner = "Perl";
       repo = "perl5";
-      rev = "v5.43.8";
+      rev = "v5.43.9";
       fetchSubmodules = false;
-      sha256 = "sha256-s5bgYEyf/ZiP8ryyVEAMaAVHfJjTbwgn4f5otTSbz/Q=";
+      sha256 = "sha256-n8eWLtBEN1aw2ZQPLvkIXyBWryTSuDWroOGgeks6d+Y=";
     };
   };
   prometheus-jmx-exporter = {
@@ -202,13 +202,13 @@
   };
   socks5shim = {
     pname = "socks5shim";
-    version = "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996";
+    version = "419b8ebb4ece1362e84f95fc05662e27b29ec4ef";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "socks5shim";
-      rev = "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996";
+      rev = "419b8ebb4ece1362e84f95fc05662e27b29ec4ef";
       fetchSubmodules = false;
-      sha256 = "sha256-W2C1ScwZcrXPbeEyxQh0F6rgVLznoPya7Ib4fSCXC70=";
+      sha256 = "sha256-tfwlK4ie+nVSBPL/BGX5/juph/oOsbNNgHYnEtcbuNI=";
     };
   };
   starlink-exporter = {

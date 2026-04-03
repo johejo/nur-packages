@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/ruGxUWNEBqAoXNHyJwPCQemBefKuvL5J68I3zZ8MWE=",
+            "sha256": "sha256-utPCyDuHS3Z86Gr2T08AW8FN6nny2MrDfPput3cQxxc=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.110.0"
+        "version": "rust-v0.118.0"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-tMiSp3XK+2kJWQ/w5iHu5QOkrrmM6e7hvZKRvCn9C4g=",
+            "sha256": "sha256-n5wSQdOXgzhDE5dXI0dQIN++G9ewI8IrBIFhaBWfj9c=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.110.0"
+        "version": "rust-v0.118.0"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-pxplBw39NvhTvHDX3ssFXuXN7vAESQa9PQaY9vIgISQ=",
+            "sha256": "sha256-Ig8VyhxjnpBarjhdqWDhiXiC/udmU/X59d/6X3VPfJg=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.110.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.110.0"
+        "version": "rust-v0.118.0"
     },
     "displayplacer": {
         "cargoLock": null,
@@ -116,11 +116,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-byfgsRcaWkJJaALZbwoGjQ6LR2IJhq1uvaT6E16jhxQ=",
+            "sha256": "sha256-IBBscZTQzhErgyczypzco82uNA8Hw5eeL72SMA2J/Zg=",
             "type": "url",
-            "url": "https://github.com/gitbucket/gitbucket/releases/download/4.45.0/gitbucket.war"
+            "url": "https://github.com/gitbucket/gitbucket/releases/download/4.46.0/gitbucket.war"
         },
-        "version": "4.45.0"
+        "version": "4.46.0"
     },
     "gogcli": {
         "cargoLock": null,
@@ -136,17 +136,17 @@
             "name": null,
             "owner": "steipete",
             "repo": "gogcli",
-            "rev": "v0.11.0",
-            "sha256": "sha256-hJU40ysjRx4p9SWGmbhhpToYCpk3DcMAWCnKqxHRmh0=",
+            "rev": "v0.12.0",
+            "sha256": "sha256-KtjqZLR4Uf77865IGHFmcjwpV8GWkiaV7fBeTrsx93E=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.11.0"
+        "version": "v0.12.0"
     },
     "gws": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-xPKxsMr0klLeOcfbgtgPCvzAryiOWXhZy2TUU7DrHHQ=/Cargo.lock",
+                "sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=/Cargo.lock",
                 {}
             ]
         },
@@ -162,12 +162,12 @@
             "name": null,
             "owner": "googleworkspace",
             "repo": "cli",
-            "rev": "v0.3.4",
-            "sha256": "sha256-xPKxsMr0klLeOcfbgtgPCvzAryiOWXhZy2TUU7DrHHQ=",
+            "rev": "v0.22.5",
+            "sha256": "sha256-Bj4gPklufU6p2JpvN6j7QViv7ghSn52jemeXPVXkhlk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.3.4"
+        "version": "v0.22.5"
     },
     "hev-socks5-server": {
         "cargoLock": null,
@@ -192,7 +192,7 @@
     "kakehashi": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=/Cargo.lock",
+                "sha256-0TE2Xd1vur_X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=/Cargo.lock",
                 {}
             ]
         },
@@ -208,12 +208,12 @@
             "name": null,
             "owner": "atusy",
             "repo": "kakehashi",
-            "rev": "v0.3.0",
-            "sha256": "sha256-HVc94jpIgyJuEa6zjf2MhNPIHpRkSaoFdZhNdkFWHC0=",
+            "rev": "v0.4.1",
+            "sha256": "sha256-0TE2Xd1vur/X6Xa+0KoRquWjxvVrgu6B6qdME2prOdc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.3.0"
+        "version": "v0.4.1"
     },
     "kubernetes-mcp-server": {
         "cargoLock": null,
@@ -229,12 +229,12 @@
             "name": null,
             "owner": "containers",
             "repo": "kubernetes-mcp-server",
-            "rev": "v0.0.58",
-            "sha256": "sha256-W/IHZJdq1jlFOD3pqhiqp898k/Obo1/tlXYFSgf2p+Y=",
+            "rev": "v0.0.60",
+            "sha256": "sha256-btFtMO0+cIJ44cHMYLUrYMpamBhuiLgxCf8gzEXYCHs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.58"
+        "version": "v0.0.60"
     },
     "libduckdb-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -245,11 +245,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Xm159fuGu9TyTVnO47w48RPRQzdh3zUzfjwBxi7q/iY=",
+            "sha256": "sha256-2d1yPFn4VxICtGj2v3HUVVI4VEVT3RRF5snss59UwPM=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.4.4/libduckdb-osx-universal.zip"
+            "url": "https://install.duckdb.org/v1.5.1/libduckdb-osx-universal.zip"
         },
-        "version": "v1.4.4"
+        "version": "v1.5.1"
     },
     "libduckdb-aarch64-linux-bin": {
         "cargoLock": null,
@@ -260,11 +260,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-do9m4LQIONVnpVJK45Adqkgj9IKf0ebzYV11rlVWK1I=",
+            "sha256": "sha256-IDtYURJVs3Mo08JnN5hVKvhOpzpbHino6eGBP/090GQ=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.4.4/libduckdb-linux-arm64.zip"
+            "url": "https://install.duckdb.org/v1.5.1/libduckdb-linux-arm64.zip"
         },
-        "version": "v1.4.4"
+        "version": "v1.5.1"
     },
     "libduckdb-x86_64-linux-bin": {
         "cargoLock": null,
@@ -275,16 +275,16 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-CcwogpWWTYl7R2ZdGJjhbo7xdsrp6mFXl/wTbq4VvV0=",
+            "sha256": "sha256-Ia7GamDq4WlicLpxWkgasGaojZmmJxjQV3V5rBp6SDQ=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.4.4/libduckdb-linux-amd64.zip"
+            "url": "https://install.duckdb.org/v1.5.1/libduckdb-linux-amd64.zip"
         },
-        "version": "v1.4.4"
+        "version": "v1.5.1"
     },
     "octorus": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-0MPTLVkTTpMHnIIkBqMqXTG51Pzlu5X9VnNcxTFFaA8=/Cargo.lock",
+                "sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=/Cargo.lock",
                 {}
             ]
         },
@@ -300,12 +300,12 @@
             "name": null,
             "owner": "ushironoko",
             "repo": "octorus",
-            "rev": "v0.5.5",
-            "sha256": "sha256-0MPTLVkTTpMHnIIkBqMqXTG51Pzlu5X9VnNcxTFFaA8=",
+            "rev": "v0.6.1",
+            "sha256": "sha256-ofmIrDVWQ3kGjeiFxDWUfxiQVR+2GAP37eLdSOdDDWU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.5.5"
+        "version": "v0.6.1"
     },
     "perl5": {
         "cargoLock": null,
@@ -321,12 +321,12 @@
             "name": null,
             "owner": "Perl",
             "repo": "perl5",
-            "rev": "v5.43.8",
-            "sha256": "sha256-s5bgYEyf/ZiP8ryyVEAMaAVHfJjTbwgn4f5otTSbz/Q=",
+            "rev": "v5.43.9",
+            "sha256": "sha256-n8eWLtBEN1aw2ZQPLvkIXyBWryTSuDWroOGgeks6d+Y=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v5.43.8"
+        "version": "v5.43.9"
     },
     "prometheus-jmx-exporter": {
         "cargoLock": null,
@@ -357,12 +357,12 @@
             "name": null,
             "owner": "johejo",
             "repo": "socks5shim",
-            "rev": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996",
-            "sha256": "sha256-W2C1ScwZcrXPbeEyxQh0F6rgVLznoPya7Ib4fSCXC70=",
+            "rev": "419b8ebb4ece1362e84f95fc05662e27b29ec4ef",
+            "sha256": "sha256-tfwlK4ie+nVSBPL/BGX5/juph/oOsbNNgHYnEtcbuNI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "bc0e285ed72e3fb8b3daf4437e9fc33c177e8996"
+        "version": "419b8ebb4ece1362e84f95fc05662e27b29ec4ef"
     },
     "starlink-exporter": {
         "cargoLock": null,
