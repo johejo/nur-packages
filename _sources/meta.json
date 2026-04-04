@@ -60,6 +60,15 @@
         "licenseSpdx": "MIT"
       }
     },
+    "alerter-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/vjeantet/alerter"
+      }
+    },
     "codex-aarch64-darwin-bin": {
       "git": {
         "ref": null,

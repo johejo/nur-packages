@@ -1,4 +1,19 @@
 {
+    "alerter-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "alerter-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-EfY83cm7P4VU7Zt2JjKhIM+nvuBePAnWVzSCPgnSTxA=",
+            "type": "url",
+            "url": "https://github.com/vjeantet/alerter/releases/download/v26.5/alerter-26.5.zip"
+        },
+        "version": "26.5"
+    },
     "codex-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

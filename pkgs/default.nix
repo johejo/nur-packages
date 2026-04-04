@@ -85,6 +85,7 @@ let
   libz-rs-sys-cdylib = callPackageWithSourceMeta ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
 in
 {
+  alerter-bin = callPackageWithSourceMeta ./alerter-bin "alerter-bin" { };
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
   gogcli = callPackageWithSourceMetaArg ./gogcli "gogcli" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };

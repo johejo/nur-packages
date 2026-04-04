@@ -6,6 +6,14 @@
   dockerTools,
 }:
 {
+  alerter-bin = {
+    pname = "alerter-bin";
+    version = "26.5";
+    src = fetchurl {
+      url = "https://github.com/vjeantet/alerter/releases/download/v26.5/alerter-26.5.zip";
+      sha256 = "sha256-EfY83cm7P4VU7Zt2JjKhIM+nvuBePAnWVzSCPgnSTxA=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.118.0";
