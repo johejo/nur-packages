@@ -15,7 +15,7 @@ in
 
 buildGoModule rec {
   inherit (source) pname version src;
-  vendorHash = "sha256-WGRlv3UsK3SVBQySD7uZ8+FiRl03p0rzjBm9Se1iITs=";
+  vendorHash = "sha256-8RKzJq4nlg7ljPw+9mtiv0is6MeVtkMEiM2UUdKPP3U=";
 
   checkFlags =
     let
