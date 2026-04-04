@@ -40,17 +40,18 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 codex-* $out/bin/codex
-    ${lib.optionalString stdenv.isLinux ''
-      autoPatchelf $out/bin/codex
-    ''}
     runHook postInstall
   '';
 
-  postInstall = ''
-    installShellCompletion --cmd codex \
-      --bash <($out/bin/codex completion bash) \
-      --fish <($out/bin/codex completion fish) \
-      --zsh <($out/bin/codex completion zsh)
+  preFixup = ''
+    generateCodexCompletions() {
+      installShellCompletion --cmd codex \
+        --bash <($out/bin/codex completion bash) \
+        --fish <($out/bin/codex completion fish) \
+        --zsh <($out/bin/codex completion zsh)
+    }
+
+    postFixupHooks+=(generateCodexCompletions)
   '';
 
   meta = {

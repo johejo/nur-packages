@@ -26,9 +26,6 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 gws $out/bin/gws
-    ${lib.optionalString stdenv.isLinux ''
-      autoPatchelf $out/bin/gws
-    ''}
     runHook postInstall
   '';
 

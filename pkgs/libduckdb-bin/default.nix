@@ -25,7 +25,6 @@ stdenv.mkDerivation rec {
   ''
   + lib.optionalString stdenv.isLinux ''
     cp libduckdb.so $out/lib/libduckdb.so
-    autoPatchelf $out/lib/libduckdb.so
   ''
   + lib.optionalString stdenv.isDarwin ''
     cp libduckdb.dylib $out/lib/libduckdb.dylib

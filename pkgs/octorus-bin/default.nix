@@ -27,9 +27,6 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin
     binary="$(find . -type f -name or -print -quit)"
     install -Dm755 "$binary" $out/bin/or
-    ${lib.optionalString stdenv.isLinux ''
-      autoPatchelf $out/bin/or
-    ''}
     runHook postInstall
   '';
 

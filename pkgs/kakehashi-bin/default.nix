@@ -26,9 +26,6 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 kakehashi $out/bin/kakehashi
-    ${lib.optionalString stdenv.isLinux ''
-      autoPatchelf $out/bin/kakehashi
-    ''}
     runHook postInstall
   '';
 
