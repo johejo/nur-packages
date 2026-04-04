@@ -117,5 +117,5 @@ in
   gws = callPackageWithSourceMeta ./gws "gws" { };
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
   inherit libz-rs-sys-cdylib;
-
+  xremap-gnome = pkgs.callPackage ./xremap-gnome { };
 }
