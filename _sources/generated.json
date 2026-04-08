@@ -244,6 +244,27 @@
         },
         "version": "2.11.2"
     },
+    "hocage": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "hocage",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "johejo",
+            "repo": "hocage",
+            "rev": "2211a65fb6e3db817a6911e4653fec8596974a51",
+            "sha256": "sha256-tTf8/9rYNeUU16zNTJMXUSDIE70m9g2WY6FNYCDpteA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "2211a65fb6e3db817a6911e4653fec8596974a51"
+    },
     "kakehashi-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

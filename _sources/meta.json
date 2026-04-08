@@ -250,6 +250,16 @@
         "homepage": "https://github.com/googleworkspace/cli"
       }
     },
+    "hocage": {
+      "git": {
+        "ref": "2211a65fb6e3db817a6911e4653fec8596974a51",
+        "commit": "2211a65fb6e3db817a6911e4653fec8596974a51"
+      },
+      "fields": {
+        "homepage": "https://github.com/johejo/hocage",
+        "licenseSpdx": "Apache-2.0"
+      }
+    },
     "confluence-cli": {
       "git": {
         "ref": "v1.28.0",

@@ -101,6 +101,7 @@ in
   libduckdb-bin = callPackageWithSystemSourceMeta ./libduckdb-bin "libduckdb" { };
   caddy = pkgs.callPackage ./caddy { };
   hev-socks5-server = callPackageWithSourceMetaArg ./hev-socks5-server "hev-socks5-server" { };
+  hocage = callPackageWithSourceMeta ./hocage "hocage" { };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };

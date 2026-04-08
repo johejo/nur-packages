@@ -109,6 +109,10 @@ fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/googl
 src.github = "googleworkspace/cli"
 fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
 
+[hocage]
+src.cmd = "gh api repos/johejo/hocage/commits/main --jq .sha"
+fetch.github = "johejo/hocage"
+
 [confluence-cli]
 src.github = "pchuri/confluence-cli"
 fetch.github = "pchuri/confluence-cli"

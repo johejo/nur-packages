@@ -138,6 +138,17 @@
       sha256 = "sha256-FHEjO9LaajRH5l4gA7+S/0OI1Pk5WjkSAlrkUJBpsDg=";
     };
   };
+  hocage = {
+    pname = "hocage";
+    version = "2211a65fb6e3db817a6911e4653fec8596974a51";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "hocage";
+      rev = "2211a65fb6e3db817a6911e4653fec8596974a51";
+      fetchSubmodules = false;
+      sha256 = "sha256-tTf8/9rYNeUU16zNTJMXUSDIE70m9g2WY6FNYCDpteA=";
+    };
+  };
   kakehashi-aarch64-darwin-bin = {
     pname = "kakehashi-aarch64-darwin-bin";
     version = "v0.4.1";
