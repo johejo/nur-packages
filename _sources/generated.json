@@ -59,6 +59,27 @@
         },
         "version": "rust-v0.118.0"
     },
+    "confluence-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "confluence-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pchuri",
+            "repo": "confluence-cli",
+            "rev": "v1.28.0",
+            "sha256": "sha256-C7xwwDtpH31idq0D+v1ppc5hzVr0PV1ouNvAI+6Kz6k=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.28.0"
+    },
     "displayplacer": {
         "cargoLock": null,
         "date": null,

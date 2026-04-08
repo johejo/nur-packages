@@ -38,6 +38,17 @@
       sha256 = "sha256-Ig8VyhxjnpBarjhdqWDhiXiC/udmU/X59d/6X3VPfJg=";
     };
   };
+  confluence-cli = {
+    pname = "confluence-cli";
+    version = "v1.28.0";
+    src = fetchFromGitHub {
+      owner = "pchuri";
+      repo = "confluence-cli";
+      rev = "v1.28.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-C7xwwDtpH31idq0D+v1ppc5hzVr0PV1ouNvAI+6Kz6k=";
+    };
+  };
   displayplacer = {
     pname = "displayplacer";
     version = "v1.4.0";

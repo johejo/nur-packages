@@ -250,6 +250,17 @@
         "homepage": "https://github.com/googleworkspace/cli"
       }
     },
+    "confluence-cli": {
+      "git": {
+        "ref": "v1.28.0",
+        "commit": "761d10e9204615d8b423e123738825a0059bfec3"
+      },
+      "fields": {
+        "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",
+        "homepage": "https://github.com/pchuri/confluence-cli",
+        "licenseSpdx": "MIT"
+      }
+    },
     "libduckdb-aarch64-linux-bin": {
       "git": {
         "ref": null,

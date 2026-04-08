@@ -96,6 +96,7 @@ in
   prometheus-jmx-exporter =
     callPackageWithSourceMeta ./prometheus-jmx-exporter "prometheus-jmx-exporter"
       { };
+  confluence-cli = callPackageWithSourceMeta ./confluence-cli "confluence-cli" { };
   codex-bin = callPackageWithSystemSourceMeta ./codex-bin "codex" { zlib = libz-rs-sys-cdylib; };
   libduckdb-bin = callPackageWithSystemSourceMeta ./libduckdb-bin "libduckdb" { };
   caddy = pkgs.callPackage ./caddy { };

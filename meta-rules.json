@@ -60,6 +60,9 @@
     }
   },
   "packages": {
+    "confluence-cli": {
+      "profile": "npm"
+    },
     "gogcli": {
       "profile": "html",
       "file": "docs/index.html"
