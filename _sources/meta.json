@@ -75,9 +75,7 @@
         "commit": null
       },
       "fields": {
-        "description": "On-device Apple FoundationModels CLI and OpenAI-compatible server",
-        "homepage": "https://github.com/Arthur-Ficial/apfel",
-        "licenseSpdx": "MIT"
+        "homepage": "https://github.com/Arthur-Ficial/apfel"
       }
     },
     "codex-aarch64-darwin-bin": {
@@ -156,8 +154,8 @@
     },
     "gf-cli": {
       "git": {
-        "ref": "e9e893ff44172eae6e2f87970bf7a28565abedf5",
-        "commit": "e9e893ff44172eae6e2f87970bf7a28565abedf5"
+        "ref": "1259a7952fbe94b77cbe08e80683133e0ac573e3",
+        "commit": "1259a7952fbe94b77cbe08e80683133e0ac573e3"
       },
       "fields": {
         "homepage": "https://github.com/johejo/gf-cli",
@@ -271,10 +269,20 @@
         "licenseSpdx": "Apache-2.0"
       }
     },
+    "json2table": {
+      "git": {
+        "ref": "45e65ae2200fc38be28439b3397e93a78aa1f97c",
+        "commit": "45e65ae2200fc38be28439b3397e93a78aa1f97c"
+      },
+      "fields": {
+        "homepage": "https://github.com/johejo/json2table",
+        "licenseSpdx": "MIT"
+      }
+    },
     "confluence-cli": {
       "git": {
-        "ref": "v1.28.0",
-        "commit": "761d10e9204615d8b423e123738825a0059bfec3"
+        "ref": "v1.29.0",
+        "commit": "0cae21ec3d8b79601e36125da7bf1240cf2c862b"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",
@@ -286,16 +294,6 @@
       "git": {
         "ref": null,
         "commit": null
-      }
-    },
-    "json2table": {
-      "git": {
-        "ref": "45e65ae2200fc38be28439b3397e93a78aa1f97c",
-        "commit": "45e65ae2200fc38be28439b3397e93a78aa1f97c"
-      },
-      "fields": {
-        "homepage": "https://github.com/johejo/json2table",
-        "licenseSpdx": "MIT"
       }
     }
   }

@@ -88,12 +88,12 @@
             "name": null,
             "owner": "pchuri",
             "repo": "confluence-cli",
-            "rev": "v1.28.0",
-            "sha256": "sha256-C7xwwDtpH31idq0D+v1ppc5hzVr0PV1ouNvAI+6Kz6k=",
+            "rev": "v1.29.0",
+            "sha256": "sha256-uO/EQ72XNByRy7PW3lAhCMha85C/Sqihk0LceZHekpA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.28.0"
+        "version": "v1.29.0"
     },
     "displayplacer": {
         "cargoLock": null,
@@ -151,12 +151,12 @@
             "name": null,
             "owner": "johejo",
             "repo": "gf-cli",
-            "rev": "e9e893ff44172eae6e2f87970bf7a28565abedf5",
-            "sha256": "sha256-/MMbx6Ebv4A5/BwoFzm0WqMO4X2eoRE+PZto4uSAmUA=",
+            "rev": "1259a7952fbe94b77cbe08e80683133e0ac573e3",
+            "sha256": "sha256-8qKRfyq6PnUSVCrKwINMl6Cxx65jWxi7S6AZaLRtbSM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e9e893ff44172eae6e2f87970bf7a28565abedf5"
+        "version": "1259a7952fbe94b77cbe08e80683133e0ac573e3"
     },
     "gitbucket": {
         "cargoLock": null,
@@ -310,11 +310,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-nvWXxqsWoX6NsULa0qSx7TFeMlgid5hd4/keK0wGEtk=",
+            "sha256": "sha256-SfTEA5uPlXluRtLVXoPJ73m2UJjN3ElwqnEPp+zSDpE=",
             "type": "url",
-            "url": "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-aarch64-apple-darwin.tar.gz"
         },
-        "version": "v0.4.1"
+        "version": "v0.5.0"
     },
     "kakehashi-aarch64-linux-bin": {
         "cargoLock": null,
@@ -325,11 +325,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-mEe90L7/P2TphiEbvcFw8qRVjeLLLikADJCdbPKFHIk=",
+            "sha256": "sha256-YW3BJWx6GijmlSVO+tMWrA3JyJ+a7fr6bfWyOlZkPy8=",
             "type": "url",
-            "url": "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "v0.4.1"
+        "version": "v0.5.0"
     },
     "kakehashi-x86_64-linux-bin": {
         "cargoLock": null,
@@ -340,11 +340,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-DFSVXRLBZ4qvNYzItnu9t2K3KxK9D2Jpppz0gae2vRo=",
+            "sha256": "sha256-/O5ca7o5lG76sFo+4IBoVE5xbtc8gYBExlmzfhMaIVo=",
             "type": "url",
-            "url": "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "v0.4.1"
+        "version": "v0.5.0"
     },
     "kubernetes-mcp-server": {
         "cargoLock": null,

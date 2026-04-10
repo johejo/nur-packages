@@ -9,7 +9,7 @@
 buildGoModule rec {
   inherit (source) pname version src;
   subPackages = [ "cmd/gf" ];
-  vendorHash = "sha256-xOoujvNhBYLgTkpdML6bxQhNsRVOINbpNXIAEAqLsl0=";
+  vendorHash = "sha256-wWjWSsusm8zHyHxq4yPfoFEdOdLKsea4K/5s9lUIBbY=";
 
   nativeBuildInputs = [ installShellFiles ];
   ldflags = [

@@ -48,13 +48,13 @@
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v1.28.0";
+    version = "v1.29.0";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v1.28.0";
+      rev = "v1.29.0";
       fetchSubmodules = false;
-      sha256 = "sha256-C7xwwDtpH31idq0D+v1ppc5hzVr0PV1ouNvAI+6Kz6k=";
+      sha256 = "sha256-uO/EQ72XNByRy7PW3lAhCMha85C/Sqihk0LceZHekpA=";
     };
   };
   displayplacer = {
@@ -81,13 +81,13 @@
   };
   gf-cli = {
     pname = "gf-cli";
-    version = "e9e893ff44172eae6e2f87970bf7a28565abedf5";
+    version = "1259a7952fbe94b77cbe08e80683133e0ac573e3";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "gf-cli";
-      rev = "e9e893ff44172eae6e2f87970bf7a28565abedf5";
+      rev = "1259a7952fbe94b77cbe08e80683133e0ac573e3";
       fetchSubmodules = false;
-      sha256 = "sha256-/MMbx6Ebv4A5/BwoFzm0WqMO4X2eoRE+PZto4uSAmUA=";
+      sha256 = "sha256-8qKRfyq6PnUSVCrKwINMl6Cxx65jWxi7S6AZaLRtbSM=";
     };
   };
   gitbucket = {
@@ -170,26 +170,26 @@
   };
   kakehashi-aarch64-darwin-bin = {
     pname = "kakehashi-aarch64-darwin-bin";
-    version = "v0.4.1";
+    version = "v0.5.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-nvWXxqsWoX6NsULa0qSx7TFeMlgid5hd4/keK0wGEtk=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-SfTEA5uPlXluRtLVXoPJ73m2UJjN3ElwqnEPp+zSDpE=";
     };
   };
   kakehashi-aarch64-linux-bin = {
     pname = "kakehashi-aarch64-linux-bin";
-    version = "v0.4.1";
+    version = "v0.5.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-mEe90L7/P2TphiEbvcFw8qRVjeLLLikADJCdbPKFHIk=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-YW3BJWx6GijmlSVO+tMWrA3JyJ+a7fr6bfWyOlZkPy8=";
     };
   };
   kakehashi-x86_64-linux-bin = {
     pname = "kakehashi-x86_64-linux-bin";
-    version = "v0.4.1";
+    version = "v0.5.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.4.1/kakehashi-v0.4.1-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-DFSVXRLBZ4qvNYzItnu9t2K3KxK9D2Jpppz0gae2vRo=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-/O5ca7o5lG76sFo+4IBoVE5xbtc8gYBExlmzfhMaIVo=";
     };
   };
   kubernetes-mcp-server = {
