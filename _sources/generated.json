@@ -14,6 +14,21 @@
         },
         "version": "26.5"
     },
+    "apfel-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "apfel-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Yg0w3Xg9rXE0D2d+EZH31+zpOGCZZEsZoJJN/FfHVis=",
+            "type": "url",
+            "url": "https://github.com/Arthur-Ficial/apfel/releases/download/v0.9.10/apfel-0.9.10-arm64-macos.tar.gz"
+        },
+        "version": "0.9.10"
+    },
     "codex-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

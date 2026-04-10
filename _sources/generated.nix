@@ -14,6 +14,14 @@
       sha256 = "sha256-EfY83cm7P4VU7Zt2JjKhIM+nvuBePAnWVzSCPgnSTxA=";
     };
   };
+  apfel-bin = {
+    pname = "apfel-bin";
+    version = "0.9.10";
+    src = fetchurl {
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v0.9.10/apfel-0.9.10-arm64-macos.tar.gz";
+      sha256 = "sha256-Yg0w3Xg9rXE0D2d+EZH31+zpOGCZZEsZoJJN/FfHVis=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.118.0";

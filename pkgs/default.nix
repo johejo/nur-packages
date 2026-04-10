@@ -86,6 +86,7 @@ let
 in
 {
   alerter-bin = callPackageWithSourceMeta ./alerter-bin "alerter-bin" { };
+  apfel-bin = callPackageWithSourceMeta ./apfel-bin "apfel-bin" { };
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
   gogcli = callPackageWithSourceMetaArg ./gogcli "gogcli" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };

@@ -26,6 +26,10 @@ fetch.github = "steipete/gogcli"
 src.cmd = "gh api repos/vjeantet/alerter/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/vjeantet/alerter/releases/download/v$ver/alerter-$ver.zip"
 
+[apfel-bin]
+src.cmd = "gh api repos/Arthur-Ficial/apfel/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/Arthur-Ficial/apfel/releases/download/v$ver/apfel-$ver-arm64-macos.tar.gz"
+
 [codex-aarch64-darwin-bin]
 src.github = "openai/codex"
 fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-apple-darwin.tar.gz"

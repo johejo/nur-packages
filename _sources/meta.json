@@ -69,6 +69,17 @@
         "homepage": "https://github.com/vjeantet/alerter"
       }
     },
+    "apfel-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "description": "On-device Apple FoundationModels CLI and OpenAI-compatible server",
+        "homepage": "https://github.com/Arthur-Ficial/apfel",
+        "licenseSpdx": "MIT"
+      }
+    },
     "codex-aarch64-darwin-bin": {
       "git": {
         "ref": null,
