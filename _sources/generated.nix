@@ -149,6 +149,17 @@
       sha256 = "sha256-tTf8/9rYNeUU16zNTJMXUSDIE70m9g2WY6FNYCDpteA=";
     };
   };
+  json2table = {
+    pname = "json2table";
+    version = "45e65ae2200fc38be28439b3397e93a78aa1f97c";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "json2table";
+      rev = "45e65ae2200fc38be28439b3397e93a78aa1f97c";
+      fetchSubmodules = false;
+      sha256 = "sha256-WQLtjLsLr1U1rL3xEfkyeKiCUadibD2Hi112bIGmzQs=";
+    };
+  };
   kakehashi-aarch64-darwin-bin = {
     pname = "kakehashi-aarch64-darwin-bin";
     version = "v0.4.1";

@@ -113,6 +113,10 @@ fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/googl
 src.cmd = "gh api repos/johejo/hocage/commits/main --jq .sha"
 fetch.github = "johejo/hocage"
 
+[json2table]
+src.cmd = "gh api repos/johejo/json2table/commits/main --jq .sha"
+fetch.github = "johejo/json2table"
+
 [confluence-cli]
 src.github = "pchuri/confluence-cli"
 fetch.github = "pchuri/confluence-cli"

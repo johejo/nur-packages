@@ -276,6 +276,16 @@
         "ref": null,
         "commit": null
       }
+    },
+    "json2table": {
+      "git": {
+        "ref": "45e65ae2200fc38be28439b3397e93a78aa1f97c",
+        "commit": "45e65ae2200fc38be28439b3397e93a78aa1f97c"
+      },
+      "fields": {
+        "homepage": "https://github.com/johejo/json2table",
+        "licenseSpdx": "MIT"
+      }
     }
   }
 }
