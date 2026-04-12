@@ -162,6 +162,16 @@
         "licenseSpdx": "APSL-2.0"
       }
     },
+    "gotmplfmt": {
+      "git": {
+        "ref": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af",
+        "commit": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af"
+      },
+      "fields": {
+        "homepage": "https://github.com/johejo/gotmplfmt",
+        "licenseSpdx": "MIT"
+      }
+    },
     "zlib-rs": {
       "git": {
         "ref": "v0.6.3",

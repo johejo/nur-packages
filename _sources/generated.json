@@ -194,6 +194,27 @@
         },
         "version": "v0.12.0"
     },
+    "gotmplfmt": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gotmplfmt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "johejo",
+            "repo": "gotmplfmt",
+            "rev": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af",
+            "sha256": "sha256-pqnJbLCXrEgJf9N/43iY+vdErIRyeJ8HBRV2KZFCMZg=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af"
+    },
     "gws-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

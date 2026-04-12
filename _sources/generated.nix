@@ -109,6 +109,17 @@
       sha256 = "sha256-KtjqZLR4Uf77865IGHFmcjwpV8GWkiaV7fBeTrsx93E=";
     };
   };
+  gotmplfmt = {
+    pname = "gotmplfmt";
+    version = "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "gotmplfmt";
+      rev = "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af";
+      fetchSubmodules = false;
+      sha256 = "sha256-pqnJbLCXrEgJf9N/43iY+vdErIRyeJ8HBRV2KZFCMZg=";
+    };
+  };
   gws-aarch64-darwin-bin = {
     pname = "gws-aarch64-darwin-bin";
     version = "v0.22.5";

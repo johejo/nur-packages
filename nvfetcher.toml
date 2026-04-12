@@ -68,6 +68,10 @@ fetch.github = "johejo/socks5shim"
 src.cmd = "gh api repos/johejo/gf-cli/commits/main --jq .sha"
 fetch.github = "johejo/gf-cli"
 
+[gotmplfmt]
+src.cmd = "gh api repos/johejo/gotmplfmt/commits/main --jq .sha"
+fetch.github = "johejo/gotmplfmt"
+
 [zlib-rs]
 src.github = "trifectatechfoundation/zlib-rs"
 fetch.github = "trifectatechfoundation/zlib-rs"

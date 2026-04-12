@@ -89,6 +89,7 @@ in
   apfel-bin = callPackageWithSourceMeta ./apfel-bin "apfel-bin" { };
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
   gogcli = callPackageWithSourceMetaArg ./gogcli "gogcli" { };
+  gotmplfmt = callPackageWithSourceMeta ./gotmplfmt "gotmplfmt" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
   kubernetes-mcp-server =
     callPackageWithSourceMetaArg ./kubernetes-mcp-server "kubernetes-mcp-server"
