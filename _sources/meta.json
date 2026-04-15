@@ -164,8 +164,8 @@
     },
     "gotmplfmt": {
       "git": {
-        "ref": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af",
-        "commit": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af"
+        "ref": "50f0bcb79afc1d7ee8e73ab996b0617e541dc0cd",
+        "commit": "50f0bcb79afc1d7ee8e73ab996b0617e541dc0cd"
       },
       "fields": {
         "homepage": "https://github.com/johejo/gotmplfmt",
@@ -291,8 +291,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v1.29.0",
-        "commit": "0cae21ec3d8b79601e36125da7bf1240cf2c862b"
+        "ref": "v1.30.0",
+        "commit": "47d1bef582dfdc526a2e8c3095d19140383aee21"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",

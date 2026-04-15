@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Yg0w3Xg9rXE0D2d+EZH31+zpOGCZZEsZoJJN/FfHVis=",
+            "sha256": "sha256-+z7mv4hupVt5WwlAseb1h44snDhSJh425WpfrQP5cDw=",
             "type": "url",
-            "url": "https://github.com/Arthur-Ficial/apfel/releases/download/v0.9.10/apfel-0.9.10-arm64-macos.tar.gz"
+            "url": "https://github.com/Arthur-Ficial/apfel/releases/download/v1.0.2/apfel-1.0.2-arm64-macos.tar.gz"
         },
-        "version": "0.9.10"
+        "version": "1.0.2"
     },
     "codex-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-utPCyDuHS3Z86Gr2T08AW8FN6nny2MrDfPput3cQxxc=",
+            "sha256": "sha256-sQg8Q4t1L6KSBX+4xzX1jRMjFEo9655XQsToRRUslfA=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.120.0/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.118.0"
+        "version": "rust-v0.120.0"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -53,11 +53,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-n5wSQdOXgzhDE5dXI0dQIN++G9ewI8IrBIFhaBWfj9c=",
+            "sha256": "sha256-geC1GkBSoFV4v+0HiRgeaDy6cnZ1qNacBFRLZt+fMH4=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.120.0/codex-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.118.0"
+        "version": "rust-v0.120.0"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -68,11 +68,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Ig8VyhxjnpBarjhdqWDhiXiC/udmU/X59d/6X3VPfJg=",
+            "sha256": "sha256-DYeMydvnyr+BN3XX6l3hGU11LTLbDCMmkDZlqEFhPIo=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.118.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.120.0/codex-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "rust-v0.118.0"
+        "version": "rust-v0.120.0"
     },
     "confluence-cli": {
         "cargoLock": null,
@@ -88,12 +88,12 @@
             "name": null,
             "owner": "pchuri",
             "repo": "confluence-cli",
-            "rev": "v1.29.0",
-            "sha256": "sha256-uO/EQ72XNByRy7PW3lAhCMha85C/Sqihk0LceZHekpA=",
+            "rev": "v1.30.0",
+            "sha256": "sha256-ylZjiALf11CEv5iA+uarmTAVL9Oq0Dt7ZfpL1SXm85c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.29.0"
+        "version": "v1.30.0"
     },
     "displayplacer": {
         "cargoLock": null,
@@ -208,12 +208,12 @@
             "name": null,
             "owner": "johejo",
             "repo": "gotmplfmt",
-            "rev": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af",
-            "sha256": "sha256-pqnJbLCXrEgJf9N/43iY+vdErIRyeJ8HBRV2KZFCMZg=",
+            "rev": "50f0bcb79afc1d7ee8e73ab996b0617e541dc0cd",
+            "sha256": "sha256-z1AFVLo8c1EB4vibyL7bwDguTVQXOgPHvXF42YpW8lA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "05f1e15eb76a1ee60fea0ebddf84a6c2afdc91af"
+        "version": "50f0bcb79afc1d7ee8e73ab996b0617e541dc0cd"
     },
     "gws-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -397,11 +397,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-2d1yPFn4VxICtGj2v3HUVVI4VEVT3RRF5snss59UwPM=",
+            "sha256": "sha256-Uk81NzMKG3R1VqDJi2KkaGWj9Ix+rSsgNcYvGtPlyos=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.5.1/libduckdb-osx-universal.zip"
+            "url": "https://install.duckdb.org/v1.5.2/libduckdb-osx-universal.zip"
         },
-        "version": "v1.5.1"
+        "version": "v1.5.2"
     },
     "libduckdb-aarch64-linux-bin": {
         "cargoLock": null,
@@ -412,11 +412,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-IDtYURJVs3Mo08JnN5hVKvhOpzpbHino6eGBP/090GQ=",
+            "sha256": "sha256-tKy9nYccmXiMMDr5gvLjkyXyj9QV+akn0Kc+IG8J510=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.5.1/libduckdb-linux-arm64.zip"
+            "url": "https://install.duckdb.org/v1.5.2/libduckdb-linux-arm64.zip"
         },
-        "version": "v1.5.1"
+        "version": "v1.5.2"
     },
     "libduckdb-x86_64-linux-bin": {
         "cargoLock": null,
@@ -427,11 +427,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Ia7GamDq4WlicLpxWkgasGaojZmmJxjQV3V5rBp6SDQ=",
+            "sha256": "sha256-RxFDjw/bBPBEGANAm+xUMLdj1PKsNILB+Xz6a17LTBU=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.5.1/libduckdb-linux-amd64.zip"
+            "url": "https://install.duckdb.org/v1.5.2/libduckdb-linux-amd64.zip"
         },
-        "version": "v1.5.1"
+        "version": "v1.5.2"
     },
     "octorus-aarch64-darwin-bin": {
         "cargoLock": null,
