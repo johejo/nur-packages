@@ -16,45 +16,45 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.0.2";
+    version = "1.0.5";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.0.2/apfel-1.0.2-arm64-macos.tar.gz";
-      sha256 = "sha256-+z7mv4hupVt5WwlAseb1h44snDhSJh425WpfrQP5cDw=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.0.5/apfel-1.0.5-arm64-macos.tar.gz";
+      sha256 = "sha256-etEOYkYVPm08SRE3nuKcDigS7lCkUUgMacOl/sLv/1A=";
     };
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.120.0";
+    version = "rust-v0.122.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.120.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-sQg8Q4t1L6KSBX+4xzX1jRMjFEo9655XQsToRRUslfA=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-dOaIXhpY148CSfrtEm62qyIPnONOdiP55BCCVQNdYcw=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.120.0";
+    version = "rust-v0.122.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.120.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-geC1GkBSoFV4v+0HiRgeaDy6cnZ1qNacBFRLZt+fMH4=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-9w6+NfIN49HMc/b6k7SG33+ndthrYmjY4+8VUlcpU0g=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.120.0";
+    version = "rust-v0.122.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.120.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-DYeMydvnyr+BN3XX6l3hGU11LTLbDCMmkDZlqEFhPIo=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-h3nzh/Fu2ImRgOn8FfD94dXcfOWFfS95Imoi6UUyZ6I=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v1.30.0";
+    version = "v1.30.2";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v1.30.0";
+      rev = "v1.30.2";
       fetchSubmodules = false;
-      sha256 = "sha256-ylZjiALf11CEv5iA+uarmTAVL9Oq0Dt7ZfpL1SXm85c=";
+      sha256 = "sha256-ZN2nD4TGRxe/dAzFWRsDud1Z1xS0u+4a2+r2H8TDw14=";
     };
   };
   displayplacer = {
@@ -92,10 +92,10 @@
   };
   gitbucket = {
     pname = "gitbucket";
-    version = "4.46.0";
+    version = "4.46.1";
     src = fetchurl {
-      url = "https://github.com/gitbucket/gitbucket/releases/download/4.46.0/gitbucket.war";
-      sha256 = "sha256-IBBscZTQzhErgyczypzco82uNA8Hw5eeL72SMA2J/Zg=";
+      url = "https://github.com/gitbucket/gitbucket/releases/download/4.46.1/gitbucket.war";
+      sha256 = "sha256-Vp5naUameav5XhJX1ERCZH0QiWuSuU7QIgX9ADRUdXU=";
     };
   };
   gogcli = {
@@ -264,13 +264,13 @@
   };
   perl5 = {
     pname = "perl5";
-    version = "v5.43.9";
+    version = "v5.43.10";
     src = fetchFromGitHub {
       owner = "Perl";
       repo = "perl5";
-      rev = "v5.43.9";
+      rev = "v5.43.10";
       fetchSubmodules = false;
-      sha256 = "sha256-n8eWLtBEN1aw2ZQPLvkIXyBWryTSuDWroOGgeks6d+Y=";
+      sha256 = "sha256-339L9trny4j5B/vJ2ljbtVXdLcWwLYyIVo60mnbk+bs=";
     };
   };
   prometheus-jmx-exporter = {

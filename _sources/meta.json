@@ -185,8 +185,8 @@
     },
     "perl5": {
       "git": {
-        "ref": "v5.43.9",
-        "commit": "c25e30926ee2a7bf475baeda3c1b97cc56803f94"
+        "ref": "v5.43.10",
+        "commit": "068830eb0bb2c1a602e432b25a91dae1c2ba9239"
       },
       "fields": {
         "homepage": "https://github.com/Perl/perl5",
@@ -291,8 +291,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v1.30.0",
-        "commit": "47d1bef582dfdc526a2e8c3095d19140383aee21"
+        "ref": "v1.30.2",
+        "commit": "6cdf02b77a59c60286348a5bfa17750d4653f87c"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",

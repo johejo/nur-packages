@@ -19,7 +19,8 @@ src.github = "prometheus/jmx_exporter"
 fetch.url = "https://github.com/prometheus/jmx_exporter/releases/download/$ver/jmx_prometheus_javaagent-$ver.jar"
 
 [gogcli]
-src.github = "steipete/gogcli"
+#src.github = "steipete/gogcli"
+src.manual = "v0.12.0" # v0.13.0 requires go 1.26.2
 fetch.github = "steipete/gogcli"
 
 [alerter-bin]
