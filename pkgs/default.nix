@@ -101,7 +101,10 @@ in
   confluence-cli = callPackageWithSourceMeta ./confluence-cli "confluence-cli" { };
   codex-bin = callPackageWithSystemSourceMeta ./codex-bin "codex" { zlib = libz-rs-sys-cdylib; };
   libduckdb-bin = callPackageWithSystemSourceMeta ./libduckdb-bin "libduckdb" { };
-  caddy = pkgs.callPackage ./caddy { };
+  caddy-with-plugins = pkgs.callPackage ./caddy { };
+  helm-with-plugins =
+    with pkgs;
+    (wrapHelm kubernetes-helm { plugins = with kubernetes-helmPlugins; [ helm-diff ]; });
   hev-socks5-server = callPackageWithSourceMetaArg ./hev-socks5-server "hev-socks5-server" { };
   hocage = callPackageWithSourceMeta ./hocage "hocage" { };
   json2table = callPackageWithSourceMeta ./json2table "json2table" { };
