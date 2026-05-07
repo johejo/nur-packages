@@ -81,13 +81,13 @@
   };
   gf-cli = {
     pname = "gf-cli";
-    version = "1259a7952fbe94b77cbe08e80683133e0ac573e3";
+    version = "9991f8d82987c2bdcff76fad3317c5e09ef5fa3b";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "gf-cli";
-      rev = "1259a7952fbe94b77cbe08e80683133e0ac573e3";
+      rev = "9991f8d82987c2bdcff76fad3317c5e09ef5fa3b";
       fetchSubmodules = false;
-      sha256 = "sha256-8qKRfyq6PnUSVCrKwINMl6Cxx65jWxi7S6AZaLRtbSM=";
+      sha256 = "sha256-w3t2Ew90MEwmrcnsX9bfbbF7ARf+/1+Xwyrc+SO9k+k=";
     };
   };
   gitbucket = {

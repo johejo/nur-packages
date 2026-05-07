@@ -154,8 +154,8 @@
     },
     "gf-cli": {
       "git": {
-        "ref": "1259a7952fbe94b77cbe08e80683133e0ac573e3",
-        "commit": "1259a7952fbe94b77cbe08e80683133e0ac573e3"
+        "ref": "9991f8d82987c2bdcff76fad3317c5e09ef5fa3b",
+        "commit": "9991f8d82987c2bdcff76fad3317c5e09ef5fa3b"
       },
       "fields": {
         "homepage": "https://github.com/johejo/gf-cli",
