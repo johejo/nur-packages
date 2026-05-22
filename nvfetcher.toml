@@ -18,10 +18,17 @@ fetch.url = "https://github.com/gitbucket/gitbucket/releases/download/$ver/gitbu
 src.github = "prometheus/jmx_exporter"
 fetch.url = "https://github.com/prometheus/jmx_exporter/releases/download/$ver/jmx_prometheus_javaagent-$ver.jar"
 
-[gogcli]
-#src.github = "steipete/gogcli"
-src.manual = "v0.12.0" # v0.13.0 requires go 1.26.2
-fetch.github = "steipete/gogcli"
+[gogcli-aarch64-darwin-bin]
+src.cmd = "gh api repos/steipete/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_darwin_arm64.tar.gz"
+
+[gogcli-x86_64-linux-bin]
+src.cmd = "gh api repos/steipete/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_linux_amd64.tar.gz"
+
+[gogcli-aarch64-linux-bin]
+src.cmd = "gh api repos/steipete/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_linux_arm64.tar.gz"
 
 [alerter-bin]
 src.cmd = "gh api repos/vjeantet/alerter/releases/latest --jq .tag_name | sed 's/^v//'"
@@ -117,6 +124,14 @@ fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/googl
 [gws-aarch64-linux-bin]
 src.github = "googleworkspace/cli"
 fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
+
+[xremap-x86_64-linux-bin]
+src.cmd = "gh api repos/xremap/xremap/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/xremap/xremap/releases/download/v$ver/xremap-linux-x86_64-gnome.zip"
+
+[xremap-aarch64-linux-bin]
+src.cmd = "gh api repos/xremap/xremap/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/xremap/xremap/releases/download/v$ver/xremap-linux-aarch64-gnome.zip"
 
 [hocage]
 src.cmd = "gh api repos/johejo/hocage/commits/main --jq .sha"

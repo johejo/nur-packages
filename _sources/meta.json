@@ -49,10 +49,32 @@
         "homepage": "https://github.com/prometheus/jmx_exporter"
       }
     },
-    "gogcli": {
+    "gogcli-aarch64-darwin-bin": {
       "git": {
-        "ref": "v0.12.0",
-        "commit": "c18c58c8daadce2d6b4a6cf4fe95b1e3817bae1b"
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
+        "homepage": "https://github.com/steipete/gogcli",
+        "licenseSpdx": "MIT"
+      }
+    },
+    "gogcli-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
+        "homepage": "https://github.com/steipete/gogcli",
+        "licenseSpdx": "MIT"
+      }
+    },
+    "gogcli-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
       },
       "fields": {
         "description": "gog: a single CLI for Gmail, Calendar, Drive, Contacts, Tasks, Sheets, Docs, Slides, and People.",
@@ -266,6 +288,26 @@
       },
       "fields": {
         "homepage": "https://github.com/googleworkspace/cli"
+      }
+    },
+    "xremap-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/xremap/xremap",
+        "licenseSpdx": "MIT"
+      }
+    },
+    "xremap-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/xremap/xremap",
+        "licenseSpdx": "MIT"
       }
     },
     "hocage": {

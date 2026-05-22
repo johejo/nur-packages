@@ -173,26 +173,50 @@
         },
         "version": "4.46.1"
     },
-    "gogcli": {
+    "gogcli-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "gogcli",
+        "name": "gogcli-aarch64-darwin-bin",
         "passthru": null,
         "pinned": false,
         "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
             "name": null,
-            "owner": "steipete",
-            "repo": "gogcli",
-            "rev": "v0.12.0",
-            "sha256": "sha256-KtjqZLR4Uf77865IGHFmcjwpV8GWkiaV7fBeTrsx93E=",
-            "sparseCheckout": [],
-            "type": "github"
+            "sha256": "sha256-sMrEAj8PbCrWfg3wLR9lH5tbb/6SOSKvArMwHZfekiw=",
+            "type": "url",
+            "url": "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_darwin_arm64.tar.gz"
         },
-        "version": "v0.12.0"
+        "version": "0.18.0"
+    },
+    "gogcli-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gogcli-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-eHTIuY1LRuV9JaXWsKudxx99RJGigsR9ZL6GQQgCTKU=",
+            "type": "url",
+            "url": "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_linux_arm64.tar.gz"
+        },
+        "version": "0.18.0"
+    },
+    "gogcli-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gogcli-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-CNM8LihFyDQo1OxqRRSJisgchUzVIK35zfXqF+HAQU0=",
+            "type": "url",
+            "url": "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_linux_amd64.tar.gz"
+        },
+        "version": "0.18.0"
     },
     "gotmplfmt": {
         "cargoLock": null,
@@ -555,6 +579,36 @@
             "type": "github"
         },
         "version": "v20250818"
+    },
+    "xremap-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "xremap-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ga2Mep6tmdThWcoDZcQDHwku9WtJ0fRqGHZ/RW1OAmg=",
+            "type": "url",
+            "url": "https://github.com/xremap/xremap/releases/download/v0.15.7/xremap-linux-aarch64-gnome.zip"
+        },
+        "version": "0.15.7"
+    },
+    "xremap-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "xremap-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-CzxRfU6TCRNFXO2r5U2PnqNDqof1mQeJo8yqouO9TzY=",
+            "type": "url",
+            "url": "https://github.com/xremap/xremap/releases/download/v0.15.7/xremap-linux-x86_64-gnome.zip"
+        },
+        "version": "0.15.7"
     },
     "zlib-rs": {
         "cargoLock": {

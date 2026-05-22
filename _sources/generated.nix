@@ -98,15 +98,28 @@
       sha256 = "sha256-Vp5naUameav5XhJX1ERCZH0QiWuSuU7QIgX9ADRUdXU=";
     };
   };
-  gogcli = {
-    pname = "gogcli";
-    version = "v0.12.0";
-    src = fetchFromGitHub {
-      owner = "steipete";
-      repo = "gogcli";
-      rev = "v0.12.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-KtjqZLR4Uf77865IGHFmcjwpV8GWkiaV7fBeTrsx93E=";
+  gogcli-aarch64-darwin-bin = {
+    pname = "gogcli-aarch64-darwin-bin";
+    version = "0.18.0";
+    src = fetchurl {
+      url = "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-sMrEAj8PbCrWfg3wLR9lH5tbb/6SOSKvArMwHZfekiw=";
+    };
+  };
+  gogcli-aarch64-linux-bin = {
+    pname = "gogcli-aarch64-linux-bin";
+    version = "0.18.0";
+    src = fetchurl {
+      url = "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_linux_arm64.tar.gz";
+      sha256 = "sha256-eHTIuY1LRuV9JaXWsKudxx99RJGigsR9ZL6GQQgCTKU=";
+    };
+  };
+  gogcli-x86_64-linux-bin = {
+    pname = "gogcli-x86_64-linux-bin";
+    version = "0.18.0";
+    src = fetchurl {
+      url = "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_linux_amd64.tar.gz";
+      sha256 = "sha256-CNM8LihFyDQo1OxqRRSJisgchUzVIK35zfXqF+HAQU0=";
     };
   };
   gotmplfmt = {
@@ -303,6 +316,22 @@
       sha256 = "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=";
     };
   };
+  xremap-aarch64-linux-bin = {
+    pname = "xremap-aarch64-linux-bin";
+    version = "0.15.7";
+    src = fetchurl {
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.7/xremap-linux-aarch64-gnome.zip";
+      sha256 = "sha256-ga2Mep6tmdThWcoDZcQDHwku9WtJ0fRqGHZ/RW1OAmg=";
+    };
+  };
+  xremap-x86_64-linux-bin = {
+    pname = "xremap-x86_64-linux-bin";
+    version = "0.15.7";
+    src = fetchurl {
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.7/xremap-linux-x86_64-gnome.zip";
+      sha256 = "sha256-CzxRfU6TCRNFXO2r5U2PnqNDqof1mQeJo8yqouO9TzY=";
+    };
+  };
   zlib-rs = {
     pname = "zlib-rs";
     version = "v0.6.3";
@@ -314,9 +343,10 @@
       sha256 = "sha256-hNmNLhWfP/fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=";
     };
     cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
-      lockFile = ./. + "/sha256-hNmNLhWfP_fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=/libz-rs-sys-cdylib/Cargo.lock";
+      lockFile =
+        ./. + "/sha256-hNmNLhWfP_fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=/libz-rs-sys-cdylib/Cargo.lock";
       outputHashes = {
-        
+
       };
     };
   };

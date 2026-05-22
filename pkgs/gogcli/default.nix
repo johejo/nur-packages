@@ -1,11 +1,9 @@
 {
   lib,
   stdenv,
-  buildGoModule,
-  versionCheckHook,
   installShellFiles,
+  versionCheckHook,
   source,
-  sourceMeta ? { },
   ...
 }:
 
@@ -13,42 +11,27 @@ let
   installShellCompletions = stdenv.buildPlatform.canExecute stdenv.hostPlatform;
 in
 
-buildGoModule rec {
-  inherit (source) pname version src;
-  vendorHash = "sha256-8RKzJq4nlg7ljPw+9mtiv0is6MeVtkMEiM2UUdKPP3U=";
+stdenv.mkDerivation rec {
+  pname = "gogcli";
+  inherit (source) version src;
 
-  checkFlags =
-    let
-      # Network/OAuth dependent test patterns
-      skippedPatterns = [
-        "TestAuthorize_"
-        "TestManageServer_"
-        "TestFetchUserEmail"
-        "TestStartManageServer_"
-        "TestCheckRefreshToken"
-        "TestGmailWatch"
-      ];
-    in
-    [ "-skip=^(${lib.concatStringsSep "|" skippedPatterns})" ];
-
-  ldflags =
-    let
-      mod = "github.com/steipete/gogcli/internal/cmd";
-      sourceGit = sourceMeta.git or { };
-      commit = sourceGit.commit or sourceGit.ref or source.rev;
-    in
-    [
-      "-s"
-      "-w"
-      "-X ${mod}.version=${version}"
-      "-X ${mod}.commit=${commit}"
-    ];
+  sourceRoot = ".";
 
   nativeBuildInputs = [ installShellFiles ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
 
   doInstallCheck = true;
+
+  preVersionCheck = ''
+    version="''${version#v}"
+  '';
+
+  installPhase = ''
+    runHook preInstall
+    install -Dm755 gog $out/bin/gog
+    runHook postInstall
+  '';
 
   postInstall = lib.optionalString installShellCompletions ''
     installShellCompletion --cmd gog \
@@ -59,5 +42,11 @@ buildGoModule rec {
 
   meta = {
     mainProgram = "gog";
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    platforms = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "aarch64-darwin"
+    ];
   };
 }
