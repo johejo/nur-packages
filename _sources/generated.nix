@@ -24,26 +24,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.122.0";
+    version = "rust-v0.133.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-dOaIXhpY148CSfrtEm62qyIPnONOdiP55BCCVQNdYcw=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-E8eDYr7/gUt93hbtdWN2I2d3Zphp3eRL0jJnNQDfaFM=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.122.0";
+    version = "rust-v0.133.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-9w6+NfIN49HMc/b6k7SG33+ndthrYmjY4+8VUlcpU0g=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-Jov+jPgVSUD+olbfdc1EHFSgxx5sjM1Fqz92/yi6FBM=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.122.0";
+    version = "rust-v0.133.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-h3nzh/Fu2ImRgOn8FfD94dXcfOWFfS95Imoi6UUyZ6I=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-0GAZq5w10oG3jcLrsq5VwruX6hG/f0Urr+OQ7dsANO8=";
     };
   };
   confluence-cli = {
@@ -146,15 +146,15 @@
   };
   hev-socks5-server = {
     pname = "hev-socks5-server";
-    version = "2.11.2";
+    version = "2.12.0";
     src = fetchgit {
       url = "https://github.com/heiher/hev-socks5-server.git";
-      rev = "2.11.2";
+      rev = "2.12.0";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = true;
       sparseCheckout = [ ];
-      sha256 = "sha256-FHEjO9LaajRH5l4gA7+S/0OI1Pk5WjkSAlrkUJBpsDg=";
+      sha256 = "sha256-hx0GFshSGImLX4bG73MRH5qhbrCPv3q3qJ7kODBHqLI=";
     };
   };
   hocage = {
@@ -205,61 +205,61 @@
   };
   kubernetes-mcp-server = {
     pname = "kubernetes-mcp-server";
-    version = "v0.0.60";
+    version = "v0.0.62";
     src = fetchFromGitHub {
       owner = "containers";
       repo = "kubernetes-mcp-server";
-      rev = "v0.0.60";
+      rev = "v0.0.62";
       fetchSubmodules = false;
-      sha256 = "sha256-btFtMO0+cIJ44cHMYLUrYMpamBhuiLgxCf8gzEXYCHs=";
+      sha256 = "sha256-m4oM8KMcDmXwIGaFw+VdnW22kLjt2SaD7qZV4kgTiu8=";
     };
   };
   libduckdb-aarch64-darwin-bin = {
     pname = "libduckdb-aarch64-darwin-bin";
-    version = "v1.5.2";
+    version = "v1.5.3";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.2/libduckdb-osx-universal.zip";
-      sha256 = "sha256-Uk81NzMKG3R1VqDJi2KkaGWj9Ix+rSsgNcYvGtPlyos=";
+      url = "https://install.duckdb.org/v1.5.3/libduckdb-osx-universal.zip";
+      sha256 = "sha256-OG+OiztLyNEodiMnEh4iBlzkXy7lXvGx9BLOEeDmxR8=";
     };
   };
   libduckdb-aarch64-linux-bin = {
     pname = "libduckdb-aarch64-linux-bin";
-    version = "v1.5.2";
+    version = "v1.5.3";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.2/libduckdb-linux-arm64.zip";
-      sha256 = "sha256-tKy9nYccmXiMMDr5gvLjkyXyj9QV+akn0Kc+IG8J510=";
+      url = "https://install.duckdb.org/v1.5.3/libduckdb-linux-arm64.zip";
+      sha256 = "sha256-FigG1ZHAQx0DHZvfQ9vsxfAHVdoBogZN9o+aaab1ChA=";
     };
   };
   libduckdb-x86_64-linux-bin = {
     pname = "libduckdb-x86_64-linux-bin";
-    version = "v1.5.2";
+    version = "v1.5.3";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.2/libduckdb-linux-amd64.zip";
-      sha256 = "sha256-RxFDjw/bBPBEGANAm+xUMLdj1PKsNILB+Xz6a17LTBU=";
+      url = "https://install.duckdb.org/v1.5.3/libduckdb-linux-amd64.zip";
+      sha256 = "sha256-CpJuulvOCrwAEPS5EJEz5EQMt06XvRD9LQ/CpyFiGwU=";
     };
   };
   octorus-aarch64-darwin-bin = {
     pname = "octorus-aarch64-darwin-bin";
-    version = "0.6.1";
+    version = "0.6.4";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-AWvcVFARwiDOVYyhSP1/4CNIkRmtRkI1j0Hj/UYvGYk=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-ptNF4ZBCUdnXviNxDp5GtS/4rRl3mlUrS4CtKUF0Ve0=";
     };
   };
   octorus-aarch64-linux-bin = {
     pname = "octorus-aarch64-linux-bin";
-    version = "0.6.1";
+    version = "0.6.4";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-iF6Eo/yRrsCs80OQBDvZwPry0POJ0Y/sGcpmyOqY8Uw=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-3sAHKMf75uGZD51AEJuvk1ZsPw1tnUYG5i7YXLIhyvI=";
     };
   };
   octorus-x86_64-linux-bin = {
     pname = "octorus-x86_64-linux-bin";
-    version = "0.6.1";
+    version = "0.6.4";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-Yf64ijzZx+v/voM04Qv/bSwxf0RGcizec41xiQCFl0U=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-Xx3QrWwMkBiZWDV+C7qJyYGJm9Vg746iTNtyYUWXDiA=";
     };
   };
   perl5 = {

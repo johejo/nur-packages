@@ -63,10 +63,6 @@
     "confluence-cli": {
       "profile": "npm"
     },
-    "gogcli": {
-      "profile": "html",
-      "file": "docs/index.html"
-    },
     "kubernetes-mcp-server": {
       "profile": "server-json"
     },

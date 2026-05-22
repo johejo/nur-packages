@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-dOaIXhpY148CSfrtEm62qyIPnONOdiP55BCCVQNdYcw=",
+            "sha256": "sha256-E8eDYr7/gUt93hbtdWN2I2d3Zphp3eRL0jJnNQDfaFM=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.122.0"
+        "version": "rust-v0.133.0"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -53,11 +53,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-9w6+NfIN49HMc/b6k7SG33+ndthrYmjY4+8VUlcpU0g=",
+            "sha256": "sha256-Jov+jPgVSUD+olbfdc1EHFSgxx5sjM1Fqz92/yi6FBM=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-aarch64-unknown-linux-musl.tar.gz"
         },
-        "version": "rust-v0.122.0"
+        "version": "rust-v0.133.0"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -68,11 +68,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-h3nzh/Fu2ImRgOn8FfD94dXcfOWFfS95Imoi6UUyZ6I=",
+            "sha256": "sha256-0GAZq5w10oG3jcLrsq5VwruX6hG/f0Urr+OQ7dsANO8=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.122.0/codex-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-x86_64-unknown-linux-musl.tar.gz"
         },
-        "version": "rust-v0.122.0"
+        "version": "rust-v0.133.0"
     },
     "confluence-cli": {
         "cargoLock": null,
@@ -272,13 +272,13 @@
             "fetchSubmodules": true,
             "leaveDotGit": true,
             "name": null,
-            "rev": "2.11.2",
-            "sha256": "sha256-FHEjO9LaajRH5l4gA7+S/0OI1Pk5WjkSAlrkUJBpsDg=",
+            "rev": "2.12.0",
+            "sha256": "sha256-hx0GFshSGImLX4bG73MRH5qhbrCPv3q3qJ7kODBHqLI=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/heiher/hev-socks5-server.git"
         },
-        "version": "2.11.2"
+        "version": "2.12.0"
     },
     "hocage": {
         "cargoLock": null,
@@ -381,12 +381,12 @@
             "name": null,
             "owner": "containers",
             "repo": "kubernetes-mcp-server",
-            "rev": "v0.0.60",
-            "sha256": "sha256-btFtMO0+cIJ44cHMYLUrYMpamBhuiLgxCf8gzEXYCHs=",
+            "rev": "v0.0.62",
+            "sha256": "sha256-m4oM8KMcDmXwIGaFw+VdnW22kLjt2SaD7qZV4kgTiu8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.60"
+        "version": "v0.0.62"
     },
     "libduckdb-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -397,11 +397,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Uk81NzMKG3R1VqDJi2KkaGWj9Ix+rSsgNcYvGtPlyos=",
+            "sha256": "sha256-OG+OiztLyNEodiMnEh4iBlzkXy7lXvGx9BLOEeDmxR8=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.5.2/libduckdb-osx-universal.zip"
+            "url": "https://install.duckdb.org/v1.5.3/libduckdb-osx-universal.zip"
         },
-        "version": "v1.5.2"
+        "version": "v1.5.3"
     },
     "libduckdb-aarch64-linux-bin": {
         "cargoLock": null,
@@ -412,11 +412,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-tKy9nYccmXiMMDr5gvLjkyXyj9QV+akn0Kc+IG8J510=",
+            "sha256": "sha256-FigG1ZHAQx0DHZvfQ9vsxfAHVdoBogZN9o+aaab1ChA=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.5.2/libduckdb-linux-arm64.zip"
+            "url": "https://install.duckdb.org/v1.5.3/libduckdb-linux-arm64.zip"
         },
-        "version": "v1.5.2"
+        "version": "v1.5.3"
     },
     "libduckdb-x86_64-linux-bin": {
         "cargoLock": null,
@@ -427,11 +427,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-RxFDjw/bBPBEGANAm+xUMLdj1PKsNILB+Xz6a17LTBU=",
+            "sha256": "sha256-CpJuulvOCrwAEPS5EJEz5EQMt06XvRD9LQ/CpyFiGwU=",
             "type": "url",
-            "url": "https://install.duckdb.org/v1.5.2/libduckdb-linux-amd64.zip"
+            "url": "https://install.duckdb.org/v1.5.3/libduckdb-linux-amd64.zip"
         },
-        "version": "v1.5.2"
+        "version": "v1.5.3"
     },
     "octorus-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -442,11 +442,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-AWvcVFARwiDOVYyhSP1/4CNIkRmtRkI1j0Hj/UYvGYk=",
+            "sha256": "sha256-ptNF4ZBCUdnXviNxDp5GtS/4rRl3mlUrS4CtKUF0Ve0=",
             "type": "url",
-            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-aarch64-apple-darwin.tar.gz"
         },
-        "version": "0.6.1"
+        "version": "0.6.4"
     },
     "octorus-aarch64-linux-bin": {
         "cargoLock": null,
@@ -457,11 +457,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-iF6Eo/yRrsCs80OQBDvZwPry0POJ0Y/sGcpmyOqY8Uw=",
+            "sha256": "sha256-3sAHKMf75uGZD51AEJuvk1ZsPw1tnUYG5i7YXLIhyvI=",
             "type": "url",
-            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-aarch64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-aarch64-unknown-linux-gnu.tar.gz"
         },
-        "version": "0.6.1"
+        "version": "0.6.4"
     },
     "octorus-x86_64-linux-bin": {
         "cargoLock": null,
@@ -472,11 +472,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Yf64ijzZx+v/voM04Qv/bSwxf0RGcizec41xiQCFl0U=",
+            "sha256": "sha256-Xx3QrWwMkBiZWDV+C7qJyYGJm9Vg746iTNtyYUWXDiA=",
             "type": "url",
-            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.1/octorus-0.6.1-x86_64-unknown-linux-gnu.tar.gz"
+            "url": "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-x86_64-unknown-linux-gnu.tar.gz"
         },
-        "version": "0.6.1"
+        "version": "0.6.4"
     },
     "perl5": {
         "cargoLock": null,

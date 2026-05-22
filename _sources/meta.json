@@ -22,8 +22,8 @@
     },
     "kubernetes-mcp-server": {
       "git": {
-        "ref": "v0.0.60",
-        "commit": "318d9cfd8083ffc2b6edc35b3bee54f15230e645"
+        "ref": "v0.0.62",
+        "commit": "5c8190a72cb40cc55e0b55aae93804df3b5bd965"
       },
       "fields": {
         "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
@@ -134,8 +134,8 @@
     },
     "hev-socks5-server": {
       "git": {
-        "ref": "2.11.2",
-        "commit": "1c3173356ea9544e4a2d41e15be752acbee80c31"
+        "ref": "2.12.0",
+        "commit": "b6287389b426895e9791474ca02375f3e434bda2"
       },
       "fields": {
         "homepage": "https://github.com/heiher/hev-socks5-server",
@@ -189,8 +189,7 @@
         "commit": "068830eb0bb2c1a602e432b25a91dae1c2ba9239"
       },
       "fields": {
-        "homepage": "https://github.com/Perl/perl5",
-        "licenseSpdx": "GPL-1.0"
+        "homepage": "https://github.com/Perl/perl5"
       }
     },
     "octorus-aarch64-darwin-bin": {

@@ -6,5 +6,5 @@ caddy.withPlugins {
     "github.com/caddyserver/replace-response@v0.0.0-20250618171559-80962887e4c6"
     "github.com/mholt/caddy-dynamicdns@v0.0.0-20251231002810-1af4f8876598"
   ];
-  hash = "sha256-Cw3/MQ0woeJVDY9RnPHmbSznwa7fHZ/qqQIQ5yeBpUk=";
+  hash = "sha256-RaJve8YxFKA62++M+6m1WAa5t+vI+XCmTuEetGc9/Zw=";
 }

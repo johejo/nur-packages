@@ -37,11 +37,11 @@ fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch6
 
 [codex-x86_64-linux-bin]
 src.github = "openai/codex"
-fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64-unknown-linux-gnu.tar.gz"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64-unknown-linux-musl.tar.gz"
 
 [codex-aarch64-linux-bin]
 src.github = "openai/codex"
-fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-unknown-linux-gnu.tar.gz"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-unknown-linux-musl.tar.gz"
 
 [kakehashi-aarch64-darwin-bin]
 src.github = "atusy/kakehashi"

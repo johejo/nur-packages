@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 import { $ } from "bun";
-import { mkdir, readdir, rename } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, rename, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
@@ -500,8 +501,15 @@ async function deriveLicenseSpdxFromClassifier(
     return null;
   }
 
-  const out = await $`identify_license -json /dev/stdout ${licenseFile}`.quiet();
-  const raw = (await out.text()).trim();
+  const jsonOutDir = await mkdtemp(path.join(tmpdir(), "identify-license-"));
+  const jsonOutFile = path.join(jsonOutDir, "out.json");
+  let raw: string;
+  try {
+    await $`identify_license -json ${jsonOutFile} ${licenseFile}`.quiet();
+    raw = (await Bun.file(jsonOutFile).text()).trim();
+  } finally {
+    await rm(jsonOutDir, { recursive: true, force: true });
+  }
   if (!raw) {
     return null;
   }
