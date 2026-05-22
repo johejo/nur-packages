@@ -12,7 +12,7 @@ let
 in
 
 stdenv.mkDerivation rec {
-  pname = "gogcli";
+  pname = "gogcli-bin";
   inherit (source) version src;
 
   sourceRoot = ".";

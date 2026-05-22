@@ -88,7 +88,7 @@ in
   alerter-bin = callPackageWithSourceMeta ./alerter-bin "alerter-bin" { };
   apfel-bin = callPackageWithSourceMeta ./apfel-bin "apfel-bin" { };
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
-  gogcli = callPackageWithSystemSourceMeta ./gogcli "gogcli" { };
+  gogcli-bin = callPackageWithSystemSourceMeta ./gogcli-bin "gogcli" { };
   gotmplfmt = callPackageWithSourceMeta ./gotmplfmt "gotmplfmt" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };
   kubernetes-mcp-server =
@@ -116,5 +116,5 @@ in
   gws-bin = callPackageWithSystemSourceMeta ./gws-bin "gws" { };
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
   inherit libz-rs-sys-cdylib;
-  xremap-gnome = callPackageWithSystemSourceMeta ./xremap-gnome "xremap" { };
+  xremap-gnome-bin = callPackageWithSystemSourceMeta ./xremap-gnome-bin "xremap" { };
 }

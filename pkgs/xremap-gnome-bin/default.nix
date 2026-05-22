@@ -8,7 +8,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "xremap-gnome";
+  pname = "xremap-gnome-bin";
   inherit (source) version src;
 
   nativeBuildInputs = [
