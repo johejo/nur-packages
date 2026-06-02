@@ -16,45 +16,45 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.0.5";
+    version = "1.5.1";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.0.5/apfel-1.0.5-arm64-macos.tar.gz";
-      sha256 = "sha256-etEOYkYVPm08SRE3nuKcDigS7lCkUUgMacOl/sLv/1A=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.5.1/apfel-1.5.1-arm64-macos.tar.gz";
+      sha256 = "sha256-lHMfAQON7a/KQa2RtR+6HGo+5TXLaRYIFewUepSMAj4=";
     };
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.133.0";
+    version = "rust-v0.136.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-E8eDYr7/gUt93hbtdWN2I2d3Zphp3eRL0jJnNQDfaFM=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.136.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-X+H279zcoR8sZKUlF9ok4qq7ly/UPVbTaxBux1tNfTs=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.133.0";
+    version = "rust-v0.136.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-Jov+jPgVSUD+olbfdc1EHFSgxx5sjM1Fqz92/yi6FBM=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.136.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-nboLgFRUGFSzzDwSwl9S1qRByQ2HUg5SYN9WwJuj6s4=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.133.0";
+    version = "rust-v0.136.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.133.0/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-0GAZq5w10oG3jcLrsq5VwruX6hG/f0Urr+OQ7dsANO8=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.136.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-2trWydt0UArVQx+heLMCiP292mvfM5djTbbh9ZgTIc8=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v1.30.2";
+    version = "v2.11.1";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v1.30.2";
+      rev = "v2.11.1";
       fetchSubmodules = false;
-      sha256 = "sha256-ZN2nD4TGRxe/dAzFWRsDud1Z1xS0u+4a2+r2H8TDw14=";
+      sha256 = "sha256-kbJZ5sHD96PBydmy31PqJ5wnpYyhSJr5ap2cWRcB/2g=";
     };
   };
   displayplacer = {
@@ -100,26 +100,26 @@
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.18.0";
+    version = "0.21.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-sMrEAj8PbCrWfg3wLR9lH5tbb/6SOSKvArMwHZfekiw=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.21.0/gogcli_0.21.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-59/cIsM+lFSJCJAm8B80+36VT+OnQIHH7mdRxpr3KSk=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.18.0";
+    version = "0.21.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_linux_arm64.tar.gz";
-      sha256 = "sha256-eHTIuY1LRuV9JaXWsKudxx99RJGigsR9ZL6GQQgCTKU=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.21.0/gogcli_0.21.0_linux_arm64.tar.gz";
+      sha256 = "sha256-GVa2zEefKNJbwelVyFau7USwXJUEaE0T2Rg3rCAnZw4=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.18.0";
+    version = "0.21.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.18.0/gogcli_0.18.0_linux_amd64.tar.gz";
-      sha256 = "sha256-CNM8LihFyDQo1OxqRRSJisgchUzVIK35zfXqF+HAQU0=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.21.0/gogcli_0.21.0_linux_amd64.tar.gz";
+      sha256 = "sha256-YTHz7iOusU4LhoyO8tLy1rFY6DQVXm9GMeJ5HPOssic=";
     };
   };
   gotmplfmt = {
@@ -167,7 +167,7 @@
       deepClone = false;
       leaveDotGit = true;
       sparseCheckout = [ ];
-      sha256 = "sha256-hx0GFshSGImLX4bG73MRH5qhbrCPv3q3qJ7kODBHqLI=";
+      sha256 = "sha256-MUCfSVNXk3Jxhyt1axLY5JBQLEYxVclcEX1NGwagtjU=";
     };
   };
   hocage = {
@@ -277,13 +277,13 @@
   };
   perl5 = {
     pname = "perl5";
-    version = "v5.43.10";
+    version = "v5.43.11";
     src = fetchFromGitHub {
       owner = "Perl";
       repo = "perl5";
-      rev = "v5.43.10";
+      rev = "v5.43.11";
       fetchSubmodules = false;
-      sha256 = "sha256-339L9trny4j5B/vJ2ljbtVXdLcWwLYyIVo60mnbk+bs=";
+      sha256 = "sha256-malxNLSExBqYe+YEOGkn6Fs63tGRTF4RFnqBG7vwZp8=";
     };
   };
   prometheus-jmx-exporter = {
@@ -318,18 +318,18 @@
   };
   xremap-aarch64-linux-bin = {
     pname = "xremap-aarch64-linux-bin";
-    version = "0.15.7";
+    version = "0.15.8";
     src = fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/v0.15.7/xremap-linux-aarch64-gnome.zip";
-      sha256 = "sha256-ga2Mep6tmdThWcoDZcQDHwku9WtJ0fRqGHZ/RW1OAmg=";
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.8/xremap-linux-aarch64-gnome.zip";
+      sha256 = "sha256-m/4P/eLU0hjkHE9KnGWlL1pfPw0jeEHHIszjtzst2Xo=";
     };
   };
   xremap-x86_64-linux-bin = {
     pname = "xremap-x86_64-linux-bin";
-    version = "0.15.7";
+    version = "0.15.8";
     src = fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/v0.15.7/xremap-linux-x86_64-gnome.zip";
-      sha256 = "sha256-CzxRfU6TCRNFXO2r5U2PnqNDqof1mQeJo8yqouO9TzY=";
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.8/xremap-linux-x86_64-gnome.zip";
+      sha256 = "sha256-+iy6nvYk2hEV2NhedfpuQSJMNWQrq0HMZi2j/cD6DnQ=";
     };
   };
   zlib-rs = {
@@ -343,10 +343,9 @@
       sha256 = "sha256-hNmNLhWfP/fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=";
     };
     cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
-      lockFile =
-        ./. + "/sha256-hNmNLhWfP_fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=/libz-rs-sys-cdylib/Cargo.lock";
+      lockFile = ./. + "/sha256-hNmNLhWfP_fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=/libz-rs-sys-cdylib/Cargo.lock";
       outputHashes = {
-
+        
       };
     };
   };

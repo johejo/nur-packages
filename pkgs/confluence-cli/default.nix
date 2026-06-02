@@ -9,15 +9,11 @@
 buildNpmPackage {
   inherit (source) pname version src;
 
-  npmDepsHash = "sha256-q8bCduyDUC/2ez5ft+pEJQIvEmSuXaEwNbAyl0pFB50=";
+  npmDepsHash = "sha256-8oxlUVSHv07Hm2COC0mR+tmmjqPvY9xcalBYooLKO7k=";
 
   nativeBuildInputs = [
     makeWrapper
   ];
-
-  postPatch = ''
-    cp npm-shrinkwrap.json package-lock.json
-  '';
 
   dontNpmBuild = true;
 
