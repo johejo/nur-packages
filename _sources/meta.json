@@ -2,8 +2,8 @@
   "packages": {
     "errorformat": {
       "git": {
-        "ref": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496",
-        "commit": "223c26dbe2122cc5ce2f3b47400ceaca2b50c496"
+        "ref": "ce396c638c56978e525f51310fcf8db98e45f42d",
+        "commit": "ce396c638c56978e525f51310fcf8db98e45f42d"
       },
       "fields": {
         "homepage": "https://github.com/reviewdog/errorformat",
@@ -325,8 +325,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v2.11.1",
-        "commit": "ddd5b93a29541185406ca3a87ba0ec392adc9e0b"
+        "ref": "v2.11.2",
+        "commit": "bd0bf0b1e3e761f01f26451775855217b35b8641"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",

@@ -24,37 +24,37 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.136.0";
+    version = "rust-v0.137.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.136.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-X+H279zcoR8sZKUlF9ok4qq7ly/UPVbTaxBux1tNfTs=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.137.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-Yo0ieLH6KkZ0UmNfL9Wq7umN5KlPKvBgMeR5DaaEQEY=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.136.0";
+    version = "rust-v0.137.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.136.0/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-nboLgFRUGFSzzDwSwl9S1qRByQ2HUg5SYN9WwJuj6s4=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.137.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-G5yuluJ/XaJ1IFSlu6kgTUhpOepgxl30ukpjhFhzS9o=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.136.0";
+    version = "rust-v0.137.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.136.0/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-2trWydt0UArVQx+heLMCiP292mvfM5djTbbh9ZgTIc8=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.137.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-2W6IMTuVWX6cu4cE9tsW27gcBxQrCM+2KEeatDNpaTE=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.11.1";
+    version = "v2.11.2";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.11.1";
+      rev = "v2.11.2";
       fetchSubmodules = false;
-      sha256 = "sha256-kbJZ5sHD96PBydmy31PqJ5wnpYyhSJr5ap2cWRcB/2g=";
+      sha256 = "sha256-JIS5Nq9n/GtLG4VPulYZpLPaqla1P+eOKEmt1ttBqFE=";
     };
   };
   displayplacer = {
@@ -70,13 +70,13 @@
   };
   errorformat = {
     pname = "errorformat";
-    version = "223c26dbe2122cc5ce2f3b47400ceaca2b50c496";
+    version = "ce396c638c56978e525f51310fcf8db98e45f42d";
     src = fetchFromGitHub {
       owner = "reviewdog";
       repo = "errorformat";
-      rev = "223c26dbe2122cc5ce2f3b47400ceaca2b50c496";
+      rev = "ce396c638c56978e525f51310fcf8db98e45f42d";
       fetchSubmodules = false;
-      sha256 = "sha256-kPWojRA7uw8Xv3LDMJRyVB+TpQohmKRrmuRyW+vNWM4=";
+      sha256 = "sha256-FH0yt8BYe0ew6sZ3+pyNooU7jLewLUXrxVEIAl0kZDg=";
     };
   };
   gf-cli = {
@@ -253,26 +253,26 @@
   };
   octorus-aarch64-darwin-bin = {
     pname = "octorus-aarch64-darwin-bin";
-    version = "0.6.4";
+    version = "0.6.6";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-ptNF4ZBCUdnXviNxDp5GtS/4rRl3mlUrS4CtKUF0Ve0=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.6/octorus-0.6.6-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-JzjEwUAieepLLrmCVU9EX5Uv6r7dehx/Io75M8RFzYA=";
     };
   };
   octorus-aarch64-linux-bin = {
     pname = "octorus-aarch64-linux-bin";
-    version = "0.6.4";
+    version = "0.6.6";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-3sAHKMf75uGZD51AEJuvk1ZsPw1tnUYG5i7YXLIhyvI=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.6/octorus-0.6.6-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-iqitDRQs5PCqHq2VhDweCusrCCz0zT8htCWjnPcxv8U=";
     };
   };
   octorus-x86_64-linux-bin = {
     pname = "octorus-x86_64-linux-bin";
-    version = "0.6.4";
+    version = "0.6.6";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.4/octorus-0.6.4-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-Xx3QrWwMkBiZWDV+C7qJyYGJm9Vg746iTNtyYUWXDiA=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.6/octorus-0.6.6-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-G7egRF11bjnJoiQ5uP8Hrb6EKnNHHk4DQ2IYU8P/DDg=";
     };
   };
   perl5 = {
@@ -288,10 +288,10 @@
   };
   prometheus-jmx-exporter = {
     pname = "prometheus-jmx-exporter";
-    version = "1.5.0";
+    version = "1.6.0";
     src = fetchurl {
-      url = "https://github.com/prometheus/jmx_exporter/releases/download/1.5.0/jmx_prometheus_javaagent-1.5.0.jar";
-      sha256 = "sha256-AxXz9leHYwLGIFqY1ANux3XcpSnF0EGcpg7macaII58=";
+      url = "https://github.com/prometheus/jmx_exporter/releases/download/v1.6.0/jmx_prometheus_javaagent-1.6.0.jar";
+      sha256 = "sha256-qVmD/ZboZdK835EcxQDnyCgIwnq5/SJr+WcytsPYxG4=";
     };
   };
   socks5shim = {
