@@ -19,15 +19,15 @@ src.cmd = "gh api repos/prometheus/jmx_exporter/releases/latest --jq .tag_name |
 fetch.url = "https://github.com/prometheus/jmx_exporter/releases/download/v$ver/jmx_prometheus_javaagent-$ver.jar"
 
 [gogcli-aarch64-darwin-bin]
-src.cmd = "gh api repos/steipete/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
+src.cmd = "gh api repos/openclaw/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_darwin_arm64.tar.gz"
 
 [gogcli-x86_64-linux-bin]
-src.cmd = "gh api repos/steipete/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
+src.cmd = "gh api repos/openclaw/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_linux_amd64.tar.gz"
 
 [gogcli-aarch64-linux-bin]
-src.cmd = "gh api repos/steipete/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
+src.cmd = "gh api repos/openclaw/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_linux_arm64.tar.gz"
 
 [alerter-bin]
