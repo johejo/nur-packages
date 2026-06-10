@@ -16,34 +16,34 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.5.1";
+    version = "1.5.5";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.5.1/apfel-1.5.1-arm64-macos.tar.gz";
-      sha256 = "sha256-lHMfAQON7a/KQa2RtR+6HGo+5TXLaRYIFewUepSMAj4=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.5.5/apfel-1.5.5-arm64-macos.tar.gz";
+      sha256 = "sha256-XTXYaE0Y1pO76+CbQyDcA84QYQXhaM0ko4BwzRgtXmo=";
     };
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.137.0";
+    version = "rust-v0.139.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.137.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-Yo0ieLH6KkZ0UmNfL9Wq7umN5KlPKvBgMeR5DaaEQEY=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.139.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-woNEJVhE2DpyjAhMLZ4h4Wi10hf2BJ06mjaCeQPxb9s=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.137.0";
+    version = "rust-v0.139.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.137.0/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-G5yuluJ/XaJ1IFSlu6kgTUhpOepgxl30ukpjhFhzS9o=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.139.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-K3QHZD4OdMUl2ENHye7OxLPSda8DghQqxCIWUIuwsqI=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.137.0";
+    version = "rust-v0.139.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.137.0/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-2W6IMTuVWX6cu4cE9tsW27gcBxQrCM+2KEeatDNpaTE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.139.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-Euv3DfQdyDEGGGKRKrXn6s3RErsX6M6bIJjLPZIYAIE=";
     };
   };
   confluence-cli = {
@@ -100,26 +100,26 @@
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.21.0";
+    version = "0.23.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.21.0/gogcli_0.21.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-59/cIsM+lFSJCJAm8B80+36VT+OnQIHH7mdRxpr3KSk=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.23.0/gogcli_0.23.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-D3tdJUwD+D0hElpvgoPPGqBhSiqV5rj05zFhHCyP528=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.21.0";
+    version = "0.23.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.21.0/gogcli_0.21.0_linux_arm64.tar.gz";
-      sha256 = "sha256-GVa2zEefKNJbwelVyFau7USwXJUEaE0T2Rg3rCAnZw4=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.23.0/gogcli_0.23.0_linux_arm64.tar.gz";
+      sha256 = "sha256-4O/2ivHzEFHoD4Ilw2wSPI2ywr8QvdLj5BCLTEPqj4g=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.21.0";
+    version = "0.23.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.21.0/gogcli_0.21.0_linux_amd64.tar.gz";
-      sha256 = "sha256-YTHz7iOusU4LhoyO8tLy1rFY6DQVXm9GMeJ5HPOssic=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.23.0/gogcli_0.23.0_linux_amd64.tar.gz";
+      sha256 = "sha256-w8FisAtbutxOAFAkpRvoXNzRoBsXZH/ojrFTMw9s/zE=";
     };
   };
   gotmplfmt = {
