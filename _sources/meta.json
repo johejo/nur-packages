@@ -323,6 +323,16 @@
         "licenseSpdx": "MIT"
       }
     },
+    "json2toml": {
+      "git": {
+        "ref": "4f4070151e5e2d18627631070074b05996b61458",
+        "commit": "4f4070151e5e2d18627631070074b05996b61458"
+      },
+      "fields": {
+        "homepage": "https://github.com/johejo/json2toml",
+        "licenseSpdx": "MIT"
+      }
+    },
     "confluence-cli": {
       "git": {
         "ref": "v2.11.2",

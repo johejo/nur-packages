@@ -346,6 +346,27 @@
         },
         "version": "45e65ae2200fc38be28439b3397e93a78aa1f97c"
     },
+    "json2toml": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "json2toml",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "johejo",
+            "repo": "json2toml",
+            "rev": "4f4070151e5e2d18627631070074b05996b61458",
+            "sha256": "sha256-ABup53MZL/w5L6G/WEOc9QckKDAOkfoGwOhrja7Woec=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "4f4070151e5e2d18627631070074b05996b61458"
+    },
     "kakehashi-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

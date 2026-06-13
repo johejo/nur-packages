@@ -108,6 +108,7 @@ in
   hev-socks5-server = callPackageWithSourceMetaArg ./hev-socks5-server "hev-socks5-server" { };
   hocage = callPackageWithSourceMeta ./hocage "hocage" { };
   json2table = callPackageWithSourceMeta ./json2table "json2table" { };
+  json2toml = callPackageWithSourceMeta ./json2toml "json2toml" { };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };

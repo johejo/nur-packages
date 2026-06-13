@@ -141,6 +141,10 @@ fetch.github = "johejo/hocage"
 src.cmd = "gh api repos/johejo/json2table/commits/main --jq .sha"
 fetch.github = "johejo/json2table"
 
+[json2toml]
+src.cmd = "gh api repos/johejo/json2toml/commits/main --jq .sha"
+fetch.github = "johejo/json2toml"
+
 [confluence-cli]
 src.github = "pchuri/confluence-cli"
 fetch.github = "pchuri/confluence-cli"
