@@ -9,7 +9,7 @@
 buildNpmPackage {
   inherit (source) pname version src;
 
-  npmDepsHash = "sha256-Fxq/xv12FOBahK/X2nC8syWThQdRXQ09aAvcePfHe+Q=";
+  npmDepsHash = "sha256-XJBTPGaLwQQBvzruVLR/vL/6EBcGKN+rbqEC6/Zcqcc=";
 
   nativeBuildInputs = [
     makeWrapper
