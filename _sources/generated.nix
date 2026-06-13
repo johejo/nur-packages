@@ -48,13 +48,13 @@
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.11.2";
+    version = "v2.12.0";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.11.2";
+      rev = "v2.12.0";
       fetchSubmodules = false;
-      sha256 = "sha256-JIS5Nq9n/GtLG4VPulYZpLPaqla1P+eOKEmt1ttBqFE=";
+      sha256 = "sha256-3Va7Qp3GdJ3kgf+UG/D+8AQ6MiJHAdj8QyFvjXv0w4Y=";
     };
   };
   displayplacer = {
@@ -100,26 +100,26 @@
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.23.0";
+    version = "0.25.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.23.0/gogcli_0.23.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-D3tdJUwD+D0hElpvgoPPGqBhSiqV5rj05zFhHCyP528=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.25.0/gogcli_0.25.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-RhTK+J1ZeoRnhZmUJYClIf2E40E372yu2IPRFYDRjhM=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.23.0";
+    version = "0.25.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.23.0/gogcli_0.23.0_linux_arm64.tar.gz";
-      sha256 = "sha256-4O/2ivHzEFHoD4Ilw2wSPI2ywr8QvdLj5BCLTEPqj4g=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.25.0/gogcli_0.25.0_linux_arm64.tar.gz";
+      sha256 = "sha256-cnTSaOCP/OEeFrx68jaes5Xm44TUCn6I2AXHIprPMmE=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.23.0";
+    version = "0.25.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.23.0/gogcli_0.23.0_linux_amd64.tar.gz";
-      sha256 = "sha256-w8FisAtbutxOAFAkpRvoXNzRoBsXZH/ojrFTMw9s/zE=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.25.0/gogcli_0.25.0_linux_amd64.tar.gz";
+      sha256 = "sha256-70ozyMpQrOZov/QiWhgvusQXvh9edmD3SsW0HE7N0hk=";
     };
   };
   gotmplfmt = {
@@ -205,26 +205,26 @@
   };
   kakehashi-aarch64-darwin-bin = {
     pname = "kakehashi-aarch64-darwin-bin";
-    version = "v0.5.0";
+    version = "v0.6.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-SfTEA5uPlXluRtLVXoPJ73m2UJjN3ElwqnEPp+zSDpE=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.6.0/kakehashi-v0.6.0-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-TBYLPSxG091PsX5KaO3C9Br9rxZ3BAnsi6mLRcYu8mo=";
     };
   };
   kakehashi-aarch64-linux-bin = {
     pname = "kakehashi-aarch64-linux-bin";
-    version = "v0.5.0";
+    version = "v0.6.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-YW3BJWx6GijmlSVO+tMWrA3JyJ+a7fr6bfWyOlZkPy8=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.6.0/kakehashi-v0.6.0-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-zyPXAsr/wiK++LXghEsCSQmqN/QMUXauIajxP1NVxG8=";
     };
   };
   kakehashi-x86_64-linux-bin = {
     pname = "kakehashi-x86_64-linux-bin";
-    version = "v0.5.0";
+    version = "v0.6.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.5.0/kakehashi-v0.5.0-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-/O5ca7o5lG76sFo+4IBoVE5xbtc8gYBExlmzfhMaIVo=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.6.0/kakehashi-v0.6.0-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-EXEAEbizAURTUf7Ve4Ke/EgOJqmalJcjqhODsU9/ekg=";
     };
   };
   kubernetes-mcp-server = {

@@ -335,8 +335,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v2.11.2",
-        "commit": "bd0bf0b1e3e761f01f26451775855217b35b8641"
+        "ref": "v2.12.0",
+        "commit": "981b16ae51d86ab819a1bd173d714223568a49ab"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",
