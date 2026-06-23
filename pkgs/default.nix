@@ -88,6 +88,7 @@ in
   alerter-bin = callPackageWithSourceMeta ./alerter-bin "alerter-bin" { };
   apfel-bin = callPackageWithSourceMeta ./apfel-bin "apfel-bin" { };
   errorformat = callPackageWithSourceMeta ./errorformat "errorformat" { };
+  gcx-bin = callPackageWithSystemSourceMeta ./gcx-bin "gcx" { };
   gogcli-bin = callPackageWithSystemSourceMeta ./gogcli-bin "gogcli" { };
   gotmplfmt = callPackageWithSourceMeta ./gotmplfmt "gotmplfmt" { };
   starlink-exporter = callPackageWithSourceMeta ./starlink-exporter "starlink-exporter" { };

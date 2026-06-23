@@ -76,6 +76,33 @@
         "homepage": "https://github.com/steipete/gogcli"
       }
     },
+    "gcx-aarch64-darwin-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/grafana/gcx"
+      }
+    },
+    "gcx-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/grafana/gcx"
+      }
+    },
+    "gcx-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/grafana/gcx"
+      }
+    },
     "alerter-bin": {
       "git": {
         "ref": null,

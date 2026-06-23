@@ -79,6 +79,30 @@
       sha256 = "sha256-UCNxzPrUnxk9J+q88WoZRJPC4OJJaHWfLMQha27q9hQ=";
     };
   };
+  gcx-aarch64-darwin-bin = {
+    pname = "gcx-aarch64-darwin-bin";
+    version = "0.4.0";
+    src = fetchurl {
+      url = "https://github.com/grafana/gcx/releases/download/v0.4.0/gcx_0.4.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-hczN1OlYyF+gRtxDC1PkyhJ9I4ut9PnZXa6Y7C22SzY=";
+    };
+  };
+  gcx-aarch64-linux-bin = {
+    pname = "gcx-aarch64-linux-bin";
+    version = "0.4.0";
+    src = fetchurl {
+      url = "https://github.com/grafana/gcx/releases/download/v0.4.0/gcx_0.4.0_linux_arm64.tar.gz";
+      sha256 = "sha256-USZxhcipB9oLbmg6UcxDCrtHJEhMYXNNz7r0k9Eoij0=";
+    };
+  };
+  gcx-x86_64-linux-bin = {
+    pname = "gcx-x86_64-linux-bin";
+    version = "0.4.0";
+    src = fetchurl {
+      url = "https://github.com/grafana/gcx/releases/download/v0.4.0/gcx_0.4.0_linux_amd64.tar.gz";
+      sha256 = "sha256-JUppNj+g6FqJ1WG7XXv7R1w90GUY4qx6XOx830QTRNk=";
+    };
+  };
   gf-cli = {
     pname = "gf-cli";
     version = "855f571b696373718b5108599c1b0be115c79b0c";

@@ -30,6 +30,18 @@ fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$
 src.cmd = "gh api repos/openclaw/gogcli/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/steipete/gogcli/releases/download/v$ver/gogcli_$ver_linux_arm64.tar.gz"
 
+[gcx-aarch64-darwin-bin]
+src.cmd = "gh api repos/grafana/gcx/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/grafana/gcx/releases/download/v$ver/gcx_$ver_darwin_arm64.tar.gz"
+
+[gcx-x86_64-linux-bin]
+src.cmd = "gh api repos/grafana/gcx/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/grafana/gcx/releases/download/v$ver/gcx_$ver_linux_amd64.tar.gz"
+
+[gcx-aarch64-linux-bin]
+src.cmd = "gh api repos/grafana/gcx/releases/latest --jq .tag_name | sed 's/^v//'"
+fetch.url = "https://github.com/grafana/gcx/releases/download/v$ver/gcx_$ver_linux_arm64.tar.gz"
+
 [alerter-bin]
 src.cmd = "gh api repos/vjeantet/alerter/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/vjeantet/alerter/releases/download/v$ver/alerter-$ver.zip"
