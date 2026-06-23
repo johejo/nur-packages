@@ -16,45 +16,45 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.5.5";
+    version = "1.6.0";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.5.5/apfel-1.5.5-arm64-macos.tar.gz";
-      sha256 = "sha256-XTXYaE0Y1pO76+CbQyDcA84QYQXhaM0ko4BwzRgtXmo=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.6.0/apfel-1.6.0-arm64-macos.tar.gz";
+      sha256 = "sha256-ndS1I8rDlHFmvRZ0nmZG4LtJ+X3AsDZ1adFgQThdzYQ=";
     };
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.139.0";
+    version = "rust-v0.142.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.139.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-woNEJVhE2DpyjAhMLZ4h4Wi10hf2BJ06mjaCeQPxb9s=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.142.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-2qREPEVfSBQ9dQkS+g+R17lFb6UpcvclvBJUrptaNkg=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.139.0";
+    version = "rust-v0.142.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.139.0/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-K3QHZD4OdMUl2ENHye7OxLPSda8DghQqxCIWUIuwsqI=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.142.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-Y/yYFvF0q09xMDHmOCAcSc+nzF9BoiudtxAQr6fgmJI=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.139.0";
+    version = "rust-v0.142.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.139.0/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-Euv3DfQdyDEGGGKRKrXn6s3RErsX6M6bIJjLPZIYAIE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.142.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-LjrLOaJ3/xHDFNgyz90kb66+6ia/Aa/46eEGQebeqAE=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.12.0";
+    version = "v2.14.0";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.12.0";
+      rev = "v2.14.0";
       fetchSubmodules = false;
-      sha256 = "sha256-3Va7Qp3GdJ3kgf+UG/D+8AQ6MiJHAdj8QyFvjXv0w4Y=";
+      sha256 = "sha256-d4O2eLm9kOG8cEX2N8LL+A6KtsmkYDP4WJY90n1J+PE=";
     };
   };
   displayplacer = {
@@ -70,13 +70,13 @@
   };
   errorformat = {
     pname = "errorformat";
-    version = "ce396c638c56978e525f51310fcf8db98e45f42d";
+    version = "67df08aa9d75e766e3c3c31eeee336eab31ffb60";
     src = fetchFromGitHub {
       owner = "reviewdog";
       repo = "errorformat";
-      rev = "ce396c638c56978e525f51310fcf8db98e45f42d";
+      rev = "67df08aa9d75e766e3c3c31eeee336eab31ffb60";
       fetchSubmodules = false;
-      sha256 = "sha256-FH0yt8BYe0ew6sZ3+pyNooU7jLewLUXrxVEIAl0kZDg=";
+      sha256 = "sha256-UCNxzPrUnxk9J+q88WoZRJPC4OJJaHWfLMQha27q9hQ=";
     };
   };
   gf-cli = {
@@ -100,26 +100,26 @@
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.25.0";
+    version = "0.30.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.25.0/gogcli_0.25.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-RhTK+J1ZeoRnhZmUJYClIf2E40E372yu2IPRFYDRjhM=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.30.0/gogcli_0.30.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-9FHAHdXu0HlY4/nUDRuiyN+NCSqfsb5eXTqa/do1gHM=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.25.0";
+    version = "0.30.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.25.0/gogcli_0.25.0_linux_arm64.tar.gz";
-      sha256 = "sha256-cnTSaOCP/OEeFrx68jaes5Xm44TUCn6I2AXHIprPMmE=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.30.0/gogcli_0.30.0_linux_arm64.tar.gz";
+      sha256 = "sha256-O6DOHCaLyVz4TGDGIuHky/O8JX7NbkR70c/N06oJQwo=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.25.0";
+    version = "0.30.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.25.0/gogcli_0.25.0_linux_amd64.tar.gz";
-      sha256 = "sha256-70ozyMpQrOZov/QiWhgvusQXvh9edmD3SsW0HE7N0hk=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.30.0/gogcli_0.30.0_linux_amd64.tar.gz";
+      sha256 = "sha256-+fT0B7t2KVkIW0IAfE2lOLPa/Fx2tT86MNx/98Yjf8E=";
     };
   };
   gotmplfmt = {
@@ -172,13 +172,13 @@
   };
   hocage = {
     pname = "hocage";
-    version = "2211a65fb6e3db817a6911e4653fec8596974a51";
+    version = "fa155be524b7d5e580fe6daa84593a4ae633ae06";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "hocage";
-      rev = "2211a65fb6e3db817a6911e4653fec8596974a51";
+      rev = "fa155be524b7d5e580fe6daa84593a4ae633ae06";
       fetchSubmodules = false;
-      sha256 = "sha256-tTf8/9rYNeUU16zNTJMXUSDIE70m9g2WY6FNYCDpteA=";
+      sha256 = "sha256-ANBK2k2/9mYwYbqqj9OheUid08YST+WaPQYxgSqU/UA=";
     };
   };
   json2table = {
@@ -240,26 +240,26 @@
   };
   libduckdb-aarch64-darwin-bin = {
     pname = "libduckdb-aarch64-darwin-bin";
-    version = "v1.5.3";
+    version = "v1.5.4";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.3/libduckdb-osx-universal.zip";
-      sha256 = "sha256-OG+OiztLyNEodiMnEh4iBlzkXy7lXvGx9BLOEeDmxR8=";
+      url = "https://install.duckdb.org/v1.5.4/libduckdb-osx-universal.zip";
+      sha256 = "sha256-PzxSlwrRQH7FA3Bi4aXldbJL1bmTyIn4n+WHbv9HeCw=";
     };
   };
   libduckdb-aarch64-linux-bin = {
     pname = "libduckdb-aarch64-linux-bin";
-    version = "v1.5.3";
+    version = "v1.5.4";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.3/libduckdb-linux-arm64.zip";
-      sha256 = "sha256-FigG1ZHAQx0DHZvfQ9vsxfAHVdoBogZN9o+aaab1ChA=";
+      url = "https://install.duckdb.org/v1.5.4/libduckdb-linux-arm64.zip";
+      sha256 = "sha256-fhVP0U1bev18nzYHEAC/S63T+lehJc99xZbyxa2CwbI=";
     };
   };
   libduckdb-x86_64-linux-bin = {
     pname = "libduckdb-x86_64-linux-bin";
-    version = "v1.5.3";
+    version = "v1.5.4";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.3/libduckdb-linux-amd64.zip";
-      sha256 = "sha256-CpJuulvOCrwAEPS5EJEz5EQMt06XvRD9LQ/CpyFiGwU=";
+      url = "https://install.duckdb.org/v1.5.4/libduckdb-linux-amd64.zip";
+      sha256 = "sha256-g42YqF5pe6uZNQEMiKjGfTMSzO3KtMtKC6AdplETu3A=";
     };
   };
   octorus-aarch64-darwin-bin = {
@@ -345,16 +345,16 @@
   };
   zlib-rs = {
     pname = "zlib-rs";
-    version = "v0.6.3";
+    version = "v0.6.4";
     src = fetchFromGitHub {
       owner = "trifectatechfoundation";
       repo = "zlib-rs";
-      rev = "v0.6.3";
+      rev = "v0.6.4";
       fetchSubmodules = false;
-      sha256 = "sha256-hNmNLhWfP/fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=";
+      sha256 = "sha256-XCP0sYvBgPDlYS8mliVb0CoZN3tAg6pbgzbcCwfczro=";
     };
     cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
-      lockFile = ./. + "/sha256-hNmNLhWfP_fCdCYqa0wIK3ii39kemI7oY8SfjjAqPt8=/libz-rs-sys-cdylib/Cargo.lock";
+      lockFile = ./. + "/sha256-XCP0sYvBgPDlYS8mliVb0CoZN3tAg6pbgzbcCwfczro=/libz-rs-sys-cdylib/Cargo.lock";
       outputHashes = {
         
       };

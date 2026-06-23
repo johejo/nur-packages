@@ -2,8 +2,8 @@
   "packages": {
     "errorformat": {
       "git": {
-        "ref": "ce396c638c56978e525f51310fcf8db98e45f42d",
-        "commit": "ce396c638c56978e525f51310fcf8db98e45f42d"
+        "ref": "67df08aa9d75e766e3c3c31eeee336eab31ffb60",
+        "commit": "67df08aa9d75e766e3c3c31eeee336eab31ffb60"
       },
       "fields": {
         "homepage": "https://github.com/reviewdog/errorformat",
@@ -190,8 +190,8 @@
     },
     "zlib-rs": {
       "git": {
-        "ref": "v0.6.3",
-        "commit": "e00c7acb20a98b193892ecf67a3bd0da37058d59"
+        "ref": "v0.6.4",
+        "commit": "85c68d30e5bc7f887941d849c1d17d87cb30f5b9"
       },
       "fields": {
         "description": "A memory-safe zlib implementation written in rust",
@@ -305,8 +305,8 @@
     },
     "hocage": {
       "git": {
-        "ref": "2211a65fb6e3db817a6911e4653fec8596974a51",
-        "commit": "2211a65fb6e3db817a6911e4653fec8596974a51"
+        "ref": "fa155be524b7d5e580fe6daa84593a4ae633ae06",
+        "commit": "fa155be524b7d5e580fe6daa84593a4ae633ae06"
       },
       "fields": {
         "homepage": "https://github.com/johejo/hocage",
@@ -335,8 +335,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v2.12.0",
-        "commit": "981b16ae51d86ab819a1bd173d714223568a49ab"
+        "ref": "v2.14.0",
+        "commit": "f4f91d844b02cd30992441a1771098222cd6ef75"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",
