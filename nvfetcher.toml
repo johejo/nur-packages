@@ -161,6 +161,10 @@ fetch.github = "johejo/json2toml"
 src.github = "pchuri/confluence-cli"
 fetch.github = "pchuri/confluence-cli"
 
+[aws-sigv4-proxy]
+src.github = "awslabs/aws-sigv4-proxy"
+fetch.github = "awslabs/aws-sigv4-proxy"
+
 [libduckdb-aarch64-linux-bin]
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-arm64.zip"

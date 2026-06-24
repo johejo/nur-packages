@@ -371,6 +371,16 @@
         "licenseSpdx": "MIT"
       }
     },
+    "aws-sigv4-proxy": {
+      "git": {
+        "ref": "v1.11.1",
+        "commit": "ed72b374b7ba88f52ed012a60f98e05d1d39e7a0"
+      },
+      "fields": {
+        "homepage": "https://github.com/awslabs/aws-sigv4-proxy",
+        "licenseSpdx": "Apache-2.0"
+      }
+    },
     "libduckdb-aarch64-linux-bin": {
       "git": {
         "ref": null,

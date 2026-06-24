@@ -112,6 +112,7 @@ in
   json2toml = callPackageWithSourceMeta ./json2toml "json2toml" { };
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
+  aws-sigv4-proxy = callPackageWithSourceMeta ./aws-sigv4-proxy "aws-sigv4-proxy" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
   kakehashi-bin = callPackageWithSystemSourceMeta ./kakehashi-bin "kakehashi" { };
   octorus-bin = callPackageWithSystemSourceMeta ./octorus-bin "octorus" { };

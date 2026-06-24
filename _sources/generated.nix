@@ -22,6 +22,17 @@
       sha256 = "sha256-ndS1I8rDlHFmvRZ0nmZG4LtJ+X3AsDZ1adFgQThdzYQ=";
     };
   };
+  aws-sigv4-proxy = {
+    pname = "aws-sigv4-proxy";
+    version = "v1.11.1";
+    src = fetchFromGitHub {
+      owner = "awslabs";
+      repo = "aws-sigv4-proxy";
+      rev = "v1.11.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-ni5uE9Sa2PblePxg+mZBQ0jD8YHugfIXhtNRuLrQCzY=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.142.0";
