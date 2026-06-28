@@ -29,6 +29,27 @@
         },
         "version": "1.6.1"
     },
+    "asciigraph": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "asciigraph",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "guptarohit",
+            "repo": "asciigraph",
+            "rev": "v0.10.0",
+            "sha256": "sha256-VRF7wAiFQSL1PLmV0k2NjzuEKwprnS028FM0loTpmaI=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.10.0"
+    },
     "aws-sigv4-proxy": {
         "cargoLock": null,
         "date": null,

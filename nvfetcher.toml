@@ -177,6 +177,10 @@ fetch.github = "pchuri/confluence-cli"
 src.github = "awslabs/aws-sigv4-proxy"
 fetch.github = "awslabs/aws-sigv4-proxy"
 
+[asciigraph]
+src.github = "guptarohit/asciigraph"
+fetch.github = "guptarohit/asciigraph"
+
 [libduckdb-aarch64-linux-bin]
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-arm64.zip"

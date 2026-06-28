@@ -22,6 +22,17 @@
       sha256 = "sha256-B92kunT28AO+KnyZR1xZ1iU7UIZzHQn2YcpK6UleXW4=";
     };
   };
+  asciigraph = {
+    pname = "asciigraph";
+    version = "v0.10.0";
+    src = fetchFromGitHub {
+      owner = "guptarohit";
+      repo = "asciigraph";
+      rev = "v0.10.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-VRF7wAiFQSL1PLmV0k2NjzuEKwprnS028FM0loTpmaI=";
+    };
+  };
   aws-sigv4-proxy = {
     pname = "aws-sigv4-proxy";
     version = "v1.11.1";

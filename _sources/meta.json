@@ -408,6 +408,16 @@
         "licenseSpdx": "Apache-2.0"
       }
     },
+    "asciigraph": {
+      "git": {
+        "ref": "v0.10.0",
+        "commit": "3934c9cdf72ac4806f3a2ef77004b62d1e236028"
+      },
+      "fields": {
+        "homepage": "https://github.com/guptarohit/asciigraph",
+        "licenseSpdx": "BSD-3-Clause"
+      }
+    },
     "libduckdb-aarch64-linux-bin": {
       "git": {
         "ref": null,
