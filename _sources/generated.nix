@@ -297,6 +297,30 @@
       sha256 = "sha256-g42YqF5pe6uZNQEMiKjGfTMSzO3KtMtKC6AdplETu3A=";
     };
   };
+  mise-aarch64-darwin-bin = {
+    pname = "mise-aarch64-darwin-bin";
+    version = "v2026.6.14";
+    src = fetchurl {
+      url = "https://github.com/jdx/mise/releases/download/v2026.6.14/mise-v2026.6.14-macos-arm64.tar.gz";
+      sha256 = "sha256-bY04m9cp9cRAlKXY6d9cQQrPQwTiVA63mkhUvdItCpE=";
+    };
+  };
+  mise-aarch64-linux-bin = {
+    pname = "mise-aarch64-linux-bin";
+    version = "v2026.6.14";
+    src = fetchurl {
+      url = "https://github.com/jdx/mise/releases/download/v2026.6.14/mise-v2026.6.14-linux-arm64.tar.gz";
+      sha256 = "sha256-bXG6AfILt8x7//rFIU6eeIoI+lF8B165VaWzHcpmfKc=";
+    };
+  };
+  mise-x86_64-linux-bin = {
+    pname = "mise-x86_64-linux-bin";
+    version = "v2026.6.14";
+    src = fetchurl {
+      url = "https://github.com/jdx/mise/releases/download/v2026.6.14/mise-v2026.6.14-linux-x64.tar.gz";
+      sha256 = "sha256-xbtFRrotUVTpyCNuJ3S9gom2TECTMO1By21rjrwx+1Y=";
+    };
+  };
   octorus-aarch64-darwin-bin = {
     pname = "octorus-aarch64-darwin-bin";
     version = "0.6.6";

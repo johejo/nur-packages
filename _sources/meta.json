@@ -312,6 +312,33 @@
         "homepage": "https://github.com/googleworkspace/cli"
       }
     },
+    "mise-aarch64-darwin-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/jdx/mise"
+      }
+    },
+    "mise-x86_64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/jdx/mise"
+      }
+    },
+    "mise-aarch64-linux-bin": {
+      "git": {
+        "ref": null,
+        "commit": null
+      },
+      "fields": {
+        "homepage": "https://github.com/jdx/mise"
+      }
+    },
     "xremap-x86_64-linux-bin": {
       "git": {
         "ref": null,

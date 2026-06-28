@@ -137,6 +137,18 @@ fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/googl
 src.github = "googleworkspace/cli"
 fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
 
+[mise-aarch64-darwin-bin]
+src.github = "jdx/mise"
+fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-macos-arm64.tar.gz"
+
+[mise-x86_64-linux-bin]
+src.github = "jdx/mise"
+fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-linux-x64.tar.gz"
+
+[mise-aarch64-linux-bin]
+src.github = "jdx/mise"
+fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-linux-arm64.tar.gz"
+
 [xremap-x86_64-linux-bin]
 src.cmd = "gh api repos/xremap/xremap/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/xremap/xremap/releases/download/v$ver/xremap-linux-x86_64-gnome.zip"

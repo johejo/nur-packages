@@ -115,6 +115,7 @@ in
   aws-sigv4-proxy = callPackageWithSourceMeta ./aws-sigv4-proxy "aws-sigv4-proxy" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
   kakehashi-bin = callPackageWithSystemSourceMeta ./kakehashi-bin "kakehashi" { };
+  mise-bin = callPackageWithSystemSourceMeta ./mise-bin "mise" { };
   octorus-bin = callPackageWithSystemSourceMeta ./octorus-bin "octorus" { };
   gws-bin = callPackageWithSystemSourceMeta ./gws-bin "gws" { };
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
