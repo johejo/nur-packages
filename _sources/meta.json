@@ -22,8 +22,8 @@
     },
     "kubernetes-mcp-server": {
       "git": {
-        "ref": "v0.0.62",
-        "commit": "5c8190a72cb40cc55e0b55aae93804df3b5bd965"
+        "ref": "v0.0.63",
+        "commit": "5a382485e76e57d6e6f1cecf053070ab16bc5343"
       },
       "fields": {
         "description": "A Model Context Protocol (MCP) server for Kubernetes and OpenShift",
@@ -197,8 +197,8 @@
     },
     "gf-cli": {
       "git": {
-        "ref": "855f571b696373718b5108599c1b0be115c79b0c",
-        "commit": "855f571b696373718b5108599c1b0be115c79b0c"
+        "ref": "89564b4b04a01c5fdd9b495e2936f27bed4032db",
+        "commit": "89564b4b04a01c5fdd9b495e2936f27bed4032db"
       },
       "fields": {
         "homepage": "https://github.com/johejo/gf-cli",
@@ -228,8 +228,8 @@
     },
     "perl5": {
       "git": {
-        "ref": "v5.43.11",
-        "commit": "674c7948a01b4f0904c48c36785b132b1168f1a7"
+        "ref": "v5.44.0-RC1",
+        "commit": "1dd55ada8698512526ae722b214939ff3b5fa07d"
       },
       "fields": {
         "homepage": "https://github.com/Perl/perl5",
@@ -362,8 +362,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v2.14.0",
-        "commit": "f4f91d844b02cd30992441a1771098222cd6ef75"
+        "ref": "v2.15.0",
+        "commit": "1ca4af25236ff3c84948b60ce3c39a1c72f11726"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",

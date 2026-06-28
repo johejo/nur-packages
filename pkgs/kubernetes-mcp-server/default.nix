@@ -8,7 +8,7 @@
 
 buildGoModule rec {
   inherit (source) pname version src;
-  vendorHash = "sha256-JNeYn/IfzQ2VLDbHgrkserh3wrXYOWXBczBn2DUO6NM=";
+  vendorHash = "sha256-ClcG+aGtj6Ey99ErT5OCGGusDR7aXwESLyXHWrxG8Lk=";
   subPackages = [ "cmd/kubernetes-mcp-server" ];
   ldflags =
     let
