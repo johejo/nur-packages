@@ -371,6 +371,27 @@
         },
         "version": "0.33.0"
     },
+    "gotmpl": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "gotmpl",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "johejo",
+            "repo": "gotmpl",
+            "rev": "c4f96c3f57bd6ce36c581d31b5b4bb82877f4be7",
+            "sha256": "sha256-2rFZZYN+wzf0LKWSx6hbYDG1mtx07o1AHIkpAYsF1Uo=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "c4f96c3f57bd6ce36c581d31b5b4bb82877f4be7"
+    },
     "gotmplfmt": {
         "cargoLock": null,
         "date": null,

@@ -203,6 +203,17 @@
       sha256 = "sha256-hlNH4ioDTe52OOAIUrxJhli3RIh1nvUiPkUXzTlQ5y0=";
     };
   };
+  gotmpl = {
+    pname = "gotmpl";
+    version = "c4f96c3f57bd6ce36c581d31b5b4bb82877f4be7";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "gotmpl";
+      rev = "c4f96c3f57bd6ce36c581d31b5b4bb82877f4be7";
+      fetchSubmodules = false;
+      sha256 = "sha256-2rFZZYN+wzf0LKWSx6hbYDG1mtx07o1AHIkpAYsF1Uo=";
+    };
+  };
   gotmplfmt = {
     pname = "gotmplfmt";
     version = "50f0bcb79afc1d7ee8e73ab996b0617e541dc0cd";

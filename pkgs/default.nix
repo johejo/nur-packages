@@ -21,6 +21,7 @@ in
   errorformat = callPackageWithSource ./errorformat "errorformat" { };
   gcx-bin = callPackageWithSystemSource ./gcx-bin "gcx" { };
   gogcli-bin = callPackageWithSystemSource ./gogcli-bin "gogcli" { };
+  gotmpl = callPackageWithSource ./gotmpl "gotmpl" { };
   gotmplfmt = callPackageWithSource ./gotmplfmt "gotmplfmt" { };
   starlink-exporter = callPackageWithSource ./starlink-exporter "starlink-exporter" { };
   kubernetes-mcp-server = callPackageWithSource ./kubernetes-mcp-server "kubernetes-mcp-server" { };
