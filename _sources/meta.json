@@ -217,8 +217,8 @@
     },
     "zlib-rs": {
       "git": {
-        "ref": "v0.6.4",
-        "commit": "85c68d30e5bc7f887941d849c1d17d87cb30f5b9"
+        "ref": "v0.6.5",
+        "commit": "05ad60d76acf838211cd70531c2109da948b47ac"
       },
       "fields": {
         "description": "A memory-safe zlib implementation written in rust",
@@ -389,8 +389,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v2.15.0",
-        "commit": "1ca4af25236ff3c84948b60ce3c39a1c72f11726"
+        "ref": "v2.15.1",
+        "commit": "8929aca20ff5970361eab1cec86f8c19e39ad089"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",
