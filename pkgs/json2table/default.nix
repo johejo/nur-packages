@@ -19,6 +19,8 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Convert JSON from stdin to a table";
+    homepage = "https://github.com/johejo/json2table";
+    license = lib.licenses.mit;
     mainProgram = "json2table";
     platforms = lib.platforms.unix;
   };

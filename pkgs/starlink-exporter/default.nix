@@ -1,4 +1,5 @@
 {
+  lib,
   buildGoModule,
   source,
   ...
@@ -14,7 +15,9 @@ buildGoModule rec {
   ];
   meta = {
     description = "Starlink Prometheus Exporter Monitoring Stack";
+    homepage = "https://github.com/clarkzjw/starlink_exporter";
     changelog = "https://github.com/clarkzjw/starlink_exporter/releases/tag/${version}";
+    license = lib.licenses.gpl3Only;
     mainProgram = "starlink_exporter";
   };
 }

@@ -1,8 +1,8 @@
 {
+  lib,
   buildGoModule,
   versionCheckHook,
   source,
-  sourceMeta ? { },
   ...
 }:
 
@@ -13,20 +13,21 @@ buildGoModule rec {
   ldflags =
     let
       mod = "github.com/containers/kubernetes-mcp-server/pkg/version";
-      sourceGit = sourceMeta.git or { };
-      commit = sourceGit.commit or sourceGit.ref or source.rev;
     in
     [
       "-s"
       "-w"
-      "-X ${mod}.CommitHash=${commit}"
+      "-X ${mod}.CommitHash=${src.rev}"
       "-X ${mod}.Version=${version}"
     ];
   checkFlags = [ "-skip=Example_version" ];
   doInstallCheck = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
   meta = {
+    description = "A Model Context Protocol (MCP) server for Kubernetes and OpenShift";
+    homepage = "https://github.com/containers/kubernetes-mcp-server";
     changelog = "https://github.com/containers/kubernetes-mcp-server/releases/tag/${version}";
+    license = lib.licenses.asl20;
     mainProgram = "kubernetes-mcp-server";
   };
 }

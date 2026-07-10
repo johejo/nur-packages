@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
     homepage = "https://duckdb.org/install";
     license = lib.licenses.mit;
     changelog = "https://github.com/duckdb/duckdb/releases/tag/${version}";
-    sourcePrivate = with lib.sourceType; [ binaryNativeCode ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     platforms = [
       "x86_64-linux"
       "aarch64-linux"

@@ -55,9 +55,6 @@
               nixfmt
               nvfetcher
               gh
-              bun
-              jq
-              licenseclassifier
             ];
           };
         }

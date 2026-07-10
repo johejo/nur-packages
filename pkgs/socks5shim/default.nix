@@ -22,6 +22,8 @@ buildGoModule rec {
 
   meta = {
     description = "SOCKS5 upstream-fallback proxy shim";
+    homepage = "https://github.com/johejo/socks5shim";
+    license = lib.licenses.mit;
     mainProgram = "socks5shim";
     platforms = lib.platforms.unix;
   };

@@ -23,6 +23,8 @@ buildGoModule rec {
 
   meta = {
     description = "Alternative implementation of aws-sigv4-proxy";
+    homepage = "https://github.com/johejo/awsigv4-proxy";
+    license = lib.licenses.asl20;
     mainProgram = "awsigv4-proxy";
     platforms = lib.platforms.unix;
   };

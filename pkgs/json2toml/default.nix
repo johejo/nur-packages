@@ -17,6 +17,8 @@ buildGoModule {
 
   meta = {
     description = "A tiny CLI that converts JSON to TOML";
+    homepage = "https://github.com/johejo/json2toml";
+    license = lib.licenses.mit;
     mainProgram = "json2toml";
     platforms = lib.platforms.unix;
   };

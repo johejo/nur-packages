@@ -18,7 +18,9 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "macOS command line utility to configure multi-display resolutions and arrangements. Essentially XRandR for macOS.";
+    homepage = "https://github.com/jakehilborn/displayplacer";
     changelog = "https://github.com/jakehilborn/displayplacer/releases/tag/${version}";
+    license = lib.licenses.mit;
     mainProgram = "displayplacer";
     platforms = lib.platforms.darwin;
   };

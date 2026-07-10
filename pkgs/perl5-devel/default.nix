@@ -20,4 +20,7 @@ perl.overrideAttrs (old: {
   configureFlags = (old.configureFlags or [ ]) ++ [
     "-Dusedevel"
   ];
+  meta = (old.meta or { }) // {
+    homepage = "https://github.com/Perl/perl5";
+  };
 })

@@ -13,6 +13,7 @@ stdenvNoCC.mkDerivation rec {
   '';
   meta = {
     description = "A Git platform powered by Scala with easy installation, high extensibility & GitHub API compatibility";
+    homepage = "https://github.com/gitbucket/gitbucket";
     license = lib.licenses.asl20;
     changelog = "https://github.com/gitbucket/gitbucket/releases/tag/${version}";
   };

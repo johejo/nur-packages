@@ -48,4 +48,9 @@ rustPlatform.buildRustPackage {
     runHook postInstall
   '';
 
+  meta = {
+    description = "A memory-safe zlib implementation written in rust";
+    homepage = "https://github.com/trifectatechfoundation/zlib-rs";
+    license = lib.licenses.zlib;
+  };
 }

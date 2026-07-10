@@ -24,6 +24,8 @@ buildGoModule rec {
 
   meta = {
     description = "Coding Agent Hooks Policy Framework Using CEL";
+    homepage = "https://github.com/johejo/hocage";
+    license = lib.licenses.asl20;
     mainProgram = "hocage";
     platforms = lib.platforms.unix;
   };

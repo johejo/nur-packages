@@ -1,4 +1,5 @@
 {
+  lib,
   bun,
   buildNpmPackage,
   makeWrapper,
@@ -26,6 +27,9 @@ buildNpmPackage {
   '';
 
   meta = {
+    description = "A command-line interface for Atlassian Confluence with page creation and editing capabilities";
+    homepage = "https://github.com/pchuri/confluence-cli";
+    license = lib.licenses.mit;
     mainProgram = "confluence";
   };
 }

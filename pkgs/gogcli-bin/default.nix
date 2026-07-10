@@ -41,6 +41,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
+    homepage = "https://github.com/openclaw/gogcli";
     mainProgram = "gog";
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     platforms = [

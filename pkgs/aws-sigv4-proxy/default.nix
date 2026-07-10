@@ -17,6 +17,8 @@ buildGoModule {
 
   meta = {
     description = "Proxy that signs and forwards HTTP requests using AWS Signature Version 4";
+    homepage = "https://github.com/awslabs/aws-sigv4-proxy";
+    license = lib.licenses.asl20;
     mainProgram = "aws-sigv4-proxy";
     platforms = lib.platforms.unix;
   };

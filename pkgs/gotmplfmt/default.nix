@@ -1,4 +1,5 @@
 {
+  lib,
   buildGoModule,
   source,
   ...
@@ -15,6 +16,8 @@ buildGoModule {
   ];
 
   meta = {
+    homepage = "https://github.com/johejo/gotmplfmt";
+    license = lib.licenses.mit;
     mainProgram = "gotmplfmt";
   };
 }
