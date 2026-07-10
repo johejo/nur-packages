@@ -68,6 +68,17 @@
       sha256 = "sha256-ni5uE9Sa2PblePxg+mZBQ0jD8YHugfIXhtNRuLrQCzY=";
     };
   };
+  awsigv4-proxy = {
+    pname = "awsigv4-proxy";
+    version = "10a42826710542f17d0985ce2c18fa8133aba438";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "awsigv4-proxy";
+      rev = "10a42826710542f17d0985ce2c18fa8133aba438";
+      fetchSubmodules = false;
+      sha256 = "sha256-bL6sB3M5edh5AAJe0saiohDcqHzH7jrN7EjqeMYBV/s=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.143.0";

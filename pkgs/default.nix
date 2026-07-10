@@ -113,6 +113,7 @@ in
   socks5shim = callPackageWithSourceMeta ./socks5shim "socks5shim" { };
   gf-cli = callPackageWithSourceMeta ./gf-cli "gf-cli" { };
   aws-sigv4-proxy = callPackageWithSourceMeta ./aws-sigv4-proxy "aws-sigv4-proxy" { };
+  awsigv4-proxy = callPackageWithSourceMeta ./awsigv4-proxy "awsigv4-proxy" { };
   asciigraph = callPackageWithSourceMeta ./asciigraph "asciigraph" { };
   perl5-devel = callPackageWithSourceMeta ./perl5-devel "perl5" { };
   kakehashi-bin = callPackageWithSystemSourceMeta ./kakehashi-bin "kakehashi" { };

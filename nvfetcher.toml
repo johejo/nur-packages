@@ -196,3 +196,7 @@ fetch.url = "https://acli.atlassian.com/linux/$ver/acli_$ver_linux_amd64.tar.gz"
 [acli-aarch64-linux-bin]
 src.cmd = "curl -sSf https://raw.githubusercontent.com/atlassian/homebrew-acli/main/Formula/acli.rb | sed -n 's/^ *version \"\\(.*\\)\"$/\\1/p' | head -n1"
 fetch.url = "https://acli.atlassian.com/linux/$ver/acli_$ver_linux_arm64.tar.gz"
+
+[awsigv4-proxy]
+src.cmd = "gh api repos/johejo/awsigv4-proxy/commits/main --jq .sha"
+fetch.github = "johejo/awsigv4-proxy"

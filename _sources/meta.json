@@ -441,6 +441,16 @@
         "ref": null,
         "commit": null
       }
+    },
+    "awsigv4-proxy": {
+      "git": {
+        "ref": "10a42826710542f17d0985ce2c18fa8133aba438",
+        "commit": "10a42826710542f17d0985ce2c18fa8133aba438"
+      },
+      "fields": {
+        "homepage": "https://github.com/johejo/awsigv4-proxy",
+        "licenseSpdx": "Apache-2.0"
+      }
     }
   }
 }
