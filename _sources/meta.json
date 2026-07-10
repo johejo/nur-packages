@@ -217,8 +217,8 @@
     },
     "zlib-rs": {
       "git": {
-        "ref": "v0.6.5",
-        "commit": "05ad60d76acf838211cd70531c2109da948b47ac"
+        "ref": "v0.6.6",
+        "commit": "9909ff1b97ee1ec775e7337e8de63211afbd78aa"
       },
       "fields": {
         "description": "A memory-safe zlib implementation written in rust",
@@ -228,8 +228,8 @@
     },
     "perl5": {
       "git": {
-        "ref": "v5.44.0-RC1",
-        "commit": "1dd55ada8698512526ae722b214939ff3b5fa07d"
+        "ref": "v5.44.0-RC2",
+        "commit": "5a7d4b78f29428ce7568b11042de3017dd50e030"
       },
       "fields": {
         "homepage": "https://github.com/Perl/perl5",
@@ -389,8 +389,8 @@
     },
     "confluence-cli": {
       "git": {
-        "ref": "v2.15.1",
-        "commit": "8929aca20ff5970361eab1cec86f8c19e39ad089"
+        "ref": "v2.16.0",
+        "commit": "7b7b2cc390d32ba05f9bc74f2c6c5019e5900505"
       },
       "fields": {
         "description": "A command-line interface for Atlassian Confluence with page creation and editing capabilities",

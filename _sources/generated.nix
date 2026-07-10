@@ -16,10 +16,10 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.8.0";
+    version = "1.8.2";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.8.0/apfel-1.8.0-arm64-macos.tar.gz";
-      sha256 = "sha256-QyJyP6V83Ul3MVPCmjEgIhAjlfxDd6bh7qxCKUkhKuo=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.8.2/apfel-1.8.2-arm64-macos.tar.gz";
+      sha256 = "sha256-zrkujrvhpnHXGQfOxWoPc7HYxHATMMfprcnKy5o2Y5M=";
     };
   };
   asciigraph = {
@@ -70,13 +70,13 @@
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.15.1";
+    version = "v2.16.0";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.15.1";
+      rev = "v2.16.0";
       fetchSubmodules = false;
-      sha256 = "sha256-Uzu/m8piRdfEMrPeCu8tU6qUkNRRF+NskAvDGHYgvw4=";
+      sha256 = "sha256-juqJaa/6FkClAdvLRzl8LGIyfA785y00ig3aTO002BQ=";
     };
   };
   displayplacer = {
@@ -310,26 +310,26 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.7.2";
+    version = "v2026.7.3";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.2/mise-v2026.7.2-macos-arm64.tar.gz";
-      sha256 = "sha256-yzlqZ3IEI1AwEeOAkprsKdjRl6bVsibPD/DdpqBO8XI=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.3/mise-v2026.7.3-macos-arm64.tar.gz";
+      sha256 = "sha256-obbw8beflWYx1fUxC4JkU3Oa1jEPVVpCPKKkk965Iuk=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.7.2";
+    version = "v2026.7.3";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.2/mise-v2026.7.2-linux-arm64.tar.gz";
-      sha256 = "sha256-6+y+GNTCz6BvM/mxODiBEXEYi+zbASZjVIBPrqylAAs=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.3/mise-v2026.7.3-linux-arm64.tar.gz";
+      sha256 = "sha256-OjTDTurTbQD3G5s+dEYV3mtgkcY1j9YUuJ8upEfTibo=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.7.2";
+    version = "v2026.7.3";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.2/mise-v2026.7.2-linux-x64.tar.gz";
-      sha256 = "sha256-W/Swu4nElzz1nJtyzeJaVbV/JxkX5Q3U4lq4rPmsKJo=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.3/mise-v2026.7.3-linux-x64.tar.gz";
+      sha256 = "sha256-TNg5E/WQrjx+BrH0ncGa1SHChLbYJlJ4LhREtj8mDCU=";
     };
   };
   octorus-aarch64-darwin-bin = {
@@ -358,13 +358,13 @@
   };
   perl5 = {
     pname = "perl5";
-    version = "v5.44.0-RC1";
+    version = "v5.44.0-RC2";
     src = fetchFromGitHub {
       owner = "Perl";
       repo = "perl5";
-      rev = "v5.44.0-RC1";
+      rev = "v5.44.0-RC2";
       fetchSubmodules = false;
-      sha256 = "sha256-5PP2lJATEYwLsTctnriDdx4klWhJ7xJvQ4PQPoyfm50=";
+      sha256 = "sha256-LByVuQ1mIIDnIFVDzVSX9SwdZ3av0tO0lsJAafihlAo=";
     };
   };
   prometheus-jmx-exporter = {
@@ -415,16 +415,16 @@
   };
   zlib-rs = {
     pname = "zlib-rs";
-    version = "v0.6.5";
+    version = "v0.6.6";
     src = fetchFromGitHub {
       owner = "trifectatechfoundation";
       repo = "zlib-rs";
-      rev = "v0.6.5";
+      rev = "v0.6.6";
       fetchSubmodules = false;
-      sha256 = "sha256-9k1N8AUon7+FI+WC+AncZLCp2sMdNAK/54CaKSxdiBg=";
+      sha256 = "sha256-pLD1DfpR4q6DboLowFig1Q6dJwwI1cOY4RSO3DPaP98=";
     };
     cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
-      lockFile = ./. + "/sha256-9k1N8AUon7+FI+WC+AncZLCp2sMdNAK_54CaKSxdiBg=/libz-rs-sys-cdylib/Cargo.lock";
+      lockFile = ./. + "/sha256-pLD1DfpR4q6DboLowFig1Q6dJwwI1cOY4RSO3DPaP98=/libz-rs-sys-cdylib/Cargo.lock";
       outputHashes = {
         
       };
