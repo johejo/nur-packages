@@ -184,3 +184,15 @@ fetch.github = "guptarohit/asciigraph"
 [libduckdb-aarch64-linux-bin]
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-arm64.zip"
+
+[acli-aarch64-darwin-bin]
+src.cmd = "curl -sSf https://raw.githubusercontent.com/atlassian/homebrew-acli/main/Formula/acli.rb | sed -n 's/^ *version \"\\(.*\\)\"$/\\1/p' | head -n1"
+fetch.url = "https://acli.atlassian.com/darwin/$ver/acli_$ver_darwin_arm64.tar.gz"
+
+[acli-x86_64-linux-bin]
+src.cmd = "curl -sSf https://raw.githubusercontent.com/atlassian/homebrew-acli/main/Formula/acli.rb | sed -n 's/^ *version \"\\(.*\\)\"$/\\1/p' | head -n1"
+fetch.url = "https://acli.atlassian.com/linux/$ver/acli_$ver_linux_amd64.tar.gz"
+
+[acli-aarch64-linux-bin]
+src.cmd = "curl -sSf https://raw.githubusercontent.com/atlassian/homebrew-acli/main/Formula/acli.rb | sed -n 's/^ *version \"\\(.*\\)\"$/\\1/p' | head -n1"
+fetch.url = "https://acli.atlassian.com/linux/$ver/acli_$ver_linux_arm64.tar.gz"

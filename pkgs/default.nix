@@ -122,4 +122,5 @@ in
   displayplacer = callPackageWithSourceMeta ./displayplacer "displayplacer" { };
   inherit libz-rs-sys-cdylib;
   xremap-gnome-bin = callPackageWithSystemSourceMeta ./xremap-gnome-bin "xremap" { };
+  acli-bin = callPackageWithSystemSourceMeta ./acli-bin "acli" { };
 }

@@ -6,6 +6,30 @@
   dockerTools,
 }:
 {
+  acli-aarch64-darwin-bin = {
+    pname = "acli-aarch64-darwin-bin";
+    version = "1.3.22-stable";
+    src = fetchurl {
+      url = "https://acli.atlassian.com/darwin/1.3.22-stable/acli_1.3.22-stable_darwin_arm64.tar.gz";
+      sha256 = "sha256-Oppv8bsLzlkCeA4m50ixi5rbRInfZ9iOqHj0t2c5RK0=";
+    };
+  };
+  acli-aarch64-linux-bin = {
+    pname = "acli-aarch64-linux-bin";
+    version = "1.3.22-stable";
+    src = fetchurl {
+      url = "https://acli.atlassian.com/linux/1.3.22-stable/acli_1.3.22-stable_linux_arm64.tar.gz";
+      sha256 = "sha256-Gp6G0LRqYqjxmSwe+Ys69+mp7j920O+iFf4fLRsv0Tk=";
+    };
+  };
+  acli-x86_64-linux-bin = {
+    pname = "acli-x86_64-linux-bin";
+    version = "1.3.22-stable";
+    src = fetchurl {
+      url = "https://acli.atlassian.com/linux/1.3.22-stable/acli_1.3.22-stable_linux_amd64.tar.gz";
+      sha256 = "sha256-3p4KYKVW5BGUKLkHL2ynh+dbn5pTiqcevMgITeuMoaY=";
+    };
+  };
   alerter-bin = {
     pname = "alerter-bin";
     version = "26.5";

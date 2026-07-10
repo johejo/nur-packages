@@ -1,4 +1,49 @@
 {
+    "acli-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "acli-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Oppv8bsLzlkCeA4m50ixi5rbRInfZ9iOqHj0t2c5RK0=",
+            "type": "url",
+            "url": "https://acli.atlassian.com/darwin/1.3.22-stable/acli_1.3.22-stable_darwin_arm64.tar.gz"
+        },
+        "version": "1.3.22-stable"
+    },
+    "acli-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "acli-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Gp6G0LRqYqjxmSwe+Ys69+mp7j920O+iFf4fLRsv0Tk=",
+            "type": "url",
+            "url": "https://acli.atlassian.com/linux/1.3.22-stable/acli_1.3.22-stable_linux_arm64.tar.gz"
+        },
+        "version": "1.3.22-stable"
+    },
+    "acli-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "acli-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-3p4KYKVW5BGUKLkHL2ynh+dbn5pTiqcevMgITeuMoaY=",
+            "type": "url",
+            "url": "https://acli.atlassian.com/linux/1.3.22-stable/acli_1.3.22-stable_linux_amd64.tar.gz"
+        },
+        "version": "1.3.22-stable"
+    },
     "alerter-bin": {
         "cargoLock": null,
         "date": null,
