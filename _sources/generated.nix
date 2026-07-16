@@ -273,6 +273,17 @@
       sha256 = "sha256-ANBK2k2/9mYwYbqqj9OheUid08YST+WaPQYxgSqU/UA=";
     };
   };
+  jira-cli = {
+    pname = "jira-cli";
+    version = "v2.8.1";
+    src = fetchFromGitHub {
+      owner = "pchuri";
+      repo = "jira-cli";
+      rev = "v2.8.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-WMCS1HoX/fGq+F1XBKs0Udco4goBKwnVtpN4Imz1I5M=";
+    };
+  };
   json2table = {
     pname = "json2table";
     version = "45e65ae2200fc38be28439b3397e93a78aa1f97c";

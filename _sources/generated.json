@@ -499,6 +499,27 @@
         },
         "version": "fa155be524b7d5e580fe6daa84593a4ae633ae06"
     },
+    "jira-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "jira-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pchuri",
+            "repo": "jira-cli",
+            "rev": "v2.8.1",
+            "sha256": "sha256-WMCS1HoX/fGq+F1XBKs0Udco4goBKwnVtpN4Imz1I5M=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v2.8.1"
+    },
     "json2table": {
         "cargoLock": null,
         "date": null,

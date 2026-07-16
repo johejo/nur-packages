@@ -181,6 +181,10 @@ fetch.github = "johejo/json2toml"
 src.github = "pchuri/confluence-cli"
 fetch.github = "pchuri/confluence-cli"
 
+[jira-cli]
+src.github = "pchuri/jira-cli"
+fetch.github = "pchuri/jira-cli"
+
 [aws-sigv4-proxy]
 src.github = "awslabs/aws-sigv4-proxy"
 fetch.github = "awslabs/aws-sigv4-proxy"

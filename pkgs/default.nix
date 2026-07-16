@@ -32,6 +32,7 @@ in
     callPackageWithSource ./prometheus-jmx-exporter "prometheus-jmx-exporter"
       { };
   confluence-cli = callPackageWithSource ./confluence-cli "confluence-cli" { };
+  jira-cli = callPackageWithSource ./jira-cli "jira-cli" { };
   codex-bin = callPackageWithSystemSource ./codex-bin "codex" { zlib = libz-rs-sys-cdylib; };
   libduckdb-bin = callPackageWithSystemSource ./libduckdb-bin "libduckdb" { };
   caddy-with-plugins = pkgs.callPackage ./caddy { };
