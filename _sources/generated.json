@@ -742,27 +742,6 @@
         },
         "version": "0.6.7"
     },
-    "perl5": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "perl5",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Perl",
-            "repo": "perl5",
-            "rev": "v5.44.0-RC2",
-            "sha256": "sha256-CTtRU7Oy26D2oBQsjhRej2h6v+Kb51QgkFVuwrpCO/A=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v5.44.0-RC2"
-    },
     "prometheus-jmx-exporter": {
         "cargoLock": null,
         "date": null,

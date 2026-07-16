@@ -45,7 +45,6 @@ in
   aws-sigv4-proxy = callPackageWithSource ./aws-sigv4-proxy "aws-sigv4-proxy" { };
   awsigv4-proxy = callPackageWithSource ./awsigv4-proxy "awsigv4-proxy" { };
   asciigraph = callPackageWithSource ./asciigraph "asciigraph" { };
-  perl5-devel = callPackageWithSource ./perl5-devel "perl5" { };
   kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
   mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };

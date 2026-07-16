@@ -101,10 +101,6 @@ src.github = "trifectatechfoundation/zlib-rs"
 fetch.github = "trifectatechfoundation/zlib-rs"
 cargo_lock = ["libz-rs-sys-cdylib/Cargo.lock"]
 
-[perl5]
-src.github_tag = "Perl/perl5"
-fetch.github = "Perl/perl5"
-
 [octorus-aarch64-darwin-bin]
 src.cmd = "gh api repos/ushironoko/octorus/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/ushironoko/octorus/releases/download/v$ver/octorus-$ver-aarch64-apple-darwin.tar.gz"
