@@ -2,6 +2,7 @@
   lib,
   bun,
   buildNpmPackage,
+  importNpmLock,
   makeWrapper,
   source,
   ...
@@ -10,7 +11,9 @@
 buildNpmPackage {
   inherit (source) pname version src;
 
-  npmDepsHash = "sha256-GQBFEK0chpVOWxvKHKev04NjQUf/Z6XgjIsGTfj1Yr0=";
+  npmDeps = importNpmLock { npmRoot = source.src; };
+
+  npmConfigHook = importNpmLock.npmConfigHook;
 
   nativeBuildInputs = [
     makeWrapper
