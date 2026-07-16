@@ -81,37 +81,37 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.144.4";
+    version = "rust-v0.144.5";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.4/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-d8iWmkgTAvnbHZ6ipsIcCDq64/Go/Ipyddw4MjaZOR4=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.144.5/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-pbd9L7OT8gF3eAlCWrKNm+tl7gwLK/eS8J6vjvEVFZI=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.144.4";
+    version = "rust-v0.144.5";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.4/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-TQckPvSuZ4a4syHXrqP5vk4dLFl65UB+fBuYczNAgrI=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.144.5/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-VDN4nNZuDbO3jMzSGNiURx7Z6S/pNGUSDRNWUIlSCE0=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.144.4";
+    version = "rust-v0.144.5";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.4/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-N8mFvp2J6MT0OzqgWUwSE+rCEtMK4rlSIfCP7IB1FdE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.144.5/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-tr6hO+30kyMvZxdxTEXng3iMaVztzzfDRPc6/Jex7J8=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.16.1";
+    version = "v2.16.2";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.16.1";
+      rev = "v2.16.2";
       fetchSubmodules = false;
-      sha256 = "sha256-dvfbjf/c9nKovBCt82mTZxU2haUuJvF2snr8ykMvNQY=";
+      sha256 = "sha256-uoyx2l06KiO4Bw9bfuxS65wsTeJ7xqnNnQ6EiKRS+3U=";
     };
   };
   displayplacer = {
@@ -356,26 +356,26 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.7.6";
+    version = "v2026.7.7";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.6/mise-v2026.7.6-macos-arm64.tar.gz";
-      sha256 = "sha256-uutCwhrsXepF4IgbFhm49lmJGH+lBIGxxwxKoK8EKbs=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.7/mise-v2026.7.7-macos-arm64.tar.gz";
+      sha256 = "sha256-30kNwv/1HIK/D2Th/NAmWxRc6A0tFc6ZuV8q3wsf6Cw=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.7.6";
+    version = "v2026.7.7";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.6/mise-v2026.7.6-linux-arm64.tar.gz";
-      sha256 = "sha256-Hl0hgbrZuJdDfoInIA/mYTObrX1mo80YKLIsSBVqxzo=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.7/mise-v2026.7.7-linux-arm64.tar.gz";
+      sha256 = "sha256-xOVCtToV0uxkHgcvey2dqKBVS5L9LAmlH+veMsYICrg=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.7.6";
+    version = "v2026.7.7";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.6/mise-v2026.7.6-linux-x64.tar.gz";
-      sha256 = "sha256-+9Lzal1yaCLpl7g7nKKfZkEd4qyyk13Kus1N9RoNreM=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.7/mise-v2026.7.7-linux-x64.tar.gz";
+      sha256 = "sha256-CVOBDCeF60p1FZ9n+LVyHE88gLimqBIBXVr31/vRuKQ=";
     };
   };
   octorus-aarch64-darwin-bin = {
