@@ -6,9 +6,17 @@ fetch.github = "reviewdog/errorformat"
 src.github = "clarkzjw/starlink_exporter"
 fetch.github = "clarkzjw/starlink_exporter"
 
-[kubernetes-mcp-server]
+[kubernetes-mcp-server-aarch64-darwin-bin]
 src.github = "containers/kubernetes-mcp-server"
-fetch.github = "containers/kubernetes-mcp-server"
+fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-darwin-arm64"
+
+[kubernetes-mcp-server-x86_64-linux-bin]
+src.github = "containers/kubernetes-mcp-server"
+fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-linux-amd64"
+
+[kubernetes-mcp-server-aarch64-linux-bin]
+src.github = "containers/kubernetes-mcp-server"
+fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-linux-arm64"
 
 [gitbucket]
 src.github = "gitbucket/gitbucket"

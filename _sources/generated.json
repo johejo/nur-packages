@@ -586,24 +586,48 @@
         },
         "version": "v0.8.0"
     },
-    "kubernetes-mcp-server": {
+    "kubernetes-mcp-server-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "kubernetes-mcp-server",
+        "name": "kubernetes-mcp-server-aarch64-darwin-bin",
         "passthru": null,
         "pinned": false,
         "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
             "name": null,
-            "owner": "containers",
-            "repo": "kubernetes-mcp-server",
-            "rev": "v0.0.65",
-            "sha256": "sha256-EycenZ4378bOrv/MxlSxhtggq5lz8sFv0l+HiGXNjpw=",
-            "sparseCheckout": [],
-            "type": "github"
+            "sha256": "sha256-LDpDI+bkzRMojCNZqFZoySsOBHo3/LNMkE2t8/WQ6sg=",
+            "type": "url",
+            "url": "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.65/kubernetes-mcp-server-darwin-arm64"
+        },
+        "version": "v0.0.65"
+    },
+    "kubernetes-mcp-server-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "kubernetes-mcp-server-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-X61NrZrLbf2bq5v3UwJyRKNWpkyDcJXetVs0MiSE/1I=",
+            "type": "url",
+            "url": "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.65/kubernetes-mcp-server-linux-arm64"
+        },
+        "version": "v0.0.65"
+    },
+    "kubernetes-mcp-server-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "kubernetes-mcp-server-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-JS7V0Lf+lIN/AbmC/xXr2HtdrWffW1FF7jDsT3FPz+I=",
+            "type": "url",
+            "url": "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.65/kubernetes-mcp-server-linux-amd64"
         },
         "version": "v0.0.65"
     },

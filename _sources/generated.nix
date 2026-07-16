@@ -319,15 +319,28 @@
       sha256 = "sha256-G2ElVKScg0pCHZ83clzoFaIDsjLBQI5U+FPRHT+L4bU=";
     };
   };
-  kubernetes-mcp-server = {
-    pname = "kubernetes-mcp-server";
+  kubernetes-mcp-server-aarch64-darwin-bin = {
+    pname = "kubernetes-mcp-server-aarch64-darwin-bin";
     version = "v0.0.65";
-    src = fetchFromGitHub {
-      owner = "containers";
-      repo = "kubernetes-mcp-server";
-      rev = "v0.0.65";
-      fetchSubmodules = false;
-      sha256 = "sha256-EycenZ4378bOrv/MxlSxhtggq5lz8sFv0l+HiGXNjpw=";
+    src = fetchurl {
+      url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.65/kubernetes-mcp-server-darwin-arm64";
+      sha256 = "sha256-LDpDI+bkzRMojCNZqFZoySsOBHo3/LNMkE2t8/WQ6sg=";
+    };
+  };
+  kubernetes-mcp-server-aarch64-linux-bin = {
+    pname = "kubernetes-mcp-server-aarch64-linux-bin";
+    version = "v0.0.65";
+    src = fetchurl {
+      url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.65/kubernetes-mcp-server-linux-arm64";
+      sha256 = "sha256-X61NrZrLbf2bq5v3UwJyRKNWpkyDcJXetVs0MiSE/1I=";
+    };
+  };
+  kubernetes-mcp-server-x86_64-linux-bin = {
+    pname = "kubernetes-mcp-server-x86_64-linux-bin";
+    version = "v0.0.65";
+    src = fetchurl {
+      url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.65/kubernetes-mcp-server-linux-amd64";
+      sha256 = "sha256-JS7V0Lf+lIN/AbmC/xXr2HtdrWffW1FF7jDsT3FPz+I=";
     };
   };
   libduckdb-aarch64-darwin-bin = {

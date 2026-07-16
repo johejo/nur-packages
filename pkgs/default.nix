@@ -24,7 +24,9 @@ in
   gotmpl = callPackageWithSource ./gotmpl "gotmpl" { };
   gotmplfmt = callPackageWithSource ./gotmplfmt "gotmplfmt" { };
   starlink-exporter = callPackageWithSource ./starlink-exporter "starlink-exporter" { };
-  kubernetes-mcp-server = callPackageWithSource ./kubernetes-mcp-server "kubernetes-mcp-server" { };
+  kubernetes-mcp-server-bin =
+    callPackageWithSystemSource ./kubernetes-mcp-server-bin "kubernetes-mcp-server"
+      { };
   gitbucket = callPackageWithSource ./gitbucket "gitbucket" { };
   prometheus-jmx-exporter =
     callPackageWithSource ./prometheus-jmx-exporter "prometheus-jmx-exporter"
