@@ -55,7 +55,7 @@ buildNpmPackage {
     allowEnv="$(
       extract-node-env \
         --format json \
-        --literal-prefix JIRA_ \
+        --include-literal-prefix JIRA_ \
         "$packageRoot/bin" \
         "$packageRoot/lib" \
         "$packageRoot/node_modules" |

@@ -1,14 +1,17 @@
 format=lines
 prefixes=()
+identifier_pattern='[A-Za-z_][A-Za-z0-9_]*'
+identifier_regex="^${identifier_pattern}$"
+uppercase_identifier_regex='^[A-Z][A-Z0-9_]*$'
 
 while (( $# > 0 )); do
   case "$1" in
-    --literal-prefix)
+    --include-literal-prefix)
       if (( $# < 2 )); then
         echo "extract-node-env: $1 requires an argument" >&2
         exit 2
       fi
-      if [[ ! "$2" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]]; then
+      if [[ ! "$2" =~ $identifier_regex ]]; then
         echo "extract-node-env: invalid environment name or prefix: $2" >&2
         exit 2
       fi
@@ -38,7 +41,7 @@ while (( $# > 0 )); do
 done
 
 if (( $# == 0 )); then
-  echo "usage: extract-node-env [--format lines|json] [--literal-prefix PREFIX]... PATH..." >&2
+  echo "usage: extract-node-env [--format lines|json] [--include-literal-prefix PREFIX]... PATH..." >&2
   exit 2
 fi
 
@@ -74,9 +77,7 @@ find_pattern_files() {
 }
 
 unquote_identifiers() {
-  sed -nE \
-    -e 's/^"([A-Za-z_][A-Za-z0-9_]*)"$/\1/p' \
-    -e "s/^'([A-Za-z_][A-Za-z0-9_]*)'$/\1/p"
+  sed -nE "s/^([\"'])(${identifier_pattern})\\1$/\\2/p"
 }
 
 emit_member_names() {
@@ -98,7 +99,7 @@ emit_destructured_names() {
       jq -r '.metaVariables.multi.ENV[]?.text'
   done |
     sed -nE \
-      's/^[[:space:]]*([A-Za-z_][A-Za-z0-9_]*)([[:space:]]*[:=].*)?$/\1/p'
+      "s/^[[:space:]]*(${identifier_pattern})([[:space:]]*[:=].*)?$/\\1/p"
 }
 
 emit_string_identifiers() {
@@ -142,14 +143,14 @@ collect_names() {
     [[ -n "$file" ]] || continue
     emit_member_names env "$file"
     emit_string_identifiers "$file" |
-      sed -nE '/^[A-Z][A-Z0-9_]*$/p'
+      sed -nE "/$uppercase_identifier_regex/p"
   done < <(emit_alias_files | sort -u)
 
   emit_prefixed_literals
 }
 
 normalize_names() {
-  sed -nE '/^[A-Za-z_][A-Za-z0-9_]*$/p' |
+  sed -nE "/$identifier_regex/p" |
     sort -u
 }
 
