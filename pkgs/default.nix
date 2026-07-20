@@ -55,6 +55,7 @@ in
   mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
   gws-bin = callPackageWithSystemSource ./gws-bin "gws" { };
+  ghtkn-bin = callPackageWithSystemSource ./ghtkn-bin "ghtkn" { };
   displayplacer = callPackageWithSource ./displayplacer "displayplacer" { };
   inherit libz-rs-sys-cdylib;
   xremap-gnome-bin = callPackageWithSystemSource ./xremap-gnome-bin "xremap" { };

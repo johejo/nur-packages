@@ -145,6 +145,18 @@ fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/googl
 src.github = "googleworkspace/cli"
 fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
 
+[ghtkn-aarch64-darwin-bin]
+src.cmd = "gh api repos/suzuki-shunsuke/ghtkn/releases/latest --jq .tag_name"
+fetch.url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/$ver/ghtkn_darwin_arm64.tar.gz"
+
+[ghtkn-x86_64-linux-bin]
+src.cmd = "gh api repos/suzuki-shunsuke/ghtkn/releases/latest --jq .tag_name"
+fetch.url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/$ver/ghtkn_linux_amd64.tar.gz"
+
+[ghtkn-aarch64-linux-bin]
+src.cmd = "gh api repos/suzuki-shunsuke/ghtkn/releases/latest --jq .tag_name"
+fetch.url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/$ver/ghtkn_linux_arm64.tar.gz"
+
 [mise-aarch64-darwin-bin]
 src.github = "jdx/mise"
 fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-macos-arm64.tar.gz"

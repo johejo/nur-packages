@@ -311,6 +311,51 @@
         },
         "version": "89564b4b04a01c5fdd9b495e2936f27bed4032db"
     },
+    "ghtkn-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "ghtkn-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-qr3x9NueDuI+KkZeHBf2xWRnko6VWgPWytDOP3gRiNo=",
+            "type": "url",
+            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.3/ghtkn_darwin_arm64.tar.gz"
+        },
+        "version": "v0.3.3"
+    },
+    "ghtkn-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "ghtkn-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-iqmWRF8zqSv2yLRUpdbPoZoLinROKG6fXZ/4af31Xeg=",
+            "type": "url",
+            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.3/ghtkn_linux_arm64.tar.gz"
+        },
+        "version": "v0.3.3"
+    },
+    "ghtkn-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "ghtkn-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-V1Wg/PiQPJczSSk60Rsk8SKfcyWHq8kpo6qJZXJMC/M=",
+            "type": "url",
+            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.3/ghtkn_linux_amd64.tar.gz"
+        },
+        "version": "v0.3.3"
+    },
     "gitbucket": {
         "cargoLock": null,
         "date": null,

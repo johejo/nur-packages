@@ -171,6 +171,30 @@
       sha256 = "sha256-jdzl9UxGJ/JYbKe4XeSwhHEDa3c6AtMv6AgQir1jNfo=";
     };
   };
+  ghtkn-aarch64-darwin-bin = {
+    pname = "ghtkn-aarch64-darwin-bin";
+    version = "v0.3.3";
+    src = fetchurl {
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.3/ghtkn_darwin_arm64.tar.gz";
+      sha256 = "sha256-qr3x9NueDuI+KkZeHBf2xWRnko6VWgPWytDOP3gRiNo=";
+    };
+  };
+  ghtkn-aarch64-linux-bin = {
+    pname = "ghtkn-aarch64-linux-bin";
+    version = "v0.3.3";
+    src = fetchurl {
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.3/ghtkn_linux_arm64.tar.gz";
+      sha256 = "sha256-iqmWRF8zqSv2yLRUpdbPoZoLinROKG6fXZ/4af31Xeg=";
+    };
+  };
+  ghtkn-x86_64-linux-bin = {
+    pname = "ghtkn-x86_64-linux-bin";
+    version = "v0.3.3";
+    src = fetchurl {
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.3/ghtkn_linux_amd64.tar.gz";
+      sha256 = "sha256-V1Wg/PiQPJczSSk60Rsk8SKfcyWHq8kpo6qJZXJMC/M=";
+    };
+  };
   gitbucket = {
     pname = "gitbucket";
     version = "4.46.1";
