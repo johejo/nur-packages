@@ -81,37 +81,37 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.144.5";
+    version = "rust-v0.144.6";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.5/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-pbd9L7OT8gF3eAlCWrKNm+tl7gwLK/eS8J6vjvEVFZI=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.144.6/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-AjWQ+Ci8lQesYRMu415008XTP7W6Phyk/C4BOi9xo9c=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.144.5";
+    version = "rust-v0.144.6";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.5/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-VDN4nNZuDbO3jMzSGNiURx7Z6S/pNGUSDRNWUIlSCE0=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.144.6/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-jt2uXmwAnf+bpRrhv+O92f9MHMyTpIzGhg2xzZ/fEb4=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.144.5";
+    version = "rust-v0.144.6";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.5/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-tr6hO+30kyMvZxdxTEXng3iMaVztzzfDRPc6/Jex7J8=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.144.6/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-ap3vUaCtjOpmhNjrO/AzyJ8z47xc/kkvGh4KcYRRocY=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.16.2";
+    version = "v2.18.0";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.16.2";
+      rev = "v2.18.0";
       fetchSubmodules = false;
-      sha256 = "sha256-uoyx2l06KiO4Bw9bfuxS65wsTeJ7xqnNnQ6EiKRS+3U=";
+      sha256 = "sha256-Oq2d0tDfs75ALq/+xjEX3xrObNyPCwJzrpiRBgy8oss=";
     };
   };
   displayplacer = {
@@ -127,13 +127,13 @@
   };
   errorformat = {
     pname = "errorformat";
-    version = "67df08aa9d75e766e3c3c31eeee336eab31ffb60";
+    version = "c7a44dbb6ed75dcc850d6c0f9c97c35f43cfbd52";
     src = fetchFromGitHub {
       owner = "reviewdog";
       repo = "errorformat";
-      rev = "67df08aa9d75e766e3c3c31eeee336eab31ffb60";
+      rev = "c7a44dbb6ed75dcc850d6c0f9c97c35f43cfbd52";
       fetchSubmodules = false;
-      sha256 = "sha256-UCNxzPrUnxk9J+q88WoZRJPC4OJJaHWfLMQha27q9hQ=";
+      sha256 = "sha256-4wLwDo28Xl2/WQP3AFd0iiUMLh/qZI60JPnyuIDWd/g=";
     };
   };
   gcx-aarch64-darwin-bin = {
@@ -181,26 +181,26 @@
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.34.0";
+    version = "0.34.1";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.34.0/gogcli_0.34.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-j8xHHsS0767ndawpY9qWa9GNlduQQnS1e8u+zoULgOQ=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.34.1/gogcli_0.34.1_darwin_arm64.tar.gz";
+      sha256 = "sha256-kKuRBNVD0WrFNn1AXcYbiGADoRjOfq3dDdc8A2MUFEk=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.34.0";
+    version = "0.34.1";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.34.0/gogcli_0.34.0_linux_arm64.tar.gz";
-      sha256 = "sha256-7E5nxkqr8xByk5BdTm4qyzXIuIz7Dir2zVLCezTM1DY=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.34.1/gogcli_0.34.1_linux_arm64.tar.gz";
+      sha256 = "sha256-hRDbZJLCf3cEv2CvJ2807egbZ9iLb/z5UxU9qEHqo+0=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.34.0";
+    version = "0.34.1";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.34.0/gogcli_0.34.0_linux_amd64.tar.gz";
-      sha256 = "sha256-dIX0/Yzp9+xiq/vrTfGdehGtHU6exv8uOaypcxRMb7g=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.34.1/gogcli_0.34.1_linux_amd64.tar.gz";
+      sha256 = "sha256-pbS+LqY11Mgwly3sHzqQsMoX+cJeemNT0eBo2FBeqYM=";
     };
   };
   gotmpl = {
@@ -264,13 +264,13 @@
   };
   hocage = {
     pname = "hocage";
-    version = "fa155be524b7d5e580fe6daa84593a4ae633ae06";
+    version = "393dd108bb2de437fafa605aac70cc849b569d59";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "hocage";
-      rev = "fa155be524b7d5e580fe6daa84593a4ae633ae06";
+      rev = "393dd108bb2de437fafa605aac70cc849b569d59";
       fetchSubmodules = false;
-      sha256 = "sha256-ANBK2k2/9mYwYbqqj9OheUid08YST+WaPQYxgSqU/UA=";
+      sha256 = "sha256-uioFBDteSOZdBxHwUFZ8X/MyT2WWQUtEKTv1Q4s7Dhk=";
     };
   };
   jira-cli = {
@@ -436,13 +436,13 @@
   };
   socks5shim = {
     pname = "socks5shim";
-    version = "ff7b51ca219260b8d160bf3c2d86ea8bdcd4302c";
+    version = "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "socks5shim";
-      rev = "ff7b51ca219260b8d160bf3c2d86ea8bdcd4302c";
+      rev = "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289";
       fetchSubmodules = false;
-      sha256 = "sha256-KQ9rSLxM6aI/4e/Dnn2xy6ktde5UXyfyx0Cqqdp6qnA=";
+      sha256 = "sha256-FdCMVUFK5FHjryFynK89uDShyIdNb24J2HauVJimAMs=";
     };
   };
   starlink-exporter = {
