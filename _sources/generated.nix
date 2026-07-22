@@ -40,10 +40,10 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.8.3";
+    version = "1.8.4";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.8.3/apfel-1.8.3-arm64-macos.tar.gz";
-      sha256 = "sha256-1AA86f5+Poo5YCrtxT1rAPGBctQbNa5hdAZmI008/yU=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.8.4/apfel-1.8.4-arm64-macos.tar.gz";
+      sha256 = "sha256-farvPPo3VU2qUat+72qaiMpcd9LwFO7kqzGGKKtPwGE=";
     };
   };
   asciigraph = {
@@ -81,37 +81,37 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.144.6";
+    version = "rust-v0.145.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.6/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-AjWQ+Ci8lQesYRMu415008XTP7W6Phyk/C4BOi9xo9c=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.145.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-Byowpl8FZmc1iJ7w9gtW2xhq293p1cXMGmS+C1mFMP4=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.144.6";
+    version = "rust-v0.145.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.6/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-jt2uXmwAnf+bpRrhv+O92f9MHMyTpIzGhg2xzZ/fEb4=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.145.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-04T5C8hCRQtCvWdf7vBqEqRqOxypfvyyJWaycOShEic=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.144.6";
+    version = "rust-v0.145.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.144.6/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-ap3vUaCtjOpmhNjrO/AzyJ8z47xc/kkvGh4KcYRRocY=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.145.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-v68Tybo08q12TkqRbEnPcXeuujKc8PcZ4iJ1ZvyNZio=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.18.0";
+    version = "v2.18.1";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.18.0";
+      rev = "v2.18.1";
       fetchSubmodules = false;
-      sha256 = "sha256-Oq2d0tDfs75ALq/+xjEX3xrObNyPCwJzrpiRBgy8oss=";
+      sha256 = "sha256-cWZW/GYsXXxsthWTruTk3KSB4fQH3n9bV8pp6TgPJlY=";
     };
   };
   displayplacer = {
@@ -127,37 +127,37 @@
   };
   errorformat = {
     pname = "errorformat";
-    version = "c7a44dbb6ed75dcc850d6c0f9c97c35f43cfbd52";
+    version = "13bff69235f30fd8b35c60151582584a7d81a50a";
     src = fetchFromGitHub {
       owner = "reviewdog";
       repo = "errorformat";
-      rev = "c7a44dbb6ed75dcc850d6c0f9c97c35f43cfbd52";
+      rev = "13bff69235f30fd8b35c60151582584a7d81a50a";
       fetchSubmodules = false;
-      sha256 = "sha256-4wLwDo28Xl2/WQP3AFd0iiUMLh/qZI60JPnyuIDWd/g=";
+      sha256 = "sha256-L3vdBzvsN+6iHFs1Jvpq4lZcN5KZKCFG0duo29UoKlM=";
     };
   };
   gcx-aarch64-darwin-bin = {
     pname = "gcx-aarch64-darwin-bin";
-    version = "0.4.4";
+    version = "0.5.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.4.4/gcx_0.4.4_darwin_arm64.tar.gz";
-      sha256 = "sha256-pSz5W/SnFbGR4ii7j8NT+GEN2KPpUZs29HyRrp0nhiA=";
+      url = "https://github.com/grafana/gcx/releases/download/v0.5.0/gcx_0.5.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-ODW0JkkN3b8M081KllZuuysqRRIcPWHFGOjDrlTRrAw=";
     };
   };
   gcx-aarch64-linux-bin = {
     pname = "gcx-aarch64-linux-bin";
-    version = "0.4.4";
+    version = "0.5.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.4.4/gcx_0.4.4_linux_arm64.tar.gz";
-      sha256 = "sha256-RVqd9zvOkBpinPiEPlLggRabE7efAGORgJPYNjGX0cU=";
+      url = "https://github.com/grafana/gcx/releases/download/v0.5.0/gcx_0.5.0_linux_arm64.tar.gz";
+      sha256 = "sha256-B4EemUEBq/P+UbfZ1bvMBFgwOC7OgPN68p0yI0y+RzE=";
     };
   };
   gcx-x86_64-linux-bin = {
     pname = "gcx-x86_64-linux-bin";
-    version = "0.4.4";
+    version = "0.5.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.4.4/gcx_0.4.4_linux_amd64.tar.gz";
-      sha256 = "sha256-PFApmbgTL6TEJq9amhWz/FyHm5oQ0N7Ls1rHS3EyefE=";
+      url = "https://github.com/grafana/gcx/releases/download/v0.5.0/gcx_0.5.0_linux_amd64.tar.gz";
+      sha256 = "sha256-XAzgJrBiXaCe6XYRV5nLoo5shDdfgCxk95lcC6h6g7Y=";
     };
   };
   gf-cli = {
@@ -380,50 +380,50 @@
   };
   libduckdb-aarch64-darwin-bin = {
     pname = "libduckdb-aarch64-darwin-bin";
-    version = "v1.5.4";
+    version = "v1.5.5";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.4/libduckdb-osx-universal.zip";
-      sha256 = "sha256-PzxSlwrRQH7FA3Bi4aXldbJL1bmTyIn4n+WHbv9HeCw=";
+      url = "https://install.duckdb.org/v1.5.5/libduckdb-osx-universal.zip";
+      sha256 = "sha256-e1uJFcw4LQcIY2/mOFwM2tWmHJ/4uiY4s+IUFkB4MVU=";
     };
   };
   libduckdb-aarch64-linux-bin = {
     pname = "libduckdb-aarch64-linux-bin";
-    version = "v1.5.4";
+    version = "v1.5.5";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.4/libduckdb-linux-arm64.zip";
-      sha256 = "sha256-fhVP0U1bev18nzYHEAC/S63T+lehJc99xZbyxa2CwbI=";
+      url = "https://install.duckdb.org/v1.5.5/libduckdb-linux-arm64.zip";
+      sha256 = "sha256-q+T28AXuC0SKBYMi9CY1hLS9G2+verRje3nur5ePjpw=";
     };
   };
   libduckdb-x86_64-linux-bin = {
     pname = "libduckdb-x86_64-linux-bin";
-    version = "v1.5.4";
+    version = "v1.5.5";
     src = fetchurl {
-      url = "https://install.duckdb.org/v1.5.4/libduckdb-linux-amd64.zip";
-      sha256 = "sha256-g42YqF5pe6uZNQEMiKjGfTMSzO3KtMtKC6AdplETu3A=";
+      url = "https://install.duckdb.org/v1.5.5/libduckdb-linux-amd64.zip";
+      sha256 = "sha256-H7jOOIFX2Eolq+aFqKJSC/AMADIYIZaOS7OY/XZuers=";
     };
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.7.7";
+    version = "v2026.7.11";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.7/mise-v2026.7.7-macos-arm64.tar.gz";
-      sha256 = "sha256-30kNwv/1HIK/D2Th/NAmWxRc6A0tFc6ZuV8q3wsf6Cw=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.11/mise-v2026.7.11-macos-arm64.tar.gz";
+      sha256 = "sha256-8bYRKpW4DWFaAKw0mVGm6QpWOKs8IhoBJTBTkRafJ7s=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.7.7";
+    version = "v2026.7.11";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.7/mise-v2026.7.7-linux-arm64.tar.gz";
-      sha256 = "sha256-xOVCtToV0uxkHgcvey2dqKBVS5L9LAmlH+veMsYICrg=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.11/mise-v2026.7.11-linux-arm64.tar.gz";
+      sha256 = "sha256-/KH/pft/yEj2rwvnqkUmC1qFB/xPl7a5dKnWDtlkeBc=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.7.7";
+    version = "v2026.7.11";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.7/mise-v2026.7.7-linux-x64.tar.gz";
-      sha256 = "sha256-CVOBDCeF60p1FZ9n+LVyHE88gLimqBIBXVr31/vRuKQ=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.11/mise-v2026.7.11-linux-x64.tar.gz";
+      sha256 = "sha256-ZlLuXdO/qASik1X3u5NhNIkruawAK0zaFypExnWXzQw=";
     };
   };
   octorus-aarch64-darwin-bin = {
