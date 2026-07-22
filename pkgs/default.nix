@@ -45,6 +45,7 @@ in
       plugins = with kubernetes-helmPlugins; [
         helm-diff
         helm-unittest
+        helm-s3
       ];
     });
   hev-socks5-server = callPackageWithSource ./hev-socks5-server "hev-socks5-server" { };
