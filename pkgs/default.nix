@@ -41,7 +41,12 @@ in
   caddy-with-plugins = pkgs.callPackage ./caddy { };
   helm-with-plugins =
     with pkgs;
-    (wrapHelm kubernetes-helm { plugins = with kubernetes-helmPlugins; [ helm-diff ]; });
+    (wrapHelm kubernetes-helm {
+      plugins = with kubernetes-helmPlugins; [
+        helm-diff
+        helm-unittest
+      ];
+    });
   hev-socks5-server = callPackageWithSource ./hev-socks5-server "hev-socks5-server" { };
   hocage = callPackageWithSource ./hocage "hocage" { };
   json2table = callPackageWithSource ./json2table "json2table" { };
