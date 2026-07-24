@@ -86,7 +86,6 @@ fetch.url = "https://github.com/atusy/kakehashi/releases/download/$ver/kakehashi
 src.github = "heiher/hev-socks5-server"
 fetch.git = "https://github.com/heiher/hev-socks5-server.git"
 git.fetchSubmodules = true
-git.leaveDotGit = true
 
 [socks5shim]
 src.cmd = "gh api repos/johejo/socks5shim/commits/main --jq .sha"

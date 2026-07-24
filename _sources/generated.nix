@@ -105,13 +105,13 @@
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.18.1";
+    version = "v2.19.1";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.18.1";
+      rev = "v2.19.1";
       fetchSubmodules = false;
-      sha256 = "sha256-cWZW/GYsXXxsthWTruTk3KSB4fQH3n9bV8pp6TgPJlY=";
+      sha256 = "sha256-sbG40BaxoDffbIpRUNgXxXGd6bCJDhzc9/eJjV+YtZs=";
     };
   };
   displayplacer = {
@@ -138,26 +138,26 @@
   };
   gcx-aarch64-darwin-bin = {
     pname = "gcx-aarch64-darwin-bin";
-    version = "0.5.0";
+    version = "0.6.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.5.0/gcx_0.5.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-ODW0JkkN3b8M081KllZuuysqRRIcPWHFGOjDrlTRrAw=";
+      url = "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-cZLsFq7xctAwMaoVbBVes1HyMNrobmTh7TN1A/5Foes=";
     };
   };
   gcx-aarch64-linux-bin = {
     pname = "gcx-aarch64-linux-bin";
-    version = "0.5.0";
+    version = "0.6.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.5.0/gcx_0.5.0_linux_arm64.tar.gz";
-      sha256 = "sha256-B4EemUEBq/P+UbfZ1bvMBFgwOC7OgPN68p0yI0y+RzE=";
+      url = "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_linux_arm64.tar.gz";
+      sha256 = "sha256-RnjM4G/J1sw2TEYPZ74LsGhh4A48BY5IaXrnQok478s=";
     };
   };
   gcx-x86_64-linux-bin = {
     pname = "gcx-x86_64-linux-bin";
-    version = "0.5.0";
+    version = "0.6.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.5.0/gcx_0.5.0_linux_amd64.tar.gz";
-      sha256 = "sha256-XAzgJrBiXaCe6XYRV5nLoo5shDdfgCxk95lcC6h6g7Y=";
+      url = "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_linux_amd64.tar.gz";
+      sha256 = "sha256-XnbAZPFNnsNgzEjEYlGwakd2KrDcdV5CdeFM4vZ+jb4=";
     };
   };
   gf-cli = {
@@ -281,20 +281,20 @@
       rev = "2.12.0";
       fetchSubmodules = true;
       deepClone = false;
-      leaveDotGit = true;
+      leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-MUCfSVNXk3Jxhyt1axLY5JBQLEYxVclcEX1NGwagtjU=";
+      sha256 = "sha256-8U6NXHiL3ZFb+HuBPm4RKLyKn8YNOQg7DJivsOv0Y5w=";
     };
   };
   hocage = {
     pname = "hocage";
-    version = "393dd108bb2de437fafa605aac70cc849b569d59";
+    version = "43daf740c8695c82509b0ef7a8695822496be5e2";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "hocage";
-      rev = "393dd108bb2de437fafa605aac70cc849b569d59";
+      rev = "43daf740c8695c82509b0ef7a8695822496be5e2";
       fetchSubmodules = false;
-      sha256 = "sha256-uioFBDteSOZdBxHwUFZ8X/MyT2WWQUtEKTv1Q4s7Dhk=";
+      sha256 = "sha256-arT6NJxHnkJM81QUmoBckOsiryEi+jZL6DGwzBmeg2M=";
     };
   };
   jira-cli = {
@@ -404,26 +404,26 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.7.11";
+    version = "v2026.7.12";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.11/mise-v2026.7.11-macos-arm64.tar.gz";
-      sha256 = "sha256-8bYRKpW4DWFaAKw0mVGm6QpWOKs8IhoBJTBTkRafJ7s=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.12/mise-v2026.7.12-macos-arm64.tar.gz";
+      sha256 = "sha256-pz4V60l0q/fFyURTZeic8tjsGK/JfU4WGzF+ZaQE8mE=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.7.11";
+    version = "v2026.7.12";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.11/mise-v2026.7.11-linux-arm64.tar.gz";
-      sha256 = "sha256-/KH/pft/yEj2rwvnqkUmC1qFB/xPl7a5dKnWDtlkeBc=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.12/mise-v2026.7.12-linux-arm64.tar.gz";
+      sha256 = "sha256-dj8bzPdPXDT3ZqGJpKApqI1EuD9wniivSXziquJwTq0=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.7.11";
+    version = "v2026.7.12";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.11/mise-v2026.7.11-linux-x64.tar.gz";
-      sha256 = "sha256-ZlLuXdO/qASik1X3u5NhNIkruawAK0zaFypExnWXzQw=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.12/mise-v2026.7.12-linux-x64.tar.gz";
+      sha256 = "sha256-gaBXYcuQGAi/rj5JTgfsgDKeq2aknNL6e42c0a2WaD0=";
     };
   };
   octorus-aarch64-darwin-bin = {
