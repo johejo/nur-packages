@@ -8,6 +8,8 @@
   openssl,
   libcap,
   zlib,
+  bubblewrap,
+  makeWrapper,
   ...
 }:
 
@@ -17,7 +19,13 @@ stdenv.mkDerivation rec {
 
   sourceRoot = ".";
 
-  nativeBuildInputs = [ installShellFiles ] ++ lib.optionals stdenv.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = [
+    installShellFiles
+  ]
+  ++ lib.optionals stdenv.isLinux [
+    autoPatchelfHook
+    makeWrapper
+  ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
 
@@ -52,6 +60,14 @@ stdenv.mkDerivation rec {
     }
 
     postFixupHooks+=(generateCodexCompletions)
+  ''
+  + lib.optionalString stdenv.isLinux ''
+    wrapCodexBubblewrap() {
+      wrapProgram $out/bin/codex \
+        --prefix PATH : ${lib.makeBinPath [ bubblewrap ]}
+    }
+
+    postFixupHooks+=(wrapCodexBubblewrap)
   '';
 
   meta = {
