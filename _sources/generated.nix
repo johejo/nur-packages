@@ -378,6 +378,54 @@
       sha256 = "sha256-JS7V0Lf+lIN/AbmC/xXr2HtdrWffW1FF7jDsT3FPz+I=";
     };
   };
+  kwok-aarch64-darwin-bin = {
+    pname = "kwok-aarch64-darwin-bin";
+    version = "v0.8.0";
+    src = fetchurl {
+      url = "https://github.com/kubernetes-sigs/kwok/releases/download/v0.8.0/kwok-darwin-arm64";
+      sha256 = "sha256-aaBk7JjTeETZ10K1so/1eCVlmpg8zD4gjappSLlNZLo=";
+    };
+  };
+  kwok-aarch64-linux-bin = {
+    pname = "kwok-aarch64-linux-bin";
+    version = "v0.8.0";
+    src = fetchurl {
+      url = "https://github.com/kubernetes-sigs/kwok/releases/download/v0.8.0/kwok-linux-arm64";
+      sha256 = "sha256-Yo99J3hg9SSip3XCF63MWIKOe1mrCTNoAxV4TxuLDjc=";
+    };
+  };
+  kwok-x86_64-linux-bin = {
+    pname = "kwok-x86_64-linux-bin";
+    version = "v0.8.0";
+    src = fetchurl {
+      url = "https://github.com/kubernetes-sigs/kwok/releases/download/v0.8.0/kwok-linux-amd64";
+      sha256 = "sha256-9aQ4Wirhud1/isrhjgAqdcDruhJK6dclmqja21BxH0Y=";
+    };
+  };
+  kwokctl-aarch64-darwin-bin = {
+    pname = "kwokctl-aarch64-darwin-bin";
+    version = "v0.8.0";
+    src = fetchurl {
+      url = "https://github.com/kubernetes-sigs/kwok/releases/download/v0.8.0/kwokctl-darwin-arm64";
+      sha256 = "sha256-kyOlmtucJ4VL0qdmUq0AJYvLtorMQKug3CHjYrZ7fWo=";
+    };
+  };
+  kwokctl-aarch64-linux-bin = {
+    pname = "kwokctl-aarch64-linux-bin";
+    version = "v0.8.0";
+    src = fetchurl {
+      url = "https://github.com/kubernetes-sigs/kwok/releases/download/v0.8.0/kwokctl-linux-arm64";
+      sha256 = "sha256-WmQrJ9PpdfNgQNIVZAzZD7SmPLb8oK1YZaYbzZyBBRs=";
+    };
+  };
+  kwokctl-x86_64-linux-bin = {
+    pname = "kwokctl-x86_64-linux-bin";
+    version = "v0.8.0";
+    src = fetchurl {
+      url = "https://github.com/kubernetes-sigs/kwok/releases/download/v0.8.0/kwokctl-linux-amd64";
+      sha256 = "sha256-1XQxZsZXKD1ugnx8TCDKz9kAn9lIMPBnGMp7LHCZRh8=";
+    };
+  };
   libduckdb-aarch64-darwin-bin = {
     pname = "libduckdb-aarch64-darwin-bin";
     version = "v1.5.5";

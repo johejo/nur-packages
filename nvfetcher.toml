@@ -18,6 +18,30 @@ fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/downlo
 src.github = "containers/kubernetes-mcp-server"
 fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-linux-arm64"
 
+[kwok-aarch64-darwin-bin]
+src.github = "kubernetes-sigs/kwok"
+fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwok-darwin-arm64"
+
+[kwok-x86_64-linux-bin]
+src.github = "kubernetes-sigs/kwok"
+fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwok-linux-amd64"
+
+[kwok-aarch64-linux-bin]
+src.github = "kubernetes-sigs/kwok"
+fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwok-linux-arm64"
+
+[kwokctl-aarch64-darwin-bin]
+src.github = "kubernetes-sigs/kwok"
+fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwokctl-darwin-arm64"
+
+[kwokctl-x86_64-linux-bin]
+src.github = "kubernetes-sigs/kwok"
+fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwokctl-linux-amd64"
+
+[kwokctl-aarch64-linux-bin]
+src.github = "kubernetes-sigs/kwok"
+fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwokctl-linux-arm64"
+
 [gitbucket]
 src.github = "gitbucket/gitbucket"
 fetch.url = "https://github.com/gitbucket/gitbucket/releases/download/$ver/gitbucket.war"

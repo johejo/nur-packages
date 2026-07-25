@@ -28,6 +28,18 @@ in
   kubernetes-mcp-server-bin =
     callPackageWithSystemSource ./kubernetes-mcp-server-bin "kubernetes-mcp-server"
       { };
+  kwok-bin =
+    let
+      kwokSourceName = "kwok-${system}-bin";
+      kwokctlSourceName = "kwokctl-${system}-bin";
+    in
+    if builtins.hasAttr kwokSourceName sources && builtins.hasAttr kwokctlSourceName sources then
+      pkgs.callPackage ./kwok-bin {
+        kwokSource = sources.${kwokSourceName};
+        kwokctlSource = sources.${kwokctlSourceName};
+      }
+    else
+      null;
   gitbucket = callPackageWithSource ./gitbucket "gitbucket" { };
   prometheus-jmx-exporter =
     callPackageWithSource ./prometheus-jmx-exporter "prometheus-jmx-exporter"
