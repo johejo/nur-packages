@@ -79,6 +79,30 @@
       sha256 = "sha256-bL6sB3M5edh5AAJe0saiohDcqHzH7jrN7EjqeMYBV/s=";
     };
   };
+  clawpatrol-aarch64-darwin-bin = {
+    pname = "clawpatrol-aarch64-darwin-bin";
+    version = "v0.5.8";
+    src = fetchurl {
+      url = "https://github.com/denoland/clawpatrol/releases/download/v0.5.8/clawpatrol-darwin-arm64";
+      sha256 = "sha256-m0fp24ifocs170nVNNOzptOlcamK48MFwmRc3MrHYgY=";
+    };
+  };
+  clawpatrol-aarch64-linux-bin = {
+    pname = "clawpatrol-aarch64-linux-bin";
+    version = "v0.5.8";
+    src = fetchurl {
+      url = "https://github.com/denoland/clawpatrol/releases/download/v0.5.8/clawpatrol-linux-arm64";
+      sha256 = "sha256-OVkloi45+zvZdJmGIjqKXZrFBHo6xDHGl0ccsFUysqM=";
+    };
+  };
+  clawpatrol-x86_64-linux-bin = {
+    pname = "clawpatrol-x86_64-linux-bin";
+    version = "v0.5.8";
+    src = fetchurl {
+      url = "https://github.com/denoland/clawpatrol/releases/download/v0.5.8/clawpatrol-linux-amd64";
+      sha256 = "sha256-DTFx7UQTw+24xbPHd50m+nogdPnNNrywpiWn/6JE/tc=";
+    };
+  };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
     version = "rust-v0.145.0";

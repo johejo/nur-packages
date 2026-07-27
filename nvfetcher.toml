@@ -18,6 +18,18 @@ fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/downlo
 src.github = "containers/kubernetes-mcp-server"
 fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-linux-arm64"
 
+[clawpatrol-aarch64-darwin-bin]
+src.github = "denoland/clawpatrol"
+fetch.url = "https://github.com/denoland/clawpatrol/releases/download/$ver/clawpatrol-darwin-arm64"
+
+[clawpatrol-x86_64-linux-bin]
+src.github = "denoland/clawpatrol"
+fetch.url = "https://github.com/denoland/clawpatrol/releases/download/$ver/clawpatrol-linux-amd64"
+
+[clawpatrol-aarch64-linux-bin]
+src.github = "denoland/clawpatrol"
+fetch.url = "https://github.com/denoland/clawpatrol/releases/download/$ver/clawpatrol-linux-arm64"
+
 [kwok-aarch64-darwin-bin]
 src.github = "kubernetes-sigs/kwok"
 fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwok-darwin-arm64"

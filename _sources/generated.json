@@ -137,6 +137,51 @@
         },
         "version": "10a42826710542f17d0985ce2c18fa8133aba438"
     },
+    "clawpatrol-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "clawpatrol-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-m0fp24ifocs170nVNNOzptOlcamK48MFwmRc3MrHYgY=",
+            "type": "url",
+            "url": "https://github.com/denoland/clawpatrol/releases/download/v0.5.8/clawpatrol-darwin-arm64"
+        },
+        "version": "v0.5.8"
+    },
+    "clawpatrol-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "clawpatrol-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-OVkloi45+zvZdJmGIjqKXZrFBHo6xDHGl0ccsFUysqM=",
+            "type": "url",
+            "url": "https://github.com/denoland/clawpatrol/releases/download/v0.5.8/clawpatrol-linux-arm64"
+        },
+        "version": "v0.5.8"
+    },
+    "clawpatrol-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "clawpatrol-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-DTFx7UQTw+24xbPHd50m+nogdPnNNrywpiWn/6JE/tc=",
+            "type": "url",
+            "url": "https://github.com/denoland/clawpatrol/releases/download/v0.5.8/clawpatrol-linux-amd64"
+        },
+        "version": "v0.5.8"
+    },
     "codex-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

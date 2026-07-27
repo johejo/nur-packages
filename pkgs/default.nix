@@ -19,6 +19,7 @@ in
 {
   alerter-bin = callPackageWithSource ./alerter-bin "alerter-bin" { };
   apfel-bin = callPackageWithSource ./apfel-bin "apfel-bin" { };
+  clawpatrol-bin = callPackageWithSystemSource ./clawpatrol-bin "clawpatrol" { };
   errorformat = callPackageWithSource ./errorformat "errorformat" { };
   gcx-bin = callPackageWithSystemSource ./gcx-bin "gcx" { };
   gogcli-bin = callPackageWithSystemSource ./gogcli-bin "gogcli" { };
