@@ -299,11 +299,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cZLsFq7xctAwMaoVbBVes1HyMNrobmTh7TN1A/5Foes=",
+            "sha256": "sha256-XCesCNDW2CpjRo119Bv+g1NuF++om2MpB2/LLaBGpnI=",
             "type": "url",
-            "url": "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_darwin_arm64.tar.gz"
+            "url": "https://github.com/grafana/gcx/releases/download/v1.0.0/gcx_1.0.0_darwin_arm64.tar.gz"
         },
-        "version": "0.6.0"
+        "version": "1.0.0"
     },
     "gcx-aarch64-linux-bin": {
         "cargoLock": null,
@@ -314,11 +314,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-RnjM4G/J1sw2TEYPZ74LsGhh4A48BY5IaXrnQok478s=",
+            "sha256": "sha256-YF9rt0BtFEvRHHL/JWSasXIpaZvlhaJTRgt3OW3FdYU=",
             "type": "url",
-            "url": "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_linux_arm64.tar.gz"
+            "url": "https://github.com/grafana/gcx/releases/download/v1.0.0/gcx_1.0.0_linux_arm64.tar.gz"
         },
-        "version": "0.6.0"
+        "version": "1.0.0"
     },
     "gcx-x86_64-linux-bin": {
         "cargoLock": null,
@@ -329,11 +329,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-XnbAZPFNnsNgzEjEYlGwakd2KrDcdV5CdeFM4vZ+jb4=",
+            "sha256": "sha256-yIxllY0Z2D3DoZKipQN+CDB6nHdgGfJCSbifNpycTUE=",
             "type": "url",
-            "url": "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_linux_amd64.tar.gz"
+            "url": "https://github.com/grafana/gcx/releases/download/v1.0.0/gcx_1.0.0_linux_amd64.tar.gz"
         },
-        "version": "0.6.0"
+        "version": "1.0.0"
     },
     "gf-cli": {
         "cargoLock": null,
@@ -886,11 +886,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-eyY13ckI4rAJzIv3faokc46yz2/mEc7RKbR7xAfjuf4=",
+            "sha256": "sha256-SJigfntQHgHum6Ed+WoBQUYLTu8wvo58sPPWmNQiLQc=",
             "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.7.14/mise-v2026.7.14-macos-arm64.tar.gz"
+            "url": "https://github.com/jdx/mise/releases/download/v2026.7.15/mise-v2026.7.15-macos-arm64.tar.gz"
         },
-        "version": "v2026.7.14"
+        "version": "v2026.7.15"
     },
     "mise-aarch64-linux-bin": {
         "cargoLock": null,
@@ -901,11 +901,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-yJoq7PBlZuoQvzyQB1WIosadB6HXr0KPmhEdkQ/R2Lc=",
+            "sha256": "sha256-DCyk1O55cgoI0sX1TJhkUDSLD+Jaziv5mY2+bGdhvxY=",
             "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.7.14/mise-v2026.7.14-linux-arm64.tar.gz"
+            "url": "https://github.com/jdx/mise/releases/download/v2026.7.15/mise-v2026.7.15-linux-arm64.tar.gz"
         },
-        "version": "v2026.7.14"
+        "version": "v2026.7.15"
     },
     "mise-x86_64-linux-bin": {
         "cargoLock": null,
@@ -916,11 +916,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-emRhXQpZSsM6FWMrCXfgpbUql9XURpHGPLSDl5WBY88=",
+            "sha256": "sha256-B4WCGmF+hRlxBMAhg1Byyj9PzdoUNTgpOjBZOswliWk=",
             "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.7.14/mise-v2026.7.14-linux-x64.tar.gz"
+            "url": "https://github.com/jdx/mise/releases/download/v2026.7.15/mise-v2026.7.15-linux-x64.tar.gz"
         },
-        "version": "v2026.7.14"
+        "version": "v2026.7.15"
     },
     "octorus-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -981,6 +981,27 @@
             "url": "https://github.com/prometheus/jmx_exporter/releases/download/v1.6.0/jmx_prometheus_javaagent-1.6.0.jar"
         },
         "version": "1.6.0"
+    },
+    "scriptc": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "scriptc",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "vercel-labs",
+            "repo": "scriptc",
+            "rev": "v0.0.17",
+            "sha256": "sha256-YdrhsDHgA8axjzNDOwdP2IXers4gOOi6IXoaltzRvbo=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.0.17"
     },
     "socks5shim": {
         "cargoLock": null,

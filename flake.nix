@@ -54,6 +54,7 @@
             packages = with pkgs; [
               nixfmt
               nvfetcher
+              nix-update
               gh
             ];
           };

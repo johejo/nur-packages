@@ -45,6 +45,7 @@ in
   prometheus-jmx-exporter =
     callPackageWithSource ./prometheus-jmx-exporter "prometheus-jmx-exporter"
       { };
+  scriptc = callPackageWithSource ./scriptc "scriptc" { };
   confluence-cli = callPackageWithSource ./confluence-cli "confluence-cli" {
     inherit extractNodeEnv;
   };

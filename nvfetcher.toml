@@ -259,3 +259,7 @@ fetch.url = "https://acli.atlassian.com/linux/$ver/acli_$ver_linux_arm64.tar.gz"
 [awsigv4-proxy]
 src.cmd = "gh api repos/johejo/awsigv4-proxy/commits/main --jq .sha"
 fetch.github = "johejo/awsigv4-proxy"
+
+[scriptc]
+src.github_tag = "vercel-labs/scriptc"
+fetch.github = "vercel-labs/scriptc"

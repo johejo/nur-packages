@@ -1,0 +1,74 @@
+diff --git a/packages/compiler/src/backend/cc.ts b/packages/compiler/src/backend/cc.ts
+index 339cc00..437ce7a 100644
+--- a/packages/compiler/src/backend/cc.ts
++++ b/packages/compiler/src/backend/cc.ts
+@@ -2,6 +2,6 @@ import { execFile } from "node:child_process";
+ import { createHash } from "node:crypto";
+ import { createRequire } from "node:module";
+ import { chmod, copyFile, mkdir, mkdtemp, readdir, readFile, rename, rm, stat, unlink, utimes, writeFile } from "node:fs/promises";
+-import { availableParallelism, tmpdir } from "node:os";
++import { availableParallelism, homedir, tmpdir } from "node:os";
+ import { basename, dirname, join } from "node:path";
+ import { promisify } from "node:util";
+@@ -305,6 +305,18 @@ export function targetPlatform(driver: CcDriver): string {
+   return driver.target.includes("macos") || driver.target.includes("darwin") ? "darwin" : "other";
+ }
+-
++
++/** Writable cache for artifacts compiled lazily from the vendored sources.
++ * Installed npm packages are commonly immutable (including in the Nix
++ * store), so artifacts must not be placed alongside those sources. */
++function vendorCacheRoot(): string {
++  const override = process.env["SCRIPTC_VENDOR_CACHE_DIR"];
++  if (override !== undefined && override !== "") return override;
++  const xdg = process.env["XDG_CACHE_HOME"];
++  const cacheHome =
++    xdg !== undefined && xdg !== "" ? xdg : join(homedir(), ".cache");
++  return join(cacheHome, "scriptc", "vendor");
++}
++
+ function vendorEngineDir(): string {
+   return join(runtimeSrcDir(), "..", "vendor", "quickjs-ng");
+ }
+@@ -337,6 +349,6 @@ async function ensureEngineArchive(sanitize: boolean, driver: CcDriver): Promise
+   const flavor = `${sanitize ? "asan" : "plain"}${driver.target !== null ? `-${driver.target}` : ""}`;
+   const vendor = vendorEngineDir();
+-  const cacheRoot = join(vendor, "..", ".cache");
++  const cacheRoot = vendorCacheRoot();
+   const cacheDir = join(cacheRoot, `${QJS_COMMIT.slice(0, 12)}-${flavor}`);
+   const archive = join(cacheDir, "libqjs.a");
+   if (await fileExists(archive)) return archive;
+@@ -477,6 +489,6 @@ async function ensureLreObjects(sanitize: boolean, driver: CcDriver): Promise<st
+     (driver.target !== null ? `-${driver.target}` : "");
+   const vendor = vendorEngineDir();
+-  const cacheRoot = join(vendor, "..", ".cache");
++  const cacheRoot = vendorCacheRoot();
+   const cacheDir = join(cacheRoot, `${QJS_COMMIT.slice(0, 12)}-lre-${flavor}`);
+   const objects = LRE_SOURCES.map((f) => join(cacheDir, f.replace(/\.c$/, ".o")));
+   if ((await Promise.all(objects.map(fileExists))).every(Boolean)) return objects;
+@@ -538,6 +550,6 @@ async function ensureZlibObjects(sanitize: boolean, driver: CcDriver): Promise<s
+     (driver.target !== null ? `-${driver.target}` : "");
+   const vendor = vendorZlibDir();
+-  const cacheRoot = join(vendor, "..", ".cache");
++  const cacheRoot = vendorCacheRoot();
+   const cacheDir = join(cacheRoot, `zlib-${ZLIB_VERSION}-${flavor}`);
+   const objects = ZLIB_SOURCES.map((f) => join(cacheDir, f.replace(/\.c$/, ".o")));
+   if ((await Promise.all(objects.map(fileExists))).every(Boolean)) return objects;
+@@ -601,6 +613,7 @@ const CURL_STUB_SYMBOLS = [
+  * and asan links against plain shared libraries freely. */
+ async function ensureCurlStub(driver: CcDriver): Promise<string> {
+-  const cacheRoot = join(vendorCurlDir(), "..", ".cache");
++  const cacheRoot = vendorCacheRoot();
+-  const cacheDir = join(cacheRoot, `curl-stub-${driver.target}`);
++  const cacheKey = createHash("sha256").update(CURL_STUB_SYMBOLS.join("\0")).digest("hex").slice(0, 12);
++  const cacheDir = join(cacheRoot, `curl-stub-${driver.target}-${cacheKey}`);
+   const lib = join(cacheDir, "libcurl.so");
+   if (await fileExists(lib)) return cacheDir;
+@@ -657,6 +669,6 @@ async function ensureTlsArchive(sanitize: boolean, driver: CcDriver): Promise<st
+   const arArgv = driver.target !== null ? [...driver.argv.slice(0, 1), "ar"] : ["ar"];
+   const vendor = vendorTlsDir();
+-  const cacheRoot = join(vendor, "..", ".cache");
++  const cacheRoot = vendorCacheRoot();
+   const cacheDir = join(cacheRoot, `mbedtls-${MBEDTLS_VERSION}-${flavor}`);
+   const archive = join(cacheDir, "libmbedtls.a");
+   if (await fileExists(archive)) return archive;

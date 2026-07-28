@@ -162,26 +162,26 @@
   };
   gcx-aarch64-darwin-bin = {
     pname = "gcx-aarch64-darwin-bin";
-    version = "0.6.0";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-cZLsFq7xctAwMaoVbBVes1HyMNrobmTh7TN1A/5Foes=";
+      url = "https://github.com/grafana/gcx/releases/download/v1.0.0/gcx_1.0.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-XCesCNDW2CpjRo119Bv+g1NuF++om2MpB2/LLaBGpnI=";
     };
   };
   gcx-aarch64-linux-bin = {
     pname = "gcx-aarch64-linux-bin";
-    version = "0.6.0";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_linux_arm64.tar.gz";
-      sha256 = "sha256-RnjM4G/J1sw2TEYPZ74LsGhh4A48BY5IaXrnQok478s=";
+      url = "https://github.com/grafana/gcx/releases/download/v1.0.0/gcx_1.0.0_linux_arm64.tar.gz";
+      sha256 = "sha256-YF9rt0BtFEvRHHL/JWSasXIpaZvlhaJTRgt3OW3FdYU=";
     };
   };
   gcx-x86_64-linux-bin = {
     pname = "gcx-x86_64-linux-bin";
-    version = "0.6.0";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://github.com/grafana/gcx/releases/download/v0.6.0/gcx_0.6.0_linux_amd64.tar.gz";
-      sha256 = "sha256-XnbAZPFNnsNgzEjEYlGwakd2KrDcdV5CdeFM4vZ+jb4=";
+      url = "https://github.com/grafana/gcx/releases/download/v1.0.0/gcx_1.0.0_linux_amd64.tar.gz";
+      sha256 = "sha256-yIxllY0Z2D3DoZKipQN+CDB6nHdgGfJCSbifNpycTUE=";
     };
   };
   gf-cli = {
@@ -476,26 +476,26 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.7.14";
+    version = "v2026.7.15";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.14/mise-v2026.7.14-macos-arm64.tar.gz";
-      sha256 = "sha256-eyY13ckI4rAJzIv3faokc46yz2/mEc7RKbR7xAfjuf4=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.15/mise-v2026.7.15-macos-arm64.tar.gz";
+      sha256 = "sha256-SJigfntQHgHum6Ed+WoBQUYLTu8wvo58sPPWmNQiLQc=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.7.14";
+    version = "v2026.7.15";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.14/mise-v2026.7.14-linux-arm64.tar.gz";
-      sha256 = "sha256-yJoq7PBlZuoQvzyQB1WIosadB6HXr0KPmhEdkQ/R2Lc=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.15/mise-v2026.7.15-linux-arm64.tar.gz";
+      sha256 = "sha256-DCyk1O55cgoI0sX1TJhkUDSLD+Jaziv5mY2+bGdhvxY=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.7.14";
+    version = "v2026.7.15";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.7.14/mise-v2026.7.14-linux-x64.tar.gz";
-      sha256 = "sha256-emRhXQpZSsM6FWMrCXfgpbUql9XURpHGPLSDl5WBY88=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.7.15/mise-v2026.7.15-linux-x64.tar.gz";
+      sha256 = "sha256-B4WCGmF+hRlxBMAhg1Byyj9PzdoUNTgpOjBZOswliWk=";
     };
   };
   octorus-aarch64-darwin-bin = {
@@ -528,6 +528,17 @@
     src = fetchurl {
       url = "https://github.com/prometheus/jmx_exporter/releases/download/v1.6.0/jmx_prometheus_javaagent-1.6.0.jar";
       sha256 = "sha256-qVmD/ZboZdK835EcxQDnyCgIwnq5/SJr+WcytsPYxG4=";
+    };
+  };
+  scriptc = {
+    pname = "scriptc";
+    version = "v0.0.17";
+    src = fetchFromGitHub {
+      owner = "vercel-labs";
+      repo = "scriptc";
+      rev = "v0.0.17";
+      fetchSubmodules = false;
+      sha256 = "sha256-YdrhsDHgA8axjzNDOwdP2IXers4gOOi6IXoaltzRvbo=";
     };
   };
   socks5shim = {
