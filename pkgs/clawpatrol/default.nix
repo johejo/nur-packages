@@ -59,6 +59,8 @@ buildGoModule {
   pname = "clawpatrol";
   inherit (source) version src;
 
+  patches = [ ./env-pushdown-fetcher-darwin.patch ];
+
   vendorHash = "sha256-9HIqm4PmmiDMFjBMqIlMtKlUBlKyKGkMWlDLSOoyVXE=";
 
   nativeBuildInputs = [ deno ];

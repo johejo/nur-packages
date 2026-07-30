@@ -1,0 +1,17 @@
+diff --git a/cmd/clawpatrol/run_tsnet_darwin.go b/cmd/clawpatrol/run_tsnet_darwin.go
+--- a/cmd/clawpatrol/run_tsnet_darwin.go
++++ b/cmd/clawpatrol/run_tsnet_darwin.go
+@@ -42,7 +42,12 @@ func init() {
+ 	// `clawpatrol run` and the `clawpatrol env` shell-rc shim that
+ 	// fires on every new terminal. Silent skip when the NE isn't
+ 	// running keeps shell startup quiet between joins / after reboot.
+-	envPushdownGatewayFetcher = fetchEnvPushdownViaNESessionSock
++	envPushdownGatewayFetcher = func(caDir string) ([]pushdownEnvVar, error) {
++		if mode := strings.TrimSpace(readFileSilent(filepath.Join(caDir, "mode"))); mode == "tailscale" {
++			return fetchEnvPushdownViaNESessionSock(caDir)
++		}
++		return fetchEnvPushdownFromGateway(caDir)
++	}
+ }
+ 
+ func runRunTsnet(args []string) {
