@@ -137,6 +137,27 @@
         },
         "version": "10a42826710542f17d0985ce2c18fa8133aba438"
     },
+    "clawpatrol": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "clawpatrol",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "denoland",
+            "repo": "clawpatrol",
+            "rev": "v0.5.8",
+            "sha256": "sha256-TOXWMhJdqDnT/TVCvjBXMjeeAXpQUysepsYvhcXarno=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.5.8"
+    },
     "clawpatrol-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,

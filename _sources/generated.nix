@@ -79,6 +79,17 @@
       sha256 = "sha256-bL6sB3M5edh5AAJe0saiohDcqHzH7jrN7EjqeMYBV/s=";
     };
   };
+  clawpatrol = {
+    pname = "clawpatrol";
+    version = "v0.5.8";
+    src = fetchFromGitHub {
+      owner = "denoland";
+      repo = "clawpatrol";
+      rev = "v0.5.8";
+      fetchSubmodules = false;
+      sha256 = "sha256-TOXWMhJdqDnT/TVCvjBXMjeeAXpQUysepsYvhcXarno=";
+    };
+  };
   clawpatrol-aarch64-darwin-bin = {
     pname = "clawpatrol-aarch64-darwin-bin";
     version = "v0.5.8";

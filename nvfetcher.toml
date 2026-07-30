@@ -30,6 +30,10 @@ fetch.url = "https://github.com/denoland/clawpatrol/releases/download/$ver/clawp
 src.github = "denoland/clawpatrol"
 fetch.url = "https://github.com/denoland/clawpatrol/releases/download/$ver/clawpatrol-linux-arm64"
 
+[clawpatrol]
+src.github = "denoland/clawpatrol"
+fetch.github = "denoland/clawpatrol"
+
 [kwok-aarch64-darwin-bin]
 src.github = "kubernetes-sigs/kwok"
 fetch.url = "https://github.com/kubernetes-sigs/kwok/releases/download/$ver/kwok-darwin-arm64"
