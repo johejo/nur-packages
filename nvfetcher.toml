@@ -143,6 +143,18 @@ fetch.github = "johejo/gotmpl"
 src.cmd = "gh api repos/johejo/gotmplfmt/commits/main --jq .sha"
 fetch.github = "johejo/gotmplfmt"
 
+[yamcel]
+src.cmd = "gh api repos/johejo/yamcel/commits/main --jq .sha"
+fetch.github = "johejo/yamcel"
+
+[kubectl-schedsim]
+src.cmd = "gh api repos/johejo/kubectl-schedsim/commits/main --jq .sha"
+fetch.github = "johejo/kubectl-schedsim"
+
+[argocdapp2helmfile]
+src.cmd = "gh api repos/johejo/argocdapp2helmfile/commits/main --jq .sha"
+fetch.github = "johejo/argocdapp2helmfile"
+
 [zlib-rs]
 src.github = "trifectatechfoundation/zlib-rs"
 fetch.github = "trifectatechfoundation/zlib-rs"

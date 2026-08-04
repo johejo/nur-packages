@@ -26,6 +26,9 @@ in
   gogcli-bin = callPackageWithSystemSource ./gogcli-bin "gogcli" { };
   gotmpl = callPackageWithSource ./gotmpl "gotmpl" { };
   gotmplfmt = callPackageWithSource ./gotmplfmt "gotmplfmt" { };
+  yamcel = callPackageWithSource ./yamcel "yamcel" { };
+  kubectl-schedsim = callPackageWithSource ./kubectl-schedsim "kubectl-schedsim" { };
+  argocdapp2helmfile = callPackageWithSource ./argocdapp2helmfile "argocdapp2helmfile" { };
   starlink-exporter = callPackageWithSource ./starlink-exporter "starlink-exporter" { };
   kubernetes-mcp-server-bin =
     callPackageWithSystemSource ./kubernetes-mcp-server-bin "kubernetes-mcp-server"

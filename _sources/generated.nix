@@ -46,6 +46,17 @@
       sha256 = "sha256-farvPPo3VU2qUat+72qaiMpcd9LwFO7kqzGGKKtPwGE=";
     };
   };
+  argocdapp2helmfile = {
+    pname = "argocdapp2helmfile";
+    version = "ea2dc85271c82b510a320b0d13c420c8894c80ab";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "argocdapp2helmfile";
+      rev = "ea2dc85271c82b510a320b0d13c420c8894c80ab";
+      fetchSubmodules = false;
+      sha256 = "sha256-eoi8d7swuE74MHGyW2tbVZXc4ngShsz+Hxa5CFv/ZXU=";
+    };
+  };
   asciigraph = {
     pname = "asciigraph";
     version = "v0.10.0";
@@ -389,6 +400,17 @@
       sha256 = "sha256-Nx75WQ42Xzqb3ehSIIIW0rB/2mT5kfNdI5CdT8rKZ5Q=";
     };
   };
+  kubectl-schedsim = {
+    pname = "kubectl-schedsim";
+    version = "0eedb37cc65ba1a7247a1968419bfa30c99916af";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "kubectl-schedsim";
+      rev = "0eedb37cc65ba1a7247a1968419bfa30c99916af";
+      fetchSubmodules = false;
+      sha256 = "sha256-JctSgAZtl0txU6IaUulcR1G0GwXw3LmIspAMANn3H8I=";
+    };
+  };
   kubernetes-mcp-server-aarch64-darwin-bin = {
     pname = "kubernetes-mcp-server-aarch64-darwin-bin";
     version = "v0.0.66";
@@ -588,6 +610,17 @@
     src = fetchurl {
       url = "https://github.com/xremap/xremap/releases/download/v0.15.9/xremap-linux-x86_64-gnome.zip";
       sha256 = "sha256-EIpEOGMhxXX8CtmE8+kaFnPhDalNOqh+k66ZQTjFkAM=";
+    };
+  };
+  yamcel = {
+    pname = "yamcel";
+    version = "1023a1a84527cd7686451fd344895203c31af746";
+    src = fetchFromGitHub {
+      owner = "johejo";
+      repo = "yamcel";
+      rev = "1023a1a84527cd7686451fd344895203c31af746";
+      fetchSubmodules = false;
+      sha256 = "sha256-iiwXt4Hoi9TH6/wV32/aUL2g2P20CsnaJufFHiCzC+E=";
     };
   };
   zlib-rs = {
