@@ -40,10 +40,10 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.8.4";
+    version = "1.9.0";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.8.4/apfel-1.8.4-arm64-macos.tar.gz";
-      sha256 = "sha256-farvPPo3VU2qUat+72qaiMpcd9LwFO7kqzGGKKtPwGE=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.9.0/apfel-1.9.0-arm64-macos.tar.gz";
+      sha256 = "sha256-1DnZbp4iXlrC7eUGWd8NEEiryxPvRqndJ1++gAskEYQ=";
     };
   };
   argocdapp2helmfile = {
@@ -219,26 +219,26 @@
   };
   ghtkn-aarch64-darwin-bin = {
     pname = "ghtkn-aarch64-darwin-bin";
-    version = "v0.3.5";
+    version = "v0.3.6";
     src = fetchurl {
-      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.5/ghtkn_darwin_arm64.tar.gz";
-      sha256 = "sha256-106TfMoXGTm7DgLSRAJEBQITco3W8u58gZZzoQxUdRI=";
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_darwin_arm64.tar.gz";
+      sha256 = "sha256-s5dntZ2dEkMbegTmJC89/llpPWlTpBsejIwtcQrGQPY=";
     };
   };
   ghtkn-aarch64-linux-bin = {
     pname = "ghtkn-aarch64-linux-bin";
-    version = "v0.3.5";
+    version = "v0.3.6";
     src = fetchurl {
-      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.5/ghtkn_linux_arm64.tar.gz";
-      sha256 = "sha256-1/VUZxMotTt+/RtXvlZhvFhbApODdrx/Oj3BjskPLBA=";
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_linux_arm64.tar.gz";
+      sha256 = "sha256-52ghY9QYDhVimsWeOHrr3rsk4AXf8WcSIaN4Fgk8DcQ=";
     };
   };
   ghtkn-x86_64-linux-bin = {
     pname = "ghtkn-x86_64-linux-bin";
-    version = "v0.3.5";
+    version = "v0.3.6";
     src = fetchurl {
-      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.5/ghtkn_linux_amd64.tar.gz";
-      sha256 = "sha256-hs9yNE1uD5PbZ+lzCuubusg+l8dmUeMwyuZN2NhUNQs=";
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_linux_amd64.tar.gz";
+      sha256 = "sha256-inJfK0RuFgAc8t0wGQyYsez4TJOehi4aI9fm0TazWEo=";
     };
   };
   gitbucket = {
@@ -509,50 +509,50 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.8.0";
+    version = "v2026.8.1";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.0/mise-v2026.8.0-macos-arm64.tar.gz";
-      sha256 = "sha256-lO5G7CKwVWByi4nSJ5LLUc3QHBdJEcB5WYnRnjISMRo=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.1/mise-v2026.8.1-macos-arm64.tar.gz";
+      sha256 = "sha256-pGuQzAm90MhGOAJz8+bWD1SRHOCYsgYiubWAK1mhdL4=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.8.0";
+    version = "v2026.8.1";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.0/mise-v2026.8.0-linux-arm64.tar.gz";
-      sha256 = "sha256-bYiLo9C1149nZ3GoSEaIW39oX7TRUz8pJweeubdWM6g=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.1/mise-v2026.8.1-linux-arm64.tar.gz";
+      sha256 = "sha256-uy236Cq68Pm+EykFYpW6bch0Wt0wgcNLKRPiO5aum9s=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.8.0";
+    version = "v2026.8.1";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.0/mise-v2026.8.0-linux-x64.tar.gz";
-      sha256 = "sha256-ZBg2A4VPMZt4ZYMFxUWqyuk14JWaOolLd6D5QW6rBHs=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.1/mise-v2026.8.1-linux-x64.tar.gz";
+      sha256 = "sha256-w2HJLUsGt//BgFklEsfA4qmbbveVJxDu+evE/xoawsA=";
     };
   };
   octorus-aarch64-darwin-bin = {
     pname = "octorus-aarch64-darwin-bin";
-    version = "0.6.7";
+    version = "0.7.1";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.7/octorus-0.6.7-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-fsqnB49TnsPG9waafix0ILJHjslGJEmAPc2EiJS0g+Y=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.1/octorus-0.7.1-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-mY9LqYkz7YvMSlJM2GzEUQkZWvRVnDfmOGxyAUTHeu8=";
     };
   };
   octorus-aarch64-linux-bin = {
     pname = "octorus-aarch64-linux-bin";
-    version = "0.6.7";
+    version = "0.7.1";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.7/octorus-0.6.7-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-gLo4x5AJbh1dI6sKmwA6ybcYX65pzMO98CroUhepY40=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.1/octorus-0.7.1-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-tjU3PZ7ES7teG3Uxo3Jcr6LpP0Bf5eg00HLLMIy6viI=";
     };
   };
   octorus-x86_64-linux-bin = {
     pname = "octorus-x86_64-linux-bin";
-    version = "0.6.7";
+    version = "0.7.1";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.6.7/octorus-0.6.7-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-05KgKIB0oE2f4AYgp4k4GvM5jfIRuVufVZgev8JMVxw=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.1/octorus-0.7.1-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-V2kE1Je1YXqoYln3iBzFywX0BuXIUS6mRopbdt0Q3zw=";
     };
   };
   prometheus-jmx-exporter = {
@@ -565,13 +565,13 @@
   };
   scriptc = {
     pname = "scriptc";
-    version = "v0.0.21";
+    version = "v0.0.22";
     src = fetchFromGitHub {
       owner = "vercel-labs";
       repo = "scriptc";
-      rev = "v0.0.21";
+      rev = "v0.0.22";
       fetchSubmodules = false;
-      sha256 = "sha256-tagFwu2agc8ES55J3OaK+RFDBX56WAN3iPAE4eMNObE=";
+      sha256 = "sha256-DptOAEjLGs8ZLYkVSBqmHZPqXqvB+/ojhZ917oxpS7I=";
     };
   };
   socks5shim = {
@@ -598,18 +598,18 @@
   };
   xremap-aarch64-linux-bin = {
     pname = "xremap-aarch64-linux-bin";
-    version = "0.15.9";
+    version = "0.15.10";
     src = fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/v0.15.9/xremap-linux-aarch64-gnome.zip";
-      sha256 = "sha256-Kn5ggBqtrQ0wrer3VjV7A9euQV7qo3nXC7BlgQKLjjc=";
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.10/xremap-linux-aarch64-gnome.zip";
+      sha256 = "sha256-SKWop5PHrNIZdHR8MASMONeiFcQt7KyAA8Wx7U/5RwU=";
     };
   };
   xremap-x86_64-linux-bin = {
     pname = "xremap-x86_64-linux-bin";
-    version = "0.15.9";
+    version = "0.15.10";
     src = fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/v0.15.9/xremap-linux-x86_64-gnome.zip";
-      sha256 = "sha256-EIpEOGMhxXX8CtmE8+kaFnPhDalNOqh+k66ZQTjFkAM=";
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.10/xremap-linux-x86_64-gnome.zip";
+      sha256 = "sha256-SvnYRuFqQanhH+K+pnj8foc5veeMpqAg+FKWFPMMgss=";
     };
   };
   yamcel = {
@@ -625,16 +625,16 @@
   };
   zlib-rs = {
     pname = "zlib-rs";
-    version = "v0.6.6";
+    version = "v0.6.7";
     src = fetchFromGitHub {
       owner = "trifectatechfoundation";
       repo = "zlib-rs";
-      rev = "v0.6.6";
+      rev = "v0.6.7";
       fetchSubmodules = false;
-      sha256 = "sha256-pLD1DfpR4q6DboLowFig1Q6dJwwI1cOY4RSO3DPaP98=";
+      sha256 = "sha256-xp/5DIFhcNTpSJfy3vJnZytzh1Ls6V3PKlIl6Pep2o0=";
     };
     cargoLock."libz-rs-sys-cdylib/Cargo.lock" = {
-      lockFile = ./. + "/sha256-pLD1DfpR4q6DboLowFig1Q6dJwwI1cOY4RSO3DPaP98=/libz-rs-sys-cdylib/Cargo.lock";
+      lockFile = ./. + "/sha256-xp_5DIFhcNTpSJfy3vJnZytzh1Ls6V3PKlIl6Pep2o0=/libz-rs-sys-cdylib/Cargo.lock";
       outputHashes = {
         
       };
