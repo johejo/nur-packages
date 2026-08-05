@@ -509,26 +509,26 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.8.1";
+    version = "v2026.8.2";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.1/mise-v2026.8.1-macos-arm64.tar.gz";
-      sha256 = "sha256-pGuQzAm90MhGOAJz8+bWD1SRHOCYsgYiubWAK1mhdL4=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.2/mise-v2026.8.2-macos-arm64.tar.gz";
+      sha256 = "sha256-bX/zrWcSYEE9fp4TyLTC1hDXwwN1Hh0qzZzaI0++Bs8=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.8.1";
+    version = "v2026.8.2";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.1/mise-v2026.8.1-linux-arm64.tar.gz";
-      sha256 = "sha256-uy236Cq68Pm+EykFYpW6bch0Wt0wgcNLKRPiO5aum9s=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.2/mise-v2026.8.2-linux-arm64.tar.gz";
+      sha256 = "sha256-vC+DjUhBmeGvEy9MvtCpqaiyph6LUgO8PrwnXQ7mmHU=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.8.1";
+    version = "v2026.8.2";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.1/mise-v2026.8.1-linux-x64.tar.gz";
-      sha256 = "sha256-w2HJLUsGt//BgFklEsfA4qmbbveVJxDu+evE/xoawsA=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.2/mise-v2026.8.2-linux-x64.tar.gz";
+      sha256 = "sha256-/r2ldKxOA2v5Hh750z7F4k2/rWg56w3vpqvBISUYa3Q=";
     };
   };
   octorus-aarch64-darwin-bin = {
