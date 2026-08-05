@@ -17,6 +17,8 @@ stdenv.mkDerivation rec {
 
   buildInputs = lib.optionals stdenv.isLinux [ stdenv.cc.cc.lib ];
 
+  dontStrip = true;
+
   doInstallCheck = true;
   preVersionCheck = ''
     version="''${version#v}"
