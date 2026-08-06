@@ -90,6 +90,30 @@
       sha256 = "sha256-bL6sB3M5edh5AAJe0saiohDcqHzH7jrN7EjqeMYBV/s=";
     };
   };
+  cclens-aarch64-darwin-bin = {
+    pname = "cclens-aarch64-darwin-bin";
+    version = "v0.1.1";
+    src = fetchurl {
+      url = "https://github.com/lambdalisue/cclens/releases/download/v0.1.1/cclens-v0.1.1-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-17G1KWOE+CQhYpY9/KpeD1L58CV9dnaR8EutqPlKgz4=";
+    };
+  };
+  cclens-aarch64-linux-bin = {
+    pname = "cclens-aarch64-linux-bin";
+    version = "v0.1.1";
+    src = fetchurl {
+      url = "https://github.com/lambdalisue/cclens/releases/download/v0.1.1/cclens-v0.1.1-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-cksURAmE28ssZECXp+cr0q50pQTAf+VoflJcAo3CRkw=";
+    };
+  };
+  cclens-x86_64-linux-bin = {
+    pname = "cclens-x86_64-linux-bin";
+    version = "v0.1.1";
+    src = fetchurl {
+      url = "https://github.com/lambdalisue/cclens/releases/download/v0.1.1/cclens-v0.1.1-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-4BtEDsWQBZvWF75tK5dQy0jmsfFeqhUkWJW8Wg3cNAw=";
+    };
+  };
   clawpatrol = {
     pname = "clawpatrol";
     version = "v0.5.8";

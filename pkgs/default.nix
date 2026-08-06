@@ -78,6 +78,7 @@ in
   kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
   mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
+  cclens-bin = callPackageWithSystemSource ./cclens-bin "cclens" { };
   gws-bin = callPackageWithSystemSource ./gws-bin "gws" { };
   ghtkn-bin = callPackageWithSystemSource ./ghtkn-bin "ghtkn" { };
   displayplacer = callPackageWithSource ./displayplacer "displayplacer" { };

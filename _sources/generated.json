@@ -158,6 +158,51 @@
         },
         "version": "10a42826710542f17d0985ce2c18fa8133aba438"
     },
+    "cclens-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "cclens-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-17G1KWOE+CQhYpY9/KpeD1L58CV9dnaR8EutqPlKgz4=",
+            "type": "url",
+            "url": "https://github.com/lambdalisue/cclens/releases/download/v0.1.1/cclens-v0.1.1-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "v0.1.1"
+    },
+    "cclens-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "cclens-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-cksURAmE28ssZECXp+cr0q50pQTAf+VoflJcAo3CRkw=",
+            "type": "url",
+            "url": "https://github.com/lambdalisue/cclens/releases/download/v0.1.1/cclens-v0.1.1-aarch64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "v0.1.1"
+    },
+    "cclens-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "cclens-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-4BtEDsWQBZvWF75tK5dQy0jmsfFeqhUkWJW8Wg3cNAw=",
+            "type": "url",
+            "url": "https://github.com/lambdalisue/cclens/releases/download/v0.1.1/cclens-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "v0.1.1"
+    },
     "clawpatrol": {
         "cargoLock": null,
         "date": null,

@@ -172,6 +172,18 @@ fetch.url = "https://github.com/ushironoko/octorus/releases/download/v$ver/octor
 src.cmd = "gh api repos/ushironoko/octorus/releases/latest --jq .tag_name | sed 's/^v//'"
 fetch.url = "https://github.com/ushironoko/octorus/releases/download/v$ver/octorus-$ver-aarch64-unknown-linux-gnu.tar.gz"
 
+[cclens-aarch64-darwin-bin]
+src.github = "lambdalisue/cclens"
+fetch.url = "https://github.com/lambdalisue/cclens/releases/download/$ver/cclens-$ver-aarch64-apple-darwin.tar.gz"
+
+[cclens-x86_64-linux-bin]
+src.github = "lambdalisue/cclens"
+fetch.url = "https://github.com/lambdalisue/cclens/releases/download/$ver/cclens-$ver-x86_64-unknown-linux-gnu.tar.gz"
+
+[cclens-aarch64-linux-bin]
+src.github = "lambdalisue/cclens"
+fetch.url = "https://github.com/lambdalisue/cclens/releases/download/$ver/cclens-$ver-aarch64-unknown-linux-gnu.tar.gz"
+
 [displayplacer]
 src.github_tag = "jakehilborn/displayplacer"
 fetch.github = "jakehilborn/displayplacer"
