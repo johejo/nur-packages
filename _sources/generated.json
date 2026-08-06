@@ -68,11 +68,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-1DnZbp4iXlrC7eUGWd8NEEiryxPvRqndJ1++gAskEYQ=",
+            "sha256": "sha256-CWM2S+/+IAF7juSEsLx8glYKUY8q5iKfPySQ9xdQ1AM=",
             "type": "url",
-            "url": "https://github.com/Arthur-Ficial/apfel/releases/download/v1.9.0/apfel-1.9.0-arm64-macos.tar.gz"
+            "url": "https://github.com/Arthur-Ficial/apfel/releases/download/v1.9.1/apfel-1.9.1-arm64-macos.tar.gz"
         },
-        "version": "1.9.0"
+        "version": "1.9.1"
     },
     "argocdapp2helmfile": {
         "cargoLock": null,
@@ -233,11 +233,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-J1ATLTAOZPHb/7lePZE/2cnceBK8jhvOXGE1cki3kp4=",
+            "sha256": "sha256-M3xesnDSS9VWxGrXgU22LCRksesKJTEGvJhnjb14GCE=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.146.0/codex-aarch64-apple-darwin.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-aarch64-apple-darwin.tar.gz"
         },
-        "version": "rust-v0.146.0"
+        "version": "rust-v0.146.1"
     },
     "codex-aarch64-linux-bin": {
         "cargoLock": null,
@@ -248,11 +248,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-l1uskVYqvu3rj3ljbVGoZkmzHzSp3mo7ywWVZbbPH4c=",
+            "sha256": "sha256-Bd5l7ntr0CA45yDMMTlB1exnlHGOQmG9KP2DuT/jTUM=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.146.0/codex-aarch64-unknown-linux-musl.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-aarch64-unknown-linux-musl.tar.gz"
         },
-        "version": "rust-v0.146.0"
+        "version": "rust-v0.146.1"
     },
     "codex-x86_64-linux-bin": {
         "cargoLock": null,
@@ -263,11 +263,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-W6O5QFVDlTCB9mHQhU0mb3biq75R1BNJNVo23nZzd2o=",
+            "sha256": "sha256-9VgQWuwSv2+zNXB5Ot/Aifi0HcMqztYLi0+6m0UYJKw=",
             "type": "url",
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.146.0/codex-x86_64-unknown-linux-musl.tar.gz"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-x86_64-unknown-linux-musl.tar.gz"
         },
-        "version": "rust-v0.146.0"
+        "version": "rust-v0.146.1"
     },
     "confluence-cli": {
         "cargoLock": null,
@@ -283,12 +283,12 @@
             "name": null,
             "owner": "pchuri",
             "repo": "confluence-cli",
-            "rev": "v2.19.1",
-            "sha256": "sha256-sbG40BaxoDffbIpRUNgXxXGd6bCJDhzc9/eJjV+YtZs=",
+            "rev": "v2.20.0",
+            "sha256": "sha256-xXy1wnBJ5B2oHSmlO4TOz0oveelIuB6hj1w71Btqb6U=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.19.1"
+        "version": "v2.20.0"
     },
     "displayplacer": {
         "cargoLock": null,
@@ -602,13 +602,13 @@
             "fetchSubmodules": true,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2.12.0",
-            "sha256": "sha256-8U6NXHiL3ZFb+HuBPm4RKLyKn8YNOQg7DJivsOv0Y5w=",
+            "rev": "2.13.0",
+            "sha256": "sha256-NHndG41oiQgxE1QLU8OcKikNapIs4GvoCH/3D4gtxJ0=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/heiher/hev-socks5-server.git"
         },
-        "version": "2.12.0"
+        "version": "2.13.0"
     },
     "hocage": {
         "cargoLock": null,

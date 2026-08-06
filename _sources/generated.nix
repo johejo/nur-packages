@@ -40,10 +40,10 @@
   };
   apfel-bin = {
     pname = "apfel-bin";
-    version = "1.9.0";
+    version = "1.9.1";
     src = fetchurl {
-      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.9.0/apfel-1.9.0-arm64-macos.tar.gz";
-      sha256 = "sha256-1DnZbp4iXlrC7eUGWd8NEEiryxPvRqndJ1++gAskEYQ=";
+      url = "https://github.com/Arthur-Ficial/apfel/releases/download/v1.9.1/apfel-1.9.1-arm64-macos.tar.gz";
+      sha256 = "sha256-CWM2S+/+IAF7juSEsLx8glYKUY8q5iKfPySQ9xdQ1AM=";
     };
   };
   argocdapp2helmfile = {
@@ -127,37 +127,37 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.146.0";
+    version = "rust-v0.146.1";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.146.0/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-J1ATLTAOZPHb/7lePZE/2cnceBK8jhvOXGE1cki3kp4=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-M3xesnDSS9VWxGrXgU22LCRksesKJTEGvJhnjb14GCE=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.146.0";
+    version = "rust-v0.146.1";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.146.0/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-l1uskVYqvu3rj3ljbVGoZkmzHzSp3mo7ywWVZbbPH4c=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-Bd5l7ntr0CA45yDMMTlB1exnlHGOQmG9KP2DuT/jTUM=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.146.0";
+    version = "rust-v0.146.1";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.146.0/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-W6O5QFVDlTCB9mHQhU0mb3biq75R1BNJNVo23nZzd2o=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-9VgQWuwSv2+zNXB5Ot/Aifi0HcMqztYLi0+6m0UYJKw=";
     };
   };
   confluence-cli = {
     pname = "confluence-cli";
-    version = "v2.19.1";
+    version = "v2.20.0";
     src = fetchFromGitHub {
       owner = "pchuri";
       repo = "confluence-cli";
-      rev = "v2.19.1";
+      rev = "v2.20.0";
       fetchSubmodules = false;
-      sha256 = "sha256-sbG40BaxoDffbIpRUNgXxXGd6bCJDhzc9/eJjV+YtZs=";
+      sha256 = "sha256-xXy1wnBJ5B2oHSmlO4TOz0oveelIuB6hj1w71Btqb6U=";
     };
   };
   displayplacer = {
@@ -321,15 +321,15 @@
   };
   hev-socks5-server = {
     pname = "hev-socks5-server";
-    version = "2.12.0";
+    version = "2.13.0";
     src = fetchgit {
       url = "https://github.com/heiher/hev-socks5-server.git";
-      rev = "2.12.0";
+      rev = "2.13.0";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-8U6NXHiL3ZFb+HuBPm4RKLyKn8YNOQg7DJivsOv0Y5w=";
+      sha256 = "sha256-NHndG41oiQgxE1QLU8OcKikNapIs4GvoCH/3D4gtxJ0=";
     };
   };
   hocage = {
