@@ -33,6 +33,7 @@ in
   kubernetes-mcp-server-bin =
     callPackageWithSystemSource ./kubernetes-mcp-server-bin "kubernetes-mcp-server"
       { };
+  zot-bin = callPackageWithSystemSource ./zot-bin "zot" { };
   kwok-bin =
     let
       kwokSourceName = "kwok-${system}-bin";

@@ -18,6 +18,18 @@ fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/downlo
 src.github = "containers/kubernetes-mcp-server"
 fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-linux-arm64"
 
+[zot-aarch64-darwin-bin]
+src.github = "project-zot/zot"
+fetch.url = "https://github.com/project-zot/zot/releases/download/$ver/zot-darwin-arm64"
+
+[zot-x86_64-linux-bin]
+src.github = "project-zot/zot"
+fetch.url = "https://github.com/project-zot/zot/releases/download/$ver/zot-linux-amd64"
+
+[zot-aarch64-linux-bin]
+src.github = "project-zot/zot"
+fetch.url = "https://github.com/project-zot/zot/releases/download/$ver/zot-linux-arm64"
+
 [clawpatrol-aarch64-darwin-bin]
 src.github = "denoland/clawpatrol"
 fetch.url = "https://github.com/denoland/clawpatrol/releases/download/$ver/clawpatrol-darwin-arm64"

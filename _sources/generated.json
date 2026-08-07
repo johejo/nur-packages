@@ -1229,5 +1229,50 @@
             "type": "github"
         },
         "version": "v0.6.7"
+    },
+    "zot-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "zot-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-e9reK/ymL1RmxT3FbdIjela40yFYStXkuHyE+JF8ClE=",
+            "type": "url",
+            "url": "https://github.com/project-zot/zot/releases/download/v2.1.20/zot-darwin-arm64"
+        },
+        "version": "v2.1.20"
+    },
+    "zot-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "zot-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-1qOUdVh74Y7D1C4NK/pQ9cUGTLvNwiLb2I5V7Pad2Ok=",
+            "type": "url",
+            "url": "https://github.com/project-zot/zot/releases/download/v2.1.20/zot-linux-arm64"
+        },
+        "version": "v2.1.20"
+    },
+    "zot-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "zot-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-oy5C0ELR8XtbExflXMGkFadEyHPc0FwlxWtmVHgli8s=",
+            "type": "url",
+            "url": "https://github.com/project-zot/zot/releases/download/v2.1.20/zot-linux-amd64"
+        },
+        "version": "v2.1.20"
     }
 }

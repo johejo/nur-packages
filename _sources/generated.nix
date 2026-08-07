@@ -664,4 +664,28 @@
       };
     };
   };
+  zot-aarch64-darwin-bin = {
+    pname = "zot-aarch64-darwin-bin";
+    version = "v2.1.20";
+    src = fetchurl {
+      url = "https://github.com/project-zot/zot/releases/download/v2.1.20/zot-darwin-arm64";
+      sha256 = "sha256-e9reK/ymL1RmxT3FbdIjela40yFYStXkuHyE+JF8ClE=";
+    };
+  };
+  zot-aarch64-linux-bin = {
+    pname = "zot-aarch64-linux-bin";
+    version = "v2.1.20";
+    src = fetchurl {
+      url = "https://github.com/project-zot/zot/releases/download/v2.1.20/zot-linux-arm64";
+      sha256 = "sha256-1qOUdVh74Y7D1C4NK/pQ9cUGTLvNwiLb2I5V7Pad2Ok=";
+    };
+  };
+  zot-x86_64-linux-bin = {
+    pname = "zot-x86_64-linux-bin";
+    version = "v2.1.20";
+    src = fetchurl {
+      url = "https://github.com/project-zot/zot/releases/download/v2.1.20/zot-linux-amd64";
+      sha256 = "sha256-oy5C0ELR8XtbExflXMGkFadEyHPc0FwlxWtmVHgli8s=";
+    };
+  };
 }
