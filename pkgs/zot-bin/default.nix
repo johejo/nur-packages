@@ -1,6 +1,7 @@
 {
   lib,
   stdenv,
+  autoPatchelfHook,
   versionCheckHook,
   source,
   ...
@@ -11,6 +12,11 @@ stdenv.mkDerivation rec {
   inherit (source) version src;
 
   dontUnpack = true;
+
+  # zot's official binary release is built with -buildmode=pie.
+  # -buildmode=pie makes the bin DYE and INTERP not EXEC.
+  # INTERP bin that is not built on NixOS requires autoPatchelfHook.
+  nativeBuildInputs = lib.optionals stdenv.isLinux [ autoPatchelfHook ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
 
