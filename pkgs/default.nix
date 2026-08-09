@@ -78,6 +78,7 @@ in
   asciigraph = callPackageWithSource ./asciigraph "asciigraph" { };
   kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
   mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
+  pitchfork-bin = callPackageWithSystemSource ./pitchfork-bin "pitchfork" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
   cclens-bin = callPackageWithSystemSource ./cclens-bin "cclens" { };
   gws-bin = callPackageWithSystemSource ./gws-bin "gws" { };

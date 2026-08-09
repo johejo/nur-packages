@@ -1075,6 +1075,51 @@
         },
         "version": "0.7.2"
     },
+    "pitchfork-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "pitchfork-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-B9J7XcPcmY3p5ooqIT/XsYaz9wMcXdEruVoqCQPTdP4=",
+            "type": "url",
+            "url": "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "v2.20.0"
+    },
+    "pitchfork-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "pitchfork-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-z6XbQrijwGjIj3i2D0fmT4v3woQcJrgGKHcPmETj99U=",
+            "type": "url",
+            "url": "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-aarch64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "v2.20.0"
+    },
+    "pitchfork-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "pitchfork-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-rZARNp3Vqzt3ry1w6ZMNYFjD9YweOGfckClg7giVGaI=",
+            "type": "url",
+            "url": "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-x86_64-unknown-linux-gnu.tar.gz"
+        },
+        "version": "v2.20.0"
+    },
     "prometheus-jmx-exporter": {
         "cargoLock": null,
         "date": null,

@@ -579,6 +579,30 @@
       sha256 = "sha256-Y+LsJQcs0zd/6J8UxDgO7Zy8df6+FBLSu5R3+9jcnDM=";
     };
   };
+  pitchfork-aarch64-darwin-bin = {
+    pname = "pitchfork-aarch64-darwin-bin";
+    version = "v2.20.0";
+    src = fetchurl {
+      url = "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-B9J7XcPcmY3p5ooqIT/XsYaz9wMcXdEruVoqCQPTdP4=";
+    };
+  };
+  pitchfork-aarch64-linux-bin = {
+    pname = "pitchfork-aarch64-linux-bin";
+    version = "v2.20.0";
+    src = fetchurl {
+      url = "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-z6XbQrijwGjIj3i2D0fmT4v3woQcJrgGKHcPmETj99U=";
+    };
+  };
+  pitchfork-x86_64-linux-bin = {
+    pname = "pitchfork-x86_64-linux-bin";
+    version = "v2.20.0";
+    src = fetchurl {
+      url = "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-rZARNp3Vqzt3ry1w6ZMNYFjD9YweOGfckClg7giVGaI=";
+    };
+  };
   prometheus-jmx-exporter = {
     pname = "prometheus-jmx-exporter";
     version = "1.6.0";
