@@ -48,13 +48,13 @@
   };
   argocdapp2helmfile = {
     pname = "argocdapp2helmfile";
-    version = "ea2dc85271c82b510a320b0d13c420c8894c80ab";
+    version = "0818d79eba2592b6e8215bf45b98fef01c77a1fc";
     src = fetchFromGitHub {
       owner = "johejo";
       repo = "argocdapp2helmfile";
-      rev = "ea2dc85271c82b510a320b0d13c420c8894c80ab";
+      rev = "0818d79eba2592b6e8215bf45b98fef01c77a1fc";
       fetchSubmodules = false;
-      sha256 = "sha256-eoi8d7swuE74MHGyW2tbVZXc4ngShsz+Hxa5CFv/ZXU=";
+      sha256 = "sha256-VDjUtcHB4VwM8tW7Z7YPcOGJfVQAjbpkh5tjWA4lOqQ=";
     };
   };
   asciigraph = {
@@ -151,26 +151,26 @@
   };
   codex-aarch64-darwin-bin = {
     pname = "codex-aarch64-darwin-bin";
-    version = "rust-v0.146.1";
+    version = "rust-v0.147.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-M3xesnDSS9VWxGrXgU22LCRksesKJTEGvJhnjb14GCE=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.147.0/codex-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-dZhLgfkqcbDA9LO1ytgOXFcXfk2Mi0seE9twOyDcQ1g=";
     };
   };
   codex-aarch64-linux-bin = {
     pname = "codex-aarch64-linux-bin";
-    version = "rust-v0.146.1";
+    version = "rust-v0.147.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-aarch64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-Bd5l7ntr0CA45yDMMTlB1exnlHGOQmG9KP2DuT/jTUM=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.147.0/codex-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-62d8gPZmsauLSx0IO2bo1hSxKB2WC7b5/Yypj1izi5A=";
     };
   };
   codex-x86_64-linux-bin = {
     pname = "codex-x86_64-linux-bin";
-    version = "rust-v0.146.1";
+    version = "rust-v0.147.0";
     src = fetchurl {
-      url = "https://github.com/openai/codex/releases/download/rust-v0.146.1/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-9VgQWuwSv2+zNXB5Ot/Aifi0HcMqztYLi0+6m0UYJKw=";
+      url = "https://github.com/openai/codex/releases/download/rust-v0.147.0/codex-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-Akbi53ODTgfw+1JJ7W660S5FkeYI+Me7l91qlpBUTDY=";
     };
   };
   confluence-cli = {
@@ -267,34 +267,34 @@
   };
   gitbucket = {
     pname = "gitbucket";
-    version = "4.46.1";
+    version = "4.47.0";
     src = fetchurl {
-      url = "https://github.com/gitbucket/gitbucket/releases/download/4.46.1/gitbucket.war";
-      sha256 = "sha256-Vp5naUameav5XhJX1ERCZH0QiWuSuU7QIgX9ADRUdXU=";
+      url = "https://github.com/gitbucket/gitbucket/releases/download/4.47.0/gitbucket.war";
+      sha256 = "sha256-fdXIZOFeq5zWSWlM7/VBxdKwU3MmGc3J6lbFv2PSdsI=";
     };
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.34.1";
+    version = "0.35.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.34.1/gogcli_0.34.1_darwin_arm64.tar.gz";
-      sha256 = "sha256-kKuRBNVD0WrFNn1AXcYbiGADoRjOfq3dDdc8A2MUFEk=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.35.0/gogcli_0.35.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-BoGMUKEiLJs0RpCljWuo0HX3vimu7YJb0XdBuuJzSDM=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.34.1";
+    version = "0.35.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.34.1/gogcli_0.34.1_linux_arm64.tar.gz";
-      sha256 = "sha256-hRDbZJLCf3cEv2CvJ2807egbZ9iLb/z5UxU9qEHqo+0=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.35.0/gogcli_0.35.0_linux_arm64.tar.gz";
+      sha256 = "sha256-bbJCkEdB4oDl5i/5JJ/nbAdbrVzGwG2EHgEWIoA9zjQ=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.34.1";
+    version = "0.35.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.34.1/gogcli_0.34.1_linux_amd64.tar.gz";
-      sha256 = "sha256-pbS+LqY11Mgwly3sHzqQsMoX+cJeemNT0eBo2FBeqYM=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.35.0/gogcli_0.35.0_linux_amd64.tar.gz";
+      sha256 = "sha256-xOfjScU9PmnjZynUMVoOCAqFpLR2eoSUPwdQZ5Mby98=";
     };
   };
   gotmpl = {
@@ -345,15 +345,15 @@
   };
   hev-socks5-server = {
     pname = "hev-socks5-server";
-    version = "2.13.0";
+    version = "2.13.1";
     src = fetchgit {
       url = "https://github.com/heiher/hev-socks5-server.git";
-      rev = "2.13.0";
+      rev = "2.13.1";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-NHndG41oiQgxE1QLU8OcKikNapIs4GvoCH/3D4gtxJ0=";
+      sha256 = "sha256-DvG2w5aKKes33Wj/b8SLjv5+C+k3Q2Ro37JgAyqMibw=";
     };
   };
   hocage = {
@@ -533,50 +533,50 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.8.2";
+    version = "v2026.8.3";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.2/mise-v2026.8.2-macos-arm64.tar.gz";
-      sha256 = "sha256-bX/zrWcSYEE9fp4TyLTC1hDXwwN1Hh0qzZzaI0++Bs8=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.3/mise-v2026.8.3-macos-arm64.tar.gz";
+      sha256 = "sha256-RvL/dyRP18qpYC/bGQ5ds9o9YO1dG1eVEqrZQjA6R3o=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.8.2";
+    version = "v2026.8.3";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.2/mise-v2026.8.2-linux-arm64.tar.gz";
-      sha256 = "sha256-vC+DjUhBmeGvEy9MvtCpqaiyph6LUgO8PrwnXQ7mmHU=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.3/mise-v2026.8.3-linux-arm64.tar.gz";
+      sha256 = "sha256-jQxhQmB9gUJ53g4G9TyeiWtdJnu87Z7m4tnhVH/Myo8=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.8.2";
+    version = "v2026.8.3";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.2/mise-v2026.8.2-linux-x64.tar.gz";
-      sha256 = "sha256-/r2ldKxOA2v5Hh750z7F4k2/rWg56w3vpqvBISUYa3Q=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.3/mise-v2026.8.3-linux-x64.tar.gz";
+      sha256 = "sha256-iq8hzEs2aB6QqW6c3xPl11Eel3NzP3QbGl93VrpTtfw=";
     };
   };
   octorus-aarch64-darwin-bin = {
     pname = "octorus-aarch64-darwin-bin";
-    version = "0.7.1";
+    version = "0.7.2";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.1/octorus-0.7.1-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-mY9LqYkz7YvMSlJM2GzEUQkZWvRVnDfmOGxyAUTHeu8=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.2/octorus-0.7.2-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-Uv5MKlwgZqG1XaS75yZ5QkVJ8nqlwjWndN9LAv5ZIAI=";
     };
   };
   octorus-aarch64-linux-bin = {
     pname = "octorus-aarch64-linux-bin";
-    version = "0.7.1";
+    version = "0.7.2";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.1/octorus-0.7.1-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-tjU3PZ7ES7teG3Uxo3Jcr6LpP0Bf5eg00HLLMIy6viI=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.2/octorus-0.7.2-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-Rk1Qk1PE1IcEixBaLCbzpUPzkfP5NAFAhiVYr7ZRGnc=";
     };
   };
   octorus-x86_64-linux-bin = {
     pname = "octorus-x86_64-linux-bin";
-    version = "0.7.1";
+    version = "0.7.2";
     src = fetchurl {
-      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.1/octorus-0.7.1-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-V2kE1Je1YXqoYln3iBzFywX0BuXIUS6mRopbdt0Q3zw=";
+      url = "https://github.com/ushironoko/octorus/releases/download/v0.7.2/octorus-0.7.2-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-Y+LsJQcs0zd/6J8UxDgO7Zy8df6+FBLSu5R3+9jcnDM=";
     };
   };
   prometheus-jmx-exporter = {
@@ -589,13 +589,13 @@
   };
   scriptc = {
     pname = "scriptc";
-    version = "v0.0.22";
+    version = "v0.0.23";
     src = fetchFromGitHub {
       owner = "vercel-labs";
       repo = "scriptc";
-      rev = "v0.0.22";
+      rev = "v0.0.23";
       fetchSubmodules = false;
-      sha256 = "sha256-DptOAEjLGs8ZLYkVSBqmHZPqXqvB+/ojhZ917oxpS7I=";
+      sha256 = "sha256-chHO8wKTZ44MhShstW4KbPQGj8Zn4zrCnMJY3TB4dpg=";
     };
   };
   socks5shim = {
