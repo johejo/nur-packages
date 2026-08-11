@@ -402,26 +402,26 @@
   };
   kakehashi-aarch64-darwin-bin = {
     pname = "kakehashi-aarch64-darwin-bin";
-    version = "v0.9.0";
+    version = "v0.10.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.9.0/kakehashi-v0.9.0-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-m6NKN1O+0cVpU4H89c0ep/acd7blWXGpDjw8K6HUTRY=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.10.0/kakehashi-v0.10.0-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-h74rgZ5xlZTavTdRezGz44cFzE01Z2GDE8XWiULMHI8=";
     };
   };
   kakehashi-aarch64-linux-bin = {
     pname = "kakehashi-aarch64-linux-bin";
-    version = "v0.9.0";
+    version = "v0.10.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.9.0/kakehashi-v0.9.0-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-oi4ENFAN8ak2GiQAww0yitzlqoieEaj46OfYPMT8PAs=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.10.0/kakehashi-v0.10.0-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-3CcRS49Uqw6c/UoB/0225U3Kk3emMIt8pEfeOaaifxw=";
     };
   };
   kakehashi-x86_64-linux-bin = {
     pname = "kakehashi-x86_64-linux-bin";
-    version = "v0.9.0";
+    version = "v0.10.0";
     src = fetchurl {
-      url = "https://github.com/atusy/kakehashi/releases/download/v0.9.0/kakehashi-v0.9.0-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-Nx75WQ42Xzqb3ehSIIIW0rB/2mT5kfNdI5CdT8rKZ5Q=";
+      url = "https://github.com/atusy/kakehashi/releases/download/v0.10.0/kakehashi-v0.10.0-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-2bwagj33LKEi/zufSXeOxbTFn8hUtGm2fV2FC7W942Q=";
     };
   };
   kubectl-schedsim = {
@@ -581,26 +581,26 @@
   };
   pitchfork-aarch64-darwin-bin = {
     pname = "pitchfork-aarch64-darwin-bin";
-    version = "v2.20.0";
+    version = "v2.21.0";
     src = fetchurl {
-      url = "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-B9J7XcPcmY3p5ooqIT/XsYaz9wMcXdEruVoqCQPTdP4=";
+      url = "https://github.com/jdx/pitchfork/releases/download/v2.21.0/pitchfork-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-gIER48a0xyQHvmJ0SekcsPyMMVqpUKylhHQ76JbPjng=";
     };
   };
   pitchfork-aarch64-linux-bin = {
     pname = "pitchfork-aarch64-linux-bin";
-    version = "v2.20.0";
+    version = "v2.21.0";
     src = fetchurl {
-      url = "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-z6XbQrijwGjIj3i2D0fmT4v3woQcJrgGKHcPmETj99U=";
+      url = "https://github.com/jdx/pitchfork/releases/download/v2.21.0/pitchfork-aarch64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-qgWyTA/9zI10IShaapoylRtQ2QkRoobzYv7PnPQhFAI=";
     };
   };
   pitchfork-x86_64-linux-bin = {
     pname = "pitchfork-x86_64-linux-bin";
-    version = "v2.20.0";
+    version = "v2.21.0";
     src = fetchurl {
-      url = "https://github.com/jdx/pitchfork/releases/download/v2.20.0/pitchfork-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-rZARNp3Vqzt3ry1w6ZMNYFjD9YweOGfckClg7giVGaI=";
+      url = "https://github.com/jdx/pitchfork/releases/download/v2.21.0/pitchfork-x86_64-unknown-linux-gnu.tar.gz";
+      sha256 = "sha256-rtsFJ5Bg7ko9eG3amNFOdmLTt7ugH+5wMJeW+eBMJYg=";
     };
   };
   prometheus-jmx-exporter = {
@@ -613,13 +613,13 @@
   };
   scriptc = {
     pname = "scriptc";
-    version = "v0.0.23";
+    version = "v0.0.24";
     src = fetchFromGitHub {
       owner = "vercel-labs";
       repo = "scriptc";
-      rev = "v0.0.23";
+      rev = "v0.0.24";
       fetchSubmodules = false;
-      sha256 = "sha256-chHO8wKTZ44MhShstW4KbPQGj8Zn4zrCnMJY3TB4dpg=";
+      sha256 = "sha256-7ZplaDri6X4ru40e9eA2FI5sh+4TNF9ZnvL9VbU6W4M=";
     };
   };
   socks5shim = {
