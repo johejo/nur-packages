@@ -3,6 +3,7 @@
   stdenv,
   source,
   autoPatchelfHook,
+  libgcc,
   versionCheckHook,
   ...
 }:
@@ -15,7 +16,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = lib.optionals stdenv.isLinux [ autoPatchelfHook ];
 
-  buildInputs = lib.optionals stdenv.isLinux [ stdenv.cc.cc.lib ];
+  buildInputs = lib.optionals stdenv.isLinux [ libgcc ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
 
