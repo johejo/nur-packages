@@ -76,6 +76,7 @@ in
   awsigv4-proxy = callPackageWithSource ./awsigv4-proxy "awsigv4-proxy" { };
   asciigraph = callPackageWithSource ./asciigraph "asciigraph" { };
   kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
+  meat = callPackageWithSource ./meat "meat" { };
   mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
   pitchfork-bin = callPackageWithSystemSource ./pitchfork-bin "pitchfork" { };
   tuicr-bin = callPackageWithSystemSource ./tuicr-bin "tuicr" { };

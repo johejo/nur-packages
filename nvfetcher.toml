@@ -147,6 +147,10 @@ fetch.github = "johejo/socks5shim"
 src.cmd = "gh api repos/johejo/gf-cli/commits/main --jq .sha"
 fetch.github = "johejo/gf-cli"
 
+[meat]
+src.cmd = "gh api repos/boldsoftware/meat/commits/main --jq .sha"
+fetch.github = "boldsoftware/meat"
+
 [gotmpl]
 src.cmd = "gh api repos/johejo/gotmpl/commits/main --jq .sha"
 fetch.github = "johejo/gotmpl"

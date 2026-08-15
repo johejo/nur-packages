@@ -531,6 +531,17 @@
       sha256 = "sha256-H7jOOIFX2Eolq+aFqKJSC/AMADIYIZaOS7OY/XZuers=";
     };
   };
+  meat = {
+    pname = "meat";
+    version = "f39f41dfe7b5b37a12b35fdfbaecc7e779855bd3";
+    src = fetchFromGitHub {
+      owner = "boldsoftware";
+      repo = "meat";
+      rev = "f39f41dfe7b5b37a12b35fdfbaecc7e779855bd3";
+      fetchSubmodules = false;
+      sha256 = "sha256-fj04sdMiwPxh4F+kBpF5c+YYeKnKCDD9dsIgwAGPoK4=";
+    };
+  };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
     version = "v2026.8.6";
