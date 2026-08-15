@@ -452,11 +452,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-s5dntZ2dEkMbegTmJC89/llpPWlTpBsejIwtcQrGQPY=",
+            "sha256": "sha256-tSq6R9nHd+HusgXtS0PSguvgcqdvM+vR5cZpAYffOvc=",
             "type": "url",
-            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_darwin_arm64.tar.gz"
+            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.4.0/ghtkn_darwin_arm64.tar.gz"
         },
-        "version": "v0.3.6"
+        "version": "v0.4.0"
     },
     "ghtkn-aarch64-linux-bin": {
         "cargoLock": null,
@@ -467,11 +467,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-52ghY9QYDhVimsWeOHrr3rsk4AXf8WcSIaN4Fgk8DcQ=",
+            "sha256": "sha256-M6Dh+RU1/AqQDdwI4sGCsd69VlYSQVPECMLJapr8Qjg=",
             "type": "url",
-            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_linux_arm64.tar.gz"
+            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.4.0/ghtkn_linux_arm64.tar.gz"
         },
-        "version": "v0.3.6"
+        "version": "v0.4.0"
     },
     "ghtkn-x86_64-linux-bin": {
         "cargoLock": null,
@@ -482,11 +482,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-inJfK0RuFgAc8t0wGQyYsez4TJOehi4aI9fm0TazWEo=",
+            "sha256": "sha256-Lbzc0NQJZv2hNSKyPGUiuMZoLw5xkwExln4PXXDxJSY=",
             "type": "url",
-            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_linux_amd64.tar.gz"
+            "url": "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.4.0/ghtkn_linux_amd64.tar.gz"
         },
-        "version": "v0.3.6"
+        "version": "v0.4.0"
     },
     "gitbucket": {
         "cargoLock": null,
@@ -512,11 +512,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-XLW1IQh5dpvGoCvZzzntGw3j8HE7OX7L3e/pXdK+YYs=",
+            "sha256": "sha256-ihwMLAJk/cYCzOULREMeEFaSafmOBUq1UDPGUqlrfGE=",
             "type": "url",
-            "url": "https://github.com/steipete/gogcli/releases/download/v0.36.0/gogcli_0.36.0_darwin_arm64.tar.gz"
+            "url": "https://github.com/steipete/gogcli/releases/download/v0.37.0/gogcli_0.37.0_darwin_arm64.tar.gz"
         },
-        "version": "0.36.0"
+        "version": "0.37.0"
     },
     "gogcli-aarch64-linux-bin": {
         "cargoLock": null,
@@ -527,11 +527,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-9o48Nck2TepaTlFdE6I6sw3tRkAckNieKVPco5XX/kI=",
+            "sha256": "sha256-Sr3pDE50zrEl8/3Ydnb/eVjon3ggl4/6Ed4mruBuchw=",
             "type": "url",
-            "url": "https://github.com/steipete/gogcli/releases/download/v0.36.0/gogcli_0.36.0_linux_arm64.tar.gz"
+            "url": "https://github.com/steipete/gogcli/releases/download/v0.37.0/gogcli_0.37.0_linux_arm64.tar.gz"
         },
-        "version": "0.36.0"
+        "version": "0.37.0"
     },
     "gogcli-x86_64-linux-bin": {
         "cargoLock": null,
@@ -542,11 +542,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-spD8/pB3iaHvtoWpM24qbH+VmMPACq2o1sQ37ryGyJE=",
+            "sha256": "sha256-kF/tC/q6+l3ecYnlBkKz+jHX/EqtUKjSfSuSBx2HWWI=",
             "type": "url",
-            "url": "https://github.com/steipete/gogcli/releases/download/v0.36.0/gogcli_0.36.0_linux_amd64.tar.gz"
+            "url": "https://github.com/steipete/gogcli/releases/download/v0.37.0/gogcli_0.37.0_linux_amd64.tar.gz"
         },
-        "version": "0.36.0"
+        "version": "0.37.0"
     },
     "gotmpl": {
         "cargoLock": null,
@@ -994,11 +994,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hZg6m4jja6MhG8tLLl+B6o0ncIUn2RAM3oZekvSKPsI=",
+            "sha256": "sha256-FO8h0TE9O2mYasaXaHfX/7Qd9x9PuejktXdhz/r/yjs=",
             "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.8.5/mise-v2026.8.5-macos-arm64.tar.gz"
+            "url": "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-macos-arm64.tar.gz"
         },
-        "version": "v2026.8.5"
+        "version": "v2026.8.6"
     },
     "mise-aarch64-linux-bin": {
         "cargoLock": null,
@@ -1009,11 +1009,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JXCJUXVqx/cy+Y4D3M7Ojzi2RMhZmq2028VcYh5u6Gg=",
+            "sha256": "sha256-uSdEzrmgHwuxmL/PK6ScNpGMnkNTo0vlDyPVtuk8KO4=",
             "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.8.5/mise-v2026.8.5-linux-arm64.tar.gz"
+            "url": "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-arm64.tar.gz"
         },
-        "version": "v2026.8.5"
+        "version": "v2026.8.6"
     },
     "mise-x86_64-linux-bin": {
         "cargoLock": null,
@@ -1024,11 +1024,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-8N6SlAg1zmr10OFJba6tfERkxHgEaWc0H6t9Zx0KMWs=",
+            "sha256": "sha256-z+SXhOyWg7OFEIRpWM/s2bWdqE1OijjRj/2hncKUHq0=",
             "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.8.5/mise-v2026.8.5-linux-x64.tar.gz"
+            "url": "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-x64.tar.gz"
         },
-        "version": "v2026.8.5"
+        "version": "v2026.8.6"
     },
     "octorus-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -1149,12 +1149,12 @@
             "name": null,
             "owner": "vercel-labs",
             "repo": "scriptc",
-            "rev": "v0.0.30",
-            "sha256": "sha256-K9oUFnu6eilutgZ8n+vC0+NgfOoa75q6zBBHGvCeNew=",
+            "rev": "v0.0.31",
+            "sha256": "sha256-7VjZGvz4g5sEn0D2XMaPuTaMUMs5lcm/wne4tqmgNgM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.30"
+        "version": "v0.0.31"
     },
     "socks5shim": {
         "cargoLock": null,

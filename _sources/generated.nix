@@ -243,26 +243,26 @@
   };
   ghtkn-aarch64-darwin-bin = {
     pname = "ghtkn-aarch64-darwin-bin";
-    version = "v0.3.6";
+    version = "v0.4.0";
     src = fetchurl {
-      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_darwin_arm64.tar.gz";
-      sha256 = "sha256-s5dntZ2dEkMbegTmJC89/llpPWlTpBsejIwtcQrGQPY=";
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.4.0/ghtkn_darwin_arm64.tar.gz";
+      sha256 = "sha256-tSq6R9nHd+HusgXtS0PSguvgcqdvM+vR5cZpAYffOvc=";
     };
   };
   ghtkn-aarch64-linux-bin = {
     pname = "ghtkn-aarch64-linux-bin";
-    version = "v0.3.6";
+    version = "v0.4.0";
     src = fetchurl {
-      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_linux_arm64.tar.gz";
-      sha256 = "sha256-52ghY9QYDhVimsWeOHrr3rsk4AXf8WcSIaN4Fgk8DcQ=";
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.4.0/ghtkn_linux_arm64.tar.gz";
+      sha256 = "sha256-M6Dh+RU1/AqQDdwI4sGCsd69VlYSQVPECMLJapr8Qjg=";
     };
   };
   ghtkn-x86_64-linux-bin = {
     pname = "ghtkn-x86_64-linux-bin";
-    version = "v0.3.6";
+    version = "v0.4.0";
     src = fetchurl {
-      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.3.6/ghtkn_linux_amd64.tar.gz";
-      sha256 = "sha256-inJfK0RuFgAc8t0wGQyYsez4TJOehi4aI9fm0TazWEo=";
+      url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v0.4.0/ghtkn_linux_amd64.tar.gz";
+      sha256 = "sha256-Lbzc0NQJZv2hNSKyPGUiuMZoLw5xkwExln4PXXDxJSY=";
     };
   };
   gitbucket = {
@@ -275,26 +275,26 @@
   };
   gogcli-aarch64-darwin-bin = {
     pname = "gogcli-aarch64-darwin-bin";
-    version = "0.36.0";
+    version = "0.37.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.36.0/gogcli_0.36.0_darwin_arm64.tar.gz";
-      sha256 = "sha256-XLW1IQh5dpvGoCvZzzntGw3j8HE7OX7L3e/pXdK+YYs=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.37.0/gogcli_0.37.0_darwin_arm64.tar.gz";
+      sha256 = "sha256-ihwMLAJk/cYCzOULREMeEFaSafmOBUq1UDPGUqlrfGE=";
     };
   };
   gogcli-aarch64-linux-bin = {
     pname = "gogcli-aarch64-linux-bin";
-    version = "0.36.0";
+    version = "0.37.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.36.0/gogcli_0.36.0_linux_arm64.tar.gz";
-      sha256 = "sha256-9o48Nck2TepaTlFdE6I6sw3tRkAckNieKVPco5XX/kI=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.37.0/gogcli_0.37.0_linux_arm64.tar.gz";
+      sha256 = "sha256-Sr3pDE50zrEl8/3Ydnb/eVjon3ggl4/6Ed4mruBuchw=";
     };
   };
   gogcli-x86_64-linux-bin = {
     pname = "gogcli-x86_64-linux-bin";
-    version = "0.36.0";
+    version = "0.37.0";
     src = fetchurl {
-      url = "https://github.com/steipete/gogcli/releases/download/v0.36.0/gogcli_0.36.0_linux_amd64.tar.gz";
-      sha256 = "sha256-spD8/pB3iaHvtoWpM24qbH+VmMPACq2o1sQ37ryGyJE=";
+      url = "https://github.com/steipete/gogcli/releases/download/v0.37.0/gogcli_0.37.0_linux_amd64.tar.gz";
+      sha256 = "sha256-kF/tC/q6+l3ecYnlBkKz+jHX/EqtUKjSfSuSBx2HWWI=";
     };
   };
   gotmpl = {
@@ -533,26 +533,26 @@
   };
   mise-aarch64-darwin-bin = {
     pname = "mise-aarch64-darwin-bin";
-    version = "v2026.8.5";
+    version = "v2026.8.6";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.5/mise-v2026.8.5-macos-arm64.tar.gz";
-      sha256 = "sha256-hZg6m4jja6MhG8tLLl+B6o0ncIUn2RAM3oZekvSKPsI=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-macos-arm64.tar.gz";
+      sha256 = "sha256-FO8h0TE9O2mYasaXaHfX/7Qd9x9PuejktXdhz/r/yjs=";
     };
   };
   mise-aarch64-linux-bin = {
     pname = "mise-aarch64-linux-bin";
-    version = "v2026.8.5";
+    version = "v2026.8.6";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.5/mise-v2026.8.5-linux-arm64.tar.gz";
-      sha256 = "sha256-JXCJUXVqx/cy+Y4D3M7Ojzi2RMhZmq2028VcYh5u6Gg=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-arm64.tar.gz";
+      sha256 = "sha256-uSdEzrmgHwuxmL/PK6ScNpGMnkNTo0vlDyPVtuk8KO4=";
     };
   };
   mise-x86_64-linux-bin = {
     pname = "mise-x86_64-linux-bin";
-    version = "v2026.8.5";
+    version = "v2026.8.6";
     src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.5/mise-v2026.8.5-linux-x64.tar.gz";
-      sha256 = "sha256-8N6SlAg1zmr10OFJba6tfERkxHgEaWc0H6t9Zx0KMWs=";
+      url = "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-x64.tar.gz";
+      sha256 = "sha256-z+SXhOyWg7OFEIRpWM/s2bWdqE1OijjRj/2hncKUHq0=";
     };
   };
   octorus-aarch64-darwin-bin = {
@@ -613,13 +613,13 @@
   };
   scriptc = {
     pname = "scriptc";
-    version = "v0.0.30";
+    version = "v0.0.31";
     src = fetchFromGitHub {
       owner = "vercel-labs";
       repo = "scriptc";
-      rev = "v0.0.30";
+      rev = "v0.0.31";
       fetchSubmodules = false;
-      sha256 = "sha256-K9oUFnu6eilutgZ8n+vC0+NgfOoa75q6zBBHGvCeNew=";
+      sha256 = "sha256-7VjZGvz4g5sEn0D2XMaPuTaMUMs5lcm/wne4tqmgNgM=";
     };
   };
   socks5shim = {
