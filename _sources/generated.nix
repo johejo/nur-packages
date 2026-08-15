@@ -644,6 +644,30 @@
       sha256 = "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=";
     };
   };
+  tuicr-aarch64-darwin-bin = {
+    pname = "tuicr-aarch64-darwin-bin";
+    version = "0.22.0";
+    src = fetchurl {
+      url = "https://github.com/agavra/tuicr/releases/download/v0.22.0/tuicr-0.22.0-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-zQ21zQITSpAIEiJo3PAV0ZDRr1GiM1XTkXA5436TiaI=";
+    };
+  };
+  tuicr-aarch64-linux-bin = {
+    pname = "tuicr-aarch64-linux-bin";
+    version = "0.22.0";
+    src = fetchurl {
+      url = "https://github.com/agavra/tuicr/releases/download/v0.22.0/tuicr-0.22.0-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-nj8lj+t/M0ZO9jN9RRNBjtAGNpFFVnBIA5XrMs4D8fY=";
+    };
+  };
+  tuicr-x86_64-linux-bin = {
+    pname = "tuicr-x86_64-linux-bin";
+    version = "0.22.0";
+    src = fetchurl {
+      url = "https://github.com/agavra/tuicr/releases/download/v0.22.0/tuicr-0.22.0-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-+qIhvnW+TL8XXzjR5UfjvUShEI7+6LnRBGUqsHTVuB8=";
+    };
+  };
   xremap-aarch64-linux-bin = {
     pname = "xremap-aarch64-linux-bin";
     version = "0.15.10";

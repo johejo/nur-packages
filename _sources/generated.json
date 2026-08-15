@@ -1198,6 +1198,51 @@
         },
         "version": "v20250818"
     },
+    "tuicr-aarch64-darwin-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "tuicr-aarch64-darwin-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-zQ21zQITSpAIEiJo3PAV0ZDRr1GiM1XTkXA5436TiaI=",
+            "type": "url",
+            "url": "https://github.com/agavra/tuicr/releases/download/v0.22.0/tuicr-0.22.0-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "0.22.0"
+    },
+    "tuicr-aarch64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "tuicr-aarch64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-nj8lj+t/M0ZO9jN9RRNBjtAGNpFFVnBIA5XrMs4D8fY=",
+            "type": "url",
+            "url": "https://github.com/agavra/tuicr/releases/download/v0.22.0/tuicr-0.22.0-aarch64-unknown-linux-musl.tar.gz"
+        },
+        "version": "0.22.0"
+    },
+    "tuicr-x86_64-linux-bin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "tuicr-x86_64-linux-bin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-+qIhvnW+TL8XXzjR5UfjvUShEI7+6LnRBGUqsHTVuB8=",
+            "type": "url",
+            "url": "https://github.com/agavra/tuicr/releases/download/v0.22.0/tuicr-0.22.0-x86_64-unknown-linux-musl.tar.gz"
+        },
+        "version": "0.22.0"
+    },
     "xremap-aarch64-linux-bin": {
         "cargoLock": null,
         "date": null,

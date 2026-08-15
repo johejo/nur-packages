@@ -78,6 +78,7 @@ in
   kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
   mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
   pitchfork-bin = callPackageWithSystemSource ./pitchfork-bin "pitchfork" { };
+  tuicr-bin = callPackageWithSystemSource ./tuicr-bin "tuicr" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
   cclens-bin = callPackageWithSystemSource ./cclens-bin "cclens" { };
   gws-bin = callPackageWithSystemSource ./gws-bin "gws" { };
