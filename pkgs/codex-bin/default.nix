@@ -1,19 +1,15 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   source,
-  autoPatchelfHook,
   installShellFiles,
   versionCheckHook,
-  openssl,
-  libcap,
-  zlib,
   bubblewrap,
   makeWrapper,
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "codex-bin";
   inherit (source) version src;
 
@@ -22,21 +18,9 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     installShellFiles
   ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [
-    autoPatchelfHook
-    makeWrapper
-  ];
+  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ makeWrapper ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
-
-  buildInputs = [
-    stdenv.cc.cc.lib
-    openssl
-  ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [
-    libcap
-    zlib
-  ];
 
   doInstallCheck = true;
 
@@ -61,7 +45,7 @@ stdenv.mkDerivation rec {
 
     postFixupHooks+=(generateCodexCompletions)
   ''
-  + lib.optionalString stdenv.hostPlatform.isLinux ''
+  + lib.optionalString stdenvNoCC.hostPlatform.isLinux ''
     wrapCodexBubblewrap() {
       wrapProgram $out/bin/codex \
         --prefix PATH : ${lib.makeBinPath [ bubblewrap ]}

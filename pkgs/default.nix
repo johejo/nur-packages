@@ -14,7 +14,6 @@ let
     else
       null;
   extractNodeEnv = pkgs.callPackage ../lib/extract-node-env.nix { };
-  libz-rs-sys-cdylib = callPackageWithSource ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
 in
 {
   alerter-bin = callPackageWithSource ./alerter-bin "alerter-bin" { };
@@ -55,7 +54,7 @@ in
     inherit extractNodeEnv;
   };
   jira-cli = callPackageWithSource ./jira-cli "jira-cli" { inherit extractNodeEnv; };
-  codex-bin = callPackageWithSystemSource ./codex-bin "codex" { zlib = libz-rs-sys-cdylib; };
+  codex-bin = callPackageWithSystemSource ./codex-bin "codex" { };
   libduckdb-bin = callPackageWithSystemSource ./libduckdb-bin "libduckdb" { };
   caddy-with-plugins = pkgs.callPackage ./caddy { };
   helm-with-plugins =
@@ -84,7 +83,7 @@ in
   gws-bin = callPackageWithSystemSource ./gws-bin "gws" { };
   ghtkn-bin = callPackageWithSystemSource ./ghtkn-bin "ghtkn" { };
   displayplacer = callPackageWithSource ./displayplacer "displayplacer" { };
-  inherit libz-rs-sys-cdylib;
+  libz-rs-sys-cdylib = callPackageWithSource ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
   xremap-gnome-bin = callPackageWithSystemSource ./xremap-gnome-bin "xremap" { };
   acli-bin = callPackageWithSystemSource ./acli-bin "acli" { };
 }
