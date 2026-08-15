@@ -3,6 +3,7 @@
   stdenv,
   source,
   autoPatchelfHook,
+  libgcc,
   ...
 }:
 
@@ -14,7 +15,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
-  buildInputs = [ stdenv.cc.cc.lib ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ libgcc ];
 
   doInstallCheck = true;
 

@@ -3,6 +3,7 @@
   stdenv,
   source,
   autoPatchelfHook,
+  libgcc,
   versionCheckHook,
   ...
 }:
@@ -18,7 +19,7 @@ stdenv.mkDerivation rec {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
-  buildInputs = [ stdenv.cc.cc.lib ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ libgcc ];
 
   doInstallCheck = true;
   preVersionCheck = ''
