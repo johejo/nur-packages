@@ -1,12 +1,12 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   nodejs,
   source,
   ...
 }:
 
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
 
   nativeBuildInputs = [ nodejs ];

@@ -1,13 +1,13 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   unzip,
   versionCheckHook,
   source,
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "xremap-gnome-bin";
   inherit (source) version src;
 

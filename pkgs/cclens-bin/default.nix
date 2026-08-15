@@ -1,21 +1,21 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   source,
   autoPatchelfHook,
   libgcc,
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "cclens-bin";
   inherit (source) version src;
 
   sourceRoot = ".";
 
-  nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ libgcc ];
+  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ libgcc ];
 
   doInstallCheck = true;
 

@@ -1,18 +1,19 @@
 {
   lib,
   unzip,
-  stdenv,
+  stdenvNoCC,
   autoPatchelfHook,
+  gcc,
   source,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "libduckdb-bin";
   inherit (source) version src;
 
-  nativeBuildInputs = [ unzip ] ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = [ unzip ] ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ stdenv.cc.cc.lib ];
+  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ gcc.cc.lib ];
 
   unpackPhase = ''
     unzip $src
@@ -23,10 +24,10 @@ stdenv.mkDerivation rec {
     cp duckdb.* $out/include/
     mkdir -p $out/lib
   ''
-  + lib.optionalString stdenv.hostPlatform.isLinux ''
+  + lib.optionalString stdenvNoCC.hostPlatform.isLinux ''
     cp libduckdb.so $out/lib/libduckdb.so
   ''
-  + lib.optionalString stdenv.hostPlatform.isDarwin ''
+  + lib.optionalString stdenvNoCC.hostPlatform.isDarwin ''
     cp libduckdb.dylib $out/lib/libduckdb.dylib
   ''
   + ''

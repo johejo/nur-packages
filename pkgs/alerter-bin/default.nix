@@ -1,12 +1,12 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   unzip,
   versionCheckHook,
   source,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "alerter-bin";
   inherit (source) version src;
 

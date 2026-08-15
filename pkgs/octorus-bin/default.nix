@@ -1,13 +1,14 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   source,
   autoPatchelfHook,
+  gcc,
   versionCheckHook,
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "octorus-bin";
   inherit (source) version src;
 
@@ -16,9 +17,9 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     versionCheckHook
   ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ stdenv.cc.cc.lib ];
+  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ gcc.cc.lib ];
 
   doInstallCheck = true;
   preVersionCheck = ''

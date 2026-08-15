@@ -1,12 +1,12 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   versionCheckHook,
   source,
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "kubernetes-mcp-server-bin";
   inherit (source) version src;
 

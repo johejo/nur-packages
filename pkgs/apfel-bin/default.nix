@@ -1,11 +1,11 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   versionCheckHook,
   source,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "apfel-bin";
   inherit (source) version src;
 

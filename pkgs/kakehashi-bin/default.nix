@@ -1,6 +1,6 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   source,
   autoPatchelfHook,
   libgcc,
@@ -8,7 +8,7 @@
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "kakehashi-bin";
   inherit (source) version src;
 
@@ -17,9 +17,9 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     versionCheckHook
   ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ libgcc ];
+  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ libgcc ];
 
   doInstallCheck = true;
   preVersionCheck = ''

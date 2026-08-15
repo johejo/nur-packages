@@ -1,6 +1,6 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   installShellFiles,
   versionCheckHook,
   source,
@@ -8,10 +8,10 @@
 }:
 
 let
-  installShellCompletions = stdenv.buildPlatform.canExecute stdenv.hostPlatform;
+  installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
 in
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "gogcli-bin";
   inherit (source) version src;
 

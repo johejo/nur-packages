@@ -1,6 +1,6 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   source,
   installShellFiles,
   versionCheckHook,
@@ -8,9 +8,9 @@
 }:
 
 let
-  installShellCompletions = stdenv.buildPlatform.canExecute stdenv.hostPlatform;
+  installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
 in
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "ghtkn-bin";
   inherit (source) version src;
 

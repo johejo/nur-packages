@@ -1,6 +1,6 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   installShellFiles,
   kwokSource,
   kwokctlSource,
@@ -11,10 +11,10 @@ let
   version =
     assert kwokSource.version == kwokctlSource.version;
     kwokSource.version;
-  installShellCompletions = stdenv.buildPlatform.canExecute stdenv.hostPlatform;
+  installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
 in
 
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "kwok-bin";
   inherit version;
 
