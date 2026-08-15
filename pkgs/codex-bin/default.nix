@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     installShellFiles
   ]
-  ++ lib.optionals stdenv.isLinux [
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
     autoPatchelfHook
     makeWrapper
   ];
@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
     stdenv.cc.cc.lib
     openssl
   ]
-  ++ lib.optionals stdenv.isLinux [
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
     libcap
     zlib
   ];
@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
 
     postFixupHooks+=(generateCodexCompletions)
   ''
-  + lib.optionalString stdenv.isLinux ''
+  + lib.optionalString stdenv.hostPlatform.isLinux ''
     wrapCodexBubblewrap() {
       wrapProgram $out/bin/codex \
         --prefix PATH : ${lib.makeBinPath [ bubblewrap ]}

@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   pname = "libduckdb-bin";
   inherit (source) version src;
 
-  nativeBuildInputs = [ unzip ] ++ lib.optionals stdenv.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = [ unzip ] ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   buildInputs = [ stdenv.cc.cc.lib ];
 
@@ -23,10 +23,10 @@ stdenv.mkDerivation rec {
     cp duckdb.* $out/include/
     mkdir -p $out/lib
   ''
-  + lib.optionalString stdenv.isLinux ''
+  + lib.optionalString stdenv.hostPlatform.isLinux ''
     cp libduckdb.so $out/lib/libduckdb.so
   ''
-  + lib.optionalString stdenv.isDarwin ''
+  + lib.optionalString stdenv.hostPlatform.isDarwin ''
     cp libduckdb.dylib $out/lib/libduckdb.dylib
   ''
   + ''

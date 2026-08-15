@@ -15,11 +15,11 @@ rustPlatform.buildRustPackage {
   buildAndTestSubdir = "libz-rs-sys-cdylib";
   cargoLock = source.cargoLock."libz-rs-sys-cdylib/Cargo.lock";
 
-  nativeBuildInputs = lib.optionals stdenv.isLinux [ patchelf ];
+  nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ patchelf ];
 
   doCheck = false;
 
-  postBuild = lib.optionalString stdenv.isLinux ''
+  postBuild = lib.optionalString stdenv.hostPlatform.isLinux ''
     targetDir="target/${stdenv.hostPlatform.rust.rustcTarget}/release"
 
     ${stdenv.cc.targetPrefix}cc \
@@ -35,12 +35,12 @@ rustPlatform.buildRustPackage {
     runHook preInstall
     mkdir -p $out/lib
   ''
-  + lib.optionalString stdenv.isLinux ''
+  + lib.optionalString stdenv.hostPlatform.isLinux ''
     install -Dm755 target/${stdenv.hostPlatform.rust.rustcTarget}/release/libz.so.1 $out/lib/libz.so.1
     ln -s libz.so.1 $out/lib/libz.so
     patchelf --set-soname libz.so.1 $out/lib/libz.so.1
   ''
-  + lib.optionalString stdenv.isDarwin ''
+  + lib.optionalString stdenv.hostPlatform.isDarwin ''
     install -Dm755 target/${stdenv.hostPlatform.rust.rustcTarget}/release/libz_rs.dylib $out/lib/libz.1.dylib
     ln -s libz.1.dylib $out/lib/libz.dylib
   ''
