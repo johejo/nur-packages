@@ -3,6 +3,8 @@
   unzip,
   stdenvNoCC,
   autoPatchelfHook,
+  cctools,
+  fixDarwinDylibNames,
   gcc,
   source,
 }:
@@ -11,7 +13,14 @@ stdenvNoCC.mkDerivation rec {
   pname = "libduckdb-bin";
   inherit (source) version src;
 
-  nativeBuildInputs = [ unzip ] ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = [
+    unzip
+  ]
+  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ]
+  ++ lib.optionals stdenvNoCC.hostPlatform.isDarwin [
+    cctools
+    fixDarwinDylibNames
+  ];
 
   buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ gcc.cc.lib ];
 
