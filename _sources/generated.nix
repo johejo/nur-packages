@@ -633,6 +633,30 @@
       sha256 = "sha256-7VjZGvz4g5sEn0D2XMaPuTaMUMs5lcm/wne4tqmgNgM=";
     };
   };
+  shelley-aarch64-darwin-bin = {
+    pname = "shelley-aarch64-darwin-bin";
+    version = "v0.956.955465414";
+    src = fetchurl {
+      url = "https://github.com/boldsoftware/shelley/releases/download/v0.956.955465414/shelley_darwin_arm64";
+      sha256 = "sha256-kclGfkraJwHX4Y6jUSgVsnKzCvUBGARVZ/GRKrlB2Hs=";
+    };
+  };
+  shelley-aarch64-linux-bin = {
+    pname = "shelley-aarch64-linux-bin";
+    version = "v0.956.955465414";
+    src = fetchurl {
+      url = "https://github.com/boldsoftware/shelley/releases/download/v0.956.955465414/shelley_linux_arm64";
+      sha256 = "sha256-LeUtNb4F7CytIPAoZP69AwYOP9vza3ZlPvAd1Rfqk1w=";
+    };
+  };
+  shelley-x86_64-linux-bin = {
+    pname = "shelley-x86_64-linux-bin";
+    version = "v0.956.955465414";
+    src = fetchurl {
+      url = "https://github.com/boldsoftware/shelley/releases/download/v0.956.955465414/shelley_linux_amd64";
+      sha256 = "sha256-l7swqKbkfImJsnEAjKEY9ycG3rgfwQh5CDLrlOB1RH0=";
+    };
+  };
   socks5shim = {
     pname = "socks5shim";
     version = "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289";

@@ -331,3 +331,15 @@ fetch.github = "johejo/awsigv4-proxy"
 [scriptc]
 src.github_tag = "vercel-labs/scriptc"
 fetch.github = "vercel-labs/scriptc"
+
+[shelley-aarch64-darwin-bin]
+src.github = "boldsoftware/shelley"
+fetch.url = "https://github.com/boldsoftware/shelley/releases/download/$ver/shelley_darwin_arm64"
+
+[shelley-x86_64-linux-bin]
+src.github = "boldsoftware/shelley"
+fetch.url = "https://github.com/boldsoftware/shelley/releases/download/$ver/shelley_linux_amd64"
+
+[shelley-aarch64-linux-bin]
+src.github = "boldsoftware/shelley"
+fetch.url = "https://github.com/boldsoftware/shelley/releases/download/$ver/shelley_linux_arm64"

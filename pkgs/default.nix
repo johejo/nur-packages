@@ -88,4 +88,5 @@ in
   libz-rs-sys-cdylib = callPackageWithSource ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
   xremap-gnome-bin = callPackageWithSystemSource ./xremap-gnome-bin "xremap" { };
   acli-bin = callPackageWithSystemSource ./acli-bin "acli" { };
+  shelley-bin = callPackageWithSystemSource ./shelley-bin "shelley" { };
 }
