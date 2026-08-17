@@ -1170,12 +1170,12 @@
             "name": null,
             "owner": "vercel-labs",
             "repo": "scriptc",
-            "rev": "v0.0.31",
-            "sha256": "sha256-7VjZGvz4g5sEn0D2XMaPuTaMUMs5lcm/wne4tqmgNgM=",
+            "rev": "v0.0.32",
+            "sha256": "sha256-FeuYMqjYwhMkY2bUE24eFf4kRoPQ8AVvpazEvdnJJc0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.31"
+        "version": "v0.0.32"
     },
     "shelley-aarch64-darwin-bin": {
         "cargoLock": null,
@@ -1318,11 +1318,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-SKWop5PHrNIZdHR8MASMONeiFcQt7KyAA8Wx7U/5RwU=",
+            "sha256": "sha256-VxOjSNk9zVSY/BleEp9D1N2q0OPtcLeKWyBB+NIl3QY=",
             "type": "url",
-            "url": "https://github.com/xremap/xremap/releases/download/v0.15.10/xremap-linux-aarch64-gnome.zip"
+            "url": "https://github.com/xremap/xremap/releases/download/v0.15.11/xremap-linux-aarch64-gnome.zip"
         },
-        "version": "0.15.10"
+        "version": "0.15.11"
     },
     "xremap-x86_64-linux-bin": {
         "cargoLock": null,
@@ -1333,11 +1333,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-SvnYRuFqQanhH+K+pnj8foc5veeMpqAg+FKWFPMMgss=",
+            "sha256": "sha256-ux5jYzGtpIH4jM9NQZNMuw5TfWyKSADOTgkPJfjzM5s=",
             "type": "url",
-            "url": "https://github.com/xremap/xremap/releases/download/v0.15.10/xremap-linux-x86_64-gnome.zip"
+            "url": "https://github.com/xremap/xremap/releases/download/v0.15.11/xremap-linux-x86_64-gnome.zip"
         },
-        "version": "0.15.10"
+        "version": "0.15.11"
     },
     "yamcel": {
         "cargoLock": null,

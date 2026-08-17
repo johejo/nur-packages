@@ -624,13 +624,13 @@
   };
   scriptc = {
     pname = "scriptc";
-    version = "v0.0.31";
+    version = "v0.0.32";
     src = fetchFromGitHub {
       owner = "vercel-labs";
       repo = "scriptc";
-      rev = "v0.0.31";
+      rev = "v0.0.32";
       fetchSubmodules = false;
-      sha256 = "sha256-7VjZGvz4g5sEn0D2XMaPuTaMUMs5lcm/wne4tqmgNgM=";
+      sha256 = "sha256-FeuYMqjYwhMkY2bUE24eFf4kRoPQ8AVvpazEvdnJJc0=";
     };
   };
   shelley-aarch64-darwin-bin = {
@@ -705,18 +705,18 @@
   };
   xremap-aarch64-linux-bin = {
     pname = "xremap-aarch64-linux-bin";
-    version = "0.15.10";
+    version = "0.15.11";
     src = fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/v0.15.10/xremap-linux-aarch64-gnome.zip";
-      sha256 = "sha256-SKWop5PHrNIZdHR8MASMONeiFcQt7KyAA8Wx7U/5RwU=";
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.11/xremap-linux-aarch64-gnome.zip";
+      sha256 = "sha256-VxOjSNk9zVSY/BleEp9D1N2q0OPtcLeKWyBB+NIl3QY=";
     };
   };
   xremap-x86_64-linux-bin = {
     pname = "xremap-x86_64-linux-bin";
-    version = "0.15.10";
+    version = "0.15.11";
     src = fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/v0.15.10/xremap-linux-x86_64-gnome.zip";
-      sha256 = "sha256-SvnYRuFqQanhH+K+pnj8foc5veeMpqAg+FKWFPMMgss=";
+      url = "https://github.com/xremap/xremap/releases/download/v0.15.11/xremap-linux-x86_64-gnome.zip";
+      sha256 = "sha256-ux5jYzGtpIH4jM9NQZNMuw5TfWyKSADOTgkPJfjzM5s=";
     };
   };
   yamcel = {
