@@ -122,6 +122,18 @@ fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-x86_64
 src.github = "openai/codex"
 fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-aarch64-unknown-linux-musl.tar.gz"
 
+[codex-code-mode-host-aarch64-darwin-bin]
+src.github = "openai/codex"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-code-mode-host-aarch64-apple-darwin.tar.gz"
+
+[codex-code-mode-host-x86_64-linux-bin]
+src.github = "openai/codex"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz"
+
+[codex-code-mode-host-aarch64-linux-bin]
+src.github = "openai/codex"
+fetch.url = "https://github.com/openai/codex/releases/download/$ver/codex-code-mode-host-aarch64-unknown-linux-musl.tar.gz"
+
 [kakehashi-aarch64-darwin-bin]
 src.github = "atusy/kakehashi"
 fetch.url = "https://github.com/atusy/kakehashi/releases/download/$ver/kakehashi-$ver-aarch64-apple-darwin.tar.gz"

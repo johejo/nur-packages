@@ -54,7 +54,10 @@ in
     inherit extractNodeEnv;
   };
   jira-cli = callPackageWithSource ./jira-cli "jira-cli" { inherit extractNodeEnv; };
-  codex-bin = callPackageWithSystemSource ./codex-bin "codex" { };
+  codex-bin = pkgs.callPackage ./codex-bin {
+    source = sources."codex-${system}-bin";
+    codeModeHostSource = sources."codex-code-mode-host-${system}-bin";
+  };
   libduckdb-bin = callPackageWithSystemSource ./libduckdb-bin "libduckdb" { };
   caddy-with-plugins = pkgs.callPackage ./caddy { };
   helm-with-plugins =

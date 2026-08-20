@@ -2,6 +2,7 @@
   lib,
   stdenvNoCC,
   source,
+  codeModeHostSource,
   installShellFiles,
   versionCheckHook,
   bubblewrap,
@@ -11,7 +12,10 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "codex-bin";
-  inherit (source) version src;
+  version =
+    assert source.version == codeModeHostSource.version;
+    source.version;
+  inherit (source) src;
 
   sourceRoot = ".";
 
@@ -32,6 +36,8 @@ stdenvNoCC.mkDerivation rec {
     runHook preInstall
     mkdir -p $out/bin
     install -Dm755 codex-* $out/bin/codex
+    tar -xzf ${codeModeHostSource.src}
+    install -Dm755 codex-code-mode-host-* $out/bin/codex-code-mode-host
     runHook postInstall
   '';
 
