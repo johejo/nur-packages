@@ -85,7 +85,6 @@ in
   tuicr-bin = callPackageWithSystemSource ./tuicr-bin "tuicr" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
   cclens-bin = callPackageWithSystemSource ./cclens-bin "cclens" { };
-  gws-bin = callPackageWithSystemSource ./gws-bin "gws" { };
   ghtkn-bin = callPackageWithSystemSource ./ghtkn-bin "ghtkn" { };
   displayplacer = callPackageWithSource ./displayplacer "displayplacer" { };
   libz-rs-sys-cdylib = callPackageWithSource ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };

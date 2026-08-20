@@ -343,30 +343,6 @@
       sha256 = "sha256-z1AFVLo8c1EB4vibyL7bwDguTVQXOgPHvXF42YpW8lA=";
     };
   };
-  gws-aarch64-darwin-bin = {
-    pname = "gws-aarch64-darwin-bin";
-    version = "v0.22.5";
-    src = fetchurl {
-      url = "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-apple-darwin.tar.gz";
-      sha256 = "sha256-HSqf/VvJssLEtIYw2vCC+tE9nlfXQZiKLCSO7VYvfaw=";
-    };
-  };
-  gws-aarch64-linux-bin = {
-    pname = "gws-aarch64-linux-bin";
-    version = "v0.22.5";
-    src = fetchurl {
-      url = "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-lEkCldlYDh6IV05xWgoWKZF0fRLWL4x7jcyCaLbBzqA=";
-    };
-  };
-  gws-x86_64-linux-bin = {
-    pname = "gws-x86_64-linux-bin";
-    version = "v0.22.5";
-    src = fetchurl {
-      url = "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-3njs29LxqEzKAGOn7LxEAkD8FLbrzLsX9GRreSqMXB8=";
-    };
-  };
   hev-socks5-server = {
     pname = "hev-socks5-server";
     version = "2.13.1";

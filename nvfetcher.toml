@@ -224,18 +224,6 @@ fetch.url = "https://install.duckdb.org/$ver/libduckdb-osx-universal.zip"
 src.github = "duckdb/duckdb"
 fetch.url = "https://install.duckdb.org/$ver/libduckdb-linux-amd64.zip"
 
-[gws-aarch64-darwin-bin]
-src.github = "googleworkspace/cli"
-fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-apple-darwin.tar.gz"
-
-[gws-x86_64-linux-bin]
-src.github = "googleworkspace/cli"
-fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz"
-
-[gws-aarch64-linux-bin]
-src.github = "googleworkspace/cli"
-fetch.url = "https://github.com/googleworkspace/cli/releases/download/$ver/google-workspace-cli-aarch64-unknown-linux-gnu.tar.gz"
-
 [ghtkn-aarch64-darwin-bin]
 src.cmd = "gh api repos/suzuki-shunsuke/ghtkn/releases/latest --jq .tag_name"
 fetch.url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/$ver/ghtkn_darwin_arm64.tar.gz"
