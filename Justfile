@@ -22,3 +22,17 @@ update-all:
         while IFS="$(printf '\t')" read -r system package; do
             nix-update "$package" --flake --use-update-script --system="$system"
         done
+
+# Update all locally versioned packages in parallel.
+update-all-parallel jobs="4":
+    #!/usr/bin/env sh
+    set -eu
+    export NIXPKGS_ALLOW_UNFREE=1
+    export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
+    nix eval --impure --raw --file ./lib/update-targets.nix |
+        xargs -n 2 -P "{{ jobs }}" sh -c '
+            system="$1"
+            package="$2"
+            echo "Updating $package ($system)"
+            nix-update "$package" --flake --use-update-script --system="$system"
+        ' sh
