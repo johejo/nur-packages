@@ -1,11 +1,12 @@
+export NIXPKGS_ALLOW_UNFREE := "1"
+export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM := "1"
+
 # Update one package through passthru.updateScript.
 update package:
     #!/usr/bin/env sh
     set -eu
-    export NIXPKGS_ALLOW_UNFREE=1
-    export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
-    targets="$(nix eval --impure --raw --file ./lib/update-targets.nix)"
-    system="$(printf '%s\n' "$targets" | awk -F '\t' -v package='{{ package }}' '$2 == package { print $1; exit }')"
+    system="$(nix eval --impure --json --file ./lib/update-targets.nix |
+        jq -r --arg package "{{ package }}" '.[$package] // empty')"
     if [ -z "$system" ]; then
         echo "No package with passthru.updateScript: {{ package }}" >&2
         exit 1
@@ -13,26 +14,12 @@ update package:
     sh ./lib/run-update.sh "$system" "{{ package }}"
 
 # Update all locally versioned packages through passthru.updateScript.
-update-all:
-    #!/usr/bin/env sh
-    set -eu
-    export NIXPKGS_ALLOW_UNFREE=1
-    export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
-    nix eval --impure --raw --file ./lib/update-targets.nix |
-        while IFS="$(printf '\t')" read -r system package; do
-            sh ./lib/run-update.sh "$system" "$package"
-        done
+update-all: (update-all-parallel "1")
 
 # Update all locally versioned packages in parallel.
 update-all-parallel jobs="4":
     #!/usr/bin/env sh
     set -eu
-    export NIXPKGS_ALLOW_UNFREE=1
-    export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
-    nix eval --impure --raw --file ./lib/update-targets.nix |
-        xargs -n 2 -P "{{ jobs }}" sh -c '
-            system="$1"
-            package="$2"
-            echo "Updating $package ($system)"
-            sh ./lib/run-update.sh "$system" "$package"
-        ' sh
+    nix eval --impure --json --file ./lib/update-targets.nix |
+        jq --raw-output0 'to_entries[] | .value, .key' |
+        xargs -0 -n 2 -P "{{ jobs }}" sh ./lib/run-update.sh

@@ -6,22 +6,13 @@ let
       [ builtins.currentSystem ] ++ builtins.filter (system: system != builtins.currentSystem) systems
     else
       systems;
-  hasUpdateScript =
-    system: name:
-    builtins.hasAttr name flake.packages.${system}
-    && flake.packages.${system}.${name}.passthru ? updateScript;
-  names = builtins.foldl' (
-    result: system:
-    builtins.foldl' (
-      names: name:
-      if hasUpdateScript system name && !builtins.elem name names then names ++ [ name ] else names
-    ) result (builtins.attrNames flake.packages.${system})
-  ) [ ] orderedSystems;
-  targetFor =
-    name:
-    let
-      system = builtins.head (builtins.filter (system: hasUpdateScript system name) orderedSystems);
-    in
-    "${system}\t${name}";
+  hasUpdateScript = system: package: flake.packages.${system}.${package}.passthru ? updateScript;
+  targetsFor =
+    system:
+    map (package: {
+      name = package;
+      value = system;
+    }) (builtins.filter (hasUpdateScript system) (builtins.attrNames flake.packages.${system}));
 in
-builtins.concatStringsSep "\n" (map targetFor names) + "\n"
+# The first duplicate wins, so orderedSystems also defines the preferred system.
+builtins.listToAttrs (builtins.concatMap targetsFor orderedSystems)
