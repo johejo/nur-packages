@@ -8,19 +8,19 @@
 }:
 
 let
-  version = "0.956.955465414";
+  version = "0.995.973715435";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_darwin_arm64";
-      hash = "sha256-kclGfkraJwHX4Y6jUSgVsnKzCvUBGARVZ/GRKrlB2Hs=";
+      hash = "sha256-p+3kXP9JQetxLbfM8igxHSQUvo26HQR9UxBBl1vVXP8=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_linux_amd64";
-      hash = "sha256-l7swqKbkfImJsnEAjKEY9ycG3rgfwQh5CDLrlOB1RH0=";
+      hash = "sha256-E53/RkXq+QZRZEBJBjRwaC2BbnfZ2SvVYoeezD4gIaA=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_linux_arm64";
-      hash = "sha256-LeUtNb4F7CytIPAoZP69AwYOP9vza3ZlPvAd1Rfqk1w=";
+      hash = "sha256-/qXS5WkmWDFTYUo/Ey9ORsh8V812gz5r/VtmvkU99MM=";
     };
   };
 in
@@ -51,6 +51,7 @@ stdenvNoCC.mkDerivation rec {
     aarch64LinuxSrc = sources.aarch64-linux;
     updateScript = nix-update-script {
       extraArgs = [
+        "--version-regex=v(.*)"
         "--custom-dep=aarch64DarwinSrc"
         "--custom-dep=x86_64LinuxSrc"
         "--custom-dep=aarch64LinuxSrc"

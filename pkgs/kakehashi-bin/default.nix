@@ -10,19 +10,19 @@
 }:
 
 let
-  version = "0.10.0";
+  version = "1.0.0";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/atusy/kakehashi/releases/download/v${version}/kakehashi-v${version}-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-h74rgZ5xlZTavTdRezGz44cFzE01Z2GDE8XWiULMHI8=";
+      hash = "sha256-RCHuPqtaIrO2f/6bQqMD5TNZuZUf3zGfjJWHw2uvSxc=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/atusy/kakehashi/releases/download/v${version}/kakehashi-v${version}-x86_64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-2bwagj33LKEi/zufSXeOxbTFn8hUtGm2fV2FC7W942Q=";
+      hash = "sha256-R9QLFm85h0QqnGJP+j1QU3t7e5SiOmfNZjhX8y2mPtA=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/atusy/kakehashi/releases/download/v${version}/kakehashi-v${version}-aarch64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-3CcRS49Uqw6c/UoB/0225U3Kk3emMIt8pEfeOaaifxw=";
+      hash = "sha256-xoUOspVDg4A4b3EcqFHtmnRzEOPmdz08YLNceU6brzQ=";
     };
   };
 in
@@ -58,6 +58,7 @@ stdenvNoCC.mkDerivation rec {
     aarch64LinuxSrc = sources.aarch64-linux;
     updateScript = nix-update-script {
       extraArgs = [
+        "--version-regex=v(.*)"
         "--custom-dep=aarch64DarwinSrc"
         "--custom-dep=x86_64LinuxSrc"
         "--custom-dep=aarch64LinuxSrc"
