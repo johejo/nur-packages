@@ -25,8 +25,6 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-PWg8LVZJxURxZXoly17fMJ29rRFij8lvL59H2cHtG7U=";
   };
 
-  patches = [ ./vendor-cache.patch ];
-
   postPatch = ''
     substituteInPlace pnpm-workspace.yaml \
       --replace-fail "allowBuilds:" $'injectWorkspacePackages: true\nallowBuilds:'
