@@ -1,19 +1,36 @@
 {
   lib,
   stdenvNoCC,
+  fetchurl,
+  nix-update-script,
   installShellFiles,
   versionCheckHook,
-  source,
   ...
 }:
 
 let
   installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
+  version = "0.37.0";
+  sources = {
+    aarch64-darwin = fetchurl {
+      url = "https://github.com/steipete/gogcli/releases/download/v${version}/gogcli_${version}_darwin_arm64.tar.gz";
+      hash = "sha256-ihwMLAJk/cYCzOULREMeEFaSafmOBUq1UDPGUqlrfGE=";
+    };
+    x86_64-linux = fetchurl {
+      url = "https://github.com/steipete/gogcli/releases/download/v${version}/gogcli_${version}_linux_amd64.tar.gz";
+      hash = "sha256-kF/tC/q6+l3ecYnlBkKz+jHX/EqtUKjSfSuSBx2HWWI=";
+    };
+    aarch64-linux = fetchurl {
+      url = "https://github.com/steipete/gogcli/releases/download/v${version}/gogcli_${version}_linux_arm64.tar.gz";
+      hash = "sha256-Sr3pDE50zrEl8/3Ydnb/eVjon3ggl4/6Ed4mruBuchw=";
+    };
+  };
 in
 
 stdenvNoCC.mkDerivation rec {
   pname = "gogcli-bin";
-  inherit (source) version src;
+  inherit version;
+  src = sources.${stdenvNoCC.hostPlatform.system};
 
   sourceRoot = ".";
 
@@ -39,6 +56,20 @@ stdenvNoCC.mkDerivation rec {
       --fish <($out/bin/gog completion fish) \
       --zsh <($out/bin/gog completion zsh)
   '';
+
+  passthru = {
+    aarch64DarwinSrc = sources.aarch64-darwin;
+    x86_64LinuxSrc = sources.x86_64-linux;
+    aarch64LinuxSrc = sources.aarch64-linux;
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--url=https://github.com/openclaw/gogcli"
+        "--custom-dep=aarch64DarwinSrc"
+        "--custom-dep=x86_64LinuxSrc"
+        "--custom-dep=aarch64LinuxSrc"
+      ];
+    };
+  };
 
   meta = {
     homepage = "https://github.com/openclaw/gogcli";

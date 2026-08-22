@@ -1,15 +1,34 @@
 {
   lib,
   stdenvNoCC,
+  fetchurl,
+  nix-update-script,
   autoPatchelfHook,
   versionCheckHook,
-  source,
   ...
 }:
 
+let
+  version = "2.1.20";
+  sources = {
+    aarch64-darwin = fetchurl {
+      url = "https://github.com/project-zot/zot/releases/download/v${version}/zot-darwin-arm64";
+      hash = "sha256-e9reK/ymL1RmxT3FbdIjela40yFYStXkuHyE+JF8ClE=";
+    };
+    x86_64-linux = fetchurl {
+      url = "https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-amd64";
+      hash = "sha256-oy5C0ELR8XtbExflXMGkFadEyHPc0FwlxWtmVHgli8s=";
+    };
+    aarch64-linux = fetchurl {
+      url = "https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-arm64";
+      hash = "sha256-1qOUdVh74Y7D1C4NK/pQ9cUGTLvNwiLb2I5V7Pad2Ok=";
+    };
+  };
+in
 stdenvNoCC.mkDerivation rec {
   pname = "zot-bin";
-  inherit (source) version src;
+  inherit version;
+  src = sources.${stdenvNoCC.hostPlatform.system};
 
   dontUnpack = true;
 
@@ -32,10 +51,23 @@ stdenvNoCC.mkDerivation rec {
     runHook postInstall
   '';
 
+  passthru = {
+    aarch64DarwinSrc = sources.aarch64-darwin;
+    x86_64LinuxSrc = sources.x86_64-linux;
+    aarch64LinuxSrc = sources.aarch64-linux;
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--custom-dep=aarch64DarwinSrc"
+        "--custom-dep=x86_64LinuxSrc"
+        "--custom-dep=aarch64LinuxSrc"
+      ];
+    };
+  };
+
   meta = {
     description = "Production-ready vendor-neutral OCI-native container image registry";
     homepage = "https://zotregistry.dev";
-    changelog = "https://github.com/project-zot/zot/releases/tag/${version}";
+    changelog = "https://github.com/project-zot/zot/releases/tag/v${version}";
     license = lib.licenses.asl20;
     mainProgram = "zot";
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];

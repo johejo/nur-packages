@@ -1,15 +1,34 @@
 {
   lib,
   stdenvNoCC,
-  source,
+  fetchurl,
+  nix-update-script,
   installShellFiles,
   versionCheckHook,
   ...
 }:
 
+let
+  version = "1.1.0";
+  sources = {
+    aarch64-darwin = fetchurl {
+      url = "https://github.com/grafana/gcx/releases/download/v${version}/gcx_${version}_darwin_arm64.tar.gz";
+      hash = "sha256-oeHmK1RwDYKezjzEoBNXDg7/PIcujBGZGGbtWKZwFwk=";
+    };
+    x86_64-linux = fetchurl {
+      url = "https://github.com/grafana/gcx/releases/download/v${version}/gcx_${version}_linux_amd64.tar.gz";
+      hash = "sha256-DHhn6Z9XhrfhtepEnPVAwUtn9AwcksD5MDHqouDDjfk=";
+    };
+    aarch64-linux = fetchurl {
+      url = "https://github.com/grafana/gcx/releases/download/v${version}/gcx_${version}_linux_arm64.tar.gz";
+      hash = "sha256-TTm3ClaRBFt+OB/TeXa3WYiSaTH2zxhGmERAmQmWkuE=";
+    };
+  };
+in
 stdenvNoCC.mkDerivation rec {
   pname = "gcx-bin";
-  inherit (source) version src;
+  inherit version;
+  src = sources.${stdenvNoCC.hostPlatform.system};
 
   sourceRoot = ".";
 
@@ -32,6 +51,19 @@ stdenvNoCC.mkDerivation rec {
       --zsh <($out/bin/gcx completion zsh)
     runHook postInstall
   '';
+
+  passthru = {
+    aarch64DarwinSrc = sources.aarch64-darwin;
+    x86_64LinuxSrc = sources.x86_64-linux;
+    aarch64LinuxSrc = sources.aarch64-linux;
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--custom-dep=aarch64DarwinSrc"
+        "--custom-dep=x86_64LinuxSrc"
+        "--custom-dep=aarch64LinuxSrc"
+      ];
+    };
+  };
 
   meta = {
     description = "Grafana CLI";

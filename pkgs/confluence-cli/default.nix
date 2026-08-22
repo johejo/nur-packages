@@ -3,11 +3,12 @@
   buildNpmPackage,
   deno,
   extractNodeEnv,
+  fetchFromGitHub,
   importNpmLock,
   jq,
   makeWrapper,
+  nix-update-script,
   versionCheckHook,
-  source,
   ...
 }:
 
@@ -30,9 +31,15 @@ let
     "no_proxy"
   ];
 in
-buildNpmPackage {
-  inherit (source) pname src;
-  version = lib.removePrefix "v" source.version;
+buildNpmPackage rec {
+  pname = "confluence-cli";
+  version = "2.20.0";
+  src = fetchFromGitHub {
+    owner = "pchuri";
+    repo = "confluence-cli";
+    tag = "v${version}";
+    hash = "sha256-xXy1wnBJ5B2oHSmlO4TOz0oveelIuB6hj1w71Btqb6U=";
+  };
 
   postPatch = ''
     mv bin/index.js bin/index.cjs
@@ -40,7 +47,7 @@ buildNpmPackage {
       --replace-fail "bin/index.js" "bin/index.cjs"
   '';
 
-  npmDeps = importNpmLock { npmRoot = source.src; };
+  npmDeps = importNpmLock { npmRoot = src; };
 
   npmConfigHook = importNpmLock.npmConfigHook;
 
@@ -100,6 +107,8 @@ buildNpmPackage {
     "$out/bin/confluence" --help > /dev/null
     "$out/bin/confluence-cli" --help > /dev/null
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "A command-line interface for Atlassian Confluence with page creation and editing capabilities";

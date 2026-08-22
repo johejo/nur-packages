@@ -1,14 +1,23 @@
 {
   lib,
   buildGoModule,
-  source,
+  fetchFromGitHub,
+  nix-update-script,
   ...
 }:
 
-buildGoModule {
-  inherit (source) pname version src;
+buildGoModule rec {
+  pname = "aws-sigv4-proxy";
+  version = "1.12";
+  src = fetchFromGitHub {
+    owner = "awslabs";
+    repo = "aws-sigv4-proxy";
+    tag = "v${version}";
+    hash = "sha256-U0Jxe52bmV+QaS+mKNdW+VzzCtulRL1ZanbWxp4oqcs=";
+  };
   subPackages = [ "cmd/aws-sigv4-proxy" ];
   vendorHash = null; # module is vendored upstream
+  passthru.updateScript = nix-update-script { };
 
   ldflags = [
     "-s"

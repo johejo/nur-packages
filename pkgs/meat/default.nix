@@ -1,14 +1,22 @@
 {
   lib,
   buildGoModule,
+  fetchFromGitHub,
+  nix-update-script,
   gitMinimal,
   makeWrapper,
-  source,
   ...
 }:
 
 buildGoModule {
-  inherit (source) pname version src;
+  pname = "meat";
+  version = "0-unstable-2026-08-03";
+  src = fetchFromGitHub {
+    owner = "boldsoftware";
+    repo = "meat";
+    rev = "f39f41dfe7b5b37a12b35fdfbaecc7e779855bd3";
+    hash = "sha256-fj04sdMiwPxh4F+kBpF5c+YYeKnKCDD9dsIgwAGPoK4=";
+  };
 
   subPackages = [ "cmd/meat" ];
   vendorHash = null;
@@ -36,6 +44,8 @@ buildGoModule {
   postInstallCheck = ''
     $out/bin/meat -h
   '';
+
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch=main" ]; };
 
   meta = {
     description = "Abridge a code diff into a reading diff";

@@ -8,12 +8,12 @@
 
 buildGoModule rec {
   pname = "starlink-exporter";
-  version = "v20250818";
+  version = "20250818";
 
   src = fetchFromGitHub {
     owner = "clarkzjw";
     repo = "starlink_exporter";
-    tag = version;
+    tag = "v${version}";
     hash = "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=";
   };
 
@@ -29,7 +29,7 @@ buildGoModule rec {
   meta = {
     description = "Starlink Prometheus Exporter Monitoring Stack";
     homepage = "https://github.com/clarkzjw/starlink_exporter";
-    changelog = "https://github.com/clarkzjw/starlink_exporter/releases/tag/${version}";
+    changelog = "https://github.com/clarkzjw/starlink_exporter/releases/tag/v${version}";
     license = lib.licenses.gpl3Only;
     mainProgram = "starlink_exporter";
   };

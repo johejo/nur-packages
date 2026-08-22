@@ -1,12 +1,20 @@
 {
   lib,
   stdenv,
-  source,
+  fetchFromGitHub,
+  nix-update-script,
   ...
 }:
 
 stdenv.mkDerivation rec {
-  inherit (source) pname version src;
+  pname = "displayplacer";
+  version = "1.4.0";
+  src = fetchFromGitHub {
+    owner = "jakehilborn";
+    repo = "displayplacer";
+    tag = "v${version}";
+    hash = "sha256-BYq8lrS8yE9ARCdAvZxiuC/2vRv6uha++WwKfM37gC0=";
+  };
 
   sourceRoot = "source/src";
 
@@ -16,10 +24,12 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
+  passthru.updateScript = nix-update-script { };
+
   meta = {
     description = "macOS command line utility to configure multi-display resolutions and arrangements. Essentially XRandR for macOS.";
     homepage = "https://github.com/jakehilborn/displayplacer";
-    changelog = "https://github.com/jakehilborn/displayplacer/releases/tag/${version}";
+    changelog = "https://github.com/jakehilborn/displayplacer/releases/tag/v${version}";
     license = lib.licenses.mit;
     mainProgram = "displayplacer";
     platforms = lib.platforms.darwin;

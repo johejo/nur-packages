@@ -1,64 +1,33 @@
 { pkgs, system }:
 let
-  sources = pkgs.callPackage ../_sources/generated.nix { };
-  callPackageWithSource =
-    path: sourceName: args:
-    pkgs.callPackage path (args // { source = sources.${sourceName}; });
-  callPackageWithSystemSource =
-    path: sourcePrefix: args:
-    let
-      sourceName = "${sourcePrefix}-${system}-bin";
-    in
-    if builtins.hasAttr sourceName sources then
-      pkgs.callPackage path (args // { source = sources.${sourceName}; })
-    else
-      null;
   extractNodeEnv = pkgs.callPackage ../lib/extract-node-env.nix { };
 in
 {
-  alerter-bin = callPackageWithSource ./alerter-bin "alerter-bin" { };
-  apfel-bin = callPackageWithSource ./apfel-bin "apfel-bin" { };
-  clawpatrol = callPackageWithSource ./clawpatrol "clawpatrol" { };
-  clawpatrol-bin = callPackageWithSystemSource ./clawpatrol-bin "clawpatrol" { };
-  errorformat = callPackageWithSource ./errorformat "errorformat" { };
-  gcx-bin = callPackageWithSystemSource ./gcx-bin "gcx" { };
-  gogcli-bin = callPackageWithSystemSource ./gogcli-bin "gogcli" { };
-  gotmpl = callPackageWithSource ./gotmpl "gotmpl" { };
-  gotmplfmt = callPackageWithSource ./gotmplfmt "gotmplfmt" { };
-  yamcel = callPackageWithSource ./yamcel "yamcel" { };
-  kubectl-schedsim = callPackageWithSource ./kubectl-schedsim "kubectl-schedsim" { };
-  argocdapp2helmfile = callPackageWithSource ./argocdapp2helmfile "argocdapp2helmfile" { };
+  alerter-bin = pkgs.callPackage ./alerter-bin { };
+  apfel-bin = pkgs.callPackage ./apfel-bin { };
+  clawpatrol = pkgs.callPackage ./clawpatrol { };
+  clawpatrol-bin = pkgs.callPackage ./clawpatrol-bin { };
+  errorformat = pkgs.callPackage ./errorformat { };
+  gcx-bin = pkgs.callPackage ./gcx-bin { };
+  gogcli-bin = pkgs.callPackage ./gogcli-bin { };
+  gotmpl = pkgs.callPackage ./gotmpl { };
+  gotmplfmt = pkgs.callPackage ./gotmplfmt { };
+  yamcel = pkgs.callPackage ./yamcel { };
+  kubectl-schedsim = pkgs.callPackage ./kubectl-schedsim { };
+  argocdapp2helmfile = pkgs.callPackage ./argocdapp2helmfile { };
   starlink-exporter = pkgs.callPackage ./starlink-exporter { };
-  kubernetes-mcp-server-bin =
-    callPackageWithSystemSource ./kubernetes-mcp-server-bin "kubernetes-mcp-server"
-      { };
-  zot-bin = callPackageWithSystemSource ./zot-bin "zot" { };
-  kwok-bin =
-    let
-      kwokSourceName = "kwok-${system}-bin";
-      kwokctlSourceName = "kwokctl-${system}-bin";
-    in
-    if builtins.hasAttr kwokSourceName sources && builtins.hasAttr kwokctlSourceName sources then
-      pkgs.callPackage ./kwok-bin {
-        kwokSource = sources.${kwokSourceName};
-        kwokctlSource = sources.${kwokctlSourceName};
-      }
-    else
-      null;
-  gitbucket = callPackageWithSource ./gitbucket "gitbucket" { };
-  prometheus-jmx-exporter =
-    callPackageWithSource ./prometheus-jmx-exporter "prometheus-jmx-exporter"
-      { };
-  scriptc = callPackageWithSource ./scriptc "scriptc" { };
-  confluence-cli = callPackageWithSource ./confluence-cli "confluence-cli" {
+  kubernetes-mcp-server-bin = pkgs.callPackage ./kubernetes-mcp-server-bin { };
+  zot-bin = pkgs.callPackage ./zot-bin { };
+  kwok-bin = pkgs.callPackage ./kwok-bin { };
+  gitbucket = pkgs.callPackage ./gitbucket { };
+  prometheus-jmx-exporter = pkgs.callPackage ./prometheus-jmx-exporter { };
+  scriptc = pkgs.callPackage ./scriptc { };
+  confluence-cli = pkgs.callPackage ./confluence-cli {
     inherit extractNodeEnv;
   };
-  jira-cli = callPackageWithSource ./jira-cli "jira-cli" { inherit extractNodeEnv; };
-  codex-bin = pkgs.callPackage ./codex-bin {
-    source = sources."codex-${system}-bin";
-    codeModeHostSource = sources."codex-code-mode-host-${system}-bin";
-  };
-  libduckdb-bin = callPackageWithSystemSource ./libduckdb-bin "libduckdb" { };
+  jira-cli = pkgs.callPackage ./jira-cli { inherit extractNodeEnv; };
+  codex-bin = pkgs.callPackage ./codex-bin { };
+  libduckdb-bin = pkgs.callPackage ./libduckdb-bin { };
   caddy-with-plugins = pkgs.callPackage ./caddy { };
   helm-with-plugins =
     with pkgs;
@@ -69,26 +38,35 @@ in
         helm-s3
       ];
     });
-  hev-socks5-server = callPackageWithSource ./hev-socks5-server "hev-socks5-server" { };
-  hocage = callPackageWithSource ./hocage "hocage" { };
-  json2table = callPackageWithSource ./json2table "json2table" { };
-  json2toml = callPackageWithSource ./json2toml "json2toml" { };
+  hev-socks5-server = pkgs.callPackage ./hev-socks5-server { };
+  hocage = pkgs.callPackage ./hocage { };
+  json2table = pkgs.callPackage ./json2table { };
+  json2toml = pkgs.callPackage ./json2toml { };
   socks5shim = pkgs.callPackage ./socks5shim { };
-  gf-cli = callPackageWithSource ./gf-cli "gf-cli" { };
-  aws-sigv4-proxy = callPackageWithSource ./aws-sigv4-proxy "aws-sigv4-proxy" { };
-  awsigv4-proxy = callPackageWithSource ./awsigv4-proxy "awsigv4-proxy" { };
-  asciigraph = callPackageWithSource ./asciigraph "asciigraph" { };
-  kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
-  meat = callPackageWithSource ./meat "meat" { };
+  gf-cli = pkgs.callPackage ./gf-cli { };
+  aws-sigv4-proxy = pkgs.callPackage ./aws-sigv4-proxy { };
+  awsigv4-proxy = pkgs.callPackage ./awsigv4-proxy { };
+  asciigraph = pkgs.callPackage ./asciigraph { };
+  kakehashi-bin = pkgs.callPackage ./kakehashi-bin { };
+  meat = pkgs.callPackage ./meat { };
   mise-bin = pkgs.callPackage ./mise-bin { };
-  pitchfork-bin = callPackageWithSystemSource ./pitchfork-bin "pitchfork" { };
-  tuicr-bin = callPackageWithSystemSource ./tuicr-bin "tuicr" { };
-  octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
-  cclens-bin = callPackageWithSystemSource ./cclens-bin "cclens" { };
-  ghtkn-bin = callPackageWithSystemSource ./ghtkn-bin "ghtkn" { };
-  displayplacer = callPackageWithSource ./displayplacer "displayplacer" { };
-  libz-rs-sys-cdylib = callPackageWithSource ./zlib-rs/libz-rs-sys-cdylib "zlib-rs" { };
-  xremap-gnome-bin = callPackageWithSystemSource ./xremap-gnome-bin "xremap" { };
-  acli-bin = callPackageWithSystemSource ./acli-bin "acli" { };
-  shelley-bin = callPackageWithSystemSource ./shelley-bin "shelley" { };
+  pitchfork-bin = pkgs.callPackage ./pitchfork-bin { };
+  tuicr-bin = pkgs.callPackage ./tuicr-bin { };
+  octorus-bin = pkgs.callPackage ./octorus-bin { };
+  cclens-bin = pkgs.callPackage ./cclens-bin { };
+  ghtkn-bin = pkgs.callPackage ./ghtkn-bin { };
+  displayplacer = pkgs.callPackage ./displayplacer { };
+  libz-rs-sys-cdylib = pkgs.callPackage ./zlib-rs/libz-rs-sys-cdylib { };
+  xremap-gnome-bin =
+    if
+      builtins.elem system [
+        "x86_64-linux"
+        "aarch64-linux"
+      ]
+    then
+      pkgs.callPackage ./xremap-gnome-bin { }
+    else
+      null;
+  acli-bin = pkgs.callPackage ./acli-bin { };
+  shelley-bin = pkgs.callPackage ./shelley-bin { };
 }

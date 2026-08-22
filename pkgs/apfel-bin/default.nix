@@ -1,13 +1,18 @@
 {
   lib,
   stdenvNoCC,
+  fetchurl,
+  nix-update-script,
   versionCheckHook,
-  source,
 }:
 
 stdenvNoCC.mkDerivation rec {
   pname = "apfel-bin";
-  inherit (source) version src;
+  version = "1.9.1";
+  src = fetchurl {
+    url = "https://github.com/Arthur-Ficial/apfel/releases/download/v${version}/apfel-${version}-arm64-macos.tar.gz";
+    hash = "sha256-CWM2S+/+IAF7juSEsLx8glYKUY8q5iKfPySQ9xdQ1AM=";
+  };
 
   sourceRoot = ".";
 
@@ -23,6 +28,8 @@ stdenvNoCC.mkDerivation rec {
     install -Dm755 apfel $out/bin/apfel
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "On-device Apple FoundationModels CLI and OpenAI-compatible server";

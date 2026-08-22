@@ -1,6 +1,4 @@
 [formatter.nixfmt]
 command = "nixfmt"
 includes = ["*.nix"]
-excludes = [
-  "_sources/generated.nix",
-]
+excludes = []

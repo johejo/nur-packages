@@ -1,14 +1,23 @@
 {
   lib,
   buildGoModule,
-  source,
+  fetchFromGitHub,
+  nix-update-script,
   ...
 }:
 
-buildGoModule {
-  inherit (source) pname version src;
+buildGoModule rec {
+  pname = "asciigraph";
+  version = "0.10.0";
+  src = fetchFromGitHub {
+    owner = "guptarohit";
+    repo = "asciigraph";
+    tag = "v${version}";
+    hash = "sha256-VRF7wAiFQSL1PLmV0k2NjzuEKwprnS028FM0loTpmaI=";
+  };
   subPackages = [ "cmd/asciigraph" ];
   vendorHash = null; # no external dependencies (empty go.sum)
+  passthru.updateScript = nix-update-script { };
 
   ldflags = [
     "-s"

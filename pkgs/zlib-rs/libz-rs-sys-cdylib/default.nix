@@ -2,18 +2,25 @@
   lib,
   rustPlatform,
   stdenv,
-  source,
+  fetchFromGitHub,
+  nix-update-script,
   patchelf,
   ...
 }:
 
-rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage rec {
   pname = "libz-rs-sys-cdylib";
-  inherit (source) version src;
+  version = "0.6.7";
+  src = fetchFromGitHub {
+    owner = "trifectatechfoundation";
+    repo = "zlib-rs";
+    tag = "v${version}";
+    hash = "sha256-xp/5DIFhcNTpSJfy3vJnZytzh1Ls6V3PKlIl6Pep2o0=";
+  };
 
   cargoRoot = "libz-rs-sys-cdylib";
   buildAndTestSubdir = "libz-rs-sys-cdylib";
-  cargoLock = source.cargoLock."libz-rs-sys-cdylib/Cargo.lock";
+  cargoLock.lockFile = "${src}/libz-rs-sys-cdylib/Cargo.lock";
 
   nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ patchelf ];
 
@@ -47,6 +54,8 @@ rustPlatform.buildRustPackage {
   + ''
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "A memory-safe zlib implementation written in rust";

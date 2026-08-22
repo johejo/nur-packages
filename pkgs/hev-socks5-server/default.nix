@@ -1,13 +1,21 @@
 {
   lib,
   stdenv,
+  fetchgit,
+  nix-update-script,
   versionCheckHook,
-  source,
   ...
 }:
 
 stdenv.mkDerivation rec {
-  inherit (source) pname version src;
+  pname = "hev-socks5-server";
+  version = "2.13.1";
+  src = fetchgit {
+    url = "https://github.com/heiher/hev-socks5-server.git";
+    rev = version;
+    fetchSubmodules = true;
+    hash = "sha256-DvG2w5aKKes33Wj/b8SLjv5+C+k3Q2Ro37JgAyqMibw=";
+  };
 
   enableParallelBuilding = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
@@ -21,6 +29,8 @@ stdenv.mkDerivation rec {
     "STRIP=true"
   ];
   installFlags = [ "INSTDIR=$(out)" ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Simple, lightweight SOCKS5 server";

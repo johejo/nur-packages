@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  source,
+  fetchFromGitHub,
   fetchPnpmDeps,
   nodejs_24,
   pnpm_11,
@@ -11,14 +11,19 @@
   cmake,
   gnumake,
   llvmPackages,
+  nix-update-script,
   zlib,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "scriptc";
-  version = lib.removePrefix "v" source.version;
-
-  inherit (source) src;
+  version = "0.0.32";
+  src = fetchFromGitHub {
+    owner = "vercel-labs";
+    repo = "scriptc";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-FeuYMqjYwhMkY2bUE24eFf4kRoPQ8AVvpazEvdnJJc0=";
+  };
 
   patches = [ ./vendor-cache.patch ];
 
@@ -95,6 +100,8 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstallCheck
   '';
 
+  passthru.updateScript = nix-update-script { };
+
   meta = {
     description = "Compile TypeScript and JavaScript to native executables";
     longDescription = ''
@@ -104,7 +111,7 @@ stdenv.mkDerivation (finalAttrs: {
       provide Zig and set SCRIPTC_CC=zigcc.
     '';
     homepage = "https://scriptc.dev";
-    changelog = "https://github.com/vercel-labs/scriptc/releases/tag/${source.version}";
+    changelog = "https://github.com/vercel-labs/scriptc/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.asl20;
     mainProgram = "scriptc";
     platforms = [

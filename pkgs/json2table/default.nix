@@ -2,12 +2,20 @@
   lib,
   stdenvNoCC,
   nodejs,
-  source,
+  fetchFromGitHub,
+  nix-update-script,
   ...
 }:
 
 stdenvNoCC.mkDerivation {
-  inherit (source) pname version src;
+  pname = "json2table";
+  version = "0-unstable-2026-04-09";
+  src = fetchFromGitHub {
+    owner = "johejo";
+    repo = "json2table";
+    rev = "45e65ae2200fc38be28439b3397e93a78aa1f97c";
+    hash = "sha256-WQLtjLsLr1U1rL3xEfkyeKiCUadibD2Hi112bIGmzQs=";
+  };
 
   nativeBuildInputs = [ nodejs ];
 
@@ -16,6 +24,8 @@ stdenvNoCC.mkDerivation {
     install -Dm755 json2table.js $out/bin/json2table
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch=main" ]; };
 
   meta = {
     description = "Convert JSON from stdin to a table";

@@ -3,11 +3,12 @@
   buildNpmPackage,
   deno,
   extractNodeEnv,
+  fetchFromGitHub,
   importNpmLock,
   jq,
   makeWrapper,
+  nix-update-script,
   versionCheckHook,
-  source,
   ...
 }:
 
@@ -26,9 +27,15 @@ let
     "no_proxy"
   ];
 in
-buildNpmPackage {
-  inherit (source) pname src;
-  version = lib.removePrefix "v" source.version;
+buildNpmPackage rec {
+  pname = "jira-cli";
+  version = "2.8.1";
+  src = fetchFromGitHub {
+    owner = "pchuri";
+    repo = "jira-cli";
+    tag = "v${version}";
+    hash = "sha256-WMCS1HoX/fGq+F1XBKs0Udco4goBKwnVtpN4Imz1I5M=";
+  };
 
   postPatch = ''
     mv bin/index.js bin/index.cjs
@@ -36,7 +43,7 @@ buildNpmPackage {
       --replace-fail "./bin/index.js" "./bin/index.cjs"
   '';
 
-  npmDeps = importNpmLock { npmRoot = source.src; };
+  npmDeps = importNpmLock { npmRoot = src; };
 
   npmConfigHook = importNpmLock.npmConfigHook;
 
@@ -83,6 +90,8 @@ buildNpmPackage {
   postInstallCheck = ''
     "$out/bin/jira" --help > /dev/null
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Modern, extensible command-line interface for Atlassian JIRA";
