@@ -45,6 +45,7 @@ in
 stdenvNoCC.mkDerivation {
   pname = "kwok-bin";
   inherit version;
+  src = kwokSrc;
 
   dontUnpack = true;
 

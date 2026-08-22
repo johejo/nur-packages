@@ -17,12 +17,12 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "scriptc";
-  version = "0.0.32";
+  version = "0.0.34";
   src = fetchFromGitHub {
     owner = "vercel-labs";
     repo = "scriptc";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-FeuYMqjYwhMkY2bUE24eFf4kRoPQ8AVvpazEvdnJJc0=";
+    hash = "sha256-PxOIvSEOTPa+KT1erEK/80cUhP9+goyvtL/fOeQmmOo=";
   };
 
   patches = [ ./vendor-cache.patch ];

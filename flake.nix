@@ -55,6 +55,7 @@
               nixfmt
               nix-update
               gh
+              jq
             ];
           };
         }

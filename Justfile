@@ -10,7 +10,7 @@ update package:
         echo "No package with passthru.updateScript: {{ package }}" >&2
         exit 1
     fi
-    nix-update {{ package }} --flake --use-update-script --system="$system"
+    sh ./lib/run-update.sh "$system" "{{ package }}"
 
 # Update all locally versioned packages through passthru.updateScript.
 update-all:
@@ -20,7 +20,7 @@ update-all:
     export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
     nix eval --impure --raw --file ./lib/update-targets.nix |
         while IFS="$(printf '\t')" read -r system package; do
-            nix-update "$package" --flake --use-update-script --system="$system"
+            sh ./lib/run-update.sh "$system" "$package"
         done
 
 # Update all locally versioned packages in parallel.
@@ -34,5 +34,5 @@ update-all-parallel jobs="4":
             system="$1"
             package="$2"
             echo "Updating $package ($system)"
-            nix-update "$package" --flake --use-update-script --system="$system"
+            sh ./lib/run-update.sh "$system" "$package"
         ' sh
