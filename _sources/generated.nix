@@ -542,30 +542,6 @@
       sha256 = "sha256-fj04sdMiwPxh4F+kBpF5c+YYeKnKCDD9dsIgwAGPoK4=";
     };
   };
-  mise-aarch64-darwin-bin = {
-    pname = "mise-aarch64-darwin-bin";
-    version = "v2026.8.6";
-    src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-macos-arm64.tar.gz";
-      sha256 = "sha256-FO8h0TE9O2mYasaXaHfX/7Qd9x9PuejktXdhz/r/yjs=";
-    };
-  };
-  mise-aarch64-linux-bin = {
-    pname = "mise-aarch64-linux-bin";
-    version = "v2026.8.6";
-    src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-arm64.tar.gz";
-      sha256 = "sha256-uSdEzrmgHwuxmL/PK6ScNpGMnkNTo0vlDyPVtuk8KO4=";
-    };
-  };
-  mise-x86_64-linux-bin = {
-    pname = "mise-x86_64-linux-bin";
-    version = "v2026.8.6";
-    src = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-x64.tar.gz";
-      sha256 = "sha256-z+SXhOyWg7OFEIRpWM/s2bWdqE1OijjRj/2hncKUHq0=";
-    };
-  };
   octorus-aarch64-darwin-bin = {
     pname = "octorus-aarch64-darwin-bin";
     version = "0.7.2";
@@ -655,28 +631,6 @@
     src = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v0.956.955465414/shelley_linux_amd64";
       sha256 = "sha256-l7swqKbkfImJsnEAjKEY9ycG3rgfwQh5CDLrlOB1RH0=";
-    };
-  };
-  socks5shim = {
-    pname = "socks5shim";
-    version = "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289";
-    src = fetchFromGitHub {
-      owner = "johejo";
-      repo = "socks5shim";
-      rev = "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289";
-      fetchSubmodules = false;
-      sha256 = "sha256-FdCMVUFK5FHjryFynK89uDShyIdNb24J2HauVJimAMs=";
-    };
-  };
-  starlink-exporter = {
-    pname = "starlink-exporter";
-    version = "v20250818";
-    src = fetchFromGitHub {
-      owner = "clarkzjw";
-      repo = "starlink_exporter";
-      rev = "v20250818";
-      fetchSubmodules = false;
-      sha256 = "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=";
     };
   };
   tuicr-aarch64-darwin-bin = {

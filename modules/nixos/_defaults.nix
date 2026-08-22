@@ -3,13 +3,10 @@
   selfpkgs ? null,
 }:
 let
-  sources = pkgs.callPackage ../../_sources/generated.nix { };
   localResolvers = {
     starlink-exporter =
-      { pkgs, sources }:
-      pkgs.callPackage ../../pkgs/starlink-exporter {
-        source = sources.starlink-exporter;
-      };
+      { pkgs }:
+      pkgs.callPackage ../../pkgs/starlink-exporter { };
   };
 in
 builtins.mapAttrs (
@@ -18,6 +15,6 @@ builtins.mapAttrs (
     builtins.getAttr name selfpkgs
   else
     resolve {
-      inherit pkgs sources;
+      inherit pkgs;
     }
 ) localResolvers

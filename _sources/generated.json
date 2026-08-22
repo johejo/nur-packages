@@ -1006,51 +1006,6 @@
         },
         "version": "f39f41dfe7b5b37a12b35fdfbaecc7e779855bd3"
     },
-    "mise-aarch64-darwin-bin": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "mise-aarch64-darwin-bin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-FO8h0TE9O2mYasaXaHfX/7Qd9x9PuejktXdhz/r/yjs=",
-            "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-macos-arm64.tar.gz"
-        },
-        "version": "v2026.8.6"
-    },
-    "mise-aarch64-linux-bin": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "mise-aarch64-linux-bin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-uSdEzrmgHwuxmL/PK6ScNpGMnkNTo0vlDyPVtuk8KO4=",
-            "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-arm64.tar.gz"
-        },
-        "version": "v2026.8.6"
-    },
-    "mise-x86_64-linux-bin": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "mise-x86_64-linux-bin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-z+SXhOyWg7OFEIRpWM/s2bWdqE1OijjRj/2hncKUHq0=",
-            "type": "url",
-            "url": "https://github.com/jdx/mise/releases/download/v2026.8.6/mise-v2026.8.6-linux-x64.tar.gz"
-        },
-        "version": "v2026.8.6"
-    },
     "octorus-aarch64-darwin-bin": {
         "cargoLock": null,
         "date": null,
@@ -1221,48 +1176,6 @@
             "url": "https://github.com/boldsoftware/shelley/releases/download/v0.956.955465414/shelley_linux_amd64"
         },
         "version": "v0.956.955465414"
-    },
-    "socks5shim": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "socks5shim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "johejo",
-            "repo": "socks5shim",
-            "rev": "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289",
-            "sha256": "sha256-FdCMVUFK5FHjryFynK89uDShyIdNb24J2HauVJimAMs=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "65d1d643767d2bbc5a2ef9d9350031a2cf0d7289"
-    },
-    "starlink-exporter": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "starlink-exporter",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "clarkzjw",
-            "repo": "starlink_exporter",
-            "rev": "v20250818",
-            "sha256": "sha256-hPbZC3R9i/ftMrZz727ACY09H3cX91OyJ47YgjM/nS4=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v20250818"
     },
     "tuicr-aarch64-darwin-bin": {
         "cargoLock": null,

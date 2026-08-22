@@ -2,10 +2,6 @@
 src.cmd = "gh api repos/reviewdog/errorformat/commits/master --jq .sha"
 fetch.github = "reviewdog/errorformat"
 
-[starlink-exporter]
-src.github = "clarkzjw/starlink_exporter"
-fetch.github = "clarkzjw/starlink_exporter"
-
 [kubernetes-mcp-server-aarch64-darwin-bin]
 src.github = "containers/kubernetes-mcp-server"
 fetch.url = "https://github.com/containers/kubernetes-mcp-server/releases/download/$ver/kubernetes-mcp-server-darwin-arm64"
@@ -151,10 +147,6 @@ src.github = "heiher/hev-socks5-server"
 fetch.git = "https://github.com/heiher/hev-socks5-server.git"
 git.fetchSubmodules = true
 
-[socks5shim]
-src.cmd = "gh api repos/johejo/socks5shim/commits/main --jq .sha"
-fetch.github = "johejo/socks5shim"
-
 [gf-cli]
 src.cmd = "gh api repos/johejo/gf-cli/commits/main --jq .sha"
 fetch.github = "johejo/gf-cli"
@@ -235,18 +227,6 @@ fetch.url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/$ver/ght
 [ghtkn-aarch64-linux-bin]
 src.cmd = "gh api repos/suzuki-shunsuke/ghtkn/releases/latest --jq .tag_name"
 fetch.url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/$ver/ghtkn_linux_arm64.tar.gz"
-
-[mise-aarch64-darwin-bin]
-src.github = "jdx/mise"
-fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-macos-arm64.tar.gz"
-
-[mise-x86_64-linux-bin]
-src.github = "jdx/mise"
-fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-linux-x64.tar.gz"
-
-[mise-aarch64-linux-bin]
-src.github = "jdx/mise"
-fetch.url = "https://github.com/jdx/mise/releases/download/$ver/mise-$ver-linux-arm64.tar.gz"
 
 [pitchfork-aarch64-darwin-bin]
 src.github = "jdx/pitchfork"

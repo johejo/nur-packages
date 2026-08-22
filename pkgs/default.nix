@@ -28,7 +28,7 @@ in
   yamcel = callPackageWithSource ./yamcel "yamcel" { };
   kubectl-schedsim = callPackageWithSource ./kubectl-schedsim "kubectl-schedsim" { };
   argocdapp2helmfile = callPackageWithSource ./argocdapp2helmfile "argocdapp2helmfile" { };
-  starlink-exporter = callPackageWithSource ./starlink-exporter "starlink-exporter" { };
+  starlink-exporter = pkgs.callPackage ./starlink-exporter { };
   kubernetes-mcp-server-bin =
     callPackageWithSystemSource ./kubernetes-mcp-server-bin "kubernetes-mcp-server"
       { };
@@ -73,14 +73,14 @@ in
   hocage = callPackageWithSource ./hocage "hocage" { };
   json2table = callPackageWithSource ./json2table "json2table" { };
   json2toml = callPackageWithSource ./json2toml "json2toml" { };
-  socks5shim = callPackageWithSource ./socks5shim "socks5shim" { };
+  socks5shim = pkgs.callPackage ./socks5shim { };
   gf-cli = callPackageWithSource ./gf-cli "gf-cli" { };
   aws-sigv4-proxy = callPackageWithSource ./aws-sigv4-proxy "aws-sigv4-proxy" { };
   awsigv4-proxy = callPackageWithSource ./awsigv4-proxy "awsigv4-proxy" { };
   asciigraph = callPackageWithSource ./asciigraph "asciigraph" { };
   kakehashi-bin = callPackageWithSystemSource ./kakehashi-bin "kakehashi" { };
   meat = callPackageWithSource ./meat "meat" { };
-  mise-bin = callPackageWithSystemSource ./mise-bin "mise" { };
+  mise-bin = pkgs.callPackage ./mise-bin { };
   pitchfork-bin = callPackageWithSystemSource ./pitchfork-bin "pitchfork" { };
   tuicr-bin = callPackageWithSystemSource ./tuicr-bin "tuicr" { };
   octorus-bin = callPackageWithSystemSource ./octorus-bin "octorus" { };
