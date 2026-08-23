@@ -15,6 +15,12 @@ in
   yamcel = pkgs.callPackage ./yamcel { };
   kubectl-schedsim = pkgs.callPackage ./kubectl-schedsim { };
   argocdapp2helmfile = pkgs.callPackage ./argocdapp2helmfile { };
+  mdfix = pkgs.callPackage ./mdfix { };
+  prometheus-jq-exporter = pkgs.callPackage ./prometheus-jq-exporter { };
+  prometheus-jq-sd = pkgs.callPackage ./prometheus-jq-sd { };
+  prometheus-nature-remo-exporter = pkgs.callPackage ./prometheus-nature-remo-exporter { };
+  prometheus-tailscale-sd = pkgs.callPackage ./prometheus-tailscale-sd { };
+  starlink-tools = pkgs.callPackage ./starlink-tools { };
   starlink-exporter = pkgs.callPackage ./starlink-exporter { };
   kubernetes-mcp-server-bin = pkgs.callPackage ./kubernetes-mcp-server-bin { };
   zot-bin = pkgs.callPackage ./zot-bin { };
