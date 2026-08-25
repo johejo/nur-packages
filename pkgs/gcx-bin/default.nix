@@ -9,19 +9,19 @@
 }:
 
 let
-  version = "1.1.0";
+  version = "1.1.1";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/grafana/gcx/releases/download/v${version}/gcx_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-oeHmK1RwDYKezjzEoBNXDg7/PIcujBGZGGbtWKZwFwk=";
+      hash = "sha256-LezLm1epFMuKWuF6MuNg5I7MFS1kyJA3Mv0wNkTD4+k=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/grafana/gcx/releases/download/v${version}/gcx_${version}_linux_amd64.tar.gz";
-      hash = "sha256-DHhn6Z9XhrfhtepEnPVAwUtn9AwcksD5MDHqouDDjfk=";
+      hash = "sha256-f+h3j1pn6LYFdrqpnDnS7vaSCCmFAZtTpXiJveA/te0=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/grafana/gcx/releases/download/v${version}/gcx_${version}_linux_arm64.tar.gz";
-      hash = "sha256-TTm3ClaRBFt+OB/TeXa3WYiSaTH2zxhGmERAmQmWkuE=";
+      hash = "sha256-GiIyb+HodUS7dx1OozQ5oSNcQLUiAMZ3J7aUNxr93kI=";
     };
   };
 in
