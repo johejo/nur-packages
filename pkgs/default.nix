@@ -75,4 +75,5 @@ in
       null;
   acli-bin = pkgs.callPackage ./acli-bin { };
   shelley-bin = pkgs.callPackage ./shelley-bin { };
+  socktainer-bin = pkgs.callPackage ./socktainer-bin { };
 }
