@@ -32,6 +32,7 @@ in
     inherit extractNodeEnv;
   };
   jira-cli = pkgs.callPackage ./jira-cli { inherit extractNodeEnv; };
+  container-bin = pkgs.callPackage ./container-bin { };
   codex-bin = pkgs.callPackage ./codex-bin { };
   libduckdb-bin = pkgs.callPackage ./libduckdb-bin { };
   caddy-with-plugins = pkgs.callPackage ./caddy { };
