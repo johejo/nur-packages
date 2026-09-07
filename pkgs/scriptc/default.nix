@@ -12,20 +12,22 @@
   gnumake,
   llvmPackages,
   nix-update-script,
+  versionCheckHook,
   zlib,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "scriptc";
-  version = "0.0.36";
+  version = "0.0.38";
   src = fetchFromGitHub {
     owner = "vercel-labs";
     repo = "scriptc";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-0jUgxLePNV2onkm+I0+sd3wSsbGRImcQ248xMc35k3Y=";
+    hash = "sha256-Lr1tXr5MgPjWh8NnAFFamWwSc+CxSrak6p1YGOW+tMo=";
   };
 
   postPatch = ''
+    sed -i 's/^  "version": "[^"]*",$/  "version": "${finalAttrs.version}",/' packages/cli/package.json
     substituteInPlace pnpm-workspace.yaml \
       --replace-fail "allowBuilds:" $'injectWorkspacePackages: true\nallowBuilds:'
     substituteInPlace pnpm-lock.yaml \
@@ -88,11 +90,12 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  versionCheckProgramArg = "--version";
 
   installCheckPhase = ''
     runHook preInstallCheck
 
-    test "$("$out/bin/scriptc" --version)" = "${finalAttrs.version}"
     "$out/bin/scriptc" --help >/dev/null
 
     runHook postInstallCheck
