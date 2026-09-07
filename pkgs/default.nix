@@ -22,6 +22,16 @@ in
   prometheus-tailscale-sd = pkgs.callPackage ./prometheus-tailscale-sd { };
   starlink-tools = pkgs.callPackage ./starlink-tools { };
   starlink-exporter = pkgs.callPackage ./starlink-exporter { };
+  tailcat-bin =
+    if
+      builtins.elem system [
+        "x86_64-linux"
+        "aarch64-linux"
+      ]
+    then
+      pkgs.callPackage ./tailcat-bin { }
+    else
+      null;
   kubernetes-mcp-server-bin = pkgs.callPackage ./kubernetes-mcp-server-bin { };
   zot-bin = pkgs.callPackage ./zot-bin { };
   kwok-bin = pkgs.callPackage ./kwok-bin { };
