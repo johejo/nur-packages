@@ -69,6 +69,7 @@ in
   mise-bin = pkgs.callPackage ./mise-bin { };
   pitchfork-bin = pkgs.callPackage ./pitchfork-bin { };
   tuicr-bin = pkgs.callPackage ./tuicr-bin { };
+  vector-bin = pkgs.callPackage ./vector-bin { };
   octorus-bin = pkgs.callPackage ./octorus-bin { };
   cclens-bin = pkgs.callPackage ./cclens-bin { };
   ghtkn-bin = pkgs.callPackage ./ghtkn-bin { };
