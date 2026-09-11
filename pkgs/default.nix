@@ -16,6 +16,7 @@ in
   kubectl-schedsim = pkgs.callPackage ./kubectl-schedsim { };
   argocdapp2helmfile = pkgs.callPackage ./argocdapp2helmfile { };
   mdfix = pkgs.callPackage ./mdfix { };
+  prometheus-exporter-merger = pkgs.callPackage ./prometheus-exporter-merger { };
   prometheus-jq-exporter = pkgs.callPackage ./prometheus-jq-exporter { };
   prometheus-jq-sd = pkgs.callPackage ./prometheus-jq-sd { };
   prometheus-nature-remo-exporter = pkgs.callPackage ./prometheus-nature-remo-exporter { };
