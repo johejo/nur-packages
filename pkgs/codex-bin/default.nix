@@ -11,33 +11,33 @@
 }:
 
 let
-  version = "0.153.4";
+  version = "0.154.0";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-jPkR6mdlI7+yEh7FYYSNKrpWSJCtU2202KM1PyuYULE=";
+      hash = "sha256-NEMQoKWRwbGS4E/v8wQyGmmQfJSYuqrDMcp+FuvO+dc=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-x86_64-unknown-linux-musl.tar.gz";
-      hash = "sha256-9HlCTsoJJITcQNh64oxE9MxAI0pgBF1hMeSTgA2BSjA=";
+      hash = "sha256-1+GLJZeujyQvXzHunpDe70jbye3WNNmGj7ZDXQjAfwI=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-aarch64-unknown-linux-musl.tar.gz";
-      hash = "sha256-XNphgr2Uw6MPLrY6SVSJ6/f2kf3bFNcPSMbBpQcbbN4=";
+      hash = "sha256-WDtI3zKAQhO9zTOMLlrbBrNDQIIfp1enJswKUk+jPCc=";
     };
   };
   codeModeHostSources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-code-mode-host-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-Ramw/fU7mLhaa7keF13ZDpYTKKehT7UKQJAiBRmd8d8=";
+      hash = "sha256-UA7ioC6lmK5RkFLn19jiAdHbAZhvMMIU70FDZF3Ib60=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz";
-      hash = "sha256-+VgwqGlZCVdmS7/Ge8ywh3OAa2k2cLrxWQgXb4m0zTE=";
+      hash = "sha256-po33zKI8bafN4XVnfffeYcc6I0rdEzOhJUuG1kGvAfc=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-code-mode-host-aarch64-unknown-linux-musl.tar.gz";
-      hash = "sha256-2AR7jTM3DWCQ5ynSfrdt5gomhrqhwUPBOMmwXccNgTs=";
+      hash = "sha256-IK76MCwgIrSW4ykRv5VKX3bH/XSca9ufvXEeMrZty/o=";
     };
   };
   codeModeHostSrc = codeModeHostSources.${stdenvNoCC.hostPlatform.system};
@@ -99,7 +99,8 @@ stdenvNoCC.mkDerivation rec {
     aarch64LinuxCodeModeHostSrc = codeModeHostSources.aarch64-linux;
     updateScript = nix-update-script {
       extraArgs = [
-        "--version-regex=rust-v(.*)"
+        "--use-github-releases"
+        "--version-regex=^rust-v([0-9]+[.][0-9]+[.][0-9]+)$"
         "--custom-dep=aarch64DarwinSrc"
         "--custom-dep=x86_64LinuxSrc"
         "--custom-dep=aarch64LinuxSrc"

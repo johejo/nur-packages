@@ -8,19 +8,19 @@
 }:
 
 let
-  version = "0.5.9";
+  version = "0.5.10";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/denoland/clawpatrol/releases/download/v${version}/clawpatrol-darwin-arm64";
-      hash = "sha256-cHwZHb+DzUItXcKqoeTlzxDPnKf7Z6d+G+5rf8PbVmc=";
+      hash = "sha256-07dtPdh5JNvdlj9IjLDZPZPzygJHfI7gg6l2+6X2pSc=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/denoland/clawpatrol/releases/download/v${version}/clawpatrol-linux-amd64";
-      hash = "sha256-CtDylvupKiGCwvpsUxwvXh3WKoFq1KmFPm3DjMmO3qk=";
+      hash = "sha256-0YrrT92Cr4POiZTIh/bbtJYLkkHtOGkACmiBdKMaycQ=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/denoland/clawpatrol/releases/download/v${version}/clawpatrol-linux-arm64";
-      hash = "sha256-1o6jl28r/kv8q/73M87VqOy3qIJcGYSA9mY+lLmVYdM=";
+      hash = "sha256-TZ95exOLIu0kLVBCHL4GC0rm2PBF41mXOak1m+zomaE=";
     };
   };
 in

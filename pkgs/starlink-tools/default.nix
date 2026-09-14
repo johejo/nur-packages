@@ -9,13 +9,13 @@
 
 buildGoModule rec {
   pname = "starlink-tools";
-  version = "0-unstable-2026-08-23";
+  version = "0-unstable-2026-09-12";
 
   src = fetchFromGitHub {
     owner = "johejo";
     repo = "starlink-tools";
-    rev = "122692099df5591e0756501b709a87d143882025";
-    hash = "sha256-RrB6syxPA2kYpCyd1Q9mdwpShjdupfXBPXWrPObmIRo=";
+    rev = "6609fb33b721efedc7d2f255dbcb1dc541e38bd0";
+    hash = "sha256-ugurDANSdeisA5QdvPo1XXFISkfgkJbeUHop0cFZCDI=";
   };
 
   subPackages = [

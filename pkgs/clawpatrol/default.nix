@@ -11,12 +11,12 @@
 }:
 
 let
-  version = "0.5.9";
+  version = "0.5.10";
   src = fetchFromGitHub {
     owner = "denoland";
     repo = "clawpatrol";
     tag = "v${version}";
-    hash = "sha256-N3+7PWkSoIQ2Ar7Vns2NDkJrV95qzn8kBvXXeEdZBtk=";
+    hash = "sha256-/+8ZpsDuFGZc5D9Pov4wJG/S/QlNX+0HPXoTFmg7YdE=";
   };
   denoDepsFor =
     system:
@@ -79,7 +79,7 @@ buildGoModule rec {
 
   patches = [ ./env-pushdown-fetcher-darwin.patch ];
 
-  vendorHash = "sha256-9HIqm4PmmiDMFjBMqIlMtKlUBlKyKGkMWlDLSOoyVXE=";
+  vendorHash = "sha256-CkR30nTjzVtM9ZnwQmG5r7P7gMhiEXSBeeTBXEUPyaE=";
 
   nativeBuildInputs = [ deno ];
 

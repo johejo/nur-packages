@@ -10,19 +10,19 @@
 
 let
   installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
-  version = "0.4.0";
+  version = "4.0.1-0";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v${version}/ghtkn_darwin_arm64.tar.gz";
-      hash = "sha256-tSq6R9nHd+HusgXtS0PSguvgcqdvM+vR5cZpAYffOvc=";
+      hash = "sha256-1iwu91yFHsRH0X45IdXuKwOqs1gHU36eObRRjyOXlgY=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v${version}/ghtkn_linux_amd64.tar.gz";
-      hash = "sha256-Lbzc0NQJZv2hNSKyPGUiuMZoLw5xkwExln4PXXDxJSY=";
+      hash = "sha256-725ndzEb5EVcSeyN/o04B0s4btQ8uTfNEtKHVwtJau0=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/suzuki-shunsuke/ghtkn/releases/download/v${version}/ghtkn_linux_arm64.tar.gz";
-      hash = "sha256-M6Dh+RU1/AqQDdwI4sGCsd69VlYSQVPECMLJapr8Qjg=";
+      hash = "sha256-KhaFfiHTHlq1RR+RmkYybnsuwnXnqFGaS+pETRyFvBY=";
     };
   };
 in
