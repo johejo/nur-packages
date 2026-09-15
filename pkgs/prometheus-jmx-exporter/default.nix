@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation rec {
   pname = "prometheus-jmx-exporter";
   version = "1.6.0";
   src = fetchurl {
-    url = "https://github.com/prometheus/jmx_exporter/releases/download/v${version}/jmx_prometheus_javaagent-${version}.jar";
+    url = "https://github.com/prometheus/jmx_exporter/releases/download/${version}/jmx_prometheus_javaagent-${version}.jar";
     hash = "sha256-qVmD/ZboZdK835EcxQDnyCgIwnq5/SJr+WcytsPYxG4=";
   };
   dontUnpack = true;
@@ -30,6 +30,6 @@ stdenvNoCC.mkDerivation rec {
     description = "The JMX Exporter is a collector to capture JMX MBean values.";
     homepage = "https://github.com/prometheus/jmx_exporter";
     license = lib.licenses.asl20;
-    changelog = "https://github.com/prometheus/jmx_exporter/releases/tag/v${version}";
+    changelog = "https://github.com/prometheus/jmx_exporter/releases/tag/${version}";
   };
 }
