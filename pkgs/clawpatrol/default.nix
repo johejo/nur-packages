@@ -50,6 +50,9 @@ let
 
         mkdir -p "$out"
         cp -R node_modules/. "$out/"
+        # Deno's setup cache depends on its version, not just the locked packages.
+        # It is unnecessary when building with --node-modules-dir=manual.
+        rm -f "$out/.deno/.setup-cache.bin"
 
         runHook postInstall
       '';
@@ -58,9 +61,9 @@ let
       outputHashAlgo = "sha256";
       outputHash =
         {
-          aarch64-darwin = "sha256-pF4tCpkV8tVWp19cg0ltrZ3a0p6cpmPQmN0Gua82m8I=";
-          aarch64-linux = "sha256-A2tS2tN5gHN/6eoNEI5Khre5IlmtTDwZhi0S+ZjUHy8=";
-          x86_64-linux = "sha256-J1yd2Trt1BqLNCM0k+RqT5JVds1s/zcifOPFmaQIi6c=";
+          aarch64-darwin = "sha256-EuYxdfhgKPdBRhrnRS8rjP/ErN68u6LotADfzCGJWng=";
+          aarch64-linux = "sha256-tOvqb5haTkQiWt7xRa9CaQ71r7q3OOfK+Yfew3BEcwA=";
+          x86_64-linux = "sha256-XR9hTv190rcYATCHBOeLtcBBjpw8DQgpTzDJyPbafP4=";
         }
         .${system};
 
