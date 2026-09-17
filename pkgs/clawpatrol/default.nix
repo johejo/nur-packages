@@ -58,9 +58,9 @@ let
       outputHashAlgo = "sha256";
       outputHash =
         {
-          aarch64-darwin = "sha256-8s2S6g88B2awkp61ljvLu+xVt68OGZC0nldI8qttbbU=";
-          aarch64-linux = "sha256-lP+9V7ou08cDovWNDiv63MiuO17Oon5TE3CnqK3We9U=";
-          x86_64-linux = "sha256-q2ZkQpxcyxyzLuA8sE5bLRYvdezEBHdwsWdACAHyFxg=";
+          aarch64-darwin = "sha256-D7wBBJgVKa8kk6iIvuniH8O8bhmW4kWhQUB26w7WWPk=";
+          aarch64-linux = "sha256-rl3CozqoQDY2PEynnRgbLhNZJMCSrkNp6D2UVJdaDKY=";
+          x86_64-linux = "sha256-VN2ovCuCl0gi9GiZ5DELpjYOqHkI53Czk4aTht7RyQs=";
         }
         .${system};
 

@@ -10,12 +10,12 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "libz-rs-sys-cdylib";
-  version = "0.6.7";
+  version = "0.6.8";
   src = fetchFromGitHub {
     owner = "trifectatechfoundation";
     repo = "zlib-rs";
     tag = "v${version}";
-    hash = "sha256-xp/5DIFhcNTpSJfy3vJnZytzh1Ls6V3PKlIl6Pep2o0=";
+    hash = "sha256-80WQuF9hIb3COi6ZFws9gpCYlktmSV/McR/uQYHzgrE=";
   };
 
   cargoRoot = "libz-rs-sys-cdylib";
