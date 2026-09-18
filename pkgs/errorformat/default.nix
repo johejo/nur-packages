@@ -8,12 +8,12 @@
 
 buildGoModule {
   pname = "errorformat";
-  version = "0-unstable-2026-09-15";
+  version = "0-unstable-2026-09-18";
   src = fetchFromGitHub {
     owner = "reviewdog";
     repo = "errorformat";
-    rev = "8f381a90ad6c599828f1b9266c6c810fbbb5ace8";
-    hash = "sha256-DHoQ/AQBP72+zdr9qo9JuC3WZMP9G0FeD15DULuN86U=";
+    rev = "3785ec08195ed6bba172e7e47a0770a91f1e6070";
+    hash = "sha256-Yd9H3iSP/1y2Wl1YLlEA8ygYP5GzPA/zzhWsVq0ggW4=";
   };
   vendorHash = "sha256-gb5J5L41Rz96wsnpb/PjtQt8ob038KzjgxLXCnytyRc=";
   subPackages = [ "cmd/errorformat" ];
