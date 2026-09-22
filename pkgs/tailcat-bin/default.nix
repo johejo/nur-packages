@@ -8,15 +8,15 @@
 }:
 
 let
-  version = "0.6.0";
+  version = "0.7.0";
   sources = {
     x86_64-linux = fetchurl {
       url = "https://github.com/tailscale/tailcat/releases/download/v${version}/tailcat_${version}_linux_amd64.tar.gz";
-      hash = "sha256-81l6mtAvXMpTj49ab4kSORC84+lhHR5ajpbV8tPMkP0=";
+      hash = "sha256-I8CxiHpexCLw0YqcUrT1NXgV/r2q5zih61QDbRC9nuY=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/tailscale/tailcat/releases/download/v${version}/tailcat_${version}_linux_arm64.tar.gz";
-      hash = "sha256-//SPJdIjrqMfmFuuiiwBN4si5R6YXox9Jw4ahYZZhQY=";
+      hash = "sha256-u7GrUPJPAO/+Hh/YbQUBgD+4B5OpB4WioW/zQo8D2O8=";
     };
   };
 in

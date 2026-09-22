@@ -7,10 +7,10 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "gitbucket";
-  version = "4.47.1";
+  version = "4.48.0";
   src = fetchurl {
     url = "https://github.com/gitbucket/gitbucket/releases/download/${version}/gitbucket.war";
-    hash = "sha256-yrstcyzLoR2OSM2beopNzDdN75mLvPA8eb2XraF7DBs=";
+    hash = "sha256-u9CHdaWhnVGkNY9IH7Fuzuy5krKwyDv6xBTlRxcxA1k=";
   };
   dontUnpack = true;
   installPhase = ''

@@ -8,12 +8,12 @@
 
 buildGoModule rec {
   pname = "aws-sigv4-proxy";
-  version = "1.12";
+  version = "1.13";
   src = fetchFromGitHub {
     owner = "awslabs";
     repo = "aws-sigv4-proxy";
     tag = "v${version}";
-    hash = "sha256-U0Jxe52bmV+QaS+mKNdW+VzzCtulRL1ZanbWxp4oqcs=";
+    hash = "sha256-RMLumWYHfxNxWt6UJzYvaAQX0PWltJrWcPZXrhrdymM=";
   };
   subPackages = [ "cmd/aws-sigv4-proxy" ];
   vendorHash = null; # module is vendored upstream
