@@ -46,6 +46,7 @@ in
   container-bin = pkgs.callPackage ./container-bin { };
   codex-bin = pkgs.callPackage ./codex-bin { };
   libduckdb-bin = pkgs.callPackage ./libduckdb-bin { };
+  wgpu-native-bin = pkgs.callPackage ./wgpu-native-bin { };
   caddy-with-plugins = pkgs.callPackage ./caddy { };
   helm-with-plugins =
     with pkgs;
