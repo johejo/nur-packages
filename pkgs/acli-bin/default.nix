@@ -13,19 +13,19 @@
 
 let
   installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
-  version = "1.3.36-stable";
+  version = "1.3.39-stable";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://acli.atlassian.com/darwin/${version}/acli_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-9TB9FRg2TCDzX5LHRb/BKCpBtM1KTIPf305Q1ODKOUU=";
+      hash = "sha256-KRJr24BysSZwny08yqxYHNf5G2KvqpBGrpwdQ7LluTk=";
     };
     x86_64-linux = fetchurl {
       url = "https://acli.atlassian.com/linux/${version}/acli_${version}_linux_amd64.tar.gz";
-      hash = "sha256-tqnXD9EHzl4oQ4DRENLq7oIVXE/JD3uxdhIhPJoQh+E=";
+      hash = "sha256-fg+02+2xu5EA+NyFTTHUPEt8LHQOTP2Dt1B2D0lXtaU=";
     };
     aarch64-linux = fetchurl {
       url = "https://acli.atlassian.com/linux/${version}/acli_${version}_linux_arm64.tar.gz";
-      hash = "sha256-TEBKKgy5jlFlArb1KK1w+5UYeuv3ROoQjwYy5BmE0L0=";
+      hash = "sha256-r7OGW03fJ+So6J6uWYSWMuS+wXVDRLENdO70MyRW+lo=";
     };
   };
 in

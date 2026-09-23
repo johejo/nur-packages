@@ -1,6 +1,7 @@
 { pkgs, system }:
 let
   extractNodeEnv = pkgs.callPackage ../lib/extract-node-env.nix { };
+  patchDebugEnv = pkgs.callPackage ../lib/patch-debug-env.nix { };
 in
 {
   alerter-bin = pkgs.callPackage ./alerter-bin { };
@@ -42,7 +43,7 @@ in
   confluence-cli = pkgs.callPackage ./confluence-cli {
     inherit extractNodeEnv;
   };
-  jira-cli = pkgs.callPackage ./jira-cli { inherit extractNodeEnv; };
+  jira-cli = pkgs.callPackage ./jira-cli { inherit extractNodeEnv patchDebugEnv; };
   container-bin = pkgs.callPackage ./container-bin { };
   codex-bin = pkgs.callPackage ./codex-bin { };
   libduckdb-bin = pkgs.callPackage ./libduckdb-bin { };

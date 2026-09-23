@@ -8,6 +8,7 @@
   jq,
   makeWrapper,
   nix-update-script,
+  patchDebugEnv,
   versionCheckHook,
   ...
 }:
@@ -29,12 +30,12 @@ let
 in
 buildNpmPackage rec {
   pname = "jira-cli";
-  version = "2.8.1";
+  version = "2.12.0";
   src = fetchFromGitHub {
     owner = "pchuri";
     repo = "jira-cli";
     tag = "v${version}";
-    hash = "sha256-WMCS1HoX/fGq+F1XBKs0Udco4goBKwnVtpN4Imz1I5M=";
+    hash = "sha256-ahoXZfCqcpYjzpbOwkUz9f4EiGztbKquoJMzm1gBBPA=";
   };
 
   postPatch = ''
@@ -55,10 +56,13 @@ buildNpmPackage rec {
     extractNodeEnv
     jq
     makeWrapper
+    patchDebugEnv
   ];
 
   postInstall = ''
     packageRoot="$out/lib/node_modules/@pchuri/jira-cli"
+    debugEnv="$(patch-debug-env --format json "$packageRoot/node_modules/debug/src/node.js")"
+
     allowEnv="$(
       extract-node-env \
         --format json \
@@ -68,7 +72,8 @@ buildNpmPackage rec {
         "$packageRoot/node_modules" |
         jq -r \
           --argjson extra '${builtins.toJSON extraEnv}' \
-          '. + $extra | unique | join(",")'
+          --argjson debug "$debugEnv" \
+          '. + $extra + $debug | unique | join(",")'
     )"
 
     echo "Allowing environment variables: $allowEnv"
