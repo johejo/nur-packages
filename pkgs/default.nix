@@ -75,7 +75,6 @@ in
   acli-bin = pkgs.callPackage ./acli-bin { };
   shelley-bin = pkgs.callPackage ./shelley-bin { };
   socktainer-bin = pkgs.callPackage ./socktainer-bin { };
-  terminal-browser-bin = pkgs.callPackage ./terminal-browser-bin { };
   pkgsite = pkgs.callPackage ./pkgsite { };
 }
 //
