@@ -1,5 +1,6 @@
 { pkgs, system }:
 let
+  inherit (pkgs.lib) optionalAttrs;
   extractNodeEnv = pkgs.callPackage ../lib/extract-node-env.nix { };
   patchDebugEnv = pkgs.callPackage ../lib/patch-debug-env.nix { };
 in
@@ -24,16 +25,6 @@ in
   prometheus-tailscale-sd = pkgs.callPackage ./prometheus-tailscale-sd { };
   starlink-tools = pkgs.callPackage ./starlink-tools { };
   starlink-exporter = pkgs.callPackage ./starlink-exporter { };
-  tailcat-bin =
-    if
-      builtins.elem system [
-        "x86_64-linux"
-        "aarch64-linux"
-      ]
-    then
-      pkgs.callPackage ./tailcat-bin { }
-    else
-      null;
   kubernetes-mcp-server-bin = pkgs.callPackage ./kubernetes-mcp-server-bin { };
   zot-bin = pkgs.callPackage ./zot-bin { };
   kwok-bin = pkgs.callPackage ./kwok-bin { };
@@ -64,6 +55,8 @@ in
   json2toml = pkgs.callPackage ./json2toml { };
   socks5shim = pkgs.callPackage ./socks5shim { };
   gf-cli = pkgs.callPackage ./gf-cli { };
+  gfterm = pkgs.callPackage ./gfterm { };
+  tailctl = pkgs.callPackage ./tailctl { };
   aws-sigv4-proxy = pkgs.callPackage ./aws-sigv4-proxy { };
   awsigv4-proxy = pkgs.callPackage ./awsigv4-proxy { };
   asciigraph = pkgs.callPackage ./asciigraph { };
@@ -79,19 +72,22 @@ in
   ghtkn-bin = pkgs.callPackage ./ghtkn-bin { };
   displayplacer = pkgs.callPackage ./displayplacer { };
   libz-rs-sys-cdylib = pkgs.callPackage ./zlib-rs/libz-rs-sys-cdylib { };
-  xremap-gnome-bin =
-    if
-      builtins.elem system [
-        "x86_64-linux"
-        "aarch64-linux"
-      ]
-    then
-      pkgs.callPackage ./xremap-gnome-bin { }
-    else
-      null;
   acli-bin = pkgs.callPackage ./acli-bin { };
   shelley-bin = pkgs.callPackage ./shelley-bin { };
   socktainer-bin = pkgs.callPackage ./socktainer-bin { };
   terminal-browser-bin = pkgs.callPackage ./terminal-browser-bin { };
   pkgsite = pkgs.callPackage ./pkgsite { };
+}
+//
+  optionalAttrs
+    (builtins.elem system [
+      "x86_64-linux"
+      "aarch64-linux"
+    ])
+    {
+      tailcat-bin = pkgs.callPackage ./tailcat-bin { };
+      xremap-gnome-bin = pkgs.callPackage ./xremap-gnome-bin { };
+    }
+// optionalAttrs (system == "aarch64-darwin") {
+  devcontainer-apple = pkgs.callPackage ./devcontainer-apple { };
 }
