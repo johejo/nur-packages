@@ -8,12 +8,12 @@
 
 buildGoModule {
   pname = "tailctl";
-  version = "0-unstable-2026-09-23";
+  version = "0-unstable-2026-09-24";
   src = fetchFromGitHub {
     owner = "johejo";
     repo = "tailctl";
-    rev = "66b513ecb57c8d8369835d746c223ee8922cb674";
-    hash = "sha256-DWmVPeCujIYfUeCC682nAfUmt3CTkcqbPPZGNPgUbhc=";
+    rev = "8d07046d827067c522a6e28b5b43e1c75cbd8ae5";
+    hash = "sha256-PYtybNyj4+zrSpP9PDoQVR/nn/25jEazboikZRF+h/s=";
   };
   vendorHash = "sha256-nNwjOy1qtO5MdBYOsOoqPYZuIiOcTuUN2Z5ZkFKKq+s=";
   subPackages = [ "cmd/tailctl" ];

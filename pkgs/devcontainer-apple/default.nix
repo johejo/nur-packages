@@ -8,12 +8,12 @@
 
 buildGoModule {
   pname = "devcontainer-apple";
-  version = "0-unstable-2026-09-24";
+  version = "0-unstable-2026-09-25";
   src = fetchFromGitHub {
     owner = "johejo";
     repo = "devcontainer-apple";
-    rev = "9ae569e34a85cd83c7b51b3759f95fe351916b49";
-    hash = "sha256-Hugaa/lOdoebj6k/hQW1QYQtp+J2ZUtlHWVc7YS0lZQ=";
+    rev = "3a3900a45e2c8e1c6078789fcadf439530c83555";
+    hash = "sha256-jdBR1h/6zAB7xuQm8ivVdeBTVxoeGSZw77d+YBuyFlk=";
   };
   vendorHash = "sha256-7K17JaXFsjf163g5PXCb5ng2gYdotnZ2IDKk8KFjNj0=";
   subPackages = [ "cmd/devcontainer-apple" ];
