@@ -8,7 +8,7 @@ update package:
     system="$(nix eval --impure --json --file ./lib/update-targets.nix |
         jq -r --arg package "{{ package }}" '.[$package] // empty')"
     if [ -z "$system" ]; then
-        echo "No package with passthru.updateScript: {{ package }}" >&2
+        echo "No updateable package for this system: {{ package }}" >&2
         exit 1
     fi
     sh ./lib/run-update.sh "$system" "{{ package }}"

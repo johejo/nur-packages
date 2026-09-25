@@ -23,4 +23,4 @@ fi
 
 printf '%s' "$update_script" |
     jq --raw-output0 '.[1:][]' |
-    xargs -0 nix-update "$package" --flake
+    xargs -0 nix-update "$package" --flake --system="$system"

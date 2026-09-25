@@ -1,18 +1,11 @@
 let
   flake = builtins.getFlake (toString ./..);
-  systems = builtins.attrNames flake.packages;
-  orderedSystems =
-    if builtins.elem builtins.currentSystem systems then
-      [ builtins.currentSystem ] ++ builtins.filter (system: system != builtins.currentSystem) systems
-    else
-      systems;
-  hasUpdateScript = system: package: flake.packages.${system}.${package}.passthru ? updateScript;
-  targetsFor =
-    system:
-    map (package: {
-      name = package;
-      value = system;
-    }) (builtins.filter (hasUpdateScript system) (builtins.attrNames flake.packages.${system}));
+  lib = flake.inputs.nixpkgs.lib;
+  system = builtins.currentSystem;
+  packages = flake.packages.${system} or { };
+  availableOnHost = lib.meta.availableOn { inherit system; };
+  targets = lib.filterAttrs (
+    _: package: package.passthru ? updateScript && availableOnHost package
+  ) packages;
 in
-# The first duplicate wins, so orderedSystems also defines the preferred system.
-builtins.listToAttrs (builtins.concatMap targetsFor orderedSystems)
+lib.mapAttrs (_: _: system) targets
