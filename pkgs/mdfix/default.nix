@@ -3,18 +3,19 @@
   buildGoModule,
   fetchFromGitHub,
   nix-update-script,
+  versionCheckHook,
   ...
 }:
 
 buildGoModule rec {
   pname = "mdfix";
-  version = "0-unstable-2026-04-24";
+  version = "0-unstable-2026-09-25";
 
   src = fetchFromGitHub {
     owner = "johejo";
     repo = "mdfix";
-    rev = "9e17f9a5b54bf022921cec4bf55de207d94eeb0e";
-    hash = "sha256-QYSRI31xICVRyBSwF8XoH38/zRAqIhF/1GbnwT7lX5U=";
+    rev = "90294d567de1fee6981aa9758608c5129bab6202";
+    hash = "sha256-ZaflGVQHsukYstJ/dMBZu8rBOmHXZRfBwGAbtpAcLB0=";
   };
 
   vendorHash = "sha256-trvRSKbW2qK1h2tutk6HqAvgwsbZlKQA/ErmbZx67TQ=";
@@ -22,7 +23,12 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
+    "-X main.version=${version}+rev.${builtins.substring 0 12 src.rev}"
   ];
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
+  versionCheckProgramArg = "-version";
 
   passthru.updateScript = nix-update-script {
     extraArgs = [ "--version=branch=main" ];

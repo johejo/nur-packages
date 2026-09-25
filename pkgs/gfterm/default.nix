@@ -3,10 +3,11 @@
   buildGoModule,
   fetchFromGitHub,
   nix-update-script,
+  versionCheckHook,
   ...
 }:
 
-buildGoModule {
+buildGoModule rec {
   pname = "gfterm";
   version = "0-unstable-2026-08-27";
   src = fetchFromGitHub {
@@ -17,6 +18,11 @@ buildGoModule {
   };
   vendorHash = "sha256-pU0viriqbDFtjPS6Ll+1o2fo8aNdJPgi5k9A2vxpTL8=";
   subPackages = [ "cmd/gfterm" ];
+  ldflags = [ "-X main.version=${version}+rev.${builtins.substring 0 12 src.rev}" ];
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
+  versionCheckProgramArg = "--version";
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch=main" ]; };
 

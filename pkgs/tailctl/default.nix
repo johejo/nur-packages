@@ -18,7 +18,7 @@ buildGoModule rec {
   };
   vendorHash = "sha256-nNwjOy1qtO5MdBYOsOoqPYZuIiOcTuUN2Z5ZkFKKq+s=";
   subPackages = [ "cmd/tailctl" ];
-  ldflags = [ "-X main.version=${version}" ];
+  ldflags = [ "-X main.version=${version}+rev.${builtins.substring 0 12 src.rev}" ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
