@@ -3,6 +3,7 @@
   buildGoModule,
   fetchFromGitHub,
   nix-update-script,
+  versionCheckHook,
   ...
 }:
 
@@ -17,6 +18,14 @@ buildGoModule {
   };
   vendorHash = "sha256-7K17JaXFsjf163g5PXCb5ng2gYdotnZ2IDKk8KFjNj0=";
   subPackages = [ "cmd/devcontainer-apple" ];
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
+  versionCheckProgramArg = "--version";
+  # This Docker CLI shim reports its Docker compatibility version.
+  preVersionCheck = ''
+    version=27.5.1
+  '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch=main" ]; };
 
