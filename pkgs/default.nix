@@ -7,6 +7,7 @@ in
 {
   alerter-bin = pkgs.callPackage ./alerter-bin { };
   apfel-bin = pkgs.callPackage ./apfel-bin { };
+  bazel-compile-commands-bin = pkgs.callPackage ./bazel-compile-commands-bin { };
   clawpatrol = pkgs.callPackage ./clawpatrol { };
   clawpatrol-bin = pkgs.callPackage ./clawpatrol-bin { };
   errorformat = pkgs.callPackage ./errorformat { };
