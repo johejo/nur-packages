@@ -18,12 +18,12 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "scriptc";
-  version = "0.1.4";
+  version = "0.1.6";
   src = fetchFromGitHub {
     owner = "vercel-labs";
     repo = "scriptc";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-ABbkTpLpLhRuGXlWDLVdCr+5/QjlP0klHHN2P2DSyCk=";
+    hash = "sha256-Xi7q4meGPROjCJGvtq9nxV4/bLqjNPhze2TA4x1s6U0=";
   };
 
   postPatch = ''
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_11;
     fetcherVersion = 4;
-    hash = "sha256-9JmtvgSW8+RDtbPGPDETjra1xUDkZG8K9GaEHUnNaL0=";
+    hash = "sha256-0JG2tzUtYVWf+aQP3Gkete5M1ybqONMbkpFmr4tSL8w=";
   };
 
   nativeBuildInputs = [
