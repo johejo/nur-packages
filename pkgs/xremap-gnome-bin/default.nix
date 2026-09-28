@@ -9,15 +9,15 @@
 }:
 
 let
-  version = "0.15.13";
+  version = "0.15.14";
   sources = {
     x86_64-linux = fetchurl {
       url = "https://github.com/xremap/xremap/releases/download/v${version}/xremap-linux-x86_64-gnome.zip";
-      hash = "sha256-or5fmJQstkz/TazF2lVeYaWXWEFjcLkXB6W9XxBuVlE=";
+      hash = "sha256-I2rkKo7N9ILkxMOUk7aF4AnT4gIrveDSow1dn/4r/oY=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/xremap/xremap/releases/download/v${version}/xremap-linux-aarch64-gnome.zip";
-      hash = "sha256-70R05amr3axDGq3203dZkVFiizIm/CdGWCAdAT6Tgc0=";
+      hash = "sha256-BNoCOv7k99y8tUjE/OSwPFj4d1FXro3ytd1CFA6p4NM=";
     };
   };
 in
