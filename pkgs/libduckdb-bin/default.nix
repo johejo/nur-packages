@@ -11,19 +11,19 @@
 }:
 
 let
-  version = "1.5.5";
+  version = "1.5.6";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://install.duckdb.org/v${version}/libduckdb-osx-universal.zip";
-      hash = "sha256-e1uJFcw4LQcIY2/mOFwM2tWmHJ/4uiY4s+IUFkB4MVU=";
+      hash = "sha256-4LwAfZsAlMCXCsGEeoYB0QqtB8vSkQzlhuyBD3e2ONY=";
     };
     x86_64-linux = fetchurl {
       url = "https://install.duckdb.org/v${version}/libduckdb-linux-amd64.zip";
-      hash = "sha256-H7jOOIFX2Eolq+aFqKJSC/AMADIYIZaOS7OY/XZuers=";
+      hash = "sha256-uEUAX1Eyp9gYAFfDXhSnYmYyJYeC+HGpCGGxnBwDhBs=";
     };
     aarch64-linux = fetchurl {
       url = "https://install.duckdb.org/v${version}/libduckdb-linux-arm64.zip";
-      hash = "sha256-q+T28AXuC0SKBYMi9CY1hLS9G2+verRje3nur5ePjpw=";
+      hash = "sha256-ty7Z8FAD9enSAV986tpkFrN32d0zFpzd48njOJeFbu4=";
     };
   };
 in
