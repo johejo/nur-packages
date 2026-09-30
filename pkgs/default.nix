@@ -78,6 +78,7 @@ in
   socktainer-bin = pkgs.callPackage ./socktainer-bin { };
   pkgsite = pkgs.callPackage ./pkgsite { };
   wrangler = pkgs.callPackage ./wrangler { };
+  cf = pkgs.callPackage ./cf { };
 }
 //
   optionalAttrs
