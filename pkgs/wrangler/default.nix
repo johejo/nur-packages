@@ -8,13 +8,13 @@
 
 wrangler.overrideAttrs (
   finalAttrs: old: {
-    version = "4.143.0";
+    version = "4.144.0";
 
     src = fetchFromGitHub {
       owner = "cloudflare";
       repo = "workers-sdk";
       rev = "wrangler@${finalAttrs.version}";
-      hash = "sha256-SrVkafOGFdDvkWbhJgRhzzW6+N76kVWokf3SpwnLosE=";
+      hash = "sha256-SdSEDS35x2WZaWzbV0gnlvX9XKoGpB/w6pckAdzXgk8=";
     };
 
     pnpmDeps = fetchPnpmDeps {
@@ -26,7 +26,7 @@ wrangler.overrideAttrs (
         ;
       pnpm = pnpm_10;
       fetcherVersion = 3;
-      hash = "sha256-iq21hQb/fZNwi2X5f1Qs3VF34jh9tg4gg5AX4OazOF8=";
+      hash = "sha256-irOzW8aYBd8jn5zp/S1K/KCHEl7gkk/Fw/+vF8dbz/U=";
     };
 
     passthru = old.passthru // {
