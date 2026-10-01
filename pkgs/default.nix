@@ -6,7 +6,7 @@ let
 in
 {
   alerter-bin = pkgs.callPackage ./alerter-bin { };
-  apfel-bin = pkgs.callPackage ./apfel-bin { };
+  apfel-llm = pkgs.callPackage ./apfel-llm { };
   bazel-compile-commands-bin = pkgs.callPackage ./bazel-compile-commands-bin { };
   clawpatrol = pkgs.callPackage ./clawpatrol { };
   clawpatrol-bin = pkgs.callPackage ./clawpatrol-bin { };
