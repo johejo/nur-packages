@@ -1,69 +1,60 @@
 {
   lib,
-  stdenv,
-  fetchFromGitHub,
-  fetchPnpmDeps,
-  nodejs_24,
-  pnpm_11,
-  pnpmConfigHook,
+  stdenvNoCC,
+  fetchurl,
+  autoPatchelfHook,
   makeWrapper,
   clang,
-  cmake,
-  gnumake,
   llvmPackages,
+  nodejs_24,
   nix-update-script,
   versionCheckHook,
+  stdenv,
   zlib,
 }:
 
-stdenv.mkDerivation (finalAttrs: {
+let
+  version = "0.2.0";
+  npmTarball =
+    name: hash:
+    fetchurl {
+      url = "https://registry.npmjs.org/@scriptc/${name}/-/${name}-${version}.tgz";
+      inherit hash;
+    };
+  sources = {
+    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-T4tL6B1Hv6aD5QH9Fw6Idj0wq/BhnoMnO+IohwsF06U=";
+    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-mU7c2L0flFtuPsRWk1cgWBrcE6qD/tD71cLKaW4iKN4=";
+    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-4z42TEFtCOSFcdGh0UyAa/A/tNzwCrBtlzSY5vX1x1U=";
+  };
+in
+stdenvNoCC.mkDerivation {
   pname = "scriptc";
-  version = "0.1.7";
-  src = fetchFromGitHub {
-    owner = "vercel-labs";
-    repo = "scriptc";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-ys9/uVviHxA4dix8kdgQ6e5QOl+VeP5wqk0mmLA/qdw=";
-  };
-
-  postPatch = ''
-    sed -i 's/^  "version": "[^"]*",$/  "version": "${finalAttrs.version}",/' packages/cli/package.json
-    substituteInPlace pnpm-workspace.yaml \
-      --replace-fail "allowBuilds:" $'injectWorkspacePackages: true\nallowBuilds:'
-    substituteInPlace pnpm-lock.yaml \
-      --replace-fail "  excludeLinksFromLockfile: false" \
-      $'  excludeLinksFromLockfile: false\n  injectWorkspacePackages: true'
-  '';
-
-  pnpmDeps = fetchPnpmDeps {
-    inherit (finalAttrs) pname version src;
-    pnpm = pnpm_11;
-    fetcherVersion = 4;
-    hash = "sha256-0JG2tzUtYVWf+aQP3Gkete5M1ybqONMbkpFmr4tSL8w=";
-  };
+  inherit version;
+  src = sources.${stdenvNoCC.hostPlatform.system};
 
   nativeBuildInputs = [
-    nodejs_24
-    pnpmConfigHook
-    pnpm_11
     makeWrapper
+  ]
+  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
+
+  # scriptc-llvm-codegen links against zlib and libstdc++.
+  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [
+    stdenv.cc.cc.lib
+    zlib
   ];
-
-  buildPhase = ''
-    runHook preBuild
-
-    pnpm --filter @scriptc/runtime --filter @scriptc/compiler --filter scriptc run build
-
-    runHook postBuild
-  '';
 
   installPhase = ''
     runHook preInstall
 
-    pnpm --filter scriptc deploy --prod "$out/lib/scriptc"
+    # The native compiler finds its toolchain through bin/scriptc.json,
+    # whose paths are relative to the executable.
+    mkdir -p "$out/lib/scriptc"
+    cp -r dist/. "$out/lib/scriptc/"
+    # npm drops the mode bits that install-native.mjs normally restores.
+    chmod +x "$out/lib/scriptc/"{bin/scriptc,lib/scriptc-comptime,lib/typescript/lib/tsc,lib/llvm/bin/scriptc-llvm-codegen}
 
     ${
-      if stdenv.hostPlatform.isLinux then
+      if stdenvNoCC.hostPlatform.isLinux then
         ''
           makeWrapper ${lib.getExe clang} "$out/libexec/scriptc/clang" \
             --add-flags "-I${lib.getDev zlib}/include" \
@@ -76,13 +67,11 @@ stdenv.mkDerivation (finalAttrs: {
         ''
     }
 
-    makeWrapper ${lib.getExe nodejs_24} "$out/bin/scriptc" \
-      --add-flags "$out/lib/scriptc/dist/main.js" \
+    makeWrapper "$out/lib/scriptc/bin/scriptc" "$out/bin/scriptc" \
       --prefix PATH : "$out/libexec/scriptc:${
         lib.makeBinPath [
-          cmake
-          gnumake
           llvmPackages.bintools
+          nodejs_24
         ]
       }"
 
@@ -93,15 +82,19 @@ stdenv.mkDerivation (finalAttrs: {
   nativeInstallCheckInputs = [ versionCheckHook ];
   versionCheckProgramArg = "--version";
 
-  installCheckPhase = ''
-    runHook preInstallCheck
-
-    "$out/bin/scriptc" --help >/dev/null
-
-    runHook postInstallCheck
-  '';
-
-  passthru.updateScript = nix-update-script { };
+  passthru = {
+    aarch64DarwinSrc = sources.aarch64-darwin;
+    x86_64LinuxSrc = sources.x86_64-linux;
+    aarch64LinuxSrc = sources.aarch64-linux;
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--url=https://github.com/vercel-labs/scriptc"
+        "--custom-dep=aarch64DarwinSrc"
+        "--custom-dep=x86_64LinuxSrc"
+        "--custom-dep=aarch64LinuxSrc"
+      ];
+    };
+  };
 
   meta = {
     description = "Compile TypeScript and JavaScript to native executables";
@@ -112,13 +105,10 @@ stdenv.mkDerivation (finalAttrs: {
       provide Zig and set SCRIPTC_CC=zigcc.
     '';
     homepage = "https://scriptc.dev";
-    changelog = "https://github.com/vercel-labs/scriptc/releases/tag/v${finalAttrs.version}";
+    changelog = "https://github.com/vercel-labs/scriptc/releases/tag/v${version}";
     license = lib.licenses.asl20;
     mainProgram = "scriptc";
-    platforms = [
-      "aarch64-darwin"
-      "x86_64-linux"
-      "aarch64-linux"
-    ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    platforms = builtins.attrNames sources;
   };
-})
+}
