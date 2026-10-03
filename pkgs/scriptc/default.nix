@@ -14,7 +14,7 @@
 }:
 
 let
-  version = "0.2.0";
+  version = "0.2.1";
   npmTarball =
     name: hash:
     fetchurl {
@@ -22,9 +22,9 @@ let
       inherit hash;
     };
   sources = {
-    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-T4tL6B1Hv6aD5QH9Fw6Idj0wq/BhnoMnO+IohwsF06U=";
-    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-mU7c2L0flFtuPsRWk1cgWBrcE6qD/tD71cLKaW4iKN4=";
-    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-4z42TEFtCOSFcdGh0UyAa/A/tNzwCrBtlzSY5vX1x1U=";
+    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-W3HZUm4XBcm6fNQTBL8PcT77hqmzCYBlTSvf/s9SUjI=";
+    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-dmPZQJWyitSih79T1DJVgf9JWap5j251b+DVD0QCnk4=";
+    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-EXVecv3HTIfGsBsaA83puyxscjZDq0Kg+JCni+DIOYw=";
   };
 in
 stdenvNoCC.mkDerivation {

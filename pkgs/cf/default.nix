@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  fetchurl,
   fetchPnpmDeps,
   pnpmConfigHook,
   pnpm_12,
@@ -17,13 +18,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "cf";
-  version = "1.0.0-beta.10";
+  version = "1.0.0-beta.12";
 
   src = fetchFromGitHub {
     owner = "cloudflare";
     repo = "cf";
     tag = "cf@${finalAttrs.version}";
-    hash = "sha256-rq6cBYVqPktI3Vh4mRosUV2LnvuyY3H3YY0vUimSzmg=";
+    hash = "sha256-Eproy+7wS0nROn7LOesjMofU+hmmxzq7NY+I2UKdTWw=";
   };
 
   # pnpm packageManager version in the root package.json may not match nixpkgs
@@ -46,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
       rm -rf $storePath/v11/links
     '';
     fetcherVersion = 4;
-    hash = "sha256-O0fzwFUIKkTyWHeOVAfyV/dDUoXbrrMNtXihb0thFOk=";
+    hash = "sha256-9OQBTbaQggWnoPNnXiNENklCqxsijXVFzYhMcCmfhp0=";
   };
 
   nativeBuildInputs = [
@@ -60,10 +61,23 @@ stdenv.mkDerivation (finalAttrs: {
 
   env.NODE_OPTIONS = "--max-old-space-size=4096";
 
+  # `build` depends on `generate`, which downloads the Forge OpenAPI document.
+  # Must match FORGE_OPENAPI_VERSION in packages/cli/generate.ts.
+  forgeOpenApi = fetchurl {
+    url = "https://github.com/cloudflare/forge/releases/download/openapi@10cdded1d9e93c9b055e27cac83b397b2bd7f0c6/openapi.forge.json";
+    hash = "sha256-czV4/2rqI1hIXLm8ah+jm64SIvgX4Xlc+mYceun18vM=";
+  };
+
+  # Read the prefetched document instead of fetching it. Not using
+  # FORGE_OPENAPI_BUNDLE, since that also forces regenerating the committed SDK.
+  preBuild = ''
+    substituteInPlace packages/cli/generate.ts \
+      --replace-fail "await fetchForgeOpenApi()" \
+        "JSON.parse(readFileSync(\"$forgeOpenApi\", \"utf8\"))"
+  '';
+
   buildPhase = ''
     runHook preBuild
-    # The generated commands and SDK are committed, so skip `generate`
-    # (which fetches the OpenAPI document from the network).
     NODE_ENV=production pnpm --filter cf run build
     runHook postBuild
   '';
