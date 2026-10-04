@@ -26,6 +26,7 @@ jobs:
         with:
           name: johejo
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          pushFilter: '(-source$)'
       - name: Build packages
         run: |
           nix build --no-link -f ci.nix cacheOutputs
