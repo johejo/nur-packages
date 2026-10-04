@@ -33,12 +33,12 @@ let
 in
 buildNpmPackage rec {
   pname = "confluence-cli";
-  version = "2.25.10";
+  version = "2.26.0";
   src = fetchFromGitHub {
     owner = "pchuri";
     repo = "confluence-cli";
     tag = "v${version}";
-    hash = "sha256-2k/3B7TccfwrTXQh5IdajpYCJzzyYyky97GbMt7D37o=";
+    hash = "sha256-PRynAh1M5HjTcgNoXUPTcPpBS6N9c20cz4XlhFNLWNI=";
   };
 
   postPatch = ''

@@ -45,7 +45,8 @@ stdenvNoCC.mkDerivation rec {
     aarch64LinuxSrc = sources.aarch64-linux;
     updateScript = nix-update-script {
       extraArgs = [
-        "--version-regex=v([0-9].*)"
+        "--use-github-releases"
+        "--version-regex=^v([0-9]+\\.[0-9]+\\.[0-9]+)$"
         "--custom-dep=aarch64DarwinSrc"
         "--custom-dep=x86_64LinuxSrc"
         "--custom-dep=aarch64LinuxSrc"
