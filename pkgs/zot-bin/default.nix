@@ -9,19 +9,19 @@
 }:
 
 let
-  version = "2.1.21";
+  version = "2.1.22";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/project-zot/zot/releases/download/v${version}/zot-darwin-arm64";
-      hash = "sha256-hcMpSVLCq9MJVTE2nlIudc+5wBM3wwh656AGFRjELQs=";
+      hash = "sha256-JKvEZ9zQIkfq4e1mAi+OcSyvra4m7brR6UY7iqB5G78=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-amd64";
-      hash = "sha256-h1HMDa9zljSDWjvYIG4wlMhNVS4sRi5KS6+A9A3ZJoU=";
+      hash = "sha256-M7m1v+BdZ4jAdt6VGgGSBHfb1jlcMwFG4jzCNABz5S4=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-arm64";
-      hash = "sha256-SeH5SK+OXG7VyAO61FCM9683vmwVt/soQBCZALkW60g=";
+      hash = "sha256-q8m6sTwUSk7i+QZ6a7vnDKHAGMSdv1Idsol1UU6nBdo=";
     };
   };
 in

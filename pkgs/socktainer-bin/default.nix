@@ -8,10 +8,10 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "socktainer-bin";
-  version = "1.4.0";
+  version = "1.5.0";
   src = fetchurl {
     url = "https://github.com/socktainer/socktainer/releases/download/v${version}/socktainer";
-    hash = "sha256-/ChgJvjQCGUvBvGPo9nWPBq2uzw35GAtgjW3ommMQNY=";
+    hash = "sha256-dlaYxIootJD7g7t0zeEa0s7oo0dZfo07WcSpCpDSPR8=";
   };
 
   dontUnpack = true;

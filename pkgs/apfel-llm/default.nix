@@ -1,10 +1,10 @@
 { lib, pkgs, nix-update-script, versionCheckHook }:
 
 pkgs.apfel-llm.overrideAttrs (old: rec {
-  version = "1.12.0";
+  version = "1.16.0";
   src = pkgs.fetchurl {
     url = "https://github.com/Arthur-Ficial/apfel/releases/download/v${version}/apfel-${version}-arm64-macos.tar.gz";
-    hash = "sha256-F/9xuEgOSJfSbt/FkIBzxI25BpDhZegrRxJN58KmuzY=";
+    hash = "sha256-K6B7mcjCOP1KV91yGrcwnqBy/ENLULZTBpwvhCiDilc=";
   };
 
   preVersionCheck = ''

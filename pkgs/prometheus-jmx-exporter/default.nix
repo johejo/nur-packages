@@ -13,10 +13,10 @@ let
 in
 stdenvNoCC.mkDerivation rec {
   pname = "prometheus-jmx-exporter";
-  version = "1.6.0";
+  version = "1.7.0";
   src = fetchurl {
     url = "https://github.com/prometheus/jmx_exporter/releases/download/${version}/jmx_prometheus_javaagent-${version}.jar";
-    hash = "sha256-qVmD/ZboZdK835EcxQDnyCgIwnq5/SJr+WcytsPYxG4=";
+    hash = "sha256-CthDJhxWfRkkoBfVQuFMQPKv/1I9lAwl7gAHQv3ks6k=";
   };
   dontUnpack = true;
   installPhase = ''
