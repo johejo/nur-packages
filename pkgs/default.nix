@@ -78,7 +78,6 @@ in
   shelley-bin = pkgs.callPackage ./shelley-bin { };
   socktainer-bin = pkgs.callPackage ./socktainer-bin { };
   pkgsite = pkgs.callPackage ./pkgsite { };
-  wrangler = pkgs.callPackage ./wrangler { };
   cf = pkgs.callPackage ./cf { };
 }
 //
