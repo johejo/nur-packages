@@ -30,12 +30,12 @@ let
 in
 buildNpmPackage rec {
   pname = "jira-cli";
-  version = "2.12.0";
+  version = "2.12.1";
   src = fetchFromGitHub {
     owner = "pchuri";
     repo = "jira-cli";
     tag = "v${version}";
-    hash = "sha256-ahoXZfCqcpYjzpbOwkUz9f4EiGztbKquoJMzm1gBBPA=";
+    hash = "sha256-ZcfPqwj/dCcfpej21puOcwSmIbuaFur8Z+ULi7TL8T0=";
   };
 
   postPatch = ''

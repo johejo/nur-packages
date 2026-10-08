@@ -10,19 +10,19 @@
 }:
 
 let
-  version = "2026.10.3";
+  version = "2026.10.4";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-macos-arm64.tar.gz";
-      hash = "sha256-KOzIZAsKKNq1KBd2bzf+z9iY8d/4LgPzb8sHLpcfkkY=";
+      hash = "sha256-dErkX5t8KkQ636Yd9IOXkw6IsTxUGDS3vSLKMdTfz80=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-x64.tar.gz";
-      hash = "sha256-BBR8aOlGkC9SJt/c1U0ZkHrtPPVNlbLyfSucd4uyb54=";
+      hash = "sha256-L8eTAgtELQgWNgNAAjayxpP4zt6BDH5DL8dyIObJ6KE=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-arm64.tar.gz";
-      hash = "sha256-55hm4yYks0b2hU2TyookKUUWzXwLSM4OgK9Qj7fD2Lg=";
+      hash = "sha256-h2CEHNv5ZOz5kCpQyUcWx3GFqZr3+OtVycUexz7NiIA=";
     };
   };
 in
