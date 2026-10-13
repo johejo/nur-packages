@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
       rm -rf $storePath/v11/links
     '';
     fetcherVersion = 4;
-    hash = "sha256-XghY4yYny80ERHf6owZD0Ak+zik1lJePjuIye6eXxwc=";
+    hash = "sha256-I2L7lgmpMKCvq1AJnKMe/Q6gGSzEqqU61uUNeoEdsSA=";
   };
 
   nativeBuildInputs = [
