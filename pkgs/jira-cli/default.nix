@@ -1,33 +1,14 @@
 {
   lib,
   buildNpmPackage,
-  deno,
-  extractNodeEnv,
   fetchFromGitHub,
   importNpmLock,
-  jq,
-  makeWrapper,
+  makeDenoNodeWrapper,
   nix-update-script,
-  patchDebugEnv,
   versionCheckHook,
   ...
 }:
 
-let
-  extraEnv = [
-    "TMPDIR"
-    "TMP"
-    "TEMP"
-    "HTTP_PROXY"
-    "HTTPS_PROXY"
-    "ALL_PROXY"
-    "NO_PROXY"
-    "http_proxy"
-    "https_proxy"
-    "all_proxy"
-    "no_proxy"
-  ];
-in
 buildNpmPackage rec {
   pname = "jira-cli";
   version = "3.0.0";
@@ -52,42 +33,14 @@ buildNpmPackage rec {
 
   dontNpmBuild = true;
 
-  nativeBuildInputs = [
-    extractNodeEnv
-    jq
-    makeWrapper
-    patchDebugEnv
-  ];
+  nativeBuildInputs = [ makeDenoNodeWrapper ];
 
   postInstall = ''
-    packageRoot="$out/lib/node_modules/@pchuri/jira-cli"
-    debugEnv="$(patch-debug-env --format json "$packageRoot/node_modules/debug/src/node.js")"
-
-    allowEnv="$(
-      extract-node-env \
-        --format json \
-        --include-literal-prefix JIRA_ \
-        "$packageRoot/bin" \
-        "$packageRoot/lib" \
-        "$packageRoot/node_modules" |
-        jq -r \
-          --argjson extra '${builtins.toJSON extraEnv}' \
-          --argjson debug "$debugEnv" \
-          '. + $extra + $debug | unique | join(",")'
-    )"
-
-    echo "Allowing environment variables: $allowEnv"
-
-    rm "$out/bin/jira"
-    makeWrapper ${deno}/bin/deno "$out/bin/jira" \
-      --set DENO_NO_UPDATE_CHECK 1 \
-      --add-flags run \
-      --add-flags --allow-read \
-      --add-flags --allow-write \
-      --add-flags --allow-net \
-      --add-flags --allow-sys=homedir,uid \
-      --add-flags "--allow-env=$allowEnv" \
-      --add-flags "$out/lib/node_modules/@pchuri/jira-cli/bin/index.cjs"
+    makeDenoNodeWrapper \
+      --package-root "$out/lib/node_modules/@pchuri/jira-cli" \
+      --entry "$out/lib/node_modules/@pchuri/jira-cli/bin/index.cjs" \
+      --bin jira \
+      --env-prefix JIRA_
   '';
 
   nativeInstallCheckInputs = [ versionCheckHook ];

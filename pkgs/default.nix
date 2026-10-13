@@ -3,6 +3,9 @@ let
   inherit (pkgs.lib) optionalAttrs;
   extractNodeEnv = pkgs.callPackage ../lib/extract-node-env.nix { };
   patchDebugEnv = pkgs.callPackage ../lib/patch-debug-env.nix { };
+  makeDenoNodeWrapper = pkgs.callPackage ../lib/make-deno-node-wrapper.nix {
+    inherit extractNodeEnv patchDebugEnv;
+  };
 in
 {
   alerter-bin = pkgs.callPackage ./alerter-bin { };
@@ -32,10 +35,8 @@ in
   gitbucket = pkgs.callPackage ./gitbucket { };
   prometheus-jmx-exporter = pkgs.callPackage ./prometheus-jmx-exporter { };
   scriptc = pkgs.callPackage ./scriptc { };
-  confluence-cli = pkgs.callPackage ./confluence-cli {
-    inherit extractNodeEnv;
-  };
-  jira-cli = pkgs.callPackage ./jira-cli { inherit extractNodeEnv patchDebugEnv; };
+  confluence-cli = pkgs.callPackage ./confluence-cli { inherit makeDenoNodeWrapper; };
+  jira-cli = pkgs.callPackage ./jira-cli { inherit makeDenoNodeWrapper; };
   container-bin = pkgs.callPackage ./container-bin { };
   codex-bin = pkgs.callPackage ./codex-bin { };
   libduckdb-bin = pkgs.callPackage ./libduckdb-bin { };
