@@ -1,4 +1,9 @@
-{ lib, pkgs, nix-update-script, versionCheckHook }:
+{
+  lib,
+  pkgs,
+  nix-update-script,
+  versionCheckHook,
+}:
 
 pkgs.apfel-llm.overrideAttrs (old: rec {
   version = "1.16.0";
