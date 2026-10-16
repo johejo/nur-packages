@@ -1,48 +1,53 @@
 { pkgs, system }:
 let
   inherit (pkgs.lib) optionalAttrs;
-  extractNodeEnv = pkgs.callPackage ../lib/extract-node-env.nix { };
-  patchDebugEnv = pkgs.callPackage ../lib/patch-debug-env.nix { };
-  makeDenoNodeWrapper = pkgs.callPackage ../lib/make-deno-node-wrapper.nix {
+  callPackage = pkgs.newScope {
+    buildGoModule = pkgs.buildGo127Module;
+  };
+  extractNodeEnv = callPackage ../lib/extract-node-env.nix { };
+  patchDebugEnv = callPackage ../lib/patch-debug-env.nix { };
+  makeDenoNodeWrapper = callPackage ../lib/make-deno-node-wrapper.nix {
     inherit extractNodeEnv patchDebugEnv;
   };
 in
 {
-  alerter-bin = pkgs.callPackage ./alerter-bin { };
-  apfel-llm = pkgs.callPackage ./apfel-llm { };
-  bazel-compile-commands-bin = pkgs.callPackage ./bazel-compile-commands-bin { };
-  clawpatrol = pkgs.callPackage ./clawpatrol { };
-  clawpatrol-bin = pkgs.callPackage ./clawpatrol-bin { };
-  errorformat = pkgs.callPackage ./errorformat { };
-  gcx-bin = pkgs.callPackage ./gcx-bin { };
-  gogcli-bin = pkgs.callPackage ./gogcli-bin { };
-  gotmpl = pkgs.callPackage ./gotmpl { };
-  gotmplfmt = pkgs.callPackage ./gotmplfmt { };
-  yamcel = pkgs.callPackage ./yamcel { };
-  kubectl-schedsim = pkgs.callPackage ./kubectl-schedsim { };
-  argocdapp2helmfile = pkgs.callPackage ./argocdapp2helmfile { };
-  mdfix = pkgs.callPackage ./mdfix { };
-  prometheus-exporter-merger = pkgs.callPackage ./prometheus-exporter-merger { };
-  prometheus-jq-exporter = pkgs.callPackage ./prometheus-jq-exporter { };
-  prometheus-jq-sd = pkgs.callPackage ./prometheus-jq-sd { };
-  prometheus-nature-remo-exporter = pkgs.callPackage ./prometheus-nature-remo-exporter { };
-  prometheus-tailscale-sd = pkgs.callPackage ./prometheus-tailscale-sd { };
-  starlink-tools = pkgs.callPackage ./starlink-tools { };
-  starlink-exporter = pkgs.callPackage ./starlink-exporter { };
-  kubernetes-mcp-server-bin = pkgs.callPackage ./kubernetes-mcp-server-bin { };
-  zot-bin = pkgs.callPackage ./zot-bin { };
-  kwok-bin = pkgs.callPackage ./kwok-bin { };
-  gitbucket = pkgs.callPackage ./gitbucket { };
-  prometheus-jmx-exporter = pkgs.callPackage ./prometheus-jmx-exporter { };
-  scriptc = pkgs.callPackage ./scriptc { };
-  confluence-cli = pkgs.callPackage ./confluence-cli { inherit makeDenoNodeWrapper; };
-  jira-cli = pkgs.callPackage ./jira-cli { inherit makeDenoNodeWrapper; };
-  container-bin = pkgs.callPackage ./container-bin { };
-  codex-bin = pkgs.callPackage ./codex-bin { };
-  libduckdb-bin = pkgs.callPackage ./libduckdb-bin { };
-  duckdb-bin = pkgs.callPackage ./duckdb-bin { };
-  wgpu-native-bin = pkgs.callPackage ./wgpu-native-bin { };
-  caddy-with-plugins = pkgs.callPackage ./caddy { };
+  alerter-bin = callPackage ./alerter-bin { };
+  apfel-llm = callPackage ./apfel-llm { };
+  bazel-compile-commands-bin = callPackage ./bazel-compile-commands-bin { };
+  clawpatrol = callPackage ./clawpatrol {
+    buildGoModule = pkgs.buildGo126Module;
+  };
+  clawpatrol-bin = callPackage ./clawpatrol-bin { };
+  errorformat = callPackage ./errorformat { };
+  gcx-bin = callPackage ./gcx-bin { };
+  gogcli-bin = callPackage ./gogcli-bin { };
+  gotmpl = callPackage ./gotmpl { };
+  gotmplfmt = callPackage ./gotmplfmt { };
+  yamcel = callPackage ./yamcel { };
+  kubectl-schedsim = callPackage ./kubectl-schedsim { };
+  argocdapp2helmfile = callPackage ./argocdapp2helmfile { };
+  mdfix = callPackage ./mdfix { };
+  prometheus-exporter-merger = callPackage ./prometheus-exporter-merger { };
+  prometheus-jq-exporter = callPackage ./prometheus-jq-exporter { };
+  prometheus-jq-sd = callPackage ./prometheus-jq-sd { };
+  prometheus-nature-remo-exporter = callPackage ./prometheus-nature-remo-exporter { };
+  prometheus-tailscale-sd = callPackage ./prometheus-tailscale-sd { };
+  starlink-tools = callPackage ./starlink-tools { };
+  starlink-exporter = callPackage ./starlink-exporter { };
+  kubernetes-mcp-server-bin = callPackage ./kubernetes-mcp-server-bin { };
+  zot-bin = callPackage ./zot-bin { };
+  kwok-bin = callPackage ./kwok-bin { };
+  gitbucket = callPackage ./gitbucket { };
+  prometheus-jmx-exporter = callPackage ./prometheus-jmx-exporter { };
+  scriptc = callPackage ./scriptc { };
+  confluence-cli = callPackage ./confluence-cli { inherit makeDenoNodeWrapper; };
+  jira-cli = callPackage ./jira-cli { inherit makeDenoNodeWrapper; };
+  container-bin = callPackage ./container-bin { };
+  codex-bin = callPackage ./codex-bin { };
+  libduckdb-bin = callPackage ./libduckdb-bin { };
+  duckdb-bin = callPackage ./duckdb-bin { };
+  wgpu-native-bin = callPackage ./wgpu-native-bin { };
+  caddy-with-plugins = callPackage ./caddy { };
   helm-with-plugins =
     with pkgs;
     (wrapHelm kubernetes-helm {
@@ -52,34 +57,34 @@ in
         helm-s3
       ];
     });
-  hev-socks5-server = pkgs.callPackage ./hev-socks5-server { };
-  hocage = pkgs.callPackage ./hocage { };
-  json2table = pkgs.callPackage ./json2table { };
-  json2toml = pkgs.callPackage ./json2toml { };
-  socks5shim = pkgs.callPackage ./socks5shim { };
-  gf-cli = pkgs.callPackage ./gf-cli { };
-  gfterm = pkgs.callPackage ./gfterm { };
-  tailctl = pkgs.callPackage ./tailctl { };
-  aws-sigv4-proxy = pkgs.callPackage ./aws-sigv4-proxy { };
-  awsigv4-proxy = pkgs.callPackage ./awsigv4-proxy { };
-  asciigraph = pkgs.callPackage ./asciigraph { };
-  kakehashi-bin = pkgs.callPackage ./kakehashi-bin { };
-  meat = pkgs.callPackage ./meat { };
-  mise-bin = pkgs.callPackage ./mise-bin { };
-  pitchfork-bin = pkgs.callPackage ./pitchfork-bin { };
-  tuicr-bin = pkgs.callPackage ./tuicr-bin { };
-  vector-bin = pkgs.callPackage ./vector-bin { };
-  xh-bin = pkgs.callPackage ./xh-bin { };
-  octorus-bin = pkgs.callPackage ./octorus-bin { };
-  cclens-bin = pkgs.callPackage ./cclens-bin { };
-  ghtkn-bin = pkgs.callPackage ./ghtkn-bin { };
-  displayplacer = pkgs.callPackage ./displayplacer { };
-  libz-rs-sys-cdylib = pkgs.callPackage ./zlib-rs/libz-rs-sys-cdylib { };
-  acli-bin = pkgs.callPackage ./acli-bin { };
-  shelley-bin = pkgs.callPackage ./shelley-bin { };
-  socktainer-bin = pkgs.callPackage ./socktainer-bin { };
-  pkgsite = pkgs.callPackage ./pkgsite { };
-  cf = pkgs.callPackage ./cf { };
+  hev-socks5-server = callPackage ./hev-socks5-server { };
+  hocage = callPackage ./hocage { };
+  json2table = callPackage ./json2table { };
+  json2toml = callPackage ./json2toml { };
+  socks5shim = callPackage ./socks5shim { };
+  gf-cli = callPackage ./gf-cli { };
+  gfterm = callPackage ./gfterm { };
+  tailctl = callPackage ./tailctl { };
+  aws-sigv4-proxy = callPackage ./aws-sigv4-proxy { };
+  awsigv4-proxy = callPackage ./awsigv4-proxy { };
+  asciigraph = callPackage ./asciigraph { };
+  kakehashi-bin = callPackage ./kakehashi-bin { };
+  meat = callPackage ./meat { };
+  mise-bin = callPackage ./mise-bin { };
+  pitchfork-bin = callPackage ./pitchfork-bin { };
+  tuicr-bin = callPackage ./tuicr-bin { };
+  vector-bin = callPackage ./vector-bin { };
+  xh-bin = callPackage ./xh-bin { };
+  octorus-bin = callPackage ./octorus-bin { };
+  cclens-bin = callPackage ./cclens-bin { };
+  ghtkn-bin = callPackage ./ghtkn-bin { };
+  displayplacer = callPackage ./displayplacer { };
+  libz-rs-sys-cdylib = callPackage ./zlib-rs/libz-rs-sys-cdylib { };
+  acli-bin = callPackage ./acli-bin { };
+  shelley-bin = callPackage ./shelley-bin { };
+  socktainer-bin = callPackage ./socktainer-bin { };
+  pkgsite = callPackage ./pkgsite { };
+  cf = callPackage ./cf { };
 }
 //
   optionalAttrs
@@ -88,9 +93,9 @@ in
       "aarch64-linux"
     ])
     {
-      tailcat-bin = pkgs.callPackage ./tailcat-bin { };
-      xremap-gnome-bin = pkgs.callPackage ./xremap-gnome-bin { };
+      tailcat-bin = callPackage ./tailcat-bin { };
+      xremap-gnome-bin = callPackage ./xremap-gnome-bin { };
     }
 // optionalAttrs (system == "aarch64-darwin") {
-  devcontainer-apple = pkgs.callPackage ./devcontainer-apple { };
+  devcontainer-apple = callPackage ./devcontainer-apple { };
 }

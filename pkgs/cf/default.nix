@@ -18,13 +18,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "cf";
-  version = "1.0.0-beta.14";
+  version = "1.0.0-beta.17";
 
   src = fetchFromGitHub {
     owner = "cloudflare";
     repo = "cf";
     tag = "cf@${finalAttrs.version}";
-    hash = "sha256-67yR5Ti9aJERyG7/scm96/ILXSHWETwyixh2R5O3sJk=";
+    hash = "sha256-swiopuaB4VP4FYzIUIa0EIJ51P7/iXKrFzKBtMUHPng=";
   };
 
   # pnpm packageManager version in the root package.json may not match nixpkgs
@@ -52,7 +52,7 @@ stdenv.mkDerivation (finalAttrs: {
       rm -rf $storePath/v11/links
     '';
     fetcherVersion = 4;
-    hash = "sha256-5+DvfVTl3RTM8Zky9Ss/4NcL9Xv6wI/kRK0q6TbYHvc=";
+    hash = "sha256-N7x7bwMTE0t4fTRopHyHfC3Wpcpd5ExR0mAbHdhdVUY=";
   };
 
   nativeBuildInputs = [
