@@ -40,11 +40,8 @@ stdenv.mkDerivation (finalAttrs: {
       postPatch
       ;
     pnpm = pnpm_12;
-    # pnpm 12's --force does not fetch optional dependencies for other hosts.
-    # Keep the fixed-output store usable on every supported platform.
-    prePnpmInstall = ''
-      pnpm config set --location=project --json supportedArchitectures '{"os":["darwin","linux"],"cpu":["arm64","x64"],"libc":["glibc","musl"]}'
-    '';
+    # Make --force fetch optional dependencies for every platform with pnpm 12.
+    env.pnpm_config_force_ignores_platform = "true";
     # pnpm 12 materializes packages under the store's `links` directory,
     # which contains non-JSON `*.json` files the fetcher's fixup cannot sort.
     # It is regenerated from the content-addressed files on install.
@@ -52,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
       rm -rf $storePath/v11/links
     '';
     fetcherVersion = 4;
-    hash = "sha256-N7x7bwMTE0t4fTRopHyHfC3Wpcpd5ExR0mAbHdhdVUY=";
+    hash = "sha256-VThAw/9AB1zW2ZAHpsz3Z8dtRJBOnm1HMRHRneqvamg=";
   };
 
   nativeBuildInputs = [
@@ -116,6 +113,8 @@ stdenv.mkDerivation (finalAttrs: {
     extraArgs = [
       "--version=unstable"
       "--version-regex=cf@(.*)"
+      # Refresh dependencies even when only nixpkgs/pnpm changes.
+      "--subpackage=pnpmDeps"
     ];
   };
 
