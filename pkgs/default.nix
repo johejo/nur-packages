@@ -85,6 +85,7 @@ in
   socktainer-bin = callPackage ./socktainer-bin { };
   pkgsite = callPackage ./pkgsite { };
   cf = callPackage ./cf { };
+  wizcli-bin = callPackage ./wizcli-bin { };
 }
 //
   optionalAttrs
