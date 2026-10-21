@@ -9,19 +9,19 @@
 }:
 
 let
-  version = "0.3.0";
+  version = "0.3.2";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/lambdalisue/cclens/releases/download/v${version}/cclens-v${version}-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-5ieLOz+0dbCF0yBy2DVmtJkycXPk/vaYhkgT8kUC+48=";
+      hash = "sha256-S06gQjcXpnk2zcp2tfda7HkOv6ZIcmagko0ay2Y5Tto=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/lambdalisue/cclens/releases/download/v${version}/cclens-v${version}-x86_64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-qaf/ssBeMqOkEj4GGfwwp6V0hHBt35R6jA6bHK0CeqE=";
+      hash = "sha256-r8LIvAlgebn6hei6C90hrH8xphEf0xVy+2MGwJvbKuA=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/lambdalisue/cclens/releases/download/v${version}/cclens-v${version}-aarch64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-xXFrfKEWAL/yoVr8msrihmUgV5yuHCBAInKlJUz38/Y=";
+      hash = "sha256-chETJScnunPjLz7Ya5tj7U5HSZ43cD0O1nogs53N4vk=";
     };
   };
 in

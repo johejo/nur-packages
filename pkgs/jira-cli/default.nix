@@ -11,12 +11,12 @@
 
 buildNpmPackage rec {
   pname = "jira-cli";
-  version = "3.0.0";
+  version = "3.0.4";
   src = fetchFromGitHub {
     owner = "pchuri";
     repo = "jira-cli";
     tag = "v${version}";
-    hash = "sha256-v4o1/4MtKATajGcX8I2OTWsNrNUawvYU33M7ITJYCCk=";
+    hash = "sha256-qXzvbMnXMaDuMmKJNT2pcI/8XhPSq7Cd0NTxZGr89Bg=";
   };
 
   postPatch = ''
