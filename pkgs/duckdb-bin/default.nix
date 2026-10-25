@@ -1,6 +1,5 @@
 {
   lib,
-  unzip,
   stdenvNoCC,
   fetchurl,
   nix-update-script,
@@ -9,19 +8,19 @@
 }:
 
 let
-  version = "1.5.6";
+  version = "2.0.0";
   sources = {
     aarch64-darwin = fetchurl {
-      url = "https://install.duckdb.org/v${version}/duckdb_cli-osx-universal.zip";
-      hash = "sha256-gKgMaHNr196lPosCRH6XWdsMhZbqFWR2ujlsRPVMWBA=";
+      url = "https://install.duckdb.org/v${version}/duckdb-cli-osx-universal.tar.gz";
+      hash = "sha256-io9n58f30TkvpjujlxlIOROS/iol/KY+cAjjPFC+tMI=";
     };
     x86_64-linux = fetchurl {
-      url = "https://install.duckdb.org/v${version}/duckdb_cli-linux-amd64.zip";
-      hash = "sha256-bonerB67w27tApHK+LVnsDDHuGrDWZj3GFTiKzxdXi8=";
+      url = "https://install.duckdb.org/v${version}/duckdb-cli-linux-amd64.tar.gz";
+      hash = "sha256-xlByBrr3eTxgE9vYI2hGmkXyDcDhem+S8gRgL2Uu0rw=";
     };
     aarch64-linux = fetchurl {
-      url = "https://install.duckdb.org/v${version}/duckdb_cli-linux-arm64.zip";
-      hash = "sha256-xUTpLJt8MfxTwhOYAsq9ji0bKz4/kzEX8xYRI5wUAts=";
+      url = "https://install.duckdb.org/v${version}/duckdb-cli-linux-arm64.tar.gz";
+      hash = "sha256-hZ4YddKpUV+7S/iHEGFDehSvgjINpox1PwlMS3djSP4=";
     };
   };
 in
@@ -30,16 +29,11 @@ stdenvNoCC.mkDerivation {
   inherit version;
   src = sources.${stdenvNoCC.hostPlatform.system};
 
-  nativeBuildInputs = [
-    unzip
-  ]
-  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
 
   buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ gcc.cc.lib ];
 
-  unpackPhase = ''
-    unzip $src
-  '';
+  sourceRoot = ".";
 
   installPhase = ''
     runHook preInstall

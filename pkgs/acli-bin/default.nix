@@ -76,11 +76,14 @@ stdenvNoCC.mkDerivation {
           version="$({
             curl -sSf https://raw.githubusercontent.com/atlassian/homebrew-acli/main/Formula/acli.rb
           } | sed -n 's/^ *version "\(.*\)"$/\1/p' | head -n1)"
-          nix-update acli-bin --flake \
-            --version="$version" \
-            --custom-dep=aarch64DarwinSrc \
-            --custom-dep=x86_64LinuxSrc \
-            --custom-dep=aarch64LinuxSrc
+          # Refresh hashes even when a previous attempt already set the version.
+          for targetVersion in "$version" skip; do
+            nix-update acli-bin --flake \
+              --version="$targetVersion" \
+              --custom-dep=aarch64DarwinSrc \
+              --custom-dep=x86_64LinuxSrc \
+              --custom-dep=aarch64LinuxSrc
+          done
         '';
       }))
     ];

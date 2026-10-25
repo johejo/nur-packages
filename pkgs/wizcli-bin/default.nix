@@ -66,11 +66,14 @@ stdenvNoCC.mkDerivation {
           version="$({
             curl -sSf https://downloads.wiz.io/v${majorVersion}/wizcli/latest/wizcli-version
           } | sed -n 's/^cli: *"\([0-9][0-9.]*\).*$/\1/p' | head -n1)"
-          nix-update wizcli-bin --flake \
-            --version="$version" \
-            --custom-dep=aarch64DarwinSrc \
-            --custom-dep=x86_64LinuxSrc \
-            --custom-dep=aarch64LinuxSrc
+          # Refresh hashes even when a previous attempt already set the version.
+          for targetVersion in "$version" skip; do
+            nix-update wizcli-bin --flake \
+              --version="$targetVersion" \
+              --custom-dep=aarch64DarwinSrc \
+              --custom-dep=x86_64LinuxSrc \
+              --custom-dep=aarch64LinuxSrc
+          done
         '';
       }))
     ];

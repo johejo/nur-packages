@@ -9,19 +9,19 @@
 }:
 
 let
-  version = "0.26.2";
+  version = "0.26.3";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/ducaale/xh/releases/download/v${version}/xh-v${version}-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-zFc50GGoRp0AEcoKuS1KXNcmzFbw7zAQiVOxGfVNBxk=";
+      hash = "sha256-UNYb11WUJ1KwVCl6FhLsGRZU8Tf4k5Zzzag8aGy1sPI=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/ducaale/xh/releases/download/v${version}/xh-v${version}-x86_64-unknown-linux-musl.tar.gz";
-      hash = "sha256-jFO2ojQ1dU+eLqirjA0ClqGSFAS4gTLPmzZP9ujCKm4=";
+      hash = "sha256-y79TvXYAfVfZXkvti6f7O3/Owir0vfwf8RnNXeNR508=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/ducaale/xh/releases/download/v${version}/xh-v${version}-aarch64-unknown-linux-musl.tar.gz";
-      hash = "sha256-OkSQCorFP2FKoM0dLlTs9Ok1hDhMGtCRqhjXmSaG1+s=";
+      hash = "sha256-pF2MtsI0xoUPn8I5X8NUSrdpH7URI38AF5rtuhvNUl4=";
     };
   };
 in

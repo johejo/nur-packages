@@ -10,19 +10,19 @@
 }:
 
 let
-  version = "2.32.0";
+  version = "2.32.2";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/jdx/pitchfork/releases/download/v${version}/pitchfork-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-TIQmV2xe9LfIvPGfIxb/2OekxRSkkAfiE9cpgQlnEWY=";
+      hash = "sha256-e1vUOpEPrXEj4IbcxztQNEOOP1AJ7KER7Vimslzu/k8=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/jdx/pitchfork/releases/download/v${version}/pitchfork-x86_64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-aDsY78vWemb/gYnzX9vEgkr07j56zoJ8j4pb4h3IFsE=";
+      hash = "sha256-A1sue8YggL9LyKlCywSbH4rBvxp4u09FY8kJ2EuN9ig=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/jdx/pitchfork/releases/download/v${version}/pitchfork-aarch64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-eKXA/BVxTY+N9ZptqP2hHJEyuzbV1Y0mBkSIJAnoSjc=";
+      hash = "sha256-qETHEFHTTutEAYDYQXPvShPZRfga76cJarmKDr9+ucU=";
     };
   };
 in

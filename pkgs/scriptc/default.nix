@@ -14,7 +14,7 @@
 }:
 
 let
-  version = "0.3.6";
+  version = "0.4.4";
   npmTarball =
     name: hash:
     fetchurl {
@@ -22,9 +22,9 @@ let
       inherit hash;
     };
   sources = {
-    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-rNFREhmg+ebeZ+VoTVKQ6fYoTT9Zb7Dr7+hw04KxQ1A=";
-    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-gutmc74kV7e6F4G+iYhjRA3IlBBckOFQsskKcozfYbE=";
-    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-4ahkYlwTKTKRDJa/nL7o31EkH+/DHwnrZXvniqIFsQg=";
+    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-8rMZaq5IEW0Gp0k40M/dMWtNY/TCBTKmcCRvJmD6HJg=";
+    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-ynDGdKp06XoHF6AsJdSU1UGDmwA53qBO727pZDFUD3M=";
+    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-KRKzAj558Vkndn8PJma0SnWBvZG9RL0G3HoO1/M5KV0=";
   };
 in
 stdenvNoCC.mkDerivation {
@@ -89,6 +89,7 @@ stdenvNoCC.mkDerivation {
     updateScript = nix-update-script {
       extraArgs = [
         "--url=https://github.com/vercel-labs/scriptc"
+        "--version-regex=^v([0-9]+[.][0-9]+[.][0-9]+)$"
         "--custom-dep=aarch64DarwinSrc"
         "--custom-dep=x86_64LinuxSrc"
         "--custom-dep=aarch64LinuxSrc"

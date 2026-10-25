@@ -1,29 +1,29 @@
 {
   lib,
-  unzip,
   stdenvNoCC,
   fetchurl,
   nix-update-script,
   autoPatchelfHook,
   cctools,
   fixDarwinDylibNames,
+  darwin,
   gcc,
 }:
 
 let
-  version = "1.5.6";
+  version = "2.0.0";
   sources = {
     aarch64-darwin = fetchurl {
-      url = "https://install.duckdb.org/v${version}/libduckdb-osx-universal.zip";
-      hash = "sha256-4LwAfZsAlMCXCsGEeoYB0QqtB8vSkQzlhuyBD3e2ONY=";
+      url = "https://install.duckdb.org/v${version}/duckdb-shared-libs-osx-universal.tar.gz";
+      hash = "sha256-FM1jGAYUz9lh95WRRuzZCHUn/yC2cxHv3D+hwpwYIE0=";
     };
     x86_64-linux = fetchurl {
-      url = "https://install.duckdb.org/v${version}/libduckdb-linux-amd64.zip";
-      hash = "sha256-uEUAX1Eyp9gYAFfDXhSnYmYyJYeC+HGpCGGxnBwDhBs=";
+      url = "https://install.duckdb.org/v${version}/duckdb-shared-libs-linux-amd64.tar.gz";
+      hash = "sha256-mTrYnn38pmzW2plMLK0JDC/BYN359VBJigmKtLsTz7E=";
     };
     aarch64-linux = fetchurl {
-      url = "https://install.duckdb.org/v${version}/libduckdb-linux-arm64.zip";
-      hash = "sha256-ty7Z8FAD9enSAV986tpkFrN32d0zFpzd48njOJeFbu4=";
+      url = "https://install.duckdb.org/v${version}/duckdb-shared-libs-linux-arm64.tar.gz";
+      hash = "sha256-xg7s+RFDymu6xVxPTUDcIlIEiLCsJXyG4P6aK0Uc8rc=";
     };
   };
 in
@@ -32,24 +32,21 @@ stdenvNoCC.mkDerivation rec {
   inherit version;
   src = sources.${stdenvNoCC.hostPlatform.system};
 
-  nativeBuildInputs = [
-    unzip
-  ]
-  ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ]
-  ++ lib.optionals stdenvNoCC.hostPlatform.isDarwin [
-    cctools
-    fixDarwinDylibNames
-  ];
+  nativeBuildInputs =
+    lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ]
+    ++ lib.optionals stdenvNoCC.hostPlatform.isDarwin [
+      cctools
+      fixDarwinDylibNames
+      darwin.autoSignDarwinBinariesHook
+    ];
 
   buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ gcc.cc.lib ];
 
-  unpackPhase = ''
-    unzip $src
-  '';
+  sourceRoot = ".";
 
   installPhase = ''
     mkdir -p $out/include
-    cp duckdb.* $out/include/
+    cp *.h $out/include/
     mkdir -p $out/lib
   ''
   + lib.optionalString stdenvNoCC.hostPlatform.isLinux ''
