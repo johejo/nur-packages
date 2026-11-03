@@ -42,6 +42,8 @@ stdenvNoCC.mkDerivation rec {
 
   dontStrip = true;
 
+  patchelfFlags = [ "--no-sort" ];
+
   doInstallCheck = true;
   preVersionCheck = ''
     version="''${version#v}"
