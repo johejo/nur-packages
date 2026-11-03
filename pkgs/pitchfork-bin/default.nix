@@ -37,6 +37,9 @@ stdenvNoCC.mkDerivation rec {
 
   buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ libgcc ];
 
+  # Preserve ELF section ordering to avoid a startup segfault after patching.
+  patchelfFlags = [ "--no-sort" ];
+
   nativeInstallCheckInputs = [ versionCheckHook ];
 
   doInstallCheck = true;
