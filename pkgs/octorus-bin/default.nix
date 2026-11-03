@@ -10,19 +10,19 @@
 }:
 
 let
-  version = "0.7.2";
+  version = "0.7.3";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/ushironoko/octorus/releases/download/v${version}/octorus-${version}-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-Uv5MKlwgZqG1XaS75yZ5QkVJ8nqlwjWndN9LAv5ZIAI=";
+      hash = "sha256-TaXKyhBN5HV2GWJjs+zoWQMtmoq9Dd0/t26ardlLFVk=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/ushironoko/octorus/releases/download/v${version}/octorus-${version}-x86_64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-Y+LsJQcs0zd/6J8UxDgO7Zy8df6+FBLSu5R3+9jcnDM=";
+      hash = "sha256-gn+IeNhaOkJyh+o1icrSYzwqR+P2bCIQSv+cdNrRzYI=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/ushironoko/octorus/releases/download/v${version}/octorus-${version}-aarch64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-Rk1Qk1PE1IcEixBaLCbzpUPzkfP5NAFAhiVYr7ZRGnc=";
+      hash = "sha256-JZbcjaW8ofxl55K9DzRcucbi9jCvCOAvnxE9b5Y4YAU=";
     };
   };
 in

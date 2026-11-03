@@ -14,7 +14,7 @@
 }:
 
 let
-  version = "0.4.4";
+  version = "0.4.7";
   npmTarball =
     name: hash:
     fetchurl {
@@ -22,9 +22,19 @@ let
       inherit hash;
     };
   sources = {
-    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-8rMZaq5IEW0Gp0k40M/dMWtNY/TCBTKmcCRvJmD6HJg=";
-    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-ynDGdKp06XoHF6AsJdSU1UGDmwA53qBO727pZDFUD3M=";
-    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-KRKzAj558Vkndn8PJma0SnWBvZG9RL0G3HoO1/M5KV0=";
+    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-0RHg9xgaL9mJb/4uvw+eZEZ/quqi36wEpiA4u3rIbHw=";
+    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-rxTfKH/EU+GNRvGb6qIJ9uFKMMwfizje2e4+xZPFMzk=";
+    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-+cYQ/JQUOZkLM6rffsFqDe7GQJha+bLoziS9qKT8LiQ=";
+  };
+  llvmSources = {
+    aarch64-darwin = npmTarball "llvm-darwin-arm64" "sha256-Jr4NcovQGla+wdifNFTD25IPKJlH3AYU8AKUlicKcuE=";
+    x86_64-linux = npmTarball "llvm-linux-x64-gnu" "sha256-X2hVMupqx9hjoq8keArZhj9sMI8Xa0YthIY9Hfs8h0Y=";
+    aarch64-linux = npmTarball "llvm-linux-arm64-gnu" "sha256-Jwcpq1rjRLzJ13mchYQwoctR5mEKAeyC3Qyt/UCX91Q=";
+  };
+  runtimeSources = {
+    aarch64-darwin = npmTarball "runtime-darwin-arm64" "sha256-lqXdERUuThBjp7waUoUCnoFDs7sb8qWt2OEbGWZOX7c=";
+    x86_64-linux = npmTarball "runtime-linux-x64-gnu" "sha256-V+3pG5HfWSabRvtbOrWY79lwHSIb0qz6pbKW4suqeKo=";
+    aarch64-linux = npmTarball "runtime-linux-arm64-gnu" "sha256-S7gowHjHGwXQiZvIZ3SHJvft3VFSq7wogmimKtp+HZc=";
   };
 in
 stdenvNoCC.mkDerivation {
@@ -50,8 +60,14 @@ stdenvNoCC.mkDerivation {
     # whose paths are relative to the executable.
     mkdir -p "$out/lib/scriptc"
     cp -r dist/. "$out/lib/scriptc/"
+    # LLVM and the precompiled runtime are distributed separately since 0.4.7.
+    mkdir -p "$out/lib/scriptc/"{llvm,runtime}
+    tar -xzf ${llvmSources.${stdenvNoCC.hostPlatform.system}} \
+      -C "$out/lib/scriptc/llvm" --strip-components=1
+    tar -xzf ${runtimeSources.${stdenvNoCC.hostPlatform.system}} \
+      -C "$out/lib/scriptc/runtime" --strip-components=1
     # npm drops the mode bits that install-native.mjs normally restores.
-    chmod +x "$out/lib/scriptc/"{bin/scriptc,lib/scriptc-comptime,lib/typescript/lib/tsc,lib/llvm/bin/scriptc-llvm-codegen}
+    chmod +x "$out/lib/scriptc/"{bin/scriptc,lib/scriptc-comptime,lib/typescript/lib/tsc,lib/tsc-ts/lib/tsc-ts,llvm/bin/scriptc-llvm-codegen}
 
     ${
       if stdenvNoCC.hostPlatform.isLinux then
@@ -68,6 +84,8 @@ stdenvNoCC.mkDerivation {
     }
 
     makeWrapper "$out/lib/scriptc/bin/scriptc" "$out/bin/scriptc" \
+      --set SCRIPTC_LLVM_PACKAGE "$out/lib/scriptc/llvm" \
+      --set SCRIPTC_RUNTIME_PACK "$out/lib/scriptc/runtime" \
       --prefix PATH : "$out/libexec/scriptc:${
         lib.makeBinPath [
           llvmPackages.bintools
@@ -86,6 +104,12 @@ stdenvNoCC.mkDerivation {
     aarch64DarwinSrc = sources.aarch64-darwin;
     x86_64LinuxSrc = sources.x86_64-linux;
     aarch64LinuxSrc = sources.aarch64-linux;
+    aarch64DarwinLlvmSrc = llvmSources.aarch64-darwin;
+    x86_64LinuxLlvmSrc = llvmSources.x86_64-linux;
+    aarch64LinuxLlvmSrc = llvmSources.aarch64-linux;
+    aarch64DarwinRuntimeSrc = runtimeSources.aarch64-darwin;
+    x86_64LinuxRuntimeSrc = runtimeSources.x86_64-linux;
+    aarch64LinuxRuntimeSrc = runtimeSources.aarch64-linux;
     updateScript = nix-update-script {
       extraArgs = [
         "--url=https://github.com/vercel-labs/scriptc"
@@ -93,6 +117,12 @@ stdenvNoCC.mkDerivation {
         "--custom-dep=aarch64DarwinSrc"
         "--custom-dep=x86_64LinuxSrc"
         "--custom-dep=aarch64LinuxSrc"
+        "--custom-dep=aarch64DarwinLlvmSrc"
+        "--custom-dep=x86_64LinuxLlvmSrc"
+        "--custom-dep=aarch64LinuxLlvmSrc"
+        "--custom-dep=aarch64DarwinRuntimeSrc"
+        "--custom-dep=x86_64LinuxRuntimeSrc"
+        "--custom-dep=aarch64LinuxRuntimeSrc"
       ];
     };
   };
