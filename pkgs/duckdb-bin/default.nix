@@ -35,6 +35,9 @@ stdenvNoCC.mkDerivation {
 
   sourceRoot = ".";
 
+  # Preserve ELF section ordering to avoid a startup crash after patching.
+  patchelfFlags = [ "--no-sort" ];
+
   installPhase = ''
     runHook preInstall
     install -Dm755 duckdb $out/bin/duckdb
