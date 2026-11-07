@@ -2,25 +2,26 @@
   lib,
   stdenvNoCC,
   fetchurl,
+  autoPatchelfHook,
   nix-update-script,
   versionCheckHook,
   ...
 }:
 
 let
-  version = "0.1.1";
+  version = "0.1.2";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v${version}/kubernetes-mcp-server-darwin-arm64";
-      hash = "sha256-FlD5BGcR67JJycqWKGbe56sQ8Alexvi/4JOE76qSLjA=";
+      hash = "sha256-5FDILcLW3sWkp/uoddb7hBAOKmhjVmMESylcGZa7uCs=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v${version}/kubernetes-mcp-server-linux-amd64";
-      hash = "sha256-pAzKh+AJtotWRE2OeJ9PEBcxZCuC+vi4TzguuTbpi5U=";
+      hash = "sha256-T1mfGsruhLwR2+6Q62U4oDQQZR3ifsGaSbWpfkowyrY=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v${version}/kubernetes-mcp-server-linux-arm64";
-      hash = "sha256-xiYgqu0PaDTp6rkS4EcqREgrgjwSsDbiW2bYcDzfVpU=";
+      hash = "sha256-H6W/Qbn1mw+myAEuBjyYo5AL9e2hQoEKdIcYhez87Y8=";
     };
   };
 in
@@ -30,6 +31,8 @@ stdenvNoCC.mkDerivation rec {
   src = sources.${stdenvNoCC.hostPlatform.system};
 
   dontUnpack = true;
+
+  nativeBuildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
 

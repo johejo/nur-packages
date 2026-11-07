@@ -10,19 +10,19 @@
 
 let
   installShellCompletions = stdenvNoCC.buildPlatform.canExecute stdenvNoCC.hostPlatform;
-  version = "0.47.1";
+  version = "0.48.0";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/steipete/gogcli/releases/download/v${version}/gogcli_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-QAeOSl1V6/Fr28mdT1wOPw1ejIYtU2QXrk6uPEAIVxo=";
+      hash = "sha256-qMYUL8ufQfDv8C/+94KYy+SYEGHxScKzpC1aE7rZMb0=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/steipete/gogcli/releases/download/v${version}/gogcli_${version}_linux_amd64.tar.gz";
-      hash = "sha256-J5vDoDwZGdd04mjvIplJ9Ft1Og4hJX+fsxWwW+ekDqk=";
+      hash = "sha256-iAnS9P6VoCmbGipca8kSxKukuQp7XiwfXPEbmUWlAAQ=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/steipete/gogcli/releases/download/v${version}/gogcli_${version}_linux_arm64.tar.gz";
-      hash = "sha256-xnesar9eGH6Yeof+G1iPRUsAKn1wGd6BuejbAunpArY=";
+      hash = "sha256-/EBSQ2jSy2ITvf4Lc2tYhOG1XGNocG16KFVCy35Vm2g=";
     };
   };
 in
