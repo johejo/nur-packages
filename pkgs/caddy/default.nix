@@ -6,7 +6,7 @@
     "github.com/caddyserver/replace-response@v0.0.0-20250618171559-80962887e4c6"
     "github.com/mholt/caddy-dynamicdns@v0.0.0-20251231002810-1af4f8876598"
   ];
-  hash = "sha256-CSpKS/JA6OXrjUJWpFa+kY+dbwvrxMYRnEWsNy4t86A=";
+  hash = "sha256-gyCZJsVtBPet6mlHpspL/OHf6g5va3Lz9WYWmGncJPA=";
 }).overrideAttrs
   (old: {
     # Keep source positions local so nix-update can update the plugin source hash.
