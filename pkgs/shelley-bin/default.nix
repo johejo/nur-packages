@@ -8,19 +8,19 @@
 }:
 
 let
-  version = "0.1634.920132223";
+  version = "0.1782.955031510";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_darwin_arm64";
-      hash = "sha256-kXHz+Wt1W5U/RwGMDz9a8Ffv9cBJsHsEvtBZk2nuOmQ=";
+      hash = "sha256-LwHdSxVWEv0E5RAcDs/e4KS/TbJdCDs+mQa2bRzpcJU=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_linux_amd64";
-      hash = "sha256-Rr+5upyVe7N9dvTDQIdR8xVxSuQ61UfOdxRdLVi6zJI=";
+      hash = "sha256-6zHTYsZ4mQui1GsnBfb9M/lgtvd/c6hYbjQFpIlbNR4=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_linux_arm64";
-      hash = "sha256-PFufPDPnZPyH9CdZUtJCIbgalUZgdkeV+tVhpKMobj4=";
+      hash = "sha256-t9bp+s+AqwsRnlHOlFOFZA1QaWF/KOQdFFo1EZuzjpU=";
     };
   };
 in

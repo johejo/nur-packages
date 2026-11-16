@@ -9,19 +9,19 @@
 }:
 
 let
-  version = "0.1.2";
+  version = "0.1.3";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v${version}/kubernetes-mcp-server-darwin-arm64";
-      hash = "sha256-5FDILcLW3sWkp/uoddb7hBAOKmhjVmMESylcGZa7uCs=";
+      hash = "sha256-2ifFSwvb9LisR9u3yjzwaaNtZGheA05KvPF/1wFeR7Q=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v${version}/kubernetes-mcp-server-linux-amd64";
-      hash = "sha256-T1mfGsruhLwR2+6Q62U4oDQQZR3ifsGaSbWpfkowyrY=";
+      hash = "sha256-Nj5Dp9hlrS1If4ioJ7fTfN1bVrTKb9hq/80OIxpBBKY=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v${version}/kubernetes-mcp-server-linux-arm64";
-      hash = "sha256-H6W/Qbn1mw+myAEuBjyYo5AL9e2hQoEKdIcYhez87Y8=";
+      hash = "sha256-Ji0/PXgAuIV0tr4wwctGY/gUgfoSvUHgLBDUOmYGnT4=";
     };
   };
 in

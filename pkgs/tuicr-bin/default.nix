@@ -8,19 +8,19 @@
 }:
 
 let
-  version = "0.28.0";
+  version = "0.29.0";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/agavra/tuicr/releases/download/v${version}/tuicr-${version}-aarch64-apple-darwin.tar.gz";
-      hash = "sha256-QTjy0kNCKv9osy7FL7FSTLrf/PZ2OzT8GA8l8KyXFnQ=";
+      hash = "sha256-P0Z37e0hpHDDoU/uAcOm0EFGGUoF19NGpC/H5hJ0O4Q=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/agavra/tuicr/releases/download/v${version}/tuicr-${version}-x86_64-unknown-linux-musl.tar.gz";
-      hash = "sha256-DmvmVFjoO/P5F6MGYNApt/TcX5ttIDrcEPEak6MMIvI=";
+      hash = "sha256-SLou40dACngHVrwMdyZ5KhoRe1nXkgwQsBV7zwhbUSg=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/agavra/tuicr/releases/download/v${version}/tuicr-${version}-aarch64-unknown-linux-musl.tar.gz";
-      hash = "sha256-xfYOOEZzPD9vZ28LW0Smwc7BSOLREy870QeDPPX3/A4=";
+      hash = "sha256-lMDMFnIBW8QVEWV6gbQiNZYjI3JxXTYTH9FvlQsmAxM=";
     };
   };
 in

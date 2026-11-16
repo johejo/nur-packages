@@ -14,7 +14,7 @@
 }:
 
 let
-  version = "0.4.9";
+  version = "0.4.14";
   npmTarball =
     name: hash:
     fetchurl {
@@ -22,19 +22,19 @@ let
       inherit hash;
     };
   sources = {
-    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-gd7F659/G3I+q/AZDkPnhrRnmRusJj5z6/aUjgPYytI=";
-    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-iJbYm5P+QXsLz7kDZ/ZG4DWtGULQ1l3nxODOm4kPnOA=";
-    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-f6lWE2K1XnrCedToI54ZoSbFCr1joNl5PGMH8c2TvmY=";
+    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-0TOHyzEUJxkasaRt7bx9/c3F07BzuPn54CfhROFpY68=";
+    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-/vZWNRqzr4Ok5r+PYkXEFDe3OCliXC22z32u3TYhghI=";
+    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-dBvQtl2Q8qm7oFyX2e5sI3N3s5W/yOJmDuaPhMAlWAs=";
   };
   llvmSources = {
-    aarch64-darwin = npmTarball "llvm-darwin-arm64" "sha256-FS6nu5A0D8gDbopWjmDhtvMvH38ulpPWWpp8ERSaB+o=";
-    x86_64-linux = npmTarball "llvm-linux-x64-gnu" "sha256-3R7S18pbD+df0sWkNvZuqHcAK3PGkX6d38bz2RsLjIc=";
-    aarch64-linux = npmTarball "llvm-linux-arm64-gnu" "sha256-Hem8zW4D+LfkDrRPELhLwBCNW7a1VrGAWIPQFq3aaeA=";
+    aarch64-darwin = npmTarball "llvm-darwin-arm64" "sha256-BDU78lH2gENI7I1jf0SligZuNs4VlLGzVgWTTz7D694=";
+    x86_64-linux = npmTarball "llvm-linux-x64-gnu" "sha256-Y9HLSmMZ9STfIVV/1ohGAc0h3dFbVifGTnV0Tyk6NHM=";
+    aarch64-linux = npmTarball "llvm-linux-arm64-gnu" "sha256-p4cqf7aq/48XWoNKPMivTx4wu6wJdFiCwUq45+qXlNQ=";
   };
   runtimeSources = {
-    aarch64-darwin = npmTarball "runtime-darwin-arm64" "sha256-su6ZTeTv4QZ9/B9yRnbGJ3TMRx9m+D9LAV1j+NhSRzA=";
-    x86_64-linux = npmTarball "runtime-linux-x64-gnu" "sha256-7pBbE6Qf2RniSwO6rieprUa3fKhDcUHsFwPtqwjq92E=";
-    aarch64-linux = npmTarball "runtime-linux-arm64-gnu" "sha256-JEkfvIV2tN9u31v4tm609LBpL092Bw0qGAp9gigKmt0=";
+    aarch64-darwin = npmTarball "runtime-darwin-arm64" "sha256-18YDkbeX1/QawbiDDG0j00MMiwHs7sddem65f9IlCiE=";
+    x86_64-linux = npmTarball "runtime-linux-x64-gnu" "sha256-vyeAOBDEnaZSdH/EeAvKo5TsteIbWPsKqU4Lyf5EnJs=";
+    aarch64-linux = npmTarball "runtime-linux-arm64-gnu" "sha256-Yp0wt3XudkFQTAIjdexr+7HShMK/tWYJkievjyeDj58=";
   };
 in
 stdenvNoCC.mkDerivation {
@@ -67,7 +67,7 @@ stdenvNoCC.mkDerivation {
     tar -xzf ${runtimeSources.${stdenvNoCC.hostPlatform.system}} \
       -C "$out/lib/scriptc/runtime" --strip-components=1
     # npm drops the mode bits that install-native.mjs normally restores.
-    chmod +x "$out/lib/scriptc/"{bin/scriptc,lib/scriptc-comptime,lib/typescript/lib/tsc,lib/tsc-ts/lib/tsc-ts,llvm/bin/scriptc-llvm-codegen}
+    chmod +x "$out/lib/scriptc/"{bin/scriptc,lib/typescript/lib/tsc,lib/tsc-ts/lib/tsc-ts,llvm/bin/scriptc-llvm-codegen}
 
     ${
       if stdenvNoCC.hostPlatform.isLinux then

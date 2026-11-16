@@ -6,10 +6,10 @@
 }:
 
 pkgs.apfel-llm.overrideAttrs (old: rec {
-  version = "1.16.0";
+  version = "1.18.0";
   src = pkgs.fetchurl {
     url = "https://github.com/Arthur-Ficial/apfel/releases/download/v${version}/apfel-${version}-arm64-macos.tar.gz";
-    hash = "sha256-K6B7mcjCOP1KV91yGrcwnqBy/ENLULZTBpwvhCiDilc=";
+    hash = "sha256-BzvK2uDdNbYhnNCFC0s2VEmESyRygaaS9FkpFYc5zWs=";
   };
 
   preVersionCheck = ''

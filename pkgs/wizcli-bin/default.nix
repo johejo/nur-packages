@@ -11,20 +11,20 @@
 }:
 
 let
-  version = "1.82.0";
+  version = "1.84.0";
   majorVersion = lib.versions.major version;
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://downloads.wiz.io/v${majorVersion}/wizcli/${version}/wizcli-darwin-arm64";
-      hash = "sha256-rYfCDI0eUhTdnwaj+vM6VyhuCt8IqVR1gDtf9ep5lyE=";
+      hash = "sha256-jeaLi37z3NBcWPddV/R+m4BFTemW6wjAoe+T6HfUHVU=";
     };
     x86_64-linux = fetchurl {
       url = "https://downloads.wiz.io/v${majorVersion}/wizcli/${version}/wizcli-linux-amd64";
-      hash = "sha256-RWOqu5++4zW6+etNBjl1aN2LTtzf+HvvfSmANmT55i0=";
+      hash = "sha256-cnwA1LBOxTHPaVNhYv4LX0uKhFsfrs69L3NM0S1x+ZQ=";
     };
     aarch64-linux = fetchurl {
       url = "https://downloads.wiz.io/v${majorVersion}/wizcli/${version}/wizcli-linux-arm64";
-      hash = "sha256-YWTlplcAsb9RnNKflCM4hkKM5oPKvx64JNWhdBVr0QU=";
+      hash = "sha256-ZFJfU6XYVhaUhlJjB2AzccwdvUL1R/f5LYrjT8vGMu4=";
     };
   };
 in
