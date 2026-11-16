@@ -53,7 +53,16 @@
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               nixfmt
-              nix-update
+              (nix-update.overrideAttrs (old: {
+                # Prefetch lazy flake sources only when missing (upstream PR #692).
+                # Remove once nixpkgs includes the fix.
+                patches = (old.patches or [ ]) ++ [
+                  (fetchurl {
+                    url = "https://github.com/Mic92/nix-update/commit/d545c1fad667e573128cad0db55fdc77134a4d3c.patch";
+                    hash = "sha256-3iHlAZsv8wH2NCVGcOVh8S/MJY2gfmPHqgLsmPVIJ0U=";
+                  })
+                ];
+              }))
               gh
               jq
             ];
