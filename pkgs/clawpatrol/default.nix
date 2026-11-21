@@ -11,12 +11,12 @@
 }:
 
 let
-  version = "0.5.14";
+  version = "0.5.15";
   src = fetchFromGitHub {
     owner = "denoland";
     repo = "clawpatrol";
     tag = "v${version}";
-    hash = "sha256-dec40ibKEVFZ7JWh+ghVB0wBd94QRMNIXQlwIzXPhw4=";
+    hash = "sha256-PMKuZdGCHeo7pobapGNAVVO0XwFHI1Y0hiE7bddV3CY=";
   };
   denoDepsFor =
     system:

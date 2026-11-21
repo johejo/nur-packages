@@ -8,19 +8,19 @@
 }:
 
 let
-  version = "2.0.0";
+  version = "2.0.1";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://install.duckdb.org/v${version}/duckdb-cli-osx-universal.tar.gz";
-      hash = "sha256-io9n58f30TkvpjujlxlIOROS/iol/KY+cAjjPFC+tMI=";
+      hash = "sha256-nW6geejDtWmPVZ/GTn5eQ90hpR6KYYspsY3kcWKZykA=";
     };
     x86_64-linux = fetchurl {
       url = "https://install.duckdb.org/v${version}/duckdb-cli-linux-amd64.tar.gz";
-      hash = "sha256-xlByBrr3eTxgE9vYI2hGmkXyDcDhem+S8gRgL2Uu0rw=";
+      hash = "sha256-tnYmi+TTnk5BqQRELJeWyZFOZFzAhcdQXwSPLJkrXso=";
     };
     aarch64-linux = fetchurl {
       url = "https://install.duckdb.org/v${version}/duckdb-cli-linux-arm64.tar.gz";
-      hash = "sha256-hZ4YddKpUV+7S/iHEGFDehSvgjINpox1PwlMS3djSP4=";
+      hash = "sha256-hON4kfzEXIh+MCIPUaSRSZXNgXQTnof479MRrIPJVqc=";
     };
   };
 in

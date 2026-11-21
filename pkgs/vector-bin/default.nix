@@ -8,19 +8,19 @@
 }:
 
 let
-  version = "0.61.0";
+  version = "0.62.0";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/vectordotdev/vector/releases/download/v${version}/vector-${version}-arm64-apple-darwin.tar.gz";
-      hash = "sha256-XnR1lLsSyNmrhcFvL7Xp+jW8kpEeFwmalyH32DOuNQM=";
+      hash = "sha256-h2N9YKzX6GBUCVHtI8Cg3GsH6qRG+cUY5lYG/PPn8I8=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/vectordotdev/vector/releases/download/v${version}/vector-${version}-x86_64-unknown-linux-musl.tar.gz";
-      hash = "sha256-4WCbilXvHB/E/YhjPivGNm6aQCL28a6EbK3SevUjdiE=";
+      hash = "sha256-Qf1yjwB7usH10S6fzqVph50fuIGfO1X2LFQXOzvApvk=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/vectordotdev/vector/releases/download/v${version}/vector-${version}-aarch64-unknown-linux-musl.tar.gz";
-      hash = "sha256-EtfpHbLkRwA1WMlVxPUQsX7R13NAdX8+WR5SIuRkZ1w=";
+      hash = "sha256-iOetQINiuL5LOIg0Is7evhHLPekliTIM/Vru5tjzgbk=";
     };
   };
 in

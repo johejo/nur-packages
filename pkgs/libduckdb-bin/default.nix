@@ -11,19 +11,19 @@
 }:
 
 let
-  version = "2.0.0";
+  version = "2.0.1";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://install.duckdb.org/v${version}/duckdb-shared-libs-osx-universal.tar.gz";
-      hash = "sha256-FM1jGAYUz9lh95WRRuzZCHUn/yC2cxHv3D+hwpwYIE0=";
+      hash = "sha256-mkvloqMa1buMkr838Y1ZucEKebOS14SMq9brLgWDdEk=";
     };
     x86_64-linux = fetchurl {
       url = "https://install.duckdb.org/v${version}/duckdb-shared-libs-linux-amd64.tar.gz";
-      hash = "sha256-mTrYnn38pmzW2plMLK0JDC/BYN359VBJigmKtLsTz7E=";
+      hash = "sha256-4lUCYS/tUzokO2HyOipXTarQMOfoiQYiKl8Ksw0Gdp4=";
     };
     aarch64-linux = fetchurl {
       url = "https://install.duckdb.org/v${version}/duckdb-shared-libs-linux-arm64.tar.gz";
-      hash = "sha256-xg7s+RFDymu6xVxPTUDcIlIEiLCsJXyG4P6aK0Uc8rc=";
+      hash = "sha256-gR6LTQIm9eUx9YOq3HmAcP+zOzUOOCO+VjouvrLGhZM=";
     };
   };
 in

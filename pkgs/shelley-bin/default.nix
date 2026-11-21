@@ -2,25 +2,28 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  nix-update-script,
+  curl,
+  jq,
+  nix-update,
   versionCheckHook,
+  writeShellApplication,
   ...
 }:
 
 let
-  version = "0.1782.955031510";
+  version = "0.1828.976657460";
   sources = {
     aarch64-darwin = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_darwin_arm64";
-      hash = "sha256-LwHdSxVWEv0E5RAcDs/e4KS/TbJdCDs+mQa2bRzpcJU=";
+      hash = "sha256-wBRzjuwF/7QGFUfjHvLQhdP8xdQwHQuaPTO/b7DovE8=";
     };
     x86_64-linux = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_linux_amd64";
-      hash = "sha256-6zHTYsZ4mQui1GsnBfb9M/lgtvd/c6hYbjQFpIlbNR4=";
+      hash = "sha256-3cTK6XpYi/B3zKfmvlUi0pqKGSQ9OYqwmWHQSwDNyiI=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/boldsoftware/shelley/releases/download/v${version}/shelley_linux_arm64";
-      hash = "sha256-t9bp+s+AqwsRnlHOlFOFZA1QaWF/KOQdFFo1EZuzjpU=";
+      hash = "sha256-fnTzUb1nl33jwjajLF2MOF/M0KI/lQvfr5PONdv9jQ8=";
     };
   };
 in
@@ -49,14 +52,41 @@ stdenvNoCC.mkDerivation rec {
     aarch64DarwinSrc = sources.aarch64-darwin;
     x86_64LinuxSrc = sources.x86_64-linux;
     aarch64LinuxSrc = sources.aarch64-linux;
-    updateScript = nix-update-script {
-      extraArgs = [
-        "--version-regex=v(.*)"
-        "--custom-dep=aarch64DarwinSrc"
-        "--custom-dep=x86_64LinuxSrc"
-        "--custom-dep=aarch64LinuxSrc"
-      ];
-    };
+    updateScript = [
+      (lib.getExe (writeShellApplication {
+        name = "update-shelley-bin";
+        runtimeInputs = [
+          curl
+          jq
+          nix-update
+        ];
+        text = ''
+          # The releases feed can advertise tags before binaries are published.
+          headers=()
+          if [[ -n "''${GITHUB_TOKEN:-}" ]]; then
+            headers+=(-H "Authorization: Bearer $GITHUB_TOKEN")
+          fi
+          version="$(curl --fail --silent --show-error --location --retry 5 \
+            "''${headers[@]}" https://api.github.com/repos/boldsoftware/shelley/releases |
+            jq -er 'first(
+              .[]
+              | select(.draft == false and .prerelease == false)
+              | select(([.assets[].name] | index("shelley_darwin_arm64")) != null
+                   and ([.assets[].name] | index("shelley_linux_amd64")) != null
+                   and ([.assets[].name] | index("shelley_linux_arm64")) != null)
+              | .tag_name | capture("^v(?<version>[0-9]+[.][0-9]+[.][0-9]+)$").version
+            )')"
+          # Refresh hashes even when a previous attempt already set the version.
+          for targetVersion in "$version" skip; do
+            nix-update shelley-bin --flake \
+              --version="$targetVersion" \
+              --custom-dep=aarch64DarwinSrc \
+              --custom-dep=x86_64LinuxSrc \
+              --custom-dep=aarch64LinuxSrc
+          done
+        '';
+      }))
+    ];
   };
 
   meta = {
