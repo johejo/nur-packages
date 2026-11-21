@@ -1,17 +1,24 @@
 {
   lib,
-  pkgs,
+  stdenvNoCC,
+  fetchurl,
   nix-update-script,
   versionCheckHook,
 }:
 
-pkgs.apfel-llm.overrideAttrs (old: rec {
+stdenvNoCC.mkDerivation rec {
+  pname = "apfel-llm";
   version = "1.19.0";
-  src = pkgs.fetchurl {
+  src = fetchurl {
     url = "https://github.com/Arthur-Ficial/apfel/releases/download/v${version}/apfel-${version}-arm64-macos.tar.gz";
     hash = "sha256-XXMioqwAuKK7074SmKwYGQ3IBbD4fJkoCc+b+F+MAKw=";
   };
 
+  sourceRoot = ".";
+
+  nativeBuildInputs = [ versionCheckHook ];
+
+  doInstallCheck = true;
   preVersionCheck = ''
     version="v${version}"
   '';
@@ -24,7 +31,13 @@ pkgs.apfel-llm.overrideAttrs (old: rec {
 
   passthru.updateScript = nix-update-script { };
 
-  meta = old.meta // {
+  meta = {
+    description = "On-device Apple FoundationModels CLI and OpenAI-compatible server";
+    homepage = "https://github.com/Arthur-Ficial/apfel";
+    license = lib.licenses.mit;
     changelog = "https://github.com/Arthur-Ficial/apfel/releases/tag/v${version}";
+    mainProgram = "apfel";
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    platforms = [ "aarch64-darwin" ];
   };
-})
+}
