@@ -8,10 +8,10 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "apfel-llm";
-  version = "1.19.0";
+  version = "1.20.0";
   src = fetchurl {
     url = "https://github.com/Arthur-Ficial/apfel/releases/download/v${version}/apfel-${version}-arm64-macos.tar.gz";
-    hash = "sha256-XXMioqwAuKK7074SmKwYGQ3IBbD4fJkoCc+b+F+MAKw=";
+    hash = "sha256-DNt+kVMqZnTH148ezx+VrhrjHIQxcvJ5dPRRYYFZjr4=";
   };
 
   sourceRoot = ".";

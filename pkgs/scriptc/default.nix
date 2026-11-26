@@ -14,7 +14,7 @@
 }:
 
 let
-  version = "0.4.14";
+  version = "0.4.16";
   npmTarball =
     name: hash:
     fetchurl {
@@ -22,19 +22,19 @@ let
       inherit hash;
     };
   sources = {
-    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-0TOHyzEUJxkasaRt7bx9/c3F07BzuPn54CfhROFpY68=";
-    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-/vZWNRqzr4Ok5r+PYkXEFDe3OCliXC22z32u3TYhghI=";
-    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-dBvQtl2Q8qm7oFyX2e5sI3N3s5W/yOJmDuaPhMAlWAs=";
+    aarch64-darwin = npmTarball "cli-darwin-arm64" "sha256-jkM1/xER2jsG33Ekv0xkWbN2+a/gql87qCuM2yuUL2s=";
+    x86_64-linux = npmTarball "cli-linux-x64-gnu" "sha256-FLoi73UYZ0oxI52B2WLb2f7XeuezLiybIEZ1qExWIr0=";
+    aarch64-linux = npmTarball "cli-linux-arm64-gnu" "sha256-tQ7mG8Kb+Qx2xL5WRkPenPmL86E7xfdXpucrnRuEn1Y=";
   };
   llvmSources = {
-    aarch64-darwin = npmTarball "llvm-darwin-arm64" "sha256-BDU78lH2gENI7I1jf0SligZuNs4VlLGzVgWTTz7D694=";
-    x86_64-linux = npmTarball "llvm-linux-x64-gnu" "sha256-Y9HLSmMZ9STfIVV/1ohGAc0h3dFbVifGTnV0Tyk6NHM=";
-    aarch64-linux = npmTarball "llvm-linux-arm64-gnu" "sha256-p4cqf7aq/48XWoNKPMivTx4wu6wJdFiCwUq45+qXlNQ=";
+    aarch64-darwin = npmTarball "llvm-darwin-arm64" "sha256-K4tvM2PgBrpToUzZ48c3a0YqClzdg43+se5hgaIVG3g=";
+    x86_64-linux = npmTarball "llvm-linux-x64-gnu" "sha256-eo5eIzqkLrfvSdlIEbCYWIq8Cgukj6vY36f8ZDAJi2o=";
+    aarch64-linux = npmTarball "llvm-linux-arm64-gnu" "sha256-g91ViIZtJjv0Bzf9CuEY4lvVDkRA6obf3K47hVl8kYA=";
   };
   runtimeSources = {
-    aarch64-darwin = npmTarball "runtime-darwin-arm64" "sha256-18YDkbeX1/QawbiDDG0j00MMiwHs7sddem65f9IlCiE=";
-    x86_64-linux = npmTarball "runtime-linux-x64-gnu" "sha256-vyeAOBDEnaZSdH/EeAvKo5TsteIbWPsKqU4Lyf5EnJs=";
-    aarch64-linux = npmTarball "runtime-linux-arm64-gnu" "sha256-Yp0wt3XudkFQTAIjdexr+7HShMK/tWYJkievjyeDj58=";
+    aarch64-darwin = npmTarball "runtime-darwin-arm64" "sha256-k7oFh9MShFaQEpKekpNOFG/K/25IB6gdvBfBogMQS9Y=";
+    x86_64-linux = npmTarball "runtime-linux-x64-gnu" "sha256-ervLRUl1ilUKCNFzrZ7ffecjLRb5NGV2YR3qhfmjp1M=";
+    aarch64-linux = npmTarball "runtime-linux-arm64-gnu" "sha256-lnPUD/n6i8xNoF2ijFMlXimlSM5AawNRHlZpJZFFa/g=";
   };
 in
 stdenvNoCC.mkDerivation {

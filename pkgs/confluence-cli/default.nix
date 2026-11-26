@@ -12,12 +12,12 @@
 
 buildNpmPackage rec {
   pname = "confluence-cli";
-  version = "2.31.2";
+  version = "2.31.3";
   src = fetchFromGitHub {
     owner = "pchuri";
     repo = "confluence-cli";
     tag = "v${version}";
-    hash = "sha256-p0Ps68rnb8mBU087siHXP+NXtCPbe/NHBGzx/SdysLQ=";
+    hash = "sha256-sR3rz6k/TS5TlSKKb45lLsEyfQL/dShVk7LXpQvcBUI=";
   };
 
   postPatch = ''
